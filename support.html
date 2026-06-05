@@ -3,18 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trackist Support</title>
+  <title>Trackist — Support</title>
+  <meta name="description" content="Support and beta feedback for Trackist, a training diary for competitive track-and-field athletes.">
+  <meta name="theme-color" content="#F4EFE6">
+  <link rel="icon" type="image/png" href="assets/trackist_icon.png">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 720px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #111; }
-    h1 { margin-bottom: 8px; }
-    a { color: #0a66ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    :root {
+      --paper:#F4EFE6; --paper-2:#EDE6D9; --card:#FFFFFF;
+      --ink:#14110D; --ink-2:#3C342B; --ink-3:#6B6258; --rule:#D9CFB9;
+      --accent:#C8442B; --accent-dark:#A6361F; --accent-soft:#F3D7CC;
+      --serif:"New York",ui-serif,Georgia,"Times New Roman",serif;
+      --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.65; -webkit-font-smoothing:antialiased; }
+    .wrap { max-width:680px; margin:0 auto; padding:0 22px; }
+    .topbar { border-bottom:1px solid var(--rule); background:rgba(244,239,230,.85); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+    .topbar .wrap { display:flex; align-items:center; height:64px; }
+    .topbar img { height:24px; }
+    main { padding:48px 0 72px; }
+    h1 { font-family:var(--serif); font-weight:500; font-size:38px; letter-spacing:-.01em; margin:0 0 8px; }
+    .eyebrow { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-dark); margin:0 0 14px; }
+    p { color:var(--ink-2); font-size:16.5px; }
+    .card { background:var(--card); border:1px solid rgba(20,17,13,.06); border-radius:18px; padding:24px 26px; box-shadow:0 1px 2px rgba(20,17,13,.04),0 8px 24px rgba(20,17,13,.06); margin:24px 0; }
+    .card h2 { font-family:var(--serif); font-weight:500; font-size:20px; margin:0 0 8px; }
+    .card p { margin:0; }
+    a { color:var(--accent-dark); font-weight:600; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .mail { display:inline-block; margin-top:6px; font-size:17px; }
+    .back { display:inline-block; margin-top:28px; color:var(--ink-3); font-weight:600; }
+    .back:hover { color:var(--ink); }
   </style>
 </head>
 <body>
-  <h1>Trackist Support</h1>
-  <p>Trackist is a training app for competitive track-and-field athletes.</p>
-  <p>For support or beta feedback, contact: <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a></p>
-  <p><a href="index.html">Back to home</a></p>
+  <header class="topbar">
+    <div class="wrap"><a href="index.html" aria-label="Trackist home"><img src="assets/trackist_lockup.png" alt="Trackist"></a></div>
+  </header>
+  <main>
+    <div class="wrap">
+      <p class="eyebrow">Support</p>
+      <h1>We’re here to help.</h1>
+      <p>Trackist is a training diary for competitive track-and-field athletes. If something isn’t working, or you have beta feedback, get in touch — every note from an early athlete or coach helps shape the app.</p>
+
+      <div class="card">
+        <h2>Contact</h2>
+        <p>For support, bug reports, or beta feedback:</p>
+        <!-- TODO: confirm the public support address before launch -->
+        <a class="mail" href="mailto:andrea.federici1999@icloud.com?subject=Trackist%20support">andrea.federici1999@icloud.com</a>
+      </div>
+
+      <a class="back" href="index.html">← Back to home</a>
+    </div>
+  </main>
 </body>
 </html>
