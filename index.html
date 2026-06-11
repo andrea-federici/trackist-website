@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trackist — The training diary built for track athletes</title>
-  <meta name="description" content="Trackist is an iOS training diary for competitive track-and-field athletes. Log reps, recoveries, splits, races, and strength work in a diary that understands how track athletes actually train.">
+  <title>Trackist | The training diary built for track athletes</title>
+  <meta name="description" content="Trackist is an iOS training diary for competitive track-and-field athletes. Log structured sessions, then use AI to turn each week into a concise review grounded in your diary.">
   <meta name="theme-color" content="#F4EFE6">
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Trackist — The training diary built for track athletes">
-  <meta property="og:description" content="Log track workouts faster than Notes. Understand them better than Strava.">
+  <meta property="og:title" content="Trackist | The training diary built for track athletes">
+  <meta property="og:description" content="Log track workouts faster than Notes, then use AI to review the week through the sessions and notes in your diary.">
   <meta property="og:image" content="assets/trackist_icon.png">
 
   <link rel="icon" type="image/png" href="assets/trackist_icon.png">
@@ -18,7 +18,7 @@
 
   <style>
     /*
-      Trackist marketing site — "Lane Design System"
+      Trackist marketing site: "Lane Design System"
       Tokens mirror iOS/docs/DESIGN.md and TPLaneDesign.swift.
       Warm paper canvas · ink type · semantic workout color · soft white cards.
     */
@@ -80,7 +80,7 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* Subtle paper lane texture — faint horizontal rule lines, like a ledger */
+    /* Subtle paper lane texture with faint horizontal rule lines, like a ledger */
     body::before {
       content: "";
       position: fixed;
@@ -166,7 +166,7 @@
       height: 66px;
     }
     .brand { display: inline-flex; align-items: center; }
-    .brand img { height: 26px; width: auto; }
+    .brand img { height: 32px; width: auto; }
     .nav-links { display: flex; align-items: center; gap: 6px; }
     .nav-links a.navlink {
       font-size: 14px; font-weight: 600; color: var(--ink-2);
@@ -195,71 +195,20 @@
       margin: 22px 0 0;
       max-width: 30em;
     }
-    .positioning {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 19px;
-      color: var(--ink);
-      margin: 24px 0 0;
-      padding: 14px 18px;
-      background: var(--accent-soft);
-      border-radius: var(--r-panel);
-      border-left: 3px solid var(--accent);
-      max-width: 32em;
-    }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .hero-note { margin-top: 16px; font-size: 13px; color: var(--ink-3); }
 
     /* ---------- Phone mockups ---------- */
     .phone {
-      position: relative;
-      width: 280px;
-      aspect-ratio: 9 / 19.5;
-      background: #1c1813;
-      border-radius: 44px;
-      padding: 10px;
-      box-shadow: var(--shadow-float);
+      width: 300px;
+      height: auto;
+      filter: drop-shadow(0 18px 22px rgba(20,17,13,.16));
     }
-    .phone::after { /* speaker / notch */
-      content: "";
-      position: absolute;
-      top: 18px; left: 50%; transform: translateX(-50%);
-      width: 92px; height: 26px;
-      background: #1c1813;
-      border-radius: 0 0 16px 16px;
-      z-index: 3;
-    }
-    .phone-screen {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      border-radius: 36px;
-      overflow: hidden;
-      background: var(--paper);
-      display: flex;
-      flex-direction: column;
-    }
-    .phone-screen > img { height: 100%; width: 100%; object-fit: cover; }
 
     .hero-phones { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-phones .phone { transform: rotate(-3deg); }
 
-    /* Placeholder badge */
-    .ph-badge {
-      position: absolute;
-      z-index: 4;
-      bottom: 14px; left: 50%; transform: translateX(-50%);
-      font-family: var(--sans);
-      font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--ink-3);
-      background: rgba(255,255,255,.86);
-      border: 1px solid var(--rule);
-      padding: 4px 9px;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-
-    /* --- Stylized in-app placeholder UI (clearly labeled, not a real screenshot) --- */
+    /* --- In-app UI styles retained for lightweight embeds elsewhere --- */
     .scr { flex: 1; padding: 46px 16px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; font-family: var(--sans); }
     .scr-date { font-family: var(--sans); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
     .scr-title { font-family: var(--serif); font-size: 26px; color: var(--ink); line-height: 1; }
@@ -329,16 +278,52 @@
     .fcard.t-event .fmark { background: #EFE0B8; color: #8a6d10; }
     .fcard.t-pb    .fmark { background: var(--accent-soft); color: var(--accent-dark); }
     .fcard.t-flow  .fmark { background: #D7DEE8; color: var(--slate); }
-    .fcard.t-share .fmark { background: #EAE3D4; color: var(--ink-2); }
+    .fcard.t-recap .fmark { background: #DEE8D2; color: var(--moss); }
+
+    /* ---------- Weekly recap ---------- */
+    .recap { overflow: hidden; }
+    .recap-grid {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .recap-copy h2 { font-size: clamp(30px, 4vw, 44px); max-width: 12em; }
+    .recap-copy > p:not(.eyebrow) { color: var(--ink-2); font-size: 17px; margin: 18px 0 0; max-width: 35em; }
+    .recap-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .recap-point {
+      background: var(--card);
+      border: 1px solid rgba(20,17,13,.06);
+      border-radius: var(--r-panel);
+      padding: 15px 16px;
+      box-shadow: var(--shadow-card);
+    }
+    .recap-point strong { display: block; font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); }
+    .recap-point span { display: block; color: var(--ink-3); font-size: 13px; line-height: 1.45; margin-top: 3px; }
+    .recap-stage {
+      position: relative;
+      min-height: 610px;
+      display: grid;
+      place-items: center;
+    }
+    .recap-stage::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      opacity: .72;
+    }
+    .recap-stage .phone { position: relative; width: 320px; transform: rotate(2deg); }
 
     /* ---------- Screenshots showcase ---------- */
     .showcase { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .shots { display: flex; gap: 28px; justify-content: center; align-items: flex-end; flex-wrap: wrap; }
+    .shots { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
     .shot { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 300px; }
     .shot .cap { text-align: center; }
     .shot .cap h3 { font-family: var(--serif); font-size: 19px; }
     .shot .cap p { margin: 4px 0 0; color: var(--ink-3); font-size: 13.5px; }
-    .shot:nth-child(2) .phone { transform: translateY(-14px); }
 
     /* ---------- How it works ---------- */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
@@ -430,10 +415,19 @@
       .hero { padding: 48px 0 24px; }
       .hero-phones { order: -1; }
       .problem-grid, .feat-grid, .steps { grid-template-columns: 1fr; }
+      .recap-grid { grid-template-columns: 1fr; gap: 20px; }
+      .recap-copy h2 { max-width: 14em; }
+      .recap-stage { min-height: 590px; }
       .cred-grid { grid-template-columns: 1fr; gap: 28px; }
     }
     @media (min-width: 561px) and (max-width: 900px) {
       .problem-grid, .feat-grid, .steps { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .recap-points { grid-template-columns: 1fr; }
+      .recap-stage { min-height: 535px; }
+      .recap-stage::before { width: 330px; height: 330px; }
+      .recap-stage .phone { width: min(280px, 82vw); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -455,6 +449,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a class="navlink" href="#why">Why Trackist</a>
         <a class="navlink" href="#features">Features</a>
+        <a class="navlink" href="#weekly-recap">Weekly recap</a>
         <a class="navlink" href="#screenshots">Screenshots</a>
         <!-- TODO: replace mailto with a real waitlist endpoint when available -->
         <a class="btn btn-primary nav-cta" href="#waitlist">Join the waitlist</a>
@@ -474,65 +469,15 @@
             Log reps, recoveries, splits, races, strength work, and session notes in a diary
             that understands how track athletes actually train.
           </p>
-          <p class="positioning">
-            Log track workouts faster than Notes. Understand them better than Strava.
-          </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
             <a class="btn btn-secondary" href="#how">See how it works</a>
           </div>
-          <p class="hero-note">iOS · Built for athletes who train in lanes, reps, and recoveries.</p>
+          <p class="hero-note">Currently in beta for iOS.</p>
         </div>
 
         <div class="hero-phones">
-          <!--
-            PLACEHOLDER phone mockup (stylized, not a real screenshot).
-            To use a real screenshot: replace the .phone-screen contents below with
-              <img src="assets/screenshot-today.png" alt="Trackist Today screen">
-            Recommended export: 1170×2532 (iPhone 9:19.5), PNG.
-          -->
-          <div class="phone" role="img" aria-label="Placeholder mockup of the Trackist Today screen">
-            <div class="phone-screen">
-              <span class="ph-badge">Placeholder mockup</span>
-              <div class="scr">
-                <span class="scr-date">Saturday · May 31</span>
-                <span class="scr-title">Good session ahead.</span>
-                <div class="scr-strip" aria-hidden="true">
-                  <span class="scr-day">M<span class="dn num">26</span></span>
-                  <span class="scr-day">T<span class="dn num">27</span></span>
-                  <span class="scr-day">W<span class="dn num">28</span></span>
-                  <span class="scr-day">T<span class="dn num">29</span></span>
-                  <span class="scr-day">F<span class="dn num">30</span></span>
-                  <span class="scr-day on">S<span class="dn num">31</span></span>
-                  <span class="scr-day">S<span class="dn num">01</span></span>
-                </div>
-                <div class="scr-card">
-                  <div class="scr-row">
-                    <span class="mark" style="background:var(--accent)"></span>
-                    <div>
-                      <span class="scr-k track">Track</span>
-                      <div class="scr-wt">6×150m speed endurance</div>
-                      <div class="scr-meta">900 m · RPE 8 · felt strong</div>
-                      <div class="scr-chips">
-                        <span class="scr-chip acc">Speed endurance</span>
-                        <span class="scr-chip">Splits</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="scr-card">
-                  <div class="scr-row">
-                    <span class="mark" style="background:var(--moss)"></span>
-                    <div>
-                      <span class="scr-k cont">Continuous</span>
-                      <div class="scr-wt">Easy shakeout</div>
-                      <div class="scr-meta">5.0 km · 24:30</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img class="phone" src="assets/diary.png" width="900" height="1840" alt="Trackist Diary screen showing a weekly training ledger">
         </div>
       </div>
     </section>
@@ -543,13 +488,13 @@
         <div class="section-head">
           <p class="eyebrow">Why Trackist</p>
           <h2>Track workouts are structured. Generic apps aren’t.</h2>
-          <p>Your training has reps, recoveries, splits, and intent. The tools you use should too.</p>
+          <p>Your training has reps, recoveries, and splits. The tools you use should too.</p>
         </div>
         <div class="problem-grid">
           <article class="pcard">
             <p class="ic" style="color:var(--accent)">The way you train</p>
             <h3>Reps, sets, and recoveries</h3>
-            <p>Track athletes train in reps, sets, recoveries, split times, race pace, and session feel — not just distance and pace.</p>
+            <p>Track athletes train in reps, sets, recoveries, split times, race pace, and session feel, not just distance and pace.</p>
           </article>
           <article class="pcard">
             <p class="ic" style="color:var(--rest)">Notes apps</p>
@@ -558,7 +503,7 @@
           </article>
           <article class="pcard">
             <p class="ic" style="color:var(--slate)">GPS running apps</p>
-            <h3>Built for roads, not lanes</h3>
+            <h3>Built for GPS runs, not track sessions</h3>
             <p>Generic running apps understand GPS runs. They don’t understand a structured track session built around an event.</p>
           </article>
         </div>
@@ -583,7 +528,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
             </div>
             <h3>Structured workout logging</h3>
-            <p>Build sessions with blocks, reps, splits, recoveries, RPE, feeling, and notes — in distance or time modes.</p>
+            <p>Build sessions with blocks, reps, splits, recoveries, RPE, feeling, and notes in distance or time modes.</p>
           </article>
 
           <article class="fcard t-cont">
@@ -599,7 +544,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v4a5 5 0 0 1-10 0z"/><path d="M9 17h6M10 21h4M5 7H3v1a3 3 0 0 0 3 3M19 7h2v1a3 3 0 0 1-3 3"/></svg>
             </div>
             <h3>Event-specific categorization</h3>
-            <p>Trackist names and categorizes sessions around your primary event — from sprint work to aerobic quality.</p>
+            <p>Trackist names and categorizes sessions around your primary event, from sprint work to aerobic quality.</p>
           </article>
 
           <article class="fcard t-pb">
@@ -618,14 +563,39 @@
             <p>Quick-log from Today, then review everything in a clean weekly training ledger.</p>
           </article>
 
-          <article class="fcard t-share">
+          <article class="fcard t-recap">
             <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M18 17h2V7h-2"/><path d="M8 8h6M8 12h4"/></svg>
             </div>
-            <h3>Shareable workout stickers</h3>
-            <p>Turn completed sessions into clean share images made for athletes.</p>
+            <h3>Weekly training recaps</h3>
+            <p>AI turns the sessions and notes you logged into a compact, personalized review of your week.</p>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WEEKLY RECAP ============ -->
+    <section id="weekly-recap" class="section recap">
+      <div class="wrap recap-grid">
+        <div class="recap-copy">
+          <p class="eyebrow">AI weekly recap</p>
+          <h2>Your diary gives something back.</h2>
+          <p>
+            Once a week, Trackist uses AI to analyze your completed sessions and notes and write a
+            concise, personalized review. The recap stays grounded in what you actually logged,
+            helping you notice the shape of the week without reducing your training to a score.
+          </p>
+          <div class="recap-points" aria-label="What a Weekly Recap includes">
+            <div class="recap-point"><strong>Highlights</strong><span>The sessions and moments that defined the week.</span></div>
+            <div class="recap-point"><strong>Patterns</strong><span>Connections across your training, effort, and notes.</span></div>
+            <div class="recap-point"><strong>Watch-outs</strong><span>Honest, grounded details worth keeping an eye on.</span></div>
+            <div class="recap-point"><strong>Focus cues</strong><span>A few useful prompts to carry into the next week.</span></div>
+          </div>
+        </div>
+
+        <div class="recap-stage">
+          <img class="phone" src="assets/weekly_recap.png" width="900" height="1840" alt="Trackist Weekly Recap showing a summary and session-by-session readings" loading="lazy">
         </div>
       </div>
     </section>
@@ -640,145 +610,30 @@
         </div>
 
         <div class="shots">
-          <!--
-            SCREENSHOT SLOT 1 — Today
-            Replace the .phone-screen contents with:
-              <img src="assets/screenshot-today.png" alt="Trackist Today screen showing quick logging and the weekly strip">
-          -->
           <div class="shot">
-            <div class="phone" role="img" aria-label="Placeholder mockup of the Trackist Today screen">
-              <div class="phone-screen">
-                <span class="ph-badge">Placeholder · Today</span>
-                <div class="scr">
-                  <span class="scr-date">Saturday · May 31</span>
-                  <span class="scr-title">Today</span>
-                  <div class="scr-strip" aria-hidden="true">
-                    <span class="scr-day">M<span class="dn num">26</span></span>
-                    <span class="scr-day">T<span class="dn num">27</span></span>
-                    <span class="scr-day">W<span class="dn num">28</span></span>
-                    <span class="scr-day">T<span class="dn num">29</span></span>
-                    <span class="scr-day">F<span class="dn num">30</span></span>
-                    <span class="scr-day on">S<span class="dn num">31</span></span>
-                    <span class="scr-day">S<span class="dn num">01</span></span>
-                  </div>
-                  <div class="scr-card">
-                    <div class="scr-row">
-                      <span class="mark" style="background:var(--accent)"></span>
-                      <div>
-                        <span class="scr-k track">Track</span>
-                        <div class="scr-wt">5×300m race-pace</div>
-                        <div class="scr-meta">1500 m · RPE 9</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="scr-card">
-                    <div class="scr-row">
-                      <span class="mark" style="background:var(--gold)"></span>
-                      <div>
-                        <span class="scr-k str">Strength</span>
-                        <div class="scr-wt">Lower body + plyos</div>
-                        <div class="scr-meta">45 min</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img class="phone" src="assets/today.png" width="900" height="1840" alt="Trackist Today screen showing quick logging and the weekly strip" loading="lazy">
             <div class="cap">
               <h3>Today</h3>
-              <p>Quick logging, weekly strip, and recent sessions.</p>
+              <p>Quick logging, your weekly strip, and Weekly Recap.</p>
             </div>
           </div>
 
-          <!--
-            SCREENSHOT SLOT 2 — Diary
-            Replace with: <img src="assets/screenshot-diary.png" alt="Trackist Diary screen showing the weekly training ledger">
-          -->
           <div class="shot">
-            <div class="phone" role="img" aria-label="Placeholder mockup of the Trackist Diary screen">
-              <div class="phone-screen">
-                <span class="ph-badge">Placeholder · Diary</span>
-                <div class="scr">
-                  <span class="scr-date">Week 22 · 31.4 km</span>
-                  <span class="scr-title">Diary</span>
-                  <div class="scr-card">
-                    <div class="scr-row">
-                      <span class="mark" style="background:var(--accent)"></span>
-                      <div>
-                        <span class="scr-k track">Track · Tue</span>
-                        <div class="scr-wt">3×1000m aerobic quality</div>
-                        <div class="scr-meta">3000 m · 3:12 avg</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="scr-card">
-                    <div class="scr-row">
-                      <span class="mark" style="background:var(--moss)"></span>
-                      <div>
-                        <span class="scr-k cont">Continuous · Wed</span>
-                        <div class="scr-wt">Tempo intervals</div>
-                        <div class="scr-meta">8.0 km · 32:10</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="scr-card">
-                    <div class="scr-row">
-                      <span class="mark" style="background:var(--slate)"></span>
-                      <div>
-                        <span class="scr-k race">Race · Sat</span>
-                        <div class="scr-wt">400m — season best</div>
-                        <div class="scr-meta">49.84 · PB</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img class="phone" src="assets/diary.png" width="900" height="1840" alt="Trackist Diary screen showing the weekly training ledger" loading="lazy">
             <div class="cap">
               <h3>Diary</h3>
               <p>Week navigation and a clean training ledger.</p>
             </div>
           </div>
 
-          <!--
-            SCREENSHOT SLOT 3 — Log workout / Structured session
-            Replace with: <img src="assets/screenshot-log-workout.png" alt="Trackist structured session logging screen">
-          -->
           <div class="shot">
-            <div class="phone" role="img" aria-label="Placeholder mockup of the Trackist structured logging screen">
-              <div class="phone-screen">
-                <span class="ph-badge">Placeholder · Log</span>
-                <div class="scr">
-                  <span class="scr-date">New session</span>
-                  <span class="scr-title">6×150m</span>
-                  <div class="scr-card">
-                    <span class="scr-k track">Block 1 · Speed endurance</span>
-                    <div style="margin-top:8px">
-                      <div class="scr-rep"><span class="lbl">Rep 1 · 150 m</span><span class="val">17.8</span></div>
-                      <div class="scr-rep"><span class="lbl">Rep 2 · 150 m</span><span class="val">17.9</span></div>
-                      <div class="scr-rep"><span class="lbl">Rep 3 · 150 m</span><span class="val">18.1</span></div>
-                      <div class="scr-rep"><span class="lbl">Recovery</span><span class="val">6:00</span></div>
-                    </div>
-                  </div>
-                  <div class="scr-card">
-                    <div style="display:flex; justify-content:space-between; align-items:center">
-                      <span class="scr-sub">RPE</span><span class="scr-bignum" style="font-size:22px">8</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img class="phone" src="assets/log.png" width="900" height="1840" alt="Trackist structured session logging screen with reps and recoveries" loading="lazy">
             <div class="cap">
               <h3>Log workout</h3>
               <p>Structured sessions with reps, splits &amp; recovery.</p>
             </div>
           </div>
         </div>
-
-        <p class="center" style="margin-top:30px; color:var(--ink-3); font-size:13px;">
-          Screens shown are stylized placeholders. Real app screenshots drop into
-          <code>Website/assets/</code> — see the comments in <code>index.html</code>.
-        </p>
       </div>
     </section>
 
@@ -793,7 +648,7 @@
           <article class="step">
             <div class="n">1</div>
             <h3>Log the session</h3>
-            <p>Choose the workout type and enter the details that matter — reps, splits, recovery, feel.</p>
+            <p>Choose the workout type and enter the details that matter: reps, splits, recovery, and feel.</p>
           </article>
           <article class="step">
             <div class="n">2</div>
@@ -803,7 +658,7 @@
           <article class="step">
             <div class="n">3</div>
             <h3>Review your training</h3>
-            <p>Use Today, Diary, PBs, and workout details to understand your work over time.</p>
+            <p>Use your Diary, PBs, workout details, and Weekly Recap to understand the work over time.</p>
           </article>
         </div>
       </div>
@@ -814,13 +669,13 @@
       <div class="wrap cred-grid">
         <div>
           <p class="eyebrow">For track athletes</p>
-          <h2>This is for athletes who train in lanes.</h2>
+          <h2>Made for the way track athletes train.</h2>
           <p style="color:var(--ink-2); font-size:17px; margin:16px 0 0;">
-            Trackist speaks your sessions natively — sprint work, speed endurance, aerobic quality,
+            Trackist speaks your sessions natively, including sprint work, speed endurance, aerobic quality,
             tempo, hills, strength, and race day.
           </p>
           <p class="pull">
-            This is not another GPS running feed. It’s a diary for athletes who train in lanes, reps, and recoveries.
+            This is not another GPS running feed. It’s a diary for structured sessions, race preparation, strength work, and recovery.
           </p>
         </div>
         <div class="session-list" aria-label="Example sessions Trackist understands">
@@ -851,7 +706,7 @@
           </div>
           <div class="session">
             <span class="bar b-race"></span>
-            <div class="body"><div class="kind k-race">Race</div><div class="name">400m — personal best</div></div>
+            <div class="body"><div class="kind k-race">Race</div><div class="name">400m personal best</div></div>
             <span class="val">49.84</span>
           </div>
         </div>
@@ -877,7 +732,7 @@
     <section id="waitlist" class="final">
       <div class="wrap">
         <div class="final-card">
-          <h2>Built for athletes who train in lanes, not just on roads.</h2>
+          <h2>Built for track sessions, not just GPS runs.</h2>
           <p>Be among the first athletes, coaches, and testers to get early access to Trackist on iOS.</p>
           <div class="hero-cta">
             <!--
@@ -901,6 +756,7 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="#why">Why Trackist</a>
           <a href="#features">Features</a>
+          <a href="#weekly-recap">Weekly recap</a>
           <a href="#screenshots">Screenshots</a>
           <a href="support.html">Support</a>
           <a href="privacy.html">Privacy</a>

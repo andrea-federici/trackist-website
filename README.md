@@ -9,10 +9,10 @@ no dependencies, no tracking) styled with the app's **Lane Design System**
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, problem, features, screenshots, how-it-works, credibility, coming-later, CTA). |
+| `index.html` | The one-page landing site (hero, problem, features, weekly recap, screenshots, how-it-works, credibility, coming-later, CTA). |
 | `support.html` | Support / contact page. |
 | `privacy.html` | Privacy policy. |
-| `assets/` | Brand logos + screenshot slots. |
+| `assets/` | Brand logos and app screenshots. |
 
 ## Running it
 
@@ -31,29 +31,19 @@ Colors, type, radius, and tone all mirror `iOS/docs/DESIGN.md` and
 the terracotta accent (`#C8442B`), serif headings, sans controls, and monospaced
 numerals. Do not introduce a separate web palette — derive from those tokens.
 
-## Adding real screenshots
+## App screenshots
 
-The phone mockups on the page are **stylized CSS placeholders**, clearly labeled
-"Placeholder". To swap in real App Store screenshots, drop these PNGs into `assets/`:
+The page uses real app screenshots exported with a transparent device frame:
 
 | File | Screen | Used in |
 | --- | --- | --- |
-| `assets/screenshot-today.png` | Today | Hero + Screenshots section |
-| `assets/screenshot-diary.png` | Diary | Screenshots section |
-| `assets/screenshot-log-workout.png` | Log workout / Structured session | Screenshots section |
+| `assets/today.png` | Today + Weekly Recap entry point | Screenshots section |
+| `assets/diary.png` | Diary | Hero + Screenshots section |
+| `assets/log.png` | Structured track-session logging | Screenshots section |
+| `assets/weekly_recap.png` | Generated Weekly Recap detail | Weekly Recap section |
 
-Recommended export: **1170×2532** (iPhone, 9:19.5 aspect) PNG. Then, in `index.html`,
-replace the `.phone-screen` placeholder contents (look for the
-`PLACEHOLDER`/`SCREENSHOT SLOT` HTML comments) with, e.g.:
-
-```html
-<div class="phone-screen">
-  <img src="assets/screenshot-today.png" alt="Trackist Today screen">
-</div>
-```
-
-The `.phone-screen > img` style already crops to the frame without distorting
-aspect ratio.
+Current exports are **900×1840** PNGs. Keep the same aspect ratio and transparent
+device treatment when replacing them.
 
 ## Intentional TODOs
 
