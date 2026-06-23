@@ -26,6 +26,8 @@
     h2 { font-family:var(--serif); font-weight:500; font-size:22px; margin:32px 0 10px; }
     .eyebrow { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-dark); margin:0 0 14px; }
     p { color:var(--ink-2); font-size:16.5px; }
+    ul { color:var(--ink-2); font-size:16.5px; padding-left:22px; }
+    li { margin:8px 0; }
     a { color:var(--accent-dark); font-weight:600; text-decoration:none; }
     a:hover { text-decoration:underline; }
     .back { display:inline-block; margin-top:28px; color:var(--ink-3); font-weight:600; }
@@ -41,15 +43,51 @@
     <div class="wrap">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="muted">Last updated: May 2026</p>
+      <p class="muted">Last updated: June 2026</p>
 
-      <p>Trackist respects your privacy. This page explains, in plain language, what the app stores and why.</p>
+      <p>Trackist respects your privacy. This page explains, in plain language, what the app keeps on your device, what is sent to Trackist’s backend when you use AI-powered features, and what limited technical data is used to keep the service reliable and safe.</p>
 
-      <h2>What Trackist stores</h2>
-      <p>Trackist stores the workout and athlete data you enter, including sessions, reps, splits, recoveries, notes, race results, personal bests, and your athlete profile. This data powers training logging, your diary, and personal-best tracking.</p>
+      <h2>Local-first workout data</h2>
+      <p>Your training diary is stored on your device. Trackist’s database does not store your raw workout diary, athlete profile, race results, personal bests, notes, reps, splits, recoveries, or strength entries as a permanent user record.</p>
+      <p>The app uses the data you enter on device to power logging, diary views, workout categorization, personal-best tracking, Today’s Lens, and Weekly Review.</p>
 
-      <h2>How it’s used</h2>
-      <p>Your data is used to power the features of the app: logging sessions, organizing your diary, categorizing workouts around your event, and tracking personal bests. It is not sold.</p>
+      <h2>AI features</h2>
+      <p>When you use an AI-powered feature, Trackist sends only the information needed to generate that feature to Trackist’s backend, which then sends the relevant prompt data to Google’s Gemini API to produce the response.</p>
+      <p>Depending on the feature, this may include:</p>
+      <ul>
+        <li>an anonymous app-install identifier and a one-time request identifier;</li>
+        <li>your local date, timezone, and a source hash used to detect whether the underlying diary input changed;</li>
+        <li>your event profile, such as event distance, sex, and personal-best times;</li>
+        <li>the current week’s or review week’s completed workout summaries, including dates, workout type, title, compact summary, category, RPE, feeling, notes, and compact facts such as distance, duration, race time, exercise names, or obstacle-work details;</li>
+        <li>a compact on-device summary of recent prior weeks, such as session counts, category counts, recent race logs, repeated body-signal terms from notes, average RPE, and low-feeling counts; and</li>
+        <li>for Today’s Lens, a compact pointer to the most recent Weekly Review when it helps connect today’s read to the previous review.</li>
+      </ul>
+      <p>Because notes are written by you, they may include health-related or other sensitive details if you choose to enter them. Do not include information in notes that you do not want processed for AI-powered features.</p>
+      <p>Trackist does not send your full historical diary to Gemini. Recent history is reduced on device into a small summary before it is sent. Google’s handling of Gemini API inputs and outputs is governed by Google’s applicable terms and privacy commitments, including the <a href="https://ai.google.dev/gemini-api/terms">Gemini API Additional Terms</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+      <h2>Backend and security data</h2>
+      <p>Trackist’s backend uses limited technical data to operate AI features, enforce generation limits, prevent abuse, and protect the service from malicious traffic. This can include:</p>
+      <ul>
+        <li>anonymous app-install identifiers;</li>
+        <li>request identifiers and source hashes;</li>
+        <li>timezone information used to validate review windows;</li>
+        <li>rate-limit counters for AI requests; and</li>
+        <li>a salted hash of the request IP address. Trackist uses the IP address received with a request to create this hash for abuse prevention; the backend rate-limit records store the hash, not the raw IP address.</li>
+      </ul>
+      <p>Weekly Review responses may be cached temporarily on the backend so the same review can be returned during the review window without regenerating it. The durable copy of AI-generated content is stored on your device.</p>
+
+      <h2>Retention</h2>
+      <p>Your raw diary data remains on your device unless you choose to send selected data for an AI feature. Backend rate-limit records are kept for short operational windows, generally about 24 hours. Temporary Weekly Review cache entries are designed to expire automatically, generally within about 7 days. Trackist may retain limited operational records for longer when needed to protect the service, investigate abuse, comply with law, or resolve security issues.</p>
+
+      <h2>Sharing</h2>
+      <p>Trackist does not sell your personal information. Trackist shares AI request data with Google Gemini only to provide the AI-powered features, and may use infrastructure providers that host the backend, caching, networking, or security systems needed to run the service.</p>
+
+      <h2>Your control</h2>
+      <p>You control the diary data stored on your device through the app. AI-powered processing is part of Trackist’s core experience: when you accept Trackist’s terms and privacy policy during onboarding and use the app, you agree that the selected diary data needed for Today’s Lens, Weekly Review, and related AI features may be processed by Trackist’s backend and Google Gemini as described above. Trackist currently does not offer a separate in-app opt-out for this AI processing.</p>
+      <p>Depending on where you live, you may have privacy rights such as access, correction, deletion, or objection rights. Because Trackist is local-first and does not maintain user accounts, some requests may require information that lets us locate the relevant backend record, such as an app-install identifier or request details.</p>
+
+      <h2>Children</h2>
+      <p>Trackist is not directed to children under 13. AI-powered features that use Gemini are intended for users who are at least 18 years old. Do not use Trackist or its AI-powered features if you are not old enough to use them under the laws and service terms that apply where you live.</p>
 
       <h2>Questions</h2>
       <p>If you have questions about privacy, contact:
