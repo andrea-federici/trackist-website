@@ -9,10 +9,11 @@ no dependencies, no tracking) styled with the app's **Lane Design System**
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, problem, features, weekly recap, screenshots, how-it-works, credibility, coming-later, CTA). |
+| `index.html` | The one-page landing site (hero, problem, features, logging, review, weekly recap, records, how-it-works, credibility, CTA). |
 | `support.html` | Support / contact page. |
 | `privacy.html` | Privacy policy. |
-| `assets/` | Brand logos and app screenshots. |
+| `assets/` | Brand logos and screenshots. |
+| `assets/screenshots/` | App screenshots used by the landing page. |
 
 ## Running it
 
@@ -37,12 +38,15 @@ The page uses real app screenshots exported with a transparent device frame:
 
 | File | Screen | Used in |
 | --- | --- | --- |
-| `assets/today.png` | Today + Weekly Recap entry point | Screenshots section |
-| `assets/diary.png` | Diary | Hero + Screenshots section |
-| `assets/log.png` | Structured track-session logging | Screenshots section |
-| `assets/weekly_recap.png` | Generated Weekly Recap detail | Weekly Recap section |
+| `assets/screenshots/diary.png` | Diary | Hero |
+| `assets/screenshots/central_log.png` | Central Log tray | Logging section |
+| `assets/screenshots/log_strength.png` | Strength logging chip picker | Logging section |
+| `assets/screenshots/log_structured.png` | Structured track-session logging | Logging section |
+| `assets/screenshots/review.png` | Review tab / Today's Lens | Review section |
+| `assets/screenshots/weekly_recap.png` | Generated Weekly Recap detail | Weekly Recap section |
+| `assets/screenshots/records.png` | Records / speed curve | Records section |
 
-Current exports are **900×1840** PNGs. Keep the same aspect ratio and transparent
+Current exports are **1800×3680** PNGs. Keep the same aspect ratio and transparent
 device treatment when replacing them.
 
 ## Intentional TODOs
