@@ -11,6 +11,7 @@ no dependencies, no tracking) styled with the app's **Lane Design System**
 | --- | --- |
 | `index.html` | The one-page landing site (hero, problem, features, logging, review, weekly recap, records, how-it-works, credibility, CTA). |
 | `support.html` | Support / contact page. |
+| `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
@@ -42,7 +43,7 @@ The page uses real app screenshots exported with a transparent device frame:
 | `assets/screenshots/central_log.png` | Central Log tray | Logging section |
 | `assets/screenshots/log_strength.png` | Strength logging chip picker | Logging section |
 | `assets/screenshots/log_structured.png` | Structured track-session logging | Logging section |
-| `assets/screenshots/review.png` | Review tab / Today's Lens | Review section |
+| `assets/screenshots/review.png` | Review tab / Daily Review | Review section |
 | `assets/screenshots/weekly_recap.png` | Generated Weekly Recap detail | Weekly Recap section |
 | `assets/screenshots/records.png` | Records / speed curve | Records section |
 
