@@ -55,6 +55,6 @@ device treatment when replacing them.
 - **Waitlist**: there is no backend wired up, so the "Join the waitlist" buttons use a
   `mailto:` link. Replace with a real waitlist endpoint/form when available
   (search `TODO` in `index.html`).
-- **Contact email**: `andrea.federici1999@icloud.com` is used as the support / privacy /
+- **Contact email**: `support@trackist.run` is used as the support / privacy /
   waitlist address. Confirm or swap for a dedicated public address before launch
   (search `TODO` in `support.html` and `privacy.html`).
