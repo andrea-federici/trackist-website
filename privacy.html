@@ -43,7 +43,7 @@
     <div class="wrap">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="muted">Last updated: June 29, 2026</p>
+      <p class="muted">Last updated: July 1, 2026</p>
 
       <p>Trackist respects your privacy. This page explains, in plain language, what the app keeps on your device, what is sent to Trackist’s backend when you use AI-powered features, and what limited technical data is used to keep the service reliable and safe. It should be read together with the <a href="terms.html">Trackist Terms of Use</a>.</p>
       <p>Trackist is for adults 18 and older. It is not directed to children or teens.</p>
@@ -69,9 +69,9 @@
         <li>a pseudonymous app-install identifier and a one-time request identifier;</li>
         <li>your local date, timezone, and a source hash used to detect whether the underlying diary input changed;</li>
         <li>your event profile, such as event distance, sex, and personal-best times;</li>
-        <li>the current week’s or review week’s completed workout summaries, including dates, workout type, title, compact summary, category, RPE, feeling, notes, and compact facts such as distance, duration, race time, exercise names, or obstacle-work details;</li>
+        <li>the workout being reviewed and compact recent workout summaries, including dates, workout type, title, compact summary, category, RPE, feeling, notes, and compact facts such as distance, duration, race time, exercise names, or obstacle-work details;</li>
         <li>a compact on-device summary of recent prior weeks, such as session counts, category counts, recent race logs, repeated body-signal terms from notes, average RPE, and low-feeling counts; and</li>
-        <li>for Daily Review, a compact pointer to the most recent saved weekly review when it helps connect today’s read to the previous review.</li>
+        <li>for Daily Review, compact prior Daily Review context when it helps connect a newly logged workout to recent training.</li>
       </ul>
       <p>Because notes are written by you, they may include health-related or other sensitive details if you choose to enter them. Do not include information in notes that you do not want processed for AI-powered features.</p>
       <p>Trackist does not send your full historical diary to Gemini. Recent history is reduced on device into a small summary before it is sent. Trackist uses the paid Google Gemini API, and Google states that data submitted to paid Gemini API services is not used to train Google’s AI models. Google may process Gemini API inputs and outputs as described in Google’s applicable terms and privacy commitments, including the <a href="https://ai.google.dev/gemini-api/terms">Gemini API Additional Terms</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
@@ -90,7 +90,7 @@
         <li>minimal AI terms acceptance metadata, such as accepted policy versions, app version, locale or region when available, adult confirmation, and enabled state; and</li>
         <li>a salted hash of the request IP address. Trackist uses the IP address received with a request to create this hash for abuse prevention; the backend rate-limit records store the hash, not the raw IP address.</li>
       </ul>
-      <p>Legacy Weekly Review responses may be cached temporarily on the backend so the same review can be returned during the review window without regenerating it. Daily Review output is stored on your device. The durable copy of AI-generated content is stored on your device.</p>
+      <p>Daily Review output is stored on your device. Trackist’s backend may keep limited technical records described above to operate AI features, enforce generation limits, prevent abuse, and debug reliability. The durable copy of AI-generated content is stored on your device.</p>
 
       <h2>How Trackist uses information</h2>
       <p>Trackist uses information to:</p>
@@ -104,7 +104,7 @@
       </ul>
 
       <h2>Retention</h2>
-      <p>Your raw diary data remains on your device unless selected data is needed for an enabled AI feature. Backend rate-limit records are kept for short operational windows, generally about 24 hours. Temporary legacy Weekly Review cache entries are designed to expire automatically, generally within about 7 days. Trackist may retain limited operational records for longer when needed to protect the service, investigate abuse, comply with law, or resolve security issues.</p>
+      <p>Your raw diary data remains on your device unless selected data is needed for an enabled AI feature. Backend rate-limit records are kept for short operational windows, generally about 24 hours. Trackist may retain limited operational records for longer when needed to protect the service, investigate abuse, comply with law, or resolve security issues.</p>
 
       <h2>Sharing</h2>
       <p>Trackist does not sell your personal information and does not share it for cross-context behavioral advertising. Trackist shares AI request data with Google Gemini only to provide the AI-powered features, and may use infrastructure providers that host the backend, caching, networking, or security systems needed to run the service. Service providers are expected to protect the data they process for Trackist and use it only for the services they provide to Trackist, unless you separately agree or the law requires otherwise.</p>

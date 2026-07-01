@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trackist | The training diary built for track athletes</title>
-  <meta name="description" content="An iOS training diary for competitive track-and-field athletes. Log structured sessions in seconds, then read them back with Daily Review and a records page for reps and races.">
+  <meta name="description" content="An iOS training diary for competitive track-and-field athletes. Log structured sessions in seconds, then get Daily Review feedback after every workout and a records page for reps and races.">
   <meta name="theme-color" content="#F4EFE6">
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Trackist | The training diary built for track athletes">
-  <meta property="og:description" content="Log track workouts faster than Notes, then read your diary back with Daily Review and a records page built for reps and races.">
+  <meta property="og:description" content="Log track workouts faster than Notes, then get Daily Review feedback after every workout and a records page built for reps and races.">
   <meta property="og:image" content="assets/trackist_icon.png">
 
   <link rel="icon" type="image/png" href="assets/trackist_icon.png">
@@ -278,9 +278,9 @@
     .fcard.t-event .fmark { background: #EFE0B8; color: #8a6d10; }
     .fcard.t-pb    .fmark { background: var(--accent-soft); color: var(--accent-dark); }
     .fcard.t-flow  .fmark { background: #D7DEE8; color: var(--slate); }
-    .fcard.t-recap .fmark { background: #DEE8D2; color: var(--moss); }
+    .fcard.t-review .fmark { background: #DEE8D2; color: var(--moss); }
 
-    /* ---------- Weekly recap ---------- */
+    /* ---------- Detail sections ---------- */
     .recap { overflow: hidden; }
     .recap-grid {
       display: grid;
@@ -325,14 +325,7 @@
     .shot .cap h3 { font-family: var(--serif); font-size: 19px; }
     .shot .cap p { margin: 4px 0 0; color: var(--ink-3); font-size: 13.5px; }
 
-    .recap-stage.tint-moss::before  { background: #DEE8D2; }
     .recap-stage.tint-slate::before { background: #D7DEE8; }
-
-    /* Alternate the recap grid (image left, copy right) on wider screens */
-    @media (min-width: 901px) {
-      .recap-grid.reverse .recap-copy  { order: 2; }
-      .recap-grid.reverse .recap-stage { order: 1; }
-    }
 
     /* ---------- How it works ---------- */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
@@ -454,8 +447,8 @@
           <p class="eyebrow">Training diary for track &amp; field</p>
           <h1>The training diary built for track athletes.</h1>
           <p class="lede">
-            Log reps, splits, races, and strength work in seconds. Then read your diary back:
-            a short daily read, a weekly recap, and a records page built for reps and races.
+            Log reps, splits, races, and strength work in seconds. Then get Daily Review
+            feedback after every workout, plus a records page built for reps and races.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
@@ -551,12 +544,12 @@
             <p>A signature speed curve across the distances you actually run, a by-distance ledger, and a season or all-time view. Reps and races stay side by side, never scored.</p>
           </article>
 
-          <article class="fcard t-recap">
+          <article class="fcard t-review">
             <div class="fmark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M18 17h2V7h-2"/><path d="M8 8h6M8 12h4"/></svg>
             </div>
-            <h3>A daily and weekly read</h3>
-            <p>Daily Review reads your diary back each day and stays grounded in what you logged.</p>
+            <h3>Daily Review feedback</h3>
+            <p>After each logged workout, Daily Review gives you a grounded read of the session and how it fits your recent training.</p>
           </article>
 
         </div>
@@ -605,47 +598,22 @@
       <div class="wrap recap-grid">
         <div class="recap-copy">
           <p class="eyebrow">Review</p>
-          <h2>Your diary, read back to you.</h2>
+          <h2>Feedback after every logged workout.</h2>
           <p>
-            The Review tab opens with Daily Review: a short, honest read of your diary for today and
-            the week so far. It stays grounded in the sessions and notes you logged, points out what
-            stands out, and never turns your training into a score.
+            Daily Review runs when you log a workout and turns that session into clear feedback.
+            It uses the workout, your notes, event profile, and compact recent context so the read
+            feels specific without becoming a score.
           </p>
           <div class="recap-points" aria-label="What Review gives you">
-            <div class="recap-point"><strong>A read every day</strong><span>Daily Review is written for you each morning and refreshes after a real session.</span></div>
-            <div class="recap-point"><strong>Grounded in your diary</strong><span>Built from the workouts, splits, and notes you actually logged.</span></div>
-            <div class="recap-point"><strong>What stands out</strong><span>The session that mattered, what changed, and what to keep an eye on.</span></div>
-            <div class="recap-point"><strong>A clear picture</strong><span>Training mix, volume, and recency, drawn only from logged data.</span></div>
+            <div class="recap-point"><strong>After every session</strong><span>A fresh review appears after each workout you save.</span></div>
+            <div class="recap-point"><strong>Session-specific</strong><span>It can call out stimulus, execution, effort, and feeling from the workout.</span></div>
+            <div class="recap-point"><strong>Recent context</strong><span>Compact recent history connects the session to your week without sending your whole diary.</span></div>
+            <div class="recap-point"><strong>No scorekeeping</strong><span>You get takeaways and watch-outs, not a ranking.</span></div>
           </div>
         </div>
 
         <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Trackist Review tab showing Daily Review" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WEEKLY RECAP ============ -->
-    <section id="weekly-recap" class="section recap" style="background:var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
-      <div class="wrap recap-grid reverse">
-        <div class="recap-copy">
-          <p class="eyebrow">Weekly recap</p>
-          <h2>Every week, the bigger picture.</h2>
-          <p>
-            On top of the daily read, Trackist writes one recap for each completed week. It reviews
-            your sessions and notes through the lens of your event, names the work that mattered, and
-            stays honest about the week without reducing it to a number.
-          </p>
-          <div class="recap-points" aria-label="What a weekly recap includes">
-            <div class="recap-point"><strong>Highlights</strong><span>The sessions and moments that defined the week.</span></div>
-            <div class="recap-point"><strong>Patterns</strong><span>Connections across your training, effort, and notes.</span></div>
-            <div class="recap-point"><strong>Watch-outs</strong><span>Honest, grounded details worth keeping an eye on.</span></div>
-            <div class="recap-point"><strong>Focus cues</strong><span>A few useful prompts to carry into the next week.</span></div>
-          </div>
-        </div>
-
-        <div class="recap-stage tint-moss">
-          <img class="phone" src="assets/screenshots/weekly_recap.png" width="1800" height="3680" alt="Trackist weekly recap showing a summary and session-by-session readings" loading="lazy">
+          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Trackist Review tab showing Daily Review feedback" loading="lazy">
         </div>
       </div>
     </section>
@@ -696,7 +664,7 @@
           <article class="step">
             <div class="n">3</div>
             <h3>Read it back</h3>
-            <p>Open Review for a daily read and a weekly recap, check your records, and watch the week take shape.</p>
+            <p>After you save a workout, read the Daily Review feedback, check your records, and watch the week take shape.</p>
           </article>
         </div>
       </div>
