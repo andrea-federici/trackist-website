@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trackist | Privacy Policy</title>
   <meta name="description" content="Privacy policy for Trackist, a training diary for competitive track-and-field athletes.">
-  <meta name="theme-color" content="#F4EFE6">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
   <link rel="icon" type="image/png" href="assets/trackist_icon.png">
   <style>
     :root {
-      --paper:#F4EFE6; --paper-2:#EDE6D9; --card:#FFFFFF;
-      --ink:#14110D; --ink-2:#3C342B; --ink-3:#6B6258; --rule:#D9CFB9;
-      --accent:#C8442B; --accent-dark:#A6361F;
-      --serif:"New York",ui-serif,Georgia,"Times New Roman",serif;
+      --paper:#F8F8F8; --paper-2:#FFFFFF; --card:#FFFFFF;
+      --ink:#0C0B0A; --ink-2:#524C46; --ink-3:#6F655E; --rule:#E9DED6;
+      --accent:#DB2412; --accent-dark:#B52B20; --header-bg:rgba(248,248,248,.85);
       --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    @media (prefers-color-scheme:dark) {
+      :root {
+        --paper:#16120E; --paper-2:#201A14; --card:#261F18;
+        --ink:#F7F0E7; --ink-2:#DCD1C3; --ink-3:#B5A999; --rule:#463A2E;
+        --accent:#DB2412; --accent-dark:#FFA697; --header-bg:rgba(22,18,14,.85);
+      }
     }
     * { box-sizing: border-box; }
     body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.65; -webkit-font-smoothing:antialiased; }
     .wrap { max-width:680px; margin:0 auto; padding:0 22px; }
-    .topbar { border-bottom:1px solid var(--rule); background:rgba(244,239,230,.85); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+    .topbar { border-bottom:1px solid var(--rule); background:var(--header-bg); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
     .topbar .wrap { display:flex; align-items:center; height:64px; }
     .topbar img { height:24px; }
     main { padding:48px 0 72px; }
-    h1 { font-family:var(--serif); font-weight:500; font-size:38px; letter-spacing:-.01em; margin:0 0 8px; }
-    h2 { font-family:var(--serif); font-weight:500; font-size:22px; margin:32px 0 10px; }
+    h1 { font-family:var(--sans); font-weight:600; font-size:38px; line-height:1.1; letter-spacing:-.025em; margin:0 0 8px; }
+    h2 { font-family:var(--sans); font-weight:600; font-size:22px; letter-spacing:-.015em; margin:32px 0 10px; }
     .eyebrow { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-dark); margin:0 0 14px; }
     p { color:var(--ink-2); font-size:16.5px; }
     ul { color:var(--ink-2); font-size:16.5px; padding-left:22px; }

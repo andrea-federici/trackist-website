@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trackist | The training diary built for track athletes</title>
   <meta name="description" content="An iOS training diary for competitive track-and-field athletes. Log structured sessions in seconds, then get Daily Review feedback after every workout and a records page for reps and races.">
-  <meta name="theme-color" content="#F4EFE6">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
@@ -18,32 +19,53 @@
 
   <style>
     /*
-      Trackist marketing site: "Lane Design System"
-      Tokens mirror iOS/docs/DESIGN.md and TPLaneDesign.swift.
-      Warm paper canvas, ink type, semantic workout color, soft white cards.
+      Trackist marketing site palette.
+      Tokens mirror iOS/docs/DESIGN.md and TrackistColors.swift.
+      Neutral paper canvas, ink type, semantic workout color, soft white cards.
     */
     :root {
       /* Paper + surfaces */
-      --paper:   #F4EFE6;
-      --paper-2: #EDE6D9;
-      --paper-3: #E4DBC9;
+      --paper:   #F8F8F8;
+      --paper-2: #FFFFFF;
+      --paper-3: #F2F2F0;
       --card:    #FFFFFF;
 
       /* Ink */
-      --ink:   #14110D;
-      --ink-2: #3C342B;
-      --ink-3: #6B6258;
-      --ink-4: #9A9082;
-      --rule:  #D9CFB9;
+      --ink:   #0C0B0A;
+      --ink-2: #524C46;
+      --ink-3: #6F655E;
+      --ink-4: #998D82;
+      --rule:  #E9DED6;
 
       /* Semantic workout color */
-      --accent:      #C8442B; /* track / primary action */
-      --accent-dark: #A6361F;
-      --accent-soft: #F3D7CC;
+      --accent:      #DB2412; /* track / primary action */
+      --accent-dark: #B52B20;
+      --accent-hover: #B52B20;
+      --accent-soft: #FDE5DF;
       --moss:  #4F6B3A;       /* continuous / easy */
-      --gold:  #C49A1F;       /* strength */
-      --slate: #2A3D55;       /* race */
+      --purple: #825AA0;       /* strength */
+      --race:   #A8262D;       /* race */
       --rest:  #8A8170;       /* rest / recovery */
+      --mark-on-color: #FFFFFF;
+      --button-on-accent: #FFFFFF;
+
+      /* Semantic fills */
+      --moss-soft: #E2EAD8;
+      --purple-soft: #E8DAF8;
+      --race-soft: #F5DADA;
+      --purple-text: #5F3C82;
+      --race-text: #821E26;
+
+      /* Adaptive chrome */
+      --header-bg: rgba(248,248,248,.84);
+      --header-border: rgba(233,222,214,.72);
+      --ledger-rule: rgba(233,222,214,.22);
+      --card-border: rgba(12,11,10,.10);
+      --cta-bg: #0C0B0A;
+      --cta-text: #F8F8F8;
+      --cta-copy: rgba(248,248,248,.78);
+      --cta-ghost: rgba(255,255,255,.12);
+      --cta-ghost-border: rgba(248,248,248,.28);
 
       /* Radius */
       --r-card:  18px;
@@ -53,16 +75,49 @@
       --r-chip:  7px;
 
       /* Type */
-      --serif: "New York", ui-serif, Georgia, "Times New Roman", serif;
       --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --mono:  ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 
       /* Elevation */
-      --shadow-card:  0 1px 2px rgba(20,17,13,.04), 0 8px 24px rgba(20,17,13,.06);
-      --shadow-float: 0 4px 10px rgba(20,17,13,.08), 0 18px 44px rgba(20,17,13,.12);
-      --shadow-accent: 0 8px 22px rgba(200,68,43,.28);
+      --shadow-card:  0 1px 2px rgba(12,11,10,.04), 0 8px 24px rgba(12,11,10,.06);
+      --shadow-float: 0 4px 10px rgba(12,11,10,.08), 0 18px 44px rgba(12,11,10,.12);
+      --shadow-accent: 0 8px 22px rgba(219,36,18,.28);
 
       --screen-x: 22px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #16120E;
+        --paper-2: #201A14;
+        --paper-3: #2B231B;
+        --card: #261F18;
+        --ink: #F7F0E7;
+        --ink-2: #DCD1C3;
+        --ink-3: #B5A999;
+        --ink-4: #877B6D;
+        --rule: #463A2E;
+        --accent: #DB2412;
+        --accent-dark: #FFA697;
+        --accent-hover: #B52B20;
+        --accent-soft: #40231D;
+        --moss: #8CBD72;
+        --purple: #9E76BE;
+        --race: #CD5050;
+        --rest: #A8A29A;
+        --mark-on-color: #16120E;
+        --moss-soft: #273D22;
+        --purple-soft: #322048;
+        --race-soft: #411C1E;
+        --purple-text: #B28CD0;
+        --race-text: #D25A5F;
+        --header-bg: rgba(22,18,14,.84);
+        --header-border: rgba(70,58,46,.72);
+        --ledger-rule: rgba(70,58,46,.22);
+        --card-border: rgba(247,240,231,.10);
+        --shadow-card: 0 1px 2px rgba(0,0,0,.16), 0 8px 24px rgba(0,0,0,.18);
+        --shadow-float: 0 4px 10px rgba(0,0,0,.20), 0 18px 44px rgba(0,0,0,.28);
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -91,8 +146,8 @@
         to bottom,
         transparent 0,
         transparent 47px,
-        rgba(217, 207, 185, .22) 47px,
-        rgba(217, 207, 185, .22) 48px
+        var(--ledger-rule) 47px,
+        var(--ledger-rule) 48px
       );
       opacity: .5;
     }
@@ -102,7 +157,7 @@
 
     img { max-width: 100%; display: block; }
 
-    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.12; color: var(--ink); margin: 0; letter-spacing: -0.01em; }
+    h1, h2, h3 { font-family: var(--sans); font-weight: 600; line-height: 1.1; color: var(--ink); margin: 0; letter-spacing: -0.025em; }
 
     .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
 
@@ -135,17 +190,17 @@
     }
     .btn-primary {
       background: var(--accent);
-      color: #fff;
+      color: var(--button-on-accent);
       box-shadow: var(--shadow-accent);
     }
-    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); text-decoration: none; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); text-decoration: none; }
     .btn-secondary {
       background: var(--card);
       color: var(--ink);
       border-color: var(--rule);
       box-shadow: var(--shadow-card);
     }
-    .btn-secondary:hover { transform: translateY(-1px); text-decoration: none; background: #fff; }
+    .btn-secondary:hover { transform: translateY(-1px); text-decoration: none; background: var(--card); }
     .btn-ghost { background: transparent; color: var(--ink-2); padding: 10px 14px; }
     .btn-ghost:hover { color: var(--ink); text-decoration: none; }
 
@@ -156,8 +211,8 @@
       z-index: 50;
       backdrop-filter: saturate(140%) blur(14px);
       -webkit-backdrop-filter: saturate(140%) blur(14px);
-      background: rgba(244, 239, 230, .82);
-      border-bottom: 1px solid rgba(217, 207, 185, .6);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--header-border);
     }
     .nav {
       display: flex;
@@ -202,30 +257,54 @@
     .phone {
       width: 300px;
       height: auto;
-      filter: drop-shadow(0 18px 22px rgba(20,17,13,.16));
+      filter: drop-shadow(0 18px 22px rgba(12,11,10,.16));
+    }
+
+    .phone-mockup {
+      position: relative;
+      width: 300px;
+      aspect-ratio: 2015 / 4120;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 18px 22px rgba(12,11,10,.16));
+    }
+    .phone-screenshot {
+      position: absolute;
+      left: 5.333%;
+      top: 2.5%;
+      width: 89.33%;
+      height: 95%;
+      object-fit: cover;
+      border-radius: 12% / 5.5%;
+    }
+    .phone-bezel {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .hero-phones { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-phones .phone { transform: rotate(-3deg); }
+    .hero-phones .phone-mockup { transform: rotate(-3deg); }
 
     /* --- In-app UI styles retained for lightweight embeds elsewhere --- */
     .scr { flex: 1; padding: 46px 16px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; font-family: var(--sans); }
     .scr-date { font-family: var(--sans); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
-    .scr-title { font-family: var(--serif); font-size: 26px; color: var(--ink); line-height: 1; }
+    .scr-title { font-family: var(--sans); font-size: 26px; font-weight: 600; color: var(--ink); line-height: 1; letter-spacing: -.015em; }
     .scr-strip { display: flex; gap: 6px; margin-top: 2px; }
     .scr-day { flex: 1; text-align: center; padding: 8px 0; border-radius: 10px; background: var(--paper-2); font-size: 10px; color: var(--ink-3); font-weight: 700; }
     .scr-day .dn { display: block; font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-top: 3px; }
-    .scr-day.on { background: var(--accent); color: #fff; }
-    .scr-day.on .dn { color: #fff; }
-    .scr-card { background: var(--card); border: 1px solid rgba(20,17,13,.06); border-radius: 16px; box-shadow: var(--shadow-card); padding: 12px 13px; }
+    .scr-day.on { background: var(--accent); color: var(--mark-on-color); }
+    .scr-day.on .dn { color: var(--mark-on-color); }
+    .scr-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; box-shadow: var(--shadow-card); padding: 12px 13px; }
     .scr-card .mark { width: 4px; border-radius: 4px; align-self: stretch; }
     .scr-row { display: flex; gap: 10px; align-items: stretch; }
     .scr-k { font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
     .scr-k.track { color: var(--accent); }
     .scr-k.cont { color: var(--moss); }
-    .scr-k.str { color: var(--gold); }
-    .scr-k.race { color: var(--slate); }
-    .scr-wt { font-family: var(--serif); font-size: 15px; color: var(--ink); margin-top: 2px; }
+    .scr-k.str { color: var(--purple); }
+    .scr-k.race { color: var(--race); }
+    .scr-wt { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--ink); margin-top: 2px; }
     .scr-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 3px; }
     .scr-chips { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
     .scr-chip { font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 6px; background: var(--paper-2); color: var(--ink-2); }
@@ -248,7 +327,7 @@
     /* ---------- Problem ---------- */
     .problem { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
-    .pcard { background: var(--card); border: 1px solid rgba(20,17,13,.06); border-radius: var(--r-card); padding: 22px; box-shadow: var(--shadow-card); }
+    .pcard { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-card); padding: 22px; box-shadow: var(--shadow-card); }
     .pcard h3 { font-family: var(--sans); font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--ink); }
     .pcard p { margin: 0; color: var(--ink-3); font-size: 14.5px; line-height: 1.55; }
     .pcard .ic { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -257,7 +336,7 @@
     .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .fcard {
       background: var(--card);
-      border: 1px solid rgba(20,17,13,.06);
+      border: 1px solid var(--card-border);
       border-radius: var(--r-card);
       padding: 26px 24px;
       box-shadow: var(--shadow-card);
@@ -270,15 +349,15 @@
       background: var(--accent-soft); color: var(--accent-dark);
     }
     .fcard .fmark svg { width: 20px; height: 20px; }
-    .fcard h3 { font-family: var(--serif); font-size: 21px; margin-bottom: 8px; }
+    .fcard h3 { font-family: var(--sans); font-size: 21px; font-weight: 600; margin-bottom: 8px; }
     .fcard p { margin: 0; color: var(--ink-2); font-size: 15px; }
     /* per-card mark tints to echo semantic workout colors */
     .fcard.t-track .fmark { background: var(--accent-soft); color: var(--accent-dark); }
-    .fcard.t-cont  .fmark { background: #DEE8D2; color: var(--moss); }
-    .fcard.t-event .fmark { background: #EFE0B8; color: #8a6d10; }
+    .fcard.t-cont  .fmark { background: var(--moss-soft); color: var(--moss); }
+    .fcard.t-event .fmark { background: var(--purple-soft); color: var(--purple-text); }
     .fcard.t-pb    .fmark { background: var(--accent-soft); color: var(--accent-dark); }
-    .fcard.t-flow  .fmark { background: #D7DEE8; color: var(--slate); }
-    .fcard.t-review .fmark { background: #DEE8D2; color: var(--moss); }
+    .fcard.t-flow  .fmark { background: var(--race-soft); color: var(--race-text); }
+    .fcard.t-review .fmark { background: var(--moss-soft); color: var(--moss); }
 
     /* ---------- Detail sections ---------- */
     .recap { overflow: hidden; }
@@ -293,12 +372,12 @@
     .recap-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
     .recap-point {
       background: var(--card);
-      border: 1px solid rgba(20,17,13,.06);
+      border: 1px solid var(--card-border);
       border-radius: var(--r-panel);
       padding: 15px 16px;
       box-shadow: var(--shadow-card);
     }
-    .recap-point strong { display: block; font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); }
+    .recap-point strong { display: block; font-family: var(--sans); font-size: 17px; font-weight: 600; color: var(--ink); }
     .recap-point span { display: block; color: var(--ink-3); font-size: 13px; line-height: 1.45; margin-top: 3px; }
     .recap-stage {
       position: relative;
@@ -322,48 +401,48 @@
     .shots { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
     .shot { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 300px; }
     .shot .cap { text-align: center; }
-    .shot .cap h3 { font-family: var(--serif); font-size: 19px; }
+    .shot .cap h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; }
     .shot .cap p { margin: 4px 0 0; color: var(--ink-3); font-size: 13.5px; }
 
-    .recap-stage.tint-slate::before { background: #D7DEE8; }
+    .recap-stage.tint-slate::before { background: var(--race-soft); }
 
     /* ---------- How it works ---------- */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
-    .step { background: var(--card); border: 1px solid rgba(20,17,13,.06); border-radius: var(--r-card); padding: 26px 24px; box-shadow: var(--shadow-card); }
+    .step { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-card); padding: 26px 24px; box-shadow: var(--shadow-card); }
     .step .n {
       font-family: var(--mono); font-size: 13px; font-weight: 700;
       width: 34px; height: 34px; border-radius: 50%;
       display: grid; place-items: center;
-      background: var(--accent); color: #fff; margin-bottom: 16px;
+      background: var(--accent); color: var(--button-on-accent); margin-bottom: 16px;
     }
-    .step h3 { font-family: var(--serif); font-size: 20px; margin-bottom: 8px; }
+    .step h3 { font-family: var(--sans); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
     .step p { margin: 0; color: var(--ink-2); font-size: 15px; }
 
     /* ---------- Credibility ---------- */
     .cred { }
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
     .cred h2 { font-size: clamp(28px, 3.6vw, 40px); }
-    .cred .pull { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink-2); margin: 20px 0 0; }
+    .cred .pull { font-family: var(--sans); font-style: italic; font-size: 20px; color: var(--ink-2); margin: 20px 0 0; }
     .session-list { display: flex; flex-direction: column; gap: 10px; }
     .session {
       display: flex; align-items: center; gap: 14px;
-      background: var(--card); border: 1px solid rgba(20,17,13,.06);
+      background: var(--card); border: 1px solid var(--card-border);
       border-radius: var(--r-card); padding: 14px 16px; box-shadow: var(--shadow-card);
     }
     .session .bar { width: 4px; height: 38px; border-radius: 4px; flex: none; }
     .session .body { flex: 1; min-width: 0; }
-    .session .name { font-family: var(--serif); font-size: 16px; color: var(--ink); }
+    .session .name { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); }
     .session .kind { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
     .session .val { font-family: var(--mono); font-size: 13px; color: var(--ink-3); flex: none; }
     .k-track { color: var(--accent); } .b-track { background: var(--accent); }
     .k-cont  { color: var(--moss); }   .b-cont  { background: var(--moss); }
-    .k-str   { color: var(--gold); }   .b-str   { background: var(--gold); }
-    .k-race  { color: var(--slate); }  .b-race  { background: var(--slate); }
+    .k-str   { color: var(--purple); } .b-str   { background: var(--purple); }
+    .k-race  { color: var(--race); }   .b-race  { background: var(--race); }
 
     /* ---------- Final CTA ---------- */
     .final { padding: 80px 0; }
     .final-card {
-      background: var(--ink);
+      background: var(--cta-bg);
       border-radius: var(--r-hero);
       padding: 56px 40px;
       text-align: center;
@@ -374,11 +453,11 @@
     .final-card::before {
       content: "";
       position: absolute; inset: 0;
-      background: radial-gradient(120% 90% at 50% -10%, rgba(200,68,43,.30), transparent 60%);
+      background: radial-gradient(120% 90% at 50% -10%, rgba(219,36,18,.30), transparent 60%);
       pointer-events: none;
     }
-    .final-card h2 { color: var(--paper); font-size: clamp(28px, 4vw, 44px); position: relative; }
-    .final-card p { color: rgba(244,239,230,.78); font-size: 17px; margin: 18px auto 28px; max-width: 34em; position: relative; }
+    .final-card h2 { color: var(--cta-text); font-size: clamp(28px, 4vw, 44px); position: relative; }
+    .final-card p { color: var(--cta-copy); font-size: 17px; margin: 18px auto 28px; max-width: 34em; position: relative; }
     .final-card .hero-cta { justify-content: center; position: relative; }
 
     /* ---------- Footer ---------- */
@@ -458,7 +537,10 @@
         </div>
 
         <div class="hero-phones">
-          <img class="phone" src="assets/screenshots/diary.png" width="1800" height="3680" alt="Trackist Diary screen showing a weekly training ledger">
+          <div class="phone-mockup">
+            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="Trackist Today screen showing the athlete's daily training">
+            <img class="phone-bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
+          </div>
         </div>
       </div>
     </section>
@@ -483,12 +565,12 @@
             <p>A notes app will hold anything you type, but it’s impossible to review, compare, or make sense of over a season.</p>
           </article>
           <article class="pcard">
-            <p class="ic" style="color:var(--slate)">GPS running apps</p>
+            <p class="ic" style="color:var(--race)">GPS running apps</p>
             <h3>Built for GPS runs, not track sessions</h3>
             <p>Generic running apps understand GPS runs. They don’t understand a structured track session built around an event.</p>
           </article>
         </div>
-        <p style="margin:28px 0 0; font-family:var(--serif); font-style:italic; font-size:19px; color:var(--ink-2); max-width:40em;">
+        <p style="margin:28px 0 0; font-family:var(--sans); font-style:italic; font-size:19px; color:var(--ink-2); max-width:40em;">
           Trackist gives athletes a diary built around their actual training language.
         </p>
       </div>
@@ -731,7 +813,7 @@
               Swap in a real waitlist form/endpoint (e.g. an email service or the FastAPI backend) when ready.
             -->
             <a class="btn btn-primary" href="mailto:support@trackist.run?subject=Trackist%20early%20access&amp;body=Hi%2C%20I%27d%20like%20to%20join%20the%20Trackist%20waitlist.%0A%0AMy%20primary%20event%3A%20%0AI%20train%20as%20a%3A%20(athlete%20%2F%20coach)%0A">Join the waitlist</a>
-            <a class="btn btn-secondary" href="#features" style="background:rgba(255,255,255,.12); color:var(--paper); border-color:rgba(244,239,230,.28); box-shadow:none;">Explore features</a>
+            <a class="btn btn-secondary" href="#features" style="background:var(--cta-ghost); color:var(--cta-text); border-color:var(--cta-ghost-border); box-shadow:none;">Explore features</a>
           </div>
         </div>
       </div>
