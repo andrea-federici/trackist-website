@@ -53,9 +53,6 @@ device treatment when replacing them.
 
 ## Intentional TODOs
 
-- **Waitlist**: there is no backend wired up, so the "Join the waitlist" buttons use a
-  `mailto:` link. Replace with a real waitlist endpoint/form when available
-  (search `TODO` in `index.html`).
-- **Contact email**: `support@trackist.run` is used as the support / privacy /
-  waitlist address. Confirm or swap for a dedicated public address before launch
-  (search `TODO` in `support.html` and `privacy.html`).
+- **Contact email**: `support@trackist.run` is used as the support, legal, and privacy
+  address. Confirm it remains current or swap for a dedicated public address
+  (search `TODO` in `support.html`, `terms.html`, and `privacy.html`).
