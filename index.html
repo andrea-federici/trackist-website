@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trackist | The training diary built for track athletes</title>
+  <title>StrideBuddy | The training diary built for track athletes</title>
   <meta name="description" content="An iOS training diary for competitive track-and-field athletes. Log structured sessions in seconds, then get Daily Review feedback after every workout and a records page for reps and races.">
   <meta name="apple-itunes-app" content="app-id=6760190939">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
@@ -11,17 +11,17 @@
 
   <!-- Open Graph / social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Trackist | The training diary built for track athletes">
+  <meta property="og:title" content="StrideBuddy | The training diary built for track athletes">
   <meta property="og:description" content="Log track workouts faster than Notes, then get Daily Review feedback after every workout and a records page built for reps and races.">
-  <meta property="og:image" content="assets/trackist_icon.png">
+  <meta property="og:image" content="assets/stridebuddy_icon.png">
 
-  <link rel="icon" type="image/png" href="assets/trackist_icon.png">
-  <link rel="apple-touch-icon" href="assets/trackist_icon.png">
+  <link rel="icon" type="image/png" href="assets/stridebuddy_icon.png">
+  <link rel="apple-touch-icon" href="assets/stridebuddy_icon.png">
 
   <style>
     /*
-      Trackist marketing site palette.
-      Tokens mirror iOS/docs/DESIGN.md and TrackistColors.swift.
+      StrideBuddy marketing site palette.
+      Tokens mirror iOS/docs/DESIGN.md and the app's Swift design tokens.
       Neutral paper canvas, ink type, semantic workout color, soft white cards.
     */
     :root {
@@ -47,7 +47,7 @@
       --purple: #825AA0;       /* strength */
       --race:   #A8262D;       /* race */
       --rest:  #8A8170;       /* rest / recovery */
-      --mark-on-color: #FFFFFF;
+      --mark-on-color: rgba(255,255,255,.94);
       --button-on-accent: #FFFFFF;
 
       /* Semantic fills */
@@ -62,11 +62,11 @@
       --header-border: rgba(233,222,214,.72);
       --ledger-rule: rgba(233,222,214,.22);
       --card-border: rgba(12,11,10,.10);
-      --cta-bg: #0C0B0A;
-      --cta-text: #F8F8F8;
-      --cta-copy: rgba(248,248,248,.78);
-      --cta-ghost: rgba(255,255,255,.12);
-      --cta-ghost-border: rgba(248,248,248,.28);
+      --cta-bg: #16120E;
+      --cta-text: #F7F0E7;
+      --cta-copy: #DCD1C3;
+      --cta-ghost: rgba(255,247,235,.12);
+      --cta-ghost-border: #463A2E;
 
       /* Radius */
       --r-card:  18px;
@@ -106,7 +106,7 @@
         --purple: #9E76BE;
         --race: #CD5050;
         --rest: #A8A29A;
-        --mark-on-color: #16120E;
+        --mark-on-color: rgba(22,18,14,.92);
         --moss-soft: #273D22;
         --purple-soft: #322048;
         --race-soft: #411C1E;
@@ -119,6 +119,7 @@
         --shadow-card: 0 1px 2px rgba(0,0,0,.16), 0 8px 24px rgba(0,0,0,.18);
         --shadow-float: 0 4px 10px rgba(0,0,0,.20), 0 18px 44px rgba(0,0,0,.28);
       }
+
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -504,15 +505,18 @@
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Trackist home">
-        <img src="assets/trackist_lockup.png" alt="Trackist">
+      <a class="brand" href="#top" aria-label="StrideBuddy home">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png">
+          <img src="assets/stridebuddy_lockup.png" alt="StrideBuddy">
+        </picture>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a class="navlink" href="#why">Why Trackist</a>
+        <a class="navlink" href="#why">Why StrideBuddy</a>
         <a class="navlink" href="#features">Features</a>
         <a class="navlink" href="#review">Review</a>
         <a class="navlink" href="#records">Records</a>
-        <a class="btn btn-primary nav-cta" href="https://apps.apple.com/us/app/trackist/id6760190939" aria-label="Download Trackist on the App Store">Download</a>
+        <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/id6760190939" aria-label="Download StrideBuddy on the App Store">Download</a>
       </nav>
     </div>
   </header>
@@ -530,7 +534,7 @@
             feedback after every workout, plus a records page built for reps and races.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/trackist/id6760190939">Download on the App Store</a>
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id6760190939">Download on the App Store</a>
             <a class="btn btn-secondary" href="#how">See how it works</a>
           </div>
           <p class="hero-note">Available now for iPhone.</p>
@@ -538,7 +542,7 @@
 
         <div class="hero-phones">
           <div class="phone-mockup">
-            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="Trackist Today screen showing the athlete's daily training">
+            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy Today screen showing the athlete's daily training">
             <img class="phone-bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
           </div>
         </div>
@@ -549,7 +553,7 @@
     <section id="why" class="section problem">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Why Trackist</p>
+          <p class="eyebrow">Why StrideBuddy</p>
           <h2>Track workouts are structured. Generic apps aren’t.</h2>
           <p>Your training has reps, recoveries, and splits. The tools you use should too.</p>
         </div>
@@ -571,7 +575,7 @@
           </article>
         </div>
         <p style="margin:28px 0 0; font-family:var(--sans); font-style:italic; font-size:19px; color:var(--ink-2); max-width:40em;">
-          Trackist gives athletes a diary built around their actual training language.
+          StrideBuddy gives athletes a diary built around their actual training language.
         </p>
       </div>
     </section>
@@ -649,7 +653,7 @@
 
         <div class="shots">
           <div class="shot">
-            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="Trackist central Log tray with the five logging modes" loading="lazy">
+            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="StrideBuddy central Log tray with the five logging modes" loading="lazy">
             <div class="cap">
               <h3>Central Log</h3>
               <p>One button opens continuous, structured, strength, race, or a quick note.</p>
@@ -657,7 +661,7 @@
           </div>
 
           <div class="shot">
-            <img class="phone" src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Trackist strength logging chip picker" loading="lazy">
+            <img class="phone" src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="StrideBuddy strength logging chip picker" loading="lazy">
             <div class="cap">
               <h3>Strength</h3>
               <p>A chip picker, not a form. Tap exercises and build a session.</p>
@@ -665,7 +669,7 @@
           </div>
 
           <div class="shot">
-            <img class="phone" src="assets/screenshots/log_structured.png" width="1800" height="3680" alt="Trackist structured session builder with blocks, reps, and recovery" loading="lazy">
+            <img class="phone" src="assets/screenshots/log_structured.png" width="1800" height="3680" alt="StrideBuddy structured session builder with blocks, reps, and recovery" loading="lazy">
             <div class="cap">
               <h3>Structured</h3>
               <p>Blocks, reps, splits, and recovery for real track sessions.</p>
@@ -695,7 +699,7 @@
         </div>
 
         <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Trackist Review tab showing Daily Review feedback" loading="lazy">
+          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="StrideBuddy Review tab showing Daily Review feedback" loading="lazy">
         </div>
       </div>
     </section>
@@ -720,7 +724,7 @@
         </div>
 
         <div class="recap-stage tint-slate">
-          <img class="phone" src="assets/screenshots/records.png" width="1800" height="3680" alt="Trackist Records page with the signature speed curve" loading="lazy">
+          <img class="phone" src="assets/screenshots/records.png" width="1800" height="3680" alt="StrideBuddy Records page with the signature speed curve" loading="lazy">
         </div>
       </div>
     </section>
@@ -740,8 +744,8 @@
           </article>
           <article class="step">
             <div class="n">2</div>
-            <h3>Let Trackist structure it</h3>
-            <p>Trackist stores the session, names it, and categorizes it around your event.</p>
+            <h3>Let StrideBuddy structure it</h3>
+            <p>StrideBuddy stores the session, names it, and categorizes it around your event.</p>
           </article>
           <article class="step">
             <div class="n">3</div>
@@ -759,14 +763,14 @@
           <p class="eyebrow">For track athletes</p>
           <h2>Made for the way track athletes train.</h2>
           <p style="color:var(--ink-2); font-size:17px; margin:16px 0 0;">
-            Trackist speaks your sessions natively, including sprint work, speed endurance, aerobic quality,
+            StrideBuddy speaks your sessions natively, including sprint work, speed endurance, aerobic quality,
             tempo, hills, strength, and race day.
           </p>
           <p class="pull">
             This is not another GPS running feed. It’s a diary for structured sessions, race preparation, strength work, and recovery.
           </p>
         </div>
-        <div class="session-list" aria-label="Example sessions Trackist understands">
+        <div class="session-list" aria-label="Example sessions StrideBuddy understands">
           <div class="session">
             <span class="bar b-track"></span>
             <div class="body"><div class="kind k-track">Track</div><div class="name">6×150m speed endurance</div></div>
@@ -806,9 +810,9 @@
       <div class="wrap">
         <div class="final-card">
           <h2>Built for track sessions, not just GPS runs.</h2>
-          <p>Download Trackist for iPhone and start building a training diary made for track and field.</p>
+          <p>Download StrideBuddy for iPhone and start building a training diary made for track and field.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/trackist/id6760190939">Download on the App Store</a>
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id6760190939">Download on the App Store</a>
             <a class="btn btn-secondary" href="#features" style="background:var(--cta-ghost); color:var(--cta-text); border-color:var(--cta-ghost-border); box-shadow:none;">Explore features</a>
           </div>
         </div>
@@ -821,9 +825,9 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <a class="brand" href="#top" aria-label="Trackist home"><img src="assets/trackist_lockup.png" alt="Trackist"></a>
+        <a class="brand" href="#top" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a>
         <nav class="footer-links" aria-label="Footer">
-          <a href="#why">Why Trackist</a>
+          <a href="#why">Why StrideBuddy</a>
           <a href="#features">Features</a>
           <a href="#review">Review</a>
           <a href="#records">Records</a>
@@ -832,7 +836,7 @@
           <a href="privacy.html">Privacy</a>
         </nav>
       </div>
-      <p class="copyright">© 2026 Trackist. A training diary for competitive track-and-field athletes.</p>
+      <p class="copyright">© 2026 StrideBuddy. A training diary for competitive track-and-field athletes.</p>
     </div>
   </footer>
 

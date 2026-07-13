@@ -1,8 +1,8 @@
-# Trackist — Marketing Website
+# StrideBuddy — Marketing Website
 
-A single-page landing site for **Trackist**, the iOS training diary for competitive
+A single-page landing site for **StrideBuddy**, the iOS training diary for competitive
 track-and-field athletes. It is a static site (plain HTML + inline CSS, no build step,
-no dependencies, no tracking) styled with the app's **Trackist Design System**
+no dependencies, no tracking) styled with the app's **StrideBuddy Design System**
 (see `../iOS/docs/DESIGN.md`).
 
 ## Files
@@ -28,9 +28,9 @@ python3 -m http.server 8000
 
 ## Design system
 
-Colors, type, radius, and tone all mirror `iOS/docs/DESIGN.md` and
-`TrackistColors.swift`: a neutral near-white canvas (`#F8F8F8`), ink text, true-white
-cards, the Trackist red accent (`#DB2412`), system-sans typography, and
+Colors, type, radius, and tone all mirror `iOS/docs/DESIGN.md` and the app's
+Swift design tokens: a neutral near-white canvas (`#F8F8F8`), ink text, true-white
+cards, the StrideBuddy red accent (`#DB2412`), system-sans typography, and
 monospaced numerals. The palette adapts to the design system's night-paper colors
 when the visitor prefers dark mode. Do not introduce a separate web palette —
 derive from those tokens.
@@ -51,8 +51,6 @@ The page uses real app screenshots exported with a transparent device frame:
 Current exports are **1800×3680** PNGs. Keep the same aspect ratio and transparent
 device treatment when replacing them.
 
-## Intentional TODOs
+## Contact
 
-- **Contact email**: `support@trackist.run` is used as the support, legal, and privacy
-  address. Confirm it remains current or swap for a dedicated public address
-  (search `TODO` in `support.html`, `terms.html`, and `privacy.html`).
+`support@stridebuddy.app` is the support, legal, and privacy contact address.
