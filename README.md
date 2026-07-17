@@ -13,6 +13,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
+| `legal.css` | Shared paper/ink layout and typography for support and legal pages. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 
