@@ -18,14 +18,22 @@
     <div class="wrap">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy policy</h1>
-      <p class="muted">Last updated: July 13, 2026</p>
+      <p class="muted">Last updated: July 22, 2026</p>
 
-      <p>This policy explains what StrideBuddy keeps on your device, what the app sends to StrideBuddy’s backend when AI features run, and the limited technical data used to keep the service working and secure. Please read it together with the <a href="terms.html">StrideBuddy Terms of Use</a>.</p>
+      <p>This policy explains what StrideBuddy keeps on your device, what the app sends when optional product analytics or AI features are enabled, and the limited technical data used to keep the service working and secure. Please read it together with the <a href="terms.html">StrideBuddy Terms of Use</a>.</p>
+      <p>StrideBuddy is operated by Andrea Federici, an individual trader in Italy. Andrea Federici is the controller responsible for the processing described in this policy. The postal contact address is Via Alessandro Manzoni, 3, 20021 Bollate, Milano, Italy. The privacy email is <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20privacy">support@stridebuddy.app</a>.</p>
       <p>StrideBuddy is intended for adults aged 18 or older, not for children or teenagers.</p>
 
       <h2>Local-first workout data</h2>
       <p>Your training diary stays on your device. StrideBuddy’s database does not keep your raw workout diary, athlete profile, race results, personal bests, notes, reps, splits, recoveries, or strength entries as a permanent user record.</p>
       <p>StrideBuddy uses the data you enter on your device for logging, diary views, workout categorization, personal-best tracking, Daily Review, and future AI features.</p>
+
+      <h2>Optional product analytics</h2>
+      <p>StrideBuddy asks whether you want to share a small amount of product-usage data. Product analytics is off until you choose Share usage data. Choosing Not now does not limit the app, and you can change the separate Product Analytics setting at any time in the You tab. This choice is independent from the AI setting.</p>
+      <p>If you enable product analytics, the app sends eight kinds of interaction events to PostHog’s EU Cloud service. These events may show that an app session started, a logging flow started, a logging mode was selected, a logging flow was left, a workout save succeeded or failed, the post-save Logbook Moment appeared, or a history surface such as Diary, workout detail, Daily Review, or records was opened.</p>
+      <p>Analytics events may include a random analytics-only identifier, app version and build, development, TestFlight, or production environment, logging mode, entry source, today-versus-past date category, safe template category, logging-flow stage, a normalized save-failure code, broad count buckets, and a safe Daily Review availability state. The random identifier is separate from the identifier used by AI infrastructure. StrideBuddy does not use PostHog person profiles and does not identify you by name or contact details.</p>
+      <p>Product analytics never includes workout notes, Quick Log text, generated review text, athlete names, contact information, exact personal bests, workout times, splits, recoveries, distances, workout structures, RPE, feelings, injury information, body-signal tags, race results, venue or precise location, free-form error messages, AI prompts or outputs, security material, advertising identifiers, or IDFA. Session replay, tap autocapture, screen recording, crash capture, application-log capture, surveys, feature flags, and advertising tracking are disabled.</p>
+      <p>PostHog receives normal network connection data, such as an IP address, while accepting a request. Before product analytics is enabled in a release, StrideBuddy configures the EU project to discard stored client IP addresses and disables GeoIP enrichment, so location properties are not added to the event record. PostHog processes analytics for StrideBuddy under its applicable terms, privacy commitments, and data-processing terms. You can read the <a href="https://posthog.com/privacy">PostHog Privacy Policy</a>.</p>
 
       <h2>Information StrideBuddy processes</h2>
       <p>The information StrideBuddy processes depends on how you use the app and may include:</p>
@@ -33,6 +41,7 @@
         <li>training diary content stored on your device, including workouts, notes, RPE, feeling, tags, races, personal bests, records, and generated review output;</li>
         <li>profile and event details, including your competition category, event, athlete type, timezone, and event-specific personal-best context;</li>
         <li>data required for an AI request, but only when AI features are enabled and need to make a request;</li>
+        <li>the optional, limited product-interaction, fitness-category, identifier, and diagnostic data described in the Product Analytics section, but only after you enable it;</li>
         <li>technical and security information, including pseudonymous install identifiers, request identifiers, source hashes, rate-limit counters, salted IP hashes, app version, locale, and policy-acceptance metadata; and</li>
         <li>messages you send to StrideBuddy for support, feedback, privacy requests, or deletion requests, along with details such as your email address.</li>
       </ul>
@@ -73,6 +82,7 @@
         <li>to provide on-device logging, diary views, workout categorization, records, and app settings;</li>
         <li>to generate Daily Review and future AI features when AI is enabled;</li>
         <li>to remember whether you accepted the Terms, Privacy Policy, and AI disclosure;</li>
+        <li>with your separate choice, to understand activation, repeated logging, reliability, historical-value discovery, and retention;</li>
         <li>to apply request limits, prevent abuse, investigate reliability problems, and protect the backend;</li>
         <li>to answer support, privacy, deletion, or legal requests; and</li>
         <li>to comply with the law, enforce the Terms, and protect rights, safety, and security.</li>
@@ -80,31 +90,37 @@
 
       <h2>Retention</h2>
       <p>Your raw diary data stays on your device unless an enabled AI feature needs selected data. The backend usually keeps rate-limit records for about 24 hours. StrideBuddy may keep limited operational records longer when necessary to protect the service, investigate abuse, comply with the law, or resolve security problems.</p>
+      <p>Optional PostHog analytics events are intended to be kept for no more than 12 months. StrideBuddy will configure that period where the service provides a retention control or use PostHog’s deletion process to enforce it. A consent record and the random analytics identifier remain on your device until the app or its data is deleted or the analytics identity is reset.</p>
 
       <h2>Sharing</h2>
-      <p>StrideBuddy does not sell your personal information or share it for cross-context behavioral advertising. AI request data goes to Google Gemini only to provide AI features. StrideBuddy may also use infrastructure providers for the hosting, caching, networking, or security systems needed to run the service. These providers are expected to protect the data they process for StrideBuddy and use it only to provide their services, unless you agree separately or the law requires another use.</p>
+      <p>StrideBuddy does not sell your personal information or share it for cross-context behavioral advertising. AI request data goes to Google Gemini only to provide AI features. If you enable product analytics, the limited analytics events described above go to PostHog EU Cloud only to measure and improve the product. StrideBuddy may also use infrastructure providers for the hosting, caching, networking, or security systems needed to run the service. These providers are expected to protect the data they process for StrideBuddy and use it only to provide their services, unless you agree separately or the law requires another use.</p>
       <p>StrideBuddy may disclose limited information when the law requires it, to enforce the Terms, to protect users or the service, or during a merger, acquisition, financing, reorganization, asset sale, or similar business transfer. In a business transfer, StrideBuddy will require the recipient to handle personal information in line with this policy unless you receive notice and any choices required by law.</p>
 
       <h2>Your control</h2>
-      <p>You control the diary data on your device through the app. AI processing is part of StrideBuddy’s core experience. When you accept the terms, privacy policy, and AI disclosure during onboarding or an update, you agree that StrideBuddy’s backend and Google Gemini may process the selected diary data needed for Daily Review and related AI features as described above. A master toggle in the You tab controls all AI features. Turning it off stops future AI requests but leaves local logging and diary viewing available.</p>
+      <p>You control the diary data on your device through the app. AI processing is part of StrideBuddy’s core experience. When you accept the terms and AI disclosure during onboarding or an update, StrideBuddy’s backend and Google Gemini may process the selected diary data needed for Daily Review and related AI features as described above. A master toggle in the You tab controls all AI features. Turning it off stops future AI requests but leaves local logging and diary viewing available.</p>
+      <p>Product Analytics has its own control in the You tab. Turning it off stops future analytics transmission. It does not turn off AI, change local features, or delete analytics events that PostHog already received. You may also request deletion of those existing events by contacting StrideBuddy.</p>
       <p>Your location may give you privacy rights, including rights to access, correct, delete, or object to the processing of your data. StrideBuddy is local-first and does not use accounts, so we may need an app-install identifier, request details, or similar information to find a relevant backend record.</p>
+      <p>StrideBuddy does not use product analytics for decisions that produce legal or similarly significant effects about you. The analytics only informs aggregate product and reliability decisions.</p>
 
       <h2>Deletion and requests</h2>
-      <p>Delete diary entries in the app to remove them locally, or delete the app to remove its local data from your device. Any iOS backups or exports you control may still contain copies. To request deletion of backend AI metadata, cache records, or support messages, contact StrideBuddy. Because there are no user accounts, we may need request details, timestamps, app-install information, or other details to find the relevant backend records.</p>
+      <p>Delete diary entries in the app to remove them locally, or delete the app to remove its local data from your device. Any iOS backups or exports you control may still contain copies. To request deletion of backend AI metadata, PostHog analytics events, cache records, or support messages, contact StrideBuddy. Because there are no user accounts, we may need request details, timestamps, the separate AI installation information, or the analytics identifier shown in the Product Analytics section of the app to find the relevant records.</p>
       <p>StrideBuddy will answer privacy requests within the period required by applicable law. Some information may be kept when necessary for security, abuse prevention, legal compliance, or dispute resolution. Information in backups may also remain until deletion becomes technically possible or those backups expire.</p>
 
       <h2>European, UK, and Swiss privacy rights</h2>
-      <p>If you live in the European Economic Area, the United Kingdom, or Switzerland, laws such as the GDPR, UK GDPR, or Swiss data-protection law may give you rights over your personal data. Where applicable, StrideBuddy processes data to provide the app and requested AI features based on contract, consent, legitimate interests such as security and abuse prevention, and legal obligations.</p>
+      <p>If you live in the European Economic Area, the United Kingdom, or Switzerland, laws such as the GDPR, UK GDPR, or Swiss data-protection law may give you rights over your personal data. Where applicable, StrideBuddy processes data to provide the app and requested AI features based on contract, consent, legitimate interests such as security and abuse prevention, and legal obligations. Optional product analytics is based on your separate consent.</p>
       <p>You may have the right to access, correct, delete, restrict, object to, or receive a portable copy of your personal data. You may also be able to withdraw consent for future processing. You can stop future AI requests by turning off the master AI features toggle, and you can contact StrideBuddy with privacy requests. Withdrawing consent does not invalidate processing that was lawful when it occurred.</p>
       <p>Your diary notes may contain health information or other sensitive details if you choose to write them. Do not add sensitive information that you do not want enabled app features to process.</p>
       <p>You may be entitled to complain to your local data protection authority. In Italy, this is the Garante per la protezione dei dati personali. In the UK, it is the Information Commissioner’s Office. In Switzerland, it is the Federal Data Protection and Information Commissioner.</p>
 
+      <h2>Canadian privacy rights</h2>
+      <p>If Canadian privacy law applies to you, you may ask to access or correct personal information StrideBuddy controls and may withdraw consent for future optional processing, subject to legal limits. You can withdraw product-analytics consent in the app and contact StrideBuddy with a privacy request or complaint.</p>
+
       <h2>California and US state privacy rights</h2>
-      <p>StrideBuddy does not sell personal information, share it for cross-context behavioral advertising, use targeted advertising, include analytics SDKs, or track people across third-party apps or websites. Because none of these activities occur, browser Do Not Track and Global Privacy Control signals do not change how StrideBuddy behaves.</p>
+      <p>StrideBuddy does not sell personal information, share it for cross-context behavioral advertising, use targeted advertising, or track people across third-party apps or websites. The optional PostHog SDK is used only for the limited first-party product analytics described above. Browser Do Not Track and Global Privacy Control signals do not control the iOS setting, but product analytics stays off until you enable it in the app.</p>
       <p>If California or another US state privacy law applies to you, you may have the right to request access, correction, deletion, a copy of your personal information, or details about certain disclosures. Subject to legal limits and the local-first design without accounts described above, StrideBuddy will not discriminate against you for exercising a privacy right.</p>
 
       <h2>International transfers</h2>
-      <p>StrideBuddy, Google, and infrastructure providers may process data outside the country where you live. When the law requires it, StrideBuddy relies on appropriate transfer safeguards, including contractual protections from the relevant service providers.</p>
+      <p>StrideBuddy, Google, PostHog, and infrastructure providers may process data outside the country where you live. Product analytics is sent to PostHog’s EU Cloud region. When the law requires it, StrideBuddy relies on appropriate transfer safeguards, including contractual protections from the relevant service providers.</p>
 
       <h2>Security</h2>
       <p>To reduce privacy risk, StrideBuddy keeps your diary local, limits request data, uses pseudonymous identifiers and request caps, and restricts backend logging. No app or online service can promise complete security.</p>
@@ -113,7 +129,7 @@
       <p>StrideBuddy is intended for adults aged 18 or older, not for children or teenagers. Do not use the app if you are under 18. If you believe a child or teenager sent personal information to StrideBuddy’s backend, contact us. We will review the request and delete relevant backend records where possible.</p>
 
       <h2>Changes</h2>
-      <p>StrideBuddy may revise this policy when the app, its providers, or legal requirements change. If a revision materially changes the data, provider, purpose, or risk involved in AI processing, AI features will not run again until you accept the new policy in the app.</p>
+      <p>StrideBuddy may revise this policy when the app, its providers, or legal requirements change. If a revision materially changes the data, provider, purpose, or risk involved in AI processing, AI features will not run again until the required updated acceptance. If the optional analytics scope materially changes, StrideBuddy will ask for a new analytics choice before collecting under the new scope.</p>
 
       <h2>Questions</h2>
       <p>For privacy questions, contact:
