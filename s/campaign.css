@@ -1,0 +1,37 @@
+/*
+  Campaign landing pages (/s/*).
+
+  Loaded after legal.css, which supplies the shared paper/ink tokens, layout,
+  and typography. Only the App Store call to action is specific to these pages;
+  the button tokens mirror the landing page and iOS/docs/DESIGN.md.
+*/
+
+:root {
+  --accent-hover: #B52B20;
+  --button-on-accent: #FFFFFF;
+  --r-ctrl: 14px;
+  --shadow-accent: 0 8px 22px rgba(219,36,18,.28);
+}
+
+.lede { font-size:18px; max-width:30em; }
+
+.cta {
+  display:inline-flex;
+  align-items:center;
+  margin-top:26px;
+  padding:13px 22px;
+  border-radius:var(--r-ctrl);
+  background:var(--accent);
+  color:var(--button-on-accent);
+  font-size:15px;
+  font-weight:700;
+  line-height:1.2;
+  box-shadow:var(--shadow-accent);
+  transition:transform .15s ease, background .2s ease;
+}
+.cta:hover { background:var(--accent-hover); transform:translateY(-1px); text-decoration:none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition:none; }
+  .cta:hover { transform:none; }
+}

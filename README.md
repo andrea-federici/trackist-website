@@ -13,9 +13,35 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
-| `legal.css` | Shared paper/ink layout and typography for support and legal pages. |
+| `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
+| `s/instagram/index.html` | Campaign landing page for Instagram (`/s/instagram`). |
+| `s/community/index.html` | Campaign landing page for community links (`/s/community`). |
+| `s/campaign.css` | App Store call-to-action styles shared by the campaign pages. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
+
+## Campaign attribution
+
+Every App Store link is a campaign link generated in App Store Connect →
+Analytics → Acquisition → Campaigns, so installs are traceable there. The links
+take the form:
+
+```
+https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=<token>&mt=8
+```
+
+`pt` is the provider token for the Apple Account and is the same everywhere.
+`ct` is the campaign, and each campaign must also exist in App Store Connect
+under exactly that name or its installs are not reported. The tokens are
+`website` for `index.html`, `instagram` for `/s/instagram`, and `community` for
+`/s/community`. A campaign stays empty until at least five individual Apple
+Accounts have installed from it, so an early zero is a privacy floor rather than
+a broken link.
+
+Use the generated link verbatim when adding a channel — note the
+`/app/apple-store/` path, which differs from the plain `/app/` product URL.
+Attribution comes from the campaign token alone: the site adds no analytics,
+cookies, scripts, or third-party requests, and it should stay that way.
 
 ## Running it
 
