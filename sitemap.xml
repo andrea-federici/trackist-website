@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Canonical URL set for stridebuddy.app.
+
+  Every page is listed at the apex host with its .html extension, matching the
+  rel="canonical" on the page itself and every internal link on the site. The
+  host also answers www., and answers extensionless paths such as /support, so
+  each page is reachable four ways; the canonical tags are what tell a crawler
+  which of the four is the real one, and this file must agree with them.
+
+  /s/community is deliberately absent. It is a campaign landing page shared
+  directly in forums, it near-duplicates the homepage, and it carries
+  noindex,follow for that reason.
+
+  Update lastmod when a page's content changes, not when an unrelated file in
+  the repository does.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://stridebuddy.app/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/support.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/privacy.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/terms.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

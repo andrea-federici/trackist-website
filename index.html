@@ -5,18 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrideBuddy | A training diary for track athletes</title>
   <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy handles reps, splits, strength work, races, Daily Review feedback, and records.">
+  <!--
+    The host answers this page four ways: apex and www, with and without the
+    .html extension. Nothing redirects between them, so this tag is the only
+    thing telling a crawler which one is real. It must stay in step with
+    sitemap.xml and with the internal links, which all use apex + .html.
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/">
   <meta name="apple-itunes-app" content="app-id=6760190939">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
 
-  <!-- Open Graph / social -->
+  <!--
+    Open Graph / social. og:image must be an absolute URL — a relative path is
+    not resolved by most unfurlers, so the card renders with no image at all.
+    The image is the 1024x1024 icon, which is why the Twitter card is "summary"
+    rather than "summary_large_image": the large card crops a square badly.
+  -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/">
   <meta property="og:title" content="StrideBuddy | A training diary for track athletes">
   <meta property="og:description" content="Log reps, splits, strength work, and races in one track-specific diary. Get Daily Review feedback after each workout and keep every record in view.">
-  <meta property="og:image" content="assets/stridebuddy_icon.png">
+  <meta property="og:image" content="https://stridebuddy.app/assets/stridebuddy_icon.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="The StrideBuddy app icon.">
+  <meta name="twitter:card" content="summary">
 
   <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
   <link rel="apple-touch-icon" href="assets/stridebuddy_icon.png">
+
+  <!--
+    Structured data. This is inert JSON, not a script: the browser never
+    executes it, it makes no request and contacts no third party, so it does
+    not touch the dependency-free rule in AGENTS.md.
+
+    Deliberately absent: aggregateRating. Google requires rating markup to
+    reflect ratings genuinely shown on this page, and the App Store rating
+    count is currently 1. Marking that up would be both invalid and worthless.
+    Add it only when there is a real rating figure and the page displays it.
+
+    The downloadUrl carries ct=website and always will: the campaign script at
+    the bottom of this file rewrites anchor elements, and this is not one. That
+    is correct — a crawler following it is organic search, which is what the
+    website token means.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "StrideBuddy",
+    "alternateName": "StrideBuddy: Track Diary",
+    "applicationCategory": "HealthAndFitnessApplication",
+    "applicationSubCategory": "Training diary for track and field athletes",
+    "operatingSystem": "iOS",
+    "url": "https://stridebuddy.app/",
+    "downloadUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
+    "installUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
+    "image": "https://stridebuddy.app/assets/stridebuddy_icon.png",
+    "screenshot": [
+      "https://stridebuddy.app/assets/screenshots/today.png",
+      "https://stridebuddy.app/assets/screenshots/log_structured.png",
+      "https://stridebuddy.app/assets/screenshots/review.png",
+      "https://stridebuddy.app/assets/screenshots/records.png"
+    ],
+    "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races the way the session was written, read Daily Review feedback after each workout, and keep personal bests and rep records in view.",
+    "featureList": [
+      "Structured track session logging with reps, recoveries and splits",
+      "Hurdles and steeplechase reps kept distinct from flat distances",
+      "Strength, road, trail and race logging",
+      "Personal bests and rep records",
+      "Daily Review feedback after each session",
+      "iCloud sync across devices"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StrideBuddy",
+      "url": "https://stridebuddy.app/",
+      "logo": "https://stridebuddy.app/assets/stridebuddy_lockup.png",
+      "email": "support@stridebuddy.app"
+    }
+  }
+  </script>
 
   <style>
     /*
