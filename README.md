@@ -14,9 +14,8 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
-| `s/instagram/index.html` | Campaign landing page for Instagram (`/s/instagram`). |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). |
-| `s/campaign.css` | App Store call-to-action styles shared by the campaign pages. |
+| `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 
@@ -67,9 +66,12 @@ one to App Store Connect. The script reads the URL and sets link attributes, and
 that is all it does: no request, cookie, storage, or third party, and nothing
 about the visitor is recorded. If it never runs, the links stay `ct=website`.
 
-The `/s/` pages remain the lightweight alternative for places where the full
-homepage is too heavy or reads as too much, such as a story link sticker or a
-forum reply.
+`/s/community` is the lightweight alternative for somewhere the full homepage is
+too much, such as a forum reply. Instagram used to have a matching page and no
+longer needs one: its links go to the App Store and to the tagged homepage, so
+the page was deleted rather than left unused. Add another `/s/` page only if a
+channel wants a landing page of its own; a channel that just needs the homepage
+only needs a `?c=` value.
 
 ### The three App Store campaign links
 
