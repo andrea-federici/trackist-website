@@ -32,11 +32,37 @@ https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=<token>&mt=8
 
 `pt` is the provider token for the Apple Account and is the same everywhere.
 `ct` is the campaign, and each campaign must also exist in App Store Connect
-under exactly that name or its installs are not reported. The tokens are
-`website` for `index.html`, `instagram` for `/s/instagram`, and `community` for
-`/s/community`. A campaign stays empty until at least five individual Apple
-Accounts have installed from it, so an early zero is a privacy floor rather than
-a broken link.
+under exactly that name or its installs are not reported. A campaign stays empty
+until at least five individual Apple Accounts have installed from it, so an early
+zero is a privacy floor rather than a broken link.
+
+### What to share, per channel
+
+Share the page, not the App Store link, anywhere a visitor might be on a desktop.
+The page carries the token in its own call to action, so the attribution is the
+same either way.
+
+| Channel | Share this | Attributes as |
+| --- | --- | --- |
+| Instagram profile, "Explore StrideBuddy" | `https://stridebuddy.app/s/instagram` | `instagram` |
+| Instagram profile, "Download StrideBuddy" | the `instagram` App Store link below | `instagram` |
+| Forums, Reddit, Discord, clubs, coaches | `https://stridebuddy.app/s/community` | `community` |
+| Everything else, and organic search | `https://stridebuddy.app` | `website` |
+
+Never share a bare `apps.apple.com` link. It carries no token, and the install
+is invisible. Never send channel traffic to the homepage either — it tags as
+`website` and drains the channel's own number.
+
+### The three App Store campaign links
+
+```
+instagram  https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=instagram&mt=8
+community  https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=community&mt=8
+website    https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
+```
+
+The `website` link is the one already in `index.html`, three times. The other two
+are in their landing pages' call to action.
 
 Use the generated link verbatim when adding a channel — note the
 `/app/apple-store/` path, which differs from the plain `/app/` product URL.
