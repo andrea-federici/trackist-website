@@ -21,6 +21,14 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 
 ## Campaign attribution
 
+> **In use. Do not delete any of it.** The inline script in `index.html`, the
+> `/s/community` page, `s/campaign.css`, and the `pt`/`ct` parameters on every
+> App Store link are each load-bearing, and each is referenced from somewhere
+> outside this repository — the Instagram profile, community posts, App Store
+> Connect. Removing one breaks nothing visibly: the page still renders, no test
+> fails, and that channel's installs quietly start reporting as `website`.
+> `AGENTS.md § Campaign attribution` states the rules.
+
 Every App Store link is a campaign link generated in App Store Connect →
 Analytics → Acquisition → Campaigns, so installs are traceable there. The links
 take the form:

@@ -841,7 +841,14 @@
 
   <script>
     /*
-      Campaign attribution.
+      Campaign attribution. IN USE — DO NOT DELETE.
+
+      The Instagram profile's "Explore StrideBuddy" link is
+      https://stridebuddy.app/?c=instagram and depends on this script. Removing
+      it breaks nothing visibly: the page still renders, no test fails, and
+      Instagram's installs quietly start reporting as the website's. This is not
+      a duplicate of the /s/ landing pages; see AGENTS.md § Campaign attribution
+      before changing it.
 
       A visitor arriving from a channel link such as /?c=instagram gets that
       channel's campaign token on the App Store links, so the install is
