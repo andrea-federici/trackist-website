@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrideBuddy Privacy Policy</title>
   <meta name="description" content="Read how StrideBuddy stores workout data, processes requests for AI features, uses technical data, and handles your privacy choices.">
-  <!-- The host also answers www. and /privacy without the extension; this picks the real one. -->
-  <link rel="canonical" href="https://stridebuddy.app/privacy.html">
+  <!--
+    Cloudflare Pages strips the extension: /privacy.html 307s to /privacy, so the
+    extensionless form is the real URL and the canonical must name it. The host
+    also answers www. with no redirect to apex, which this resolves too.
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/privacy">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
   <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
@@ -14,7 +18,7 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap"><a href="index.html" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
+    <div class="wrap"><a href="/" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
   </header>
   <main>
     <div class="wrap">
@@ -22,7 +26,7 @@
       <h1>Privacy policy</h1>
       <p class="muted">Last updated: July 28, 2026</p>
 
-      <p>This policy explains where StrideBuddy keeps your training diary, what the app sends when optional product analytics or AI features are enabled, and the limited technical data used to keep the service working and secure. Please read it together with the <a href="terms.html">StrideBuddy Terms of Use</a>.</p>
+      <p>This policy explains where StrideBuddy keeps your training diary, what the app sends when optional product analytics or AI features are enabled, and the limited technical data used to keep the service working and secure. Please read it together with the <a href="terms">StrideBuddy Terms of Use</a>.</p>
       <p>StrideBuddy is operated by Andrea Federici, an individual trader in Italy. Andrea Federici is the controller responsible for the processing described in this policy. The postal contact address is Via Alessandro Manzoni, 3, 20021 Bollate, Milano, Italy. The privacy email is <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20privacy">support@stridebuddy.app</a>.</p>
       <p>StrideBuddy is intended for adults aged 18 or older, not for children or teenagers.</p>
 
@@ -140,7 +144,7 @@
         <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20privacy">support@stridebuddy.app</a>
       </p>
 
-      <a class="back" href="index.html">← Back to home</a>
+      <a class="back" href="/">← Back to home</a>
     </div>
   </main>
 </body>

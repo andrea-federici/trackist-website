@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrideBuddy Support</title>
   <meta name="description" content="Get help with StrideBuddy, report a problem, or share feedback about the app.">
-  <!-- The host also answers www. and /support without the extension; this picks the real one. -->
-  <link rel="canonical" href="https://stridebuddy.app/support.html">
+  <!--
+    Cloudflare Pages strips the extension: /support.html 307s to /support, so the
+    extensionless form is the real URL and the canonical must name it. The host
+    also answers www. with no redirect to apex, which this resolves too.
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/support">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
   <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
@@ -14,7 +18,7 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap"><a href="index.html" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
+    <div class="wrap"><a href="/" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
   </header>
   <main>
     <div class="wrap">
@@ -28,7 +32,7 @@
         <a class="mail" href="mailto:support@stridebuddy.app?subject=StrideBuddy%20support">support@stridebuddy.app</a>
       </div>
 
-      <a class="back" href="index.html">← Back to home</a>
+      <a class="back" href="/">← Back to home</a>
     </div>
   </main>
 </body>

@@ -17,6 +17,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
 | `robots.txt` | Sitemap declaration only. Cloudflare appends the managed crawler block. |
+| `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
 | `sitemap.xml` | The four indexable URLs. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
@@ -111,17 +112,31 @@ for the brand name and its own tagline returned nothing, and `site:stridebuddy.a
 returned nothing. The files below are the fix for the mechanical half of that.
 They do not make the site rank; they make it eligible.
 
-### The host answers every page four ways
+### The canonical URL form is apex, no extension
 
-`stridebuddy.app` and `www.stridebuddy.app` both return 200, and so do both
-`/support.html` and `/support`. Nothing redirects between them. Left alone, that
-is four URLs per page competing as duplicates.
+**Cloudflare Pages strips the `.html` extension.** `/support.html` returns a 307
+to `/support`, and `/index.html` a 307 to `/`. The extensionless URL is the one
+that returns 200, so it is the real URL, and the canonical tags, `sitemap.xml`
+and every internal link all name it.
 
-`rel="canonical"` on every page resolves it, and it names **apex host, `.html`
-extension** — the form every internal link already uses. `sitemap.xml` lists the
-same four URLs. If one of those three ever disagrees with the others, the signal
-is worse than having none. A 301 from `www` to apex at the Cloudflare level would
-be better still and is not configured.
+This is not a style preference and getting it backwards is not harmless. A
+sitemap listing redirecting URLs is a defect Google reports, and a canonical
+pointing at a redirect is a signal that contradicts itself. **The three must
+agree; if they ever disagree, the signal is worse than having none.**
+
+**Verify with `curl` and no `-L`.** Following redirects reports the final 200
+and hides the hop — that mistake is how this was first written with `.html`
+URLs throughout, on 2026-08-11, and shipped that way in `4d67a0a` before being
+corrected.
+
+```sh
+curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\n' https://stridebuddy.app/support
+```
+
+`www.stridebuddy.app` is the separate case, and the one the canonical tags
+genuinely earn their place on: it answers 200 and does **not** redirect to apex,
+so nothing else distinguishes the two hosts. A 301 at the Cloudflare level would
+be better and is not configured.
 
 ### robots.txt is mostly not ours
 
@@ -160,13 +175,17 @@ Until the sitemap is submitted, none of the above is doing anything.
 
 ## Running it
 
-No build needed — open `index.html` in a browser, or serve the folder:
+No build needed. Use `serve.py`, not `python3 -m http.server`:
 
 ```sh
-cd Website
-python3 -m http.server 8000
-# then open http://localhost:8000
+python3 serve.py 8000
 ```
+
+**The plain `http.server` 404s on every internal link.** Production strips the
+`.html` extension, so the links, the canonical tags and `sitemap.xml` all use
+`/support` rather than `/support.html`; `http.server` serves files literally and
+finds nothing at that path. `serve.py` adds that one behaviour and nothing else,
+so local matches production. It is a development tool and is never deployed.
 
 ## Design system
 

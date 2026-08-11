@@ -47,11 +47,18 @@ for the mechanical half of that. `README.md § Search indexing` carries the full
 reasoning; the rules that matter when editing are these.
 
 - **Three things must agree: the canonical tags, `sitemap.xml`, and the internal
-  links.** All three name the apex host with the `.html` extension. The host also
-  answers `www.` and extensionless paths with a 200 and no redirect, so each page
-  is reachable four ways and the canonical is the only thing disambiguating them.
-  A canonical that disagrees with the sitemap is worse than no canonical at all.
-  Change all three together or none.
+  links.** All three name the apex host with **no `.html` extension** — `/support`,
+  not `/support.html`, and `/` rather than `/index.html`. That is what the host
+  serves: Cloudflare Pages strips the extension and 307s the `.html` form to it.
+  A sitemap listing redirecting URLs is a defect Google reports, and a canonical
+  pointing at a redirect contradicts itself. Change all three together or none.
+- **Check redirects with `curl` and no `-L`.** Following them reports the final
+  200 and hides the hop. That is exactly how this rule was first written
+  backwards, on 2026-08-11, and shipped in `4d67a0a` before being corrected —
+  `curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\n' <url>`.
+- **`www.stridebuddy.app` is the case the canonical tags genuinely earn.** It
+  answers 200 and does not redirect to apex, so nothing else distinguishes the
+  two hosts. A 301 at the Cloudflare level would be better and is not configured.
 - **`robots.txt` holds only the `Sitemap:` line, deliberately.** Cloudflare
   appends a managed block with the `User-agent: *` group and the AI-crawler
   rules. Do not add a second `User-agent: *` group here; change crawler rules in
@@ -78,7 +85,7 @@ reasoning; the rules that matter when editing are these.
 
 ## Verification
 
-- Serve the site locally with `python3 -m http.server 8000` when visual verification is needed.
+- Serve the site locally with `python3 serve.py 8000` when visual verification is needed. **Not `python3 -m http.server`** — production strips the `.html` extension and the internal links match production, so the plain server 404s on all of them and the site looks broken when it is not.
 - Check every changed page at narrow and wide widths, in light and dark appearance, with keyboard navigation, and with all local links and asset paths working.
 - Treat changes to `terms.html`, `privacy.html`, and support information as user-visible legal or policy changes rather than routine cleanup.
 - Do not commit `.DS_Store`, cache files, local server output, or other generated artifacts.

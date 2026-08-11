@@ -6,10 +6,14 @@
   <title>StrideBuddy | A training diary for track athletes</title>
   <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy handles reps, splits, strength work, races, Daily Review feedback, and records.">
   <!--
-    The host answers this page four ways: apex and www, with and without the
-    .html extension. Nothing redirects between them, so this tag is the only
-    thing telling a crawler which one is real. It must stay in step with
-    sitemap.xml and with the internal links, which all use apex + .html.
+    Apex, no extension. That is what the host serves: Cloudflare Pages strips
+    the extension, so /index.html 307s here and /support.html 307s to /support.
+    The canonical, sitemap.xml and every internal link name the 200-returning
+    form and must stay in step — a canonical pointing at a redirect contradicts
+    itself, and a sitemap full of redirects is a defect Google reports.
+
+    www. is the case this tag genuinely resolves: it answers with a 200 and
+    does not redirect to apex, so nothing else distinguishes the two hosts.
   -->
   <link rel="canonical" href="https://stridebuddy.app/">
   <meta name="apple-itunes-app" content="app-id=6760190939">
@@ -906,9 +910,9 @@
           <a href="#features">Features</a>
           <a href="#review">Review</a>
           <a href="#records">Records</a>
-          <a href="support.html">Support</a>
-          <a href="terms.html">Terms</a>
-          <a href="privacy.html">Privacy</a>
+          <a href="support">Support</a>
+          <a href="terms">Terms</a>
+          <a href="privacy">Privacy</a>
         </nav>
       </div>
       <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>

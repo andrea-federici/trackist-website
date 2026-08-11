@@ -2,11 +2,19 @@
 <!--
   Canonical URL set for stridebuddy.app.
 
-  Every page is listed at the apex host with its .html extension, matching the
-  rel="canonical" on the page itself and every internal link on the site. The
-  host also answers www., and answers extensionless paths such as /support, so
-  each page is reachable four ways; the canonical tags are what tell a crawler
-  which of the four is the real one, and this file must agree with them.
+  Every page is listed at the apex host WITHOUT the .html extension, matching
+  the rel="canonical" on the page itself and every internal link on the site.
+
+  That form is not a preference, it is what the host actually serves.
+  Cloudflare Pages strips the extension: /support.html returns a 307 to
+  /support, and /index.html a 307 to /. A sitemap that lists redirecting URLs
+  is a defect Google reports, and a canonical pointing at a redirect is a
+  self-contradicting signal, so all three — this file, the canonical tags, and
+  the internal links — name the 200-returning URL.
+
+  The host also answers www. with no redirect to apex. The canonical tags are
+  what resolve that; a 301 at the Cloudflare level would be better and is not
+  configured.
 
   /s/community is deliberately absent. It is a campaign landing page shared
   directly in forums, it near-duplicates the homepage, and it carries
@@ -23,19 +31,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://stridebuddy.app/support.html</loc>
+    <loc>https://stridebuddy.app/support</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://stridebuddy.app/privacy.html</loc>
+    <loc>https://stridebuddy.app/privacy</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://stridebuddy.app/terms.html</loc>
+    <loc>https://stridebuddy.app/terms</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
