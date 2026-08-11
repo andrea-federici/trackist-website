@@ -839,5 +839,34 @@
     </div>
   </footer>
 
+  <script>
+    /*
+      Campaign attribution.
+
+      A visitor arriving from a channel link such as /?c=instagram gets that
+      channel's campaign token on the App Store links, so the install is
+      attributed to the channel that sent them rather than to the site itself.
+      Without the parameter the links keep ct=website, which is also what
+      happens if this script never runs.
+
+      Only campaigns registered in App Store Connect are accepted, so a made-up
+      value cannot invent a campaign or point the button somewhere else. This
+      reads the URL and rewrites link attributes: no request, cookie, storage,
+      or third party is involved, and nothing about the visitor is recorded.
+    */
+    (function () {
+      var campaigns = ["instagram", "community"];
+      var c = new URLSearchParams(window.location.search).get("c");
+      if (campaigns.indexOf(c) === -1) return;
+
+      var links = document.querySelectorAll('a[href^="https://apps.apple.com/"]');
+      Array.prototype.forEach.call(links, function (link) {
+        var url = new URL(link.href);
+        url.searchParams.set("ct", c);
+        link.href = url.href;
+      });
+    })();
+  </script>
+
 </body>
 </html>

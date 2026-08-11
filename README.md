@@ -38,20 +38,38 @@ zero is a privacy floor rather than a broken link.
 
 ### What to share, per channel
 
-Share the page, not the App Store link, anywhere a visitor might be on a desktop.
-The page carries the token in its own call to action, so the attribution is the
-same either way.
+Share a page rather than the App Store link anywhere a visitor might be on a
+desktop, where an App Store link is a dead end. Every page below carries a token,
+so the attribution is the same either way.
 
 | Channel | Share this | Attributes as |
 | --- | --- | --- |
-| Instagram profile, "Explore StrideBuddy" | `https://stridebuddy.app/s/instagram` | `instagram` |
+| Instagram profile, "Explore StrideBuddy" | `https://stridebuddy.app/?c=instagram` | `instagram` |
 | Instagram profile, "Download StrideBuddy" | the `instagram` App Store link below | `instagram` |
 | Forums, Reddit, Discord, clubs, coaches | `https://stridebuddy.app/s/community` | `community` |
 | Everything else, and organic search | `https://stridebuddy.app` | `website` |
 
-Never share a bare `apps.apple.com` link. It carries no token, and the install
-is invisible. Never send channel traffic to the homepage either — it tags as
+Never share a bare `apps.apple.com` link. It carries no token, and the install is
+invisible. Never send channel traffic to the plain homepage either — it tags as
 `website` and drains the channel's own number.
+
+### Tagging the homepage with `?c=`
+
+Someone told to "explore" wants the full site, not a landing stub, so the
+homepage can carry any campaign's token. Adding `?c=<campaign>` to it rewrites
+the `ct` on its three App Store links, and an inline script at the bottom of
+`index.html` does the rewrite.
+
+Only campaigns named in that script's `campaigns` array are accepted, so a
+made-up value cannot invent a campaign or repoint the button; anything
+unrecognized leaves the links at `ct=website`. Add a channel there when you add
+one to App Store Connect. The script reads the URL and sets link attributes, and
+that is all it does: no request, cookie, storage, or third party, and nothing
+about the visitor is recorded. If it never runs, the links stay `ct=website`.
+
+The `/s/` pages remain the lightweight alternative for places where the full
+homepage is too heavy or reads as too much, such as a story link sticker or a
+forum reply.
 
 ### The three App Store campaign links
 
