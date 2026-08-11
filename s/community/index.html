@@ -3,8 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    IN USE — DO NOT DELETE.
+
+    This page is the /s/community landing page, and it is the link posted in
+    forums, on Reddit, in Discord and in club spaces. Its call to action is the
+    only place carrying ct=community, so deleting the page deletes the community
+    channel's attribution entirely.
+
+    It looks deletable and is not. Nothing in this repository links to it: the
+    inbound links live outside, in posts already published. Its sibling
+    /s/instagram was deleted on 2026-08-11 for exactly the reason this page is
+    kept — Instagram's "Explore" link needed the full homepage, while a forum
+    reply is somewhere a two-sentence page is the right size.
+
+    Deleting it fails silently. The site still builds, every other page still
+    renders, no test breaks, and posted links start 404ing while the community
+    campaign quietly reports nothing. See AGENTS.md § Campaign attribution.
+  -->
   <title>StrideBuddy | A training diary for track athletes</title>
   <meta name="description" content="StrideBuddy records a session in the same terms you and your coach use at the track. Log reps, splits, races, and strength work in one diary.">
+  <!--
+    Keep this page out of the search index. It carries the same title as the
+    homepage and a condensed version of its copy, so indexing it would put two
+    StrideBuddy pages in competition for the same query and split whatever
+    authority the site earns.
+
+    "follow" is the load-bearing half. This page is what gets posted in forums,
+    on Reddit and in Discord, so it is where the site's inbound links land; the
+    directive lets a crawler keep following the two links back to the homepage
+    and pass that value on. noindex,nofollow would throw it away.
+
+    This does not change how the page behaves for a visitor, and it does not
+    touch campaign attribution — the ct=community token on the call to action
+    is unaffected. See AGENTS.md § Campaign attribution.
+  -->
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
   <link rel="icon" type="image/png" href="../../assets/stridebuddy_icon_track.png">

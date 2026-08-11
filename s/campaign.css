@@ -1,9 +1,20 @@
 /*
-  Campaign landing pages (/s/*).
+  Campaign landing pages (/s/*). IN USE — DO NOT DELETE.
+
+  This styles the App Store call to action on /s/community, which is the link
+  posted in forums, on Reddit and in Discord. It has exactly one consumer, which
+  makes it look like a leftover worth inlining or removing. It is neither.
+
+  Deleting it fails silently in the worst way: /s/community still returns 200 and
+  still carries ct=community, so attribution keeps working while the page renders
+  as an unstyled call to action — a broken-looking page at the end of every link
+  posted in a community, which is the one audience least forgiving of it.
 
   Loaded after legal.css, which supplies the shared paper/ink tokens, layout,
   and typography. Only the App Store call to action is specific to these pages;
   the button tokens mirror the landing page and iOS/docs/DESIGN.md.
+
+  See AGENTS.md § Campaign attribution.
 */
 
 :root {

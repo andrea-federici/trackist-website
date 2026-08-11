@@ -14,8 +14,10 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
-| `s/community/index.html` | Campaign landing page for community links (`/s/community`). |
+| `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
+| `robots.txt` | Sitemap declaration only. Cloudflare appends the managed crawler block. |
+| `sitemap.xml` | The four indexable URLs. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 
@@ -94,8 +96,67 @@ are in their landing pages' call to action.
 
 Use the generated link verbatim when adding a channel — note the
 `/app/apple-store/` path, which differs from the plain `/app/` product URL.
-Attribution comes from the campaign token alone: the site adds no analytics,
-cookies, scripts, or third-party requests, and it should stay that way.
+Attribution comes from the campaign token alone. The site adds no analytics,
+cookies, or third-party requests, and it must stay that way — but note that
+"no scripts" stopped being literally true: `index.html` carries the inline
+campaign script and an inert block of JSON-LD. Both are first-party, neither
+makes a request or records anything, and both are deliberate. Judge a proposed
+script by whether it tracks, fetches, or adds a dependency, not by whether it
+is JavaScript.
+
+## Search indexing
+
+As of 2026-08-11 the site was **absent from Google's index entirely** — a search
+for the brand name and its own tagline returned nothing, and `site:stridebuddy.app`
+returned nothing. The files below are the fix for the mechanical half of that.
+They do not make the site rank; they make it eligible.
+
+### The host answers every page four ways
+
+`stridebuddy.app` and `www.stridebuddy.app` both return 200, and so do both
+`/support.html` and `/support`. Nothing redirects between them. Left alone, that
+is four URLs per page competing as duplicates.
+
+`rel="canonical"` on every page resolves it, and it names **apex host, `.html`
+extension** — the form every internal link already uses. `sitemap.xml` lists the
+same four URLs. If one of those three ever disagrees with the others, the signal
+is worse than having none. A 301 from `www` to apex at the Cloudflare level would
+be better still and is not configured.
+
+### robots.txt is mostly not ours
+
+Cloudflare serves a **managed robots.txt** block for this zone, injected between
+`# BEGIN Cloudflare Managed content` and `# END Cloudflare Managed Content`. It
+already grants `User-agent: *` / `Allow: /` with `Content-Signal: search=yes`, and
+disallows the AI training crawlers — GPTBot, ClaudeBot, CCBot, Google-Extended,
+Applebot-Extended, Bytespider, Amazonbot, meta-externalagent.
+
+The repository's `robots.txt` therefore holds **only** the `Sitemap:` line, which
+is group-independent and cannot conflict. Do not add a `User-agent: *` group to
+it — two groups for one agent is ambiguous and crawlers resolve it inconsistently.
+Crawler rules change in the Cloudflare dashboard, under AI Crawl Control.
+
+**Verify after any deploy that touches this**: fetch `https://stridebuddy.app/robots.txt`
+and confirm both the `Sitemap:` line and the managed block are present. The
+append behaviour is Cloudflare's, not ours, and a change on their side would be
+silent.
+
+### Structured data
+
+`index.html` carries a `SoftwareApplication` JSON-LD block. It is inert JSON —
+no execution, no request, no third party — so it does not bear on the
+dependency-free rule.
+
+It deliberately omits `aggregateRating`. Google requires rating markup to reflect
+ratings genuinely displayed on the page, and the App Store count was 0/0/1 across
+`us`/`gb`/`it` on 2026-08-11. Add it only when a real figure exists **and** the
+page shows it.
+
+### Not done here
+
+Google Search Console and Bing Webmaster Tools verification, and sitemap
+submission. Both need the owner's account and cannot be done from the repository.
+Until the sitemap is submitted, none of the above is doing anything.
 
 ## Running it
 

@@ -23,8 +23,8 @@ measurable — nothing fails, no test breaks, and the installs quietly report as
 | Thing | Why it must stay |
 | --- | --- |
 | The inline script at the bottom of `index.html` | Reads `?c=<campaign>` and rewrites `ct` on the three App Store links. **The Instagram profile's "Explore StrideBuddy" link is `https://stridebuddy.app/?c=instagram` and depends entirely on it.** Delete the script and that traffic reports as `website` |
-| `s/community/index.html` | The `/s/community` landing page, used when posting in forums, Reddit, Discord and club spaces, where a bare App Store link is a dead end for desktop readers and reads as spam |
-| `s/campaign.css` | Styles the call to action on that page. One consumer is not a reason to inline it |
+| `s/community/index.html` | The `/s/community` landing page, and the only thing carrying `ct=community`. **It is the link posted in forums, on Reddit, in Discord and in club spaces**, where a bare App Store link is a dead end for desktop readers and reads as spam. Delete it and every link already posted 404s while that campaign reports nothing |
+| `s/campaign.css` | Styles the call to action on `/s/community`. **One consumer is not a reason to inline or remove it.** Deleting it is the quietest failure here: the page still returns 200 and still carries its token, so attribution keeps working while the page renders unstyled at the end of every community link |
 | The `pt` and `ct` parameters on every `apps.apple.com` link | `pt=128627634` is the provider token; `ct` is the campaign. A link missing them is an invisible install |
 
 Rules when touching any of it:
@@ -32,10 +32,42 @@ Rules when touching any of it:
 - **The script is not a duplicate of the landing pages.** It was proposed for deletion once on those grounds. `/s/instagram` was deleted instead, because Instagram's "Explore" link promises the app and a two-sentence stub is not that. Do not re-litigate this without the user.
 - **The script is safe by construction.** It only honours campaigns in its own allowlist, makes no request, sets no cookie or storage, contacts no third party, and records nothing about the visitor. If it never runs, every link stays at `ct=website`, exactly as before it existed.
 - **Adding a channel needs three things in sync:** a campaign registered in App Store Connect, its name added to the script's `campaigns` array, and a row in `README.md`. Two out of three reports nothing.
+- **Nothing in this repository links to `/s/community`, and that is not evidence it is unused.** Its inbound links live outside: in forum threads, Reddit comments and Discord messages already posted. A reachability check run inside the repo will call it an orphan and be wrong. The same holds for the `?c=` parameter, whose only caller is the Instagram profile.
 - **`/s/instagram` is deleted on purpose.** Do not recreate it because a document mentions it; older notes predate the change.
 - Never add analytics, pixels, cookies, fonts, or any third-party request. That prohibition is real and unchanged, and `privacy.html` is written on the assumption it holds.
 
 `README.md § Campaign attribution` carries the full link list and the per-channel rules.
+
+## Search indexing: keep it self-consistent
+
+The site was absent from Google's index entirely on 2026-08-11. `robots.txt`,
+`sitemap.xml`, the `rel="canonical"` tags, the `noindex, follow` on
+`/s/community`, and the `SoftwareApplication` JSON-LD in `index.html` are the fix
+for the mechanical half of that. `README.md § Search indexing` carries the full
+reasoning; the rules that matter when editing are these.
+
+- **Three things must agree: the canonical tags, `sitemap.xml`, and the internal
+  links.** All three name the apex host with the `.html` extension. The host also
+  answers `www.` and extensionless paths with a 200 and no redirect, so each page
+  is reachable four ways and the canonical is the only thing disambiguating them.
+  A canonical that disagrees with the sitemap is worse than no canonical at all.
+  Change all three together or none.
+- **`robots.txt` holds only the `Sitemap:` line, deliberately.** Cloudflare
+  appends a managed block with the `User-agent: *` group and the AI-crawler
+  rules. Do not add a second `User-agent: *` group here; change crawler rules in
+  the Cloudflare dashboard under AI Crawl Control.
+- **The JSON-LD is not a script in the sense the dependency rule means.** It is
+  inert data: no execution, no request, no third party. It omits
+  `aggregateRating` on purpose — Google requires that to reflect a rating shown
+  on the page, and there is effectively no rating yet. Do not add one to look
+  more complete.
+- **`/s/community` is `noindex, follow`, and `follow` is the load-bearing half.**
+  That page is where the site's inbound forum and Reddit links land. `nofollow`
+  would discard them. It near-duplicates the homepage, which is why it is not
+  indexed, and it is absent from `sitemap.xml` for the same reason.
+- Adding a page means adding it to `sitemap.xml` with a canonical tag, or
+  deciding it is `noindex` and leaving it out. Silently doing neither is the
+  failure mode.
 
 ## Shared Design Values
 
