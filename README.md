@@ -215,6 +215,26 @@ already point Bing at the apex.
 **Still not done, and not doable from this repository:** the `www` → apex 301,
 which is a Cloudflare setting. Tracked in `WEB-003`.
 
+### Bing's "Alt attribute for images is missing" is wrong — do not fix it
+
+Bing URL Inspection reports one instance of this on the homepage. It is the
+phone bezel in the hero:
+
+```html
+<img class="phone-bezel" src="assets/iphone-17-black-bezel.png" alt="" aria-hidden="true">
+```
+
+`alt=""` is not a missing `alt`. It is the standards-required way to mark a
+**decorative** image so assistive technology skips it, and `aria-hidden="true"`
+says the same thing again. Bing's scanner counts empty alt as absent, which is a
+common crawler false positive.
+
+**Giving it descriptive text would be a regression, not a fix.** The bezel is a
+frame drawn around a screenshot that already carries its own `alt`; describing it
+makes every screen reader announce "iPhone 17 black bezel" over the hero. Leave
+it empty. Every other `<img>` on the site has real alt text — that was checked on
+2026-08-12, not assumed.
+
 ## Running it
 
 No build needed. Use `serve.py`, not `python3 -m http.server`:
