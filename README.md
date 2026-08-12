@@ -184,6 +184,13 @@ Google is verified differently and needs nothing in this repository. It uses a
 the Cloudflare zone, which is why it covers apex and `www` together while Bing's
 covers only the URL it was added under.
 
+**The two consoles are signed in under different identities.** Which one is which
+is recorded in the planning repository at `Planning/ACCOUNTS.md`, deliberately not
+here: **this repository is public**, and an address written into it is
+permanently harvestable. Check there before assuming a console is reachable from
+whichever account you happen to be signed in to — the *Import from Google Search
+Console* path in Bing failed on 2026-08-12 for what was most likely this reason.
+
 ### State as of 2026-08-12
 
 **Google: done.** The Domain property is verified, `sitemap.xml` is submitted, and
