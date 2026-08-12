@@ -203,8 +203,14 @@ And `Google-selected canonical: Inspected URL` means Google had already resolved
 the homepage correctly on its own, so the canonical tag earns its place on the
 legal pages and the `www` variants rather than here.
 
-**Bing: verification pending**, waiting on the property being confirmed against
-`BingSiteAuth.xml`.
+**Bing: verified** 2026-08-12 against `BingSiteAuth.xml`, after the *Import from
+Google Search Console* path failed to find the property and the site was added
+manually instead.
+
+Bing's is a **URL property**, not a domain one, so unlike Google's it covers only
+`https://stridebuddy.app` and not `www`. That is deliberate: a second property for
+`www` would split the reporting rather than add to it, and the canonical tags
+already point Bing at the apex.
 
 **Still not done, and not doable from this repository:** the `www` → apex 301,
 which is a Cloudflare setting. Tracked in `WEB-003`.
