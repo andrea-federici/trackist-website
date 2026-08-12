@@ -18,6 +18,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
 | `robots.txt` | Sitemap declaration only. Cloudflare appends the managed crawler block. |
 | `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
+| `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
 | `sitemap.xml` | The four indexable URLs. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
@@ -167,11 +168,46 @@ ratings genuinely displayed on the page, and the App Store count was 0/0/1 acros
 `us`/`gb`/`it` on 2026-08-11. Add it only when a real figure exists **and** the
 page shows it.
 
-### Not done here
+### Search engine verification
 
-Google Search Console and Bing Webmaster Tools verification, and sitemap
-submission. Both need the owner's account and cannot be done from the repository.
-Until the sitemap is submitted, none of the above is doing anything.
+`BingSiteAuth.xml` at the site root proves domain ownership to Bing Webmaster
+Tools. **Do not move, rename or delete it.** Bing re-checks periodically rather
+than once, so removing it un-verifies the property and silently stops the
+reporting — the same failure shape as the campaign tokens above.
+
+Its contents are byte-identical to the file Bing generated; leave them alone. The
+token inside is *meant* to be publicly served, so it is not a secret and belongs
+in Git. Keep it out of `sitemap.xml` — it is not a page.
+
+Google is verified differently and needs nothing in this repository. It uses a
+**Domain property** (`sc-domain:stridebuddy.app`), proven by a DNS `TXT` record on
+the Cloudflare zone, which is why it covers apex and `www` together while Bing's
+covers only the URL it was added under.
+
+### State as of 2026-08-12
+
+**Google: done.** The Domain property is verified, `sitemap.xml` is submitted, and
+URL Inspection reports the homepage `indexed`.
+
+**The site was never missing from Google's index.** That was this work's founding
+assumption and it was wrong — the homepage has been indexed since **17 July**,
+three weeks before 1.0.4 shipped. It was believed because a `site:stridebuddy.app`
+search came back with nothing relevant, from a tool that silently ignores the
+`site:` operator. **Check a claim like that against Search Console, which is
+Google reporting on itself, rather than against a search box.**
+
+Two things followed from reading the real report. Discovery names
+`apps.apple.com` and `appagg.com` as referring pages, so the App Store listing
+and the aggregators scraping it are what found the site — tracked as `GROW-010`.
+And `Google-selected canonical: Inspected URL` means Google had already resolved
+the homepage correctly on its own, so the canonical tag earns its place on the
+legal pages and the `www` variants rather than here.
+
+**Bing: verification pending**, waiting on the property being confirmed against
+`BingSiteAuth.xml`.
+
+**Still not done, and not doable from this repository:** the `www` → apex 301,
+which is a Cloudflare setting. Tracked in `WEB-003`.
 
 ## Running it
 
