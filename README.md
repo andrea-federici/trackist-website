@@ -272,14 +272,44 @@ The page uses real app screenshots exported with a transparent device frame:
 | File | Screen | Used in |
 | --- | --- | --- |
 | `assets/screenshots/today.png` | Today | Hero (layered inside `assets/iphone-17-black-bezel.png`) |
-| `assets/screenshots/central_log.png` | Central Log tray | Logging section |
+| `assets/screenshots/central_log.png` | Add a session tray, Log face | Logging section |
 | `assets/screenshots/log_strength.png` | Strength logging chip picker | Logging section |
 | `assets/screenshots/log_structured.png` | Structured track-session logging | Logging section |
+| `assets/screenshots/central_plan.png` | Add a session tray, Plan face | Plan section |
 | `assets/screenshots/review.png` | Review tab / Daily Review feedback | Review section |
+| `assets/screenshots/volume.png` | Review tab / weekly volume and training mix | Volume section |
 | `assets/screenshots/records.png` | Records / speed curve | Records section |
+| `assets/screenshots/race_calendar.png` | Race calendar | Races section |
+| `assets/screenshots/diary.png` | Diary week view | Unused on the page; kept in sync for the App Store posters |
 
-Current exports are **1800×3680** PNGs. Keep the same aspect ratio and transparent
-device treatment when replacing them.
+Every file above is the composite: the raw screen scaled into the device frame,
+**2015×4120** with the area outside the phone transparent. `today.png` is the one
+exception. The hero layers the frame over it in CSS, so that file is the bare
+**1206×2622** screen. The `<img>` tags declare 1800×3680, which is the same
+aspect at a smaller nominal size and only sets the intrinsic ratio.
+
+Each screen also keeps its unframed capture beside it as `<name>_raw.png`. Those
+are the inputs, not page assets: nothing links to them, and they exist so a frame
+change does not need the screenshots retaken. Previous versions are archived
+under `assets/screenshots/old/`, which is gitignored.
+
+The frame is applied by `../iOS/AppStore/tools/bezel.py`, which measures the
+screen window out of the frame image rather than assuming an offset:
+
+```sh
+~/.cache/stridebuddy-social/venv/bin/python ../iOS/AppStore/tools/bezel.py \
+  assets/screenshots/central_log_raw.png assets/screenshots/central_plan_raw.png \
+  assets/screenshots/diary_raw.png assets/screenshots/log_strength_raw.png \
+  assets/screenshots/log_structured_raw.png assets/screenshots/race_calendar_raw.png \
+  assets/screenshots/records_raw.png assets/screenshots/review_raw.png \
+  assets/screenshots/volume_raw.png --out assets/screenshots --strip-raw
+```
+
+**Do not pass `today_raw.png` to it.** That would write a framed `today.png` over
+the bare screen the hero needs, and the result is a phone drawn inside a phone.
+`today.png` is a plain copy of `today_raw.png`.
+
+Keep the same aspect ratio and transparent device treatment when replacing them.
 
 ## Contact
 

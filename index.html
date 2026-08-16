@@ -72,7 +72,9 @@
       "https://stridebuddy.app/assets/screenshots/today.png",
       "https://stridebuddy.app/assets/screenshots/log_structured.png",
       "https://stridebuddy.app/assets/screenshots/review.png",
-      "https://stridebuddy.app/assets/screenshots/records.png"
+      "https://stridebuddy.app/assets/screenshots/records.png",
+      "https://stridebuddy.app/assets/screenshots/race_calendar.png",
+      "https://stridebuddy.app/assets/screenshots/volume.png"
     ],
     "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races the way the session was written, read Daily Review feedback after each workout, and keep personal bests and rep records in view.",
     "featureList": [
@@ -80,6 +82,8 @@
       "Hurdles and steeplechase reps kept distinct from flat distances",
       "Strength, road, trail and race logging",
       "Personal bests and rep records",
+      "Planned sessions and a race calendar",
+      "Weekly volume and training mix from your own entries",
       "Daily Review feedback after each session",
       "iCloud sync across devices"
     ],
@@ -478,8 +482,15 @@
     }
     .recap-stage .phone { position: relative; width: 320px; transform: rotate(2deg); }
 
+    /* Mirrored detail section, so a run of them alternates instead of marching
+       down the same side. The copy stays first in the DOM: the stack order at
+       narrow widths is reset in the responsive block below. */
+    .recap-grid.reverse { grid-template-columns: .9fr 1fr; }
+    .recap-grid.reverse .recap-stage { order: -1; }
+    .recap-grid.reverse .recap-stage .phone { transform: rotate(-2deg); }
+
     /* ---------- Screenshots showcase ---------- */
-    .showcase { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .showcase, .band { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
     .shots { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
     .shot { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 300px; }
     .shot .cap { text-align: center; }
@@ -487,6 +498,8 @@
     .shot .cap p { margin: 4px 0 0; color: var(--ink-3); font-size: 13.5px; }
 
     .recap-stage.tint-slate::before { background: var(--race-soft); }
+    .recap-stage.tint-moss::before { background: var(--moss-soft); }
+    .recap-stage.tint-purple::before { background: var(--purple-soft); }
 
     /* ---------- How it works ---------- */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
@@ -557,7 +570,8 @@
       .hero { padding: 48px 0 24px; }
       .hero-phones { order: -1; }
       .problem-grid, .feat-grid, .steps { grid-template-columns: 1fr; }
-      .recap-grid { grid-template-columns: 1fr; gap: 20px; }
+      .recap-grid, .recap-grid.reverse { grid-template-columns: 1fr; gap: 20px; }
+      .recap-grid.reverse .recap-stage { order: 0; }
       .recap-copy h2 { max-width: 14em; }
       .recap-stage { min-height: 590px; }
       .cred-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -594,8 +608,10 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a class="navlink" href="#why">Why StrideBuddy</a>
         <a class="navlink" href="#features">Features</a>
+        <a class="navlink" href="#plan">Plan</a>
         <a class="navlink" href="#review">Review</a>
         <a class="navlink" href="#records">Records</a>
+        <a class="navlink" href="#races">Races</a>
         <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
       </nav>
     </div>
@@ -622,7 +638,7 @@
 
         <div class="hero-phones">
           <div class="phone-mockup">
-            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="Today's training schedule in StrideBuddy">
+            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy's Today screen, with the prompt to log a session and this week's training">
             <img class="phone-bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
           </div>
         </div>
@@ -683,7 +699,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
             </div>
             <h3>Five ways to start a log</h3>
-            <p>Choose continuous, structured, strength, or race logging. For anything that doesn’t fit those four, use the free-text Quick Log. They all open from the same Log button.</p>
+            <p>Choose continuous, structured, strength, or race logging. For anything that doesn’t fit those four, use the free-text Quick Note. They all open from the same Log button.</p>
           </article>
 
           <article class="fcard t-event">
@@ -733,7 +749,7 @@
 
         <div class="shots">
           <div class="shot">
-            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="The five session types in StrideBuddy's Log menu" loading="lazy">
+            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="StrideBuddy's Add a session tray, showing the five session types" loading="lazy">
             <div class="cap">
               <h3>One place to start</h3>
               <p>Choose continuous, structured, strength, race, or a quick note from one menu.</p>
@@ -759,6 +775,30 @@
       </div>
     </section>
 
+    <!-- ============ PLAN ============ -->
+    <section id="plan" class="section recap">
+      <div class="wrap recap-grid reverse">
+        <div class="recap-copy">
+          <p class="eyebrow">Plan</p>
+          <h2>Plan the session now, log the result later.</h2>
+          <p>
+            The tray that logs a session will also plan one. Switch it to Plan, choose a day
+            ahead, and pick the workout type you have in mind.
+          </p>
+          <div class="recap-points" aria-label="What you can plan in StrideBuddy">
+            <div class="recap-point"><strong>Log or plan</strong><span>Log covers today and any earlier day. Plan covers tomorrow onwards, as far as a year out.</span></div>
+            <div class="recap-point"><strong>The same session types</strong><span>Continuous, structured, strength, race, or a quick note.</span></div>
+            <div class="recap-point"><strong>Waiting on Today</strong><span>A planned session sits on Today and in your Diary until you log the result against it.</span></div>
+            <div class="recap-point"><strong>Races go to the calendar</strong><span>Plan a race and it lands in your race calendar instead.</span></div>
+          </div>
+        </div>
+
+        <div class="recap-stage tint-moss">
+          <img class="phone" src="assets/screenshots/central_plan.png" width="1800" height="3680" alt="StrideBuddy's Add a session tray switched to Plan, scheduling a workout for tomorrow" loading="lazy">
+        </div>
+      </div>
+    </section>
+
     <!-- ============ REVIEW (Daily Review) ============ -->
     <section id="review" class="section recap">
       <div class="wrap recap-grid">
@@ -771,7 +811,7 @@
             reducing the workout to a score.
           </p>
           <div class="recap-points" aria-label="What Daily Review includes">
-            <div class="recap-point"><strong>Ready when you save</strong><span>Your review appears after each logged workout.</span></div>
+            <div class="recap-point"><strong>Ready when you save</strong><span>Saving a workout updates your review, up to three times a day.</span></div>
             <div class="recap-point"><strong>About this workout</strong><span>It can discuss the stimulus, execution, effort, and how the session felt.</span></div>
             <div class="recap-point"><strong>Connected to your week</strong><span>A compact recent history adds context without sending your entire diary.</span></div>
             <div class="recap-point"><strong>Feedback, not a grade</strong><span>You get useful takeaways and things to watch, not a ranking.</span></div>
@@ -780,6 +820,31 @@
 
         <div class="recap-stage">
           <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Daily Review feedback for a workout in StrideBuddy" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VOLUME ============ -->
+    <section id="volume" class="section recap band">
+      <div class="wrap recap-grid reverse">
+        <div class="recap-copy">
+          <p class="eyebrow">Volume</p>
+          <h2>How much you trained, counted from the diary.</h2>
+          <p>
+            Below the Daily Review, the same tab adds up what you logged: a bar for each week,
+            the sessions behind any week you open, and the mix of work across the month. None
+            of it is estimated.
+          </p>
+          <div class="recap-points" aria-label="What the Review tab counts">
+            <div class="recap-point"><strong>Week by week</strong><span>Four weeks on screen at a time, and you can page back through earlier ones.</span></div>
+            <div class="recap-point"><strong>Open a week</strong><span>Tap a bar to see its days and the sessions inside them.</span></div>
+            <div class="recap-point"><strong>Training mix</strong><span>Which kinds of session your month was made of.</span></div>
+            <div class="recap-point"><strong>Counted, not scored</strong><span>No readiness score and no training load index. These are your own entries, added up.</span></div>
+          </div>
+        </div>
+
+        <div class="recap-stage tint-purple">
+          <img class="phone" src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's Review tab" loading="lazy">
         </div>
       </div>
     </section>
@@ -805,6 +870,31 @@
 
         <div class="recap-stage tint-slate">
           <img class="phone" src="assets/screenshots/records.png" width="1800" height="3680" alt="Signature speed curve and personal records in StrideBuddy" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RACES ============ -->
+    <section id="races" class="section recap">
+      <div class="wrap recap-grid reverse">
+        <div class="recap-copy">
+          <p class="eyebrow">Races</p>
+          <h2>The races you have coming, and the ones you have run.</h2>
+          <p>
+            The race calendar keeps upcoming meets and past results on one page. A race you
+            entered weeks ahead and a race you logged straight into the diary both appear
+            here, so the list stays complete.
+          </p>
+          <div class="recap-points" aria-label="What the race calendar holds">
+            <div class="recap-point"><strong>What’s next</strong><span>Each upcoming race with its distance, venue, and the days left.</span></div>
+            <div class="recap-point"><strong>A, B, or C</strong><span>Full taper, short taper, or train through. You say which when you add the race.</span></div>
+            <div class="recap-point"><strong>Season or all time</strong><span>Read one season of results, or your whole history.</span></div>
+            <div class="recap-point"><strong>Personal bests marked</strong><span>A PB is flagged on the race where you set it.</span></div>
+          </div>
+        </div>
+
+        <div class="recap-stage">
+          <img class="phone" src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in StrideBuddy's race calendar" loading="lazy">
         </div>
       </div>
     </section>
@@ -837,7 +927,7 @@
     </section>
 
     <!-- ============ CREDIBILITY ============ -->
-    <section class="section cred" style="background:var(--paper-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+    <section class="section cred band">
       <div class="wrap cred-grid">
         <div>
           <p class="eyebrow">For track athletes</p>
@@ -908,8 +998,10 @@
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="#why">Why StrideBuddy</a>
           <a href="#features">Features</a>
+          <a href="#plan">Plan</a>
           <a href="#review">Review</a>
           <a href="#records">Records</a>
+          <a href="#races">Races</a>
           <a href="support">Support</a>
           <a href="terms">Terms</a>
           <a href="privacy">Privacy</a>
