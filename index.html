@@ -515,7 +515,10 @@
 
     /* ---------- Credibility ---------- */
     .cred { }
-    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+    /* The session column is the narrower one. Each card holds a label and a
+       session name and nothing else, so a half-width column left it stretched
+       with the name floating at the far left of a lot of empty card. */
+    .cred-grid { display: grid; grid-template-columns: 1fr .68fr; gap: 44px; align-items: center; }
     .cred h2 { font-size: clamp(28px, 3.6vw, 40px); }
     .cred .pull { font-family: var(--sans); font-style: italic; font-size: 20px; color: var(--ink-2); margin: 20px 0 0; }
     .session-list { display: flex; flex-direction: column; gap: 10px; }
@@ -528,7 +531,6 @@
     .session .body { flex: 1; min-width: 0; }
     .session .name { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); }
     .session .kind { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
-    .session .val { font-family: var(--mono); font-size: 13px; color: var(--ink-3); flex: none; }
     .k-track { color: var(--accent); } .b-track { background: var(--accent); }
     .k-cont  { color: var(--moss); }   .b-cont  { background: var(--moss); }
     .k-str   { color: var(--purple); } .b-str   { background: var(--purple); }
@@ -943,32 +945,26 @@
           <div class="session">
             <span class="bar b-track"></span>
             <div class="body"><div class="kind k-track">Track</div><div class="name">6×150m speed endurance</div></div>
-            <span class="val">900 m</span>
           </div>
           <div class="session">
             <span class="bar b-track"></span>
             <div class="body"><div class="kind k-track">Track</div><div class="name">5×300m race-pace work</div></div>
-            <span class="val">1500 m</span>
           </div>
           <div class="session">
             <span class="bar b-cont"></span>
             <div class="body"><div class="kind k-cont">Continuous</div><div class="name">3×1000m aerobic quality</div></div>
-            <span class="val">3000 m</span>
           </div>
           <div class="session">
             <span class="bar b-cont"></span>
             <div class="body"><div class="kind k-cont">Continuous</div><div class="name">Tempo intervals and hill sprints</div></div>
-            <span class="val">8 km</span>
           </div>
           <div class="session">
             <span class="bar b-str"></span>
             <div class="body"><div class="kind k-str">Strength</div><div class="name">Lower body + plyos</div></div>
-            <span class="val">45 min</span>
           </div>
           <div class="session">
             <span class="bar b-race"></span>
             <div class="body"><div class="kind k-race">Race</div><div class="name">400m personal best</div></div>
-            <span class="val">49.84</span>
           </div>
         </div>
       </div>
