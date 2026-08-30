@@ -24,20 +24,25 @@
     <div class="wrap">
       <p class="eyebrow">Terms</p>
       <h1>Terms of use</h1>
-      <p class="muted">Last updated: July 28, 2026</p>
+      <p class="muted">Last updated: August 30, 2026</p>
 
       <p>These Terms of Use apply when you use StrideBuddy. If you use the app, or continue after its onboarding, adult confirmation, and AI disclosure, you agree to these Terms. The <a href="privacy">Privacy Policy</a> explains how information is handled and the choices available to you. Do not use StrideBuddy if you do not agree to these Terms.</p>
-      <p>StrideBuddy is provided by Andrea Federici, an individual trader in Italy.</p>
+      <p>StrideBuddy is provided by Andrea Federici, an independent developer in Italy.</p>
 
       <h2>What StrideBuddy is</h2>
-      <p>StrideBuddy is an iOS training diary for competitive track-and-field athletes. It stores your diary on your device, and in your own iCloud account when you are signed in to iCloud. You can use it to log workouts, read your diary, track records, and, when AI is enabled, receive Daily Review feedback based on selected diary data.</p>
+      <p>StrideBuddy is an iOS training diary for competitive track-and-field athletes. It stores your diary on your device so you can use it offline. If you connect a StrideBuddy account, it also stores an account copy on its server so your devices can restore and sync the same diary. You can log workouts, read your diary, track records, and use enabled AI features.</p>
 
       <h2>Eligibility</h2>
       <p>You must be legally allowed to use StrideBuddy where you live, and you must be at least 18 years old. The app is intended for adults, not for children or teenagers.</p>
 
       <h2>Your diary and content</h2>
-      <p>You are responsible for the workouts, notes, profile information, personal bests, race results, tags, and any other content you add to StrideBuddy. Your diary is stored on your device, and in your own iCloud account if you are signed in to iCloud. StrideBuddy does not keep a copy. If AI features are enabled, selected diary data required for a request may be sent to StrideBuddy’s backend and Google Gemini as explained in the Privacy Policy.</p>
+      <p>You are responsible for the workouts, notes, profile information, personal bests, race results, tags, and other content you add to StrideBuddy. If you connect an account, you allow StrideBuddy to keep a server copy of this content to sync and restore your diary. If AI features are enabled, selected diary data required for a request may be sent to StrideBuddy’s backend and Google Gemini as explained in the Privacy Policy.</p>
       <p>You allow StrideBuddy to process the content you enter only when necessary to run the app, provide enabled AI features, protect the service, comply with the law, and improve reliability and safety. Do not enter content that you have no right to use or do not want enabled app features to process.</p>
+
+      <h2>Accounts, offline use, and sync</h2>
+      <p>StrideBuddy uses Sign in with Apple through Firebase Authentication. Keep access to the Apple Account you use for StrideBuddy. Support cannot move a diary to another person based only on an email claim.</p>
+      <p>The app saves changes on your device before it sends them to the server. A temporary network or service problem should not stop local logging. When devices change the same entry while offline, StrideBuddy uses server revisions rather than device clocks. It may ask you to choose between two versions so it does not silently discard a note or edit.</p>
+      <p>For an existing diary, server sync starts only after the app and server match stable entry IDs, counts, and content hashes. If they do not match, migration stops and the existing local and iCloud diary remains available.</p>
 
       <h2>Ownership</h2>
       <p>You continue to own the diary content you put into StrideBuddy. StrideBuddy does not claim ownership of your workouts, notes, profile details, personal bests, or other diary entries.</p>
@@ -58,7 +63,7 @@
       <p>If enabled, the app sends a small set of interaction and reliability events to PostHog EU Cloud. It does not send workout notes, Quick Log text, detailed workout content, results, AI prompts or output, contact information, advertising identifiers, or location. The Privacy Policy contains the full analytics description and retention period.</p>
 
       <h2>Third-party services</h2>
-      <p>Some parts of the app and backend rely on third-party services. These include Apple iCloud, which stores your diary in your own Apple Account when you are signed in, Google Gemini for AI generation, PostHog EU Cloud when optional product analytics is enabled, and infrastructure providers for hosting, caching, networking, or security. StrideBuddy does not control those services, and their own terms and privacy commitments may apply. Except where applicable law says otherwise, StrideBuddy is not responsible for third-party services.</p>
+      <p>Some parts of the app and backend rely on third-party services. These include Apple for Sign in with Apple and older private iCloud archives, Firebase Authentication for account identity, Render for hosting and account storage, Google Gemini for AI generation, and PostHog EU Cloud when optional product analytics is enabled. StrideBuddy does not control those services, and their own terms and privacy commitments may apply. Except where applicable law says otherwise, StrideBuddy is not responsible for third-party services.</p>
 
       <h2>Acceptable use</h2>
       <p>You must not misuse StrideBuddy, its backend, or its AI features. In particular, you agree not to:</p>
@@ -79,13 +84,14 @@
       <p>If you download StrideBuddy from Apple’s App Store, Apple’s terms and its standard licensed application terms may also apply. Apple is not responsible for StrideBuddy’s AI features, backend, support, or privacy practices unless Apple’s terms state otherwise.</p>
 
       <h2>Changes and availability</h2>
-      <p>StrideBuddy may change, suspend, or end features, including AI features, when the app or its legal, provider, security, or operational requirements change. If a change materially affects the data, provider, purpose, or risk involved in AI processing, AI features will not run again until you accept the change in the app.</p>
+      <p>StrideBuddy may change, suspend, or end features, including account sync and AI features, when the app or its legal, provider, security, or operational requirements change. The local diary remains available during an ordinary backend outage. If a change materially affects the data, provider, purpose, or risk involved in AI processing, AI features will not run again until you accept the change in the app.</p>
 
       <h2>Disclaimers and limits</h2>
       <p>StrideBuddy is provided as available, without a promise that it will always be accurate, uninterrupted, or free of errors. To the fullest extent the law allows, StrideBuddy is not liable for indirect, incidental, special, consequential, or punitive damages, or for decisions you make based on the app’s output. These Terms do not limit any right that applicable law does not allow StrideBuddy to limit.</p>
 
       <h2>Termination</h2>
-      <p>You may stop using StrideBuddy at any time. StrideBuddy may limit or block access to its backend when necessary to protect the service, comply with the law, enforce these Terms, or prevent abuse. StrideBuddy has no account system, so deleting the app removes the diary copy from that device. If you use iCloud, the copy in your Apple Account remains until you delete it in your device’s iCloud settings. Any iOS backups or exports you control may still contain a copy.</p>
+      <p>You may stop using StrideBuddy at any time. StrideBuddy may limit or block access to its backend when necessary to protect the service, comply with the law, enforce these Terms, or prevent abuse.</p>
+      <p>You can delete a connected account in Settings after signing in with Apple again. Account deletion permanently removes the active StrideBuddy server diary and signs out registered devices. It does not automatically remove an older private iCloud archive, iOS backup, or export that you control. Deleting the app removes only the downloaded copy on that device.</p>
 
       <h2>Legal terms</h2>
       <p>If a court finds any part of these Terms unenforceable, the rest will remain in effect. A delay by StrideBuddy in enforcing a provision does not waive its right to enforce that provision later. You may not transfer your rights or obligations under these Terms without StrideBuddy’s permission. StrideBuddy may transfer these Terms during a merger, acquisition, reorganization, asset sale, or similar business transfer.</p>
