@@ -26,14 +26,14 @@
       <h1>Privacy policy</h1>
       <p class="muted">Last updated: August 30, 2026</p>
 
-      <p>This policy explains where StrideBuddy keeps your training diary, how an optional StrideBuddy account works, what the app sends for AI and optional product analytics, and the technical data used to keep the service secure. Please read it together with the <a href="terms">StrideBuddy Terms of Use</a>.</p>
+      <p>This policy explains where StrideBuddy keeps your training diary, how your required StrideBuddy account works, what the app sends for AI and optional product analytics, and the technical data used to keep the service secure. Please read it together with the <a href="terms">StrideBuddy Terms of Use</a>.</p>
       <p>StrideBuddy is operated by Andrea Federici, an independent developer in Italy. Andrea Federici is the controller responsible for the processing described in this policy. The postal contact address is Via Alessandro Manzoni, 3, 20021 Bollate, Milano, Italy. The privacy email is <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20privacy">support@stridebuddy.app</a>.</p>
       <p>StrideBuddy is intended for adults aged 18 or older, not for children or teenagers.</p>
 
       <h2>Where your training diary is stored</h2>
-      <p>Your training diary is always stored on your device so you can log and read it offline. If you connect a StrideBuddy account, a server copy is also stored for that account. This copy includes your athlete profile, personal bests, workouts, planned sessions, planned races, notes, reps, splits, recoveries, and strength entries. It lets your devices restore and sync the same diary.</p>
-      <p>Existing users may also have an older copy in their private iCloud account. During account migration, StrideBuddy compares stable entry IDs and content hashes before the server copy becomes the main copy. If the comparison does not match, migration stops and your local and iCloud diary stays available. After a successful migration, the old iCloud records are kept as a recovery archive and are not automatically deleted.</p>
-      <p>If you already use StrideBuddy and do not connect an account, the current local and iCloud diary behavior continues. New account-first users may not use iCloud for diary sync.</p>
+      <p>StrideBuddy requires an account. Its server database is the main copy of your training diary. The app also keeps a copy on your device so you can log and read your diary offline. The account diary includes your athlete profile, personal bests, workouts, planned sessions, planned races, notes, reps, splits, recoveries, and strength entries. It lets your devices restore and sync the same diary.</p>
+      <p>Existing users may also have an older copy in their private iCloud account. To use the server-storage version, an existing user must accept the current Terms and Privacy Policy, sign in, and complete a verified migration. StrideBuddy compares stable entry IDs, counts, and content hashes before the server database becomes the main copy.</p>
+      <p>If verification fails, the diary remains saved on the device and in private iCloud. The server-storage version stays at the retry and support screen until migration succeeds. It does not continue in the older local and iCloud mode. After a successful migration, the old iCloud records are kept unchanged as a recovery archive. They are not used as the active diary and are not automatically deleted.</p>
       <p>StrideBuddy uses the data you enter for logging, diary views, workout categorization, personal-best tracking, Daily Review, and future AI features.</p>
 
       <h2>Optional product analytics</h2>
@@ -46,7 +46,7 @@
       <h2>Information StrideBuddy processes</h2>
       <p>The information StrideBuddy processes depends on how you use the app and may include:</p>
       <ul>
-        <li>training diary content stored on your device and, when you connect an account, in StrideBuddy’s database, including workouts, notes, RPE, feeling, tags, races, personal bests, reps, splits, recoveries, and strength entries;</li>
+        <li>training diary content stored on your device and in StrideBuddy’s account database, including workouts, notes, RPE, feeling, tags, races, personal bests, reps, splits, recoveries, and strength entries;</li>
         <li>profile and event details, including your competition category, event, athlete type, timezone, and event-specific personal-best context;</li>
         <li>account and sign-in details, including an internal StrideBuddy user ID, Firebase user ID, Sign in with Apple provider subject, device-install ID, accepted policy versions, and account state;</li>
         <li>data required for an AI request, but only when AI features are enabled and need to make a request;</li>
@@ -74,7 +74,7 @@
       <p>After onboarding, you can control every AI feature with one master toggle in the You tab. Turning it off prevents future AI requests. You can still log workouts and view your diary on your device.</p>
 
       <h2>Account, backend, and security data</h2>
-      <p>StrideBuddy’s backend stores account-owned diary data when you connect an account. It also uses technical data to sync changes, run AI features, apply generation limits, prevent abuse, and block malicious traffic. That data may include:</p>
+      <p>StrideBuddy’s backend stores your account-owned diary data. It also uses technical data to sync changes, run AI features, apply generation limits, prevent abuse, and block malicious traffic. That data may include:</p>
       <ul>
         <li>your internal account ID, sign-in provider mapping, and pseudonymous app-install identifiers;</li>
         <li>stable diary-entry IDs, server revisions, sync cursors, deletion markers, and mutation receipts used to prevent duplicate or lost changes;</li>
@@ -100,7 +100,7 @@
       </ul>
 
       <h2>Retention</h2>
-      <p>If you connect an account, StrideBuddy keeps the server diary while the account is active. Deleted entries remain as limited deletion markers so an offline device cannot restore them by mistake. When you delete the account, the active server diary and its deletion markers are removed.</p>
+      <p>StrideBuddy keeps the server diary while the account is active. Deleted entries remain as limited deletion markers so an offline device cannot restore them by mistake. When you delete the account, the active server diary and its deletion markers are removed.</p>
       <p>Render continuously backs up the paid account database for point-in-time recovery. The current recovery window is three days. Data deleted from the active database may remain in those recovery copies until that window expires. Recovery copies are used only to restore the service after data loss. A restored database must reapply any later account deletions before account access resumes.</p>
       <p>An older iCloud archive remains in your Apple Account until you remove StrideBuddy’s iCloud data through Apple’s settings. StrideBuddy does not automatically delete that private archive. Backend rate-limit records are usually kept for about 24 hours. StrideBuddy may keep limited security records longer when necessary to protect the service, investigate abuse, comply with the law, or resolve security problems.</p>
       <p>Optional PostHog analytics events are intended to be kept for no more than 12 months. StrideBuddy will configure that period where the service provides a retention control or use PostHog’s deletion process to enforce it. A consent record and the random analytics identifier remain on your device until the app or its data is deleted or the analytics identity is reset.</p>
@@ -143,7 +143,7 @@
       <p>StrideBuddy is intended for adults aged 18 or older, not for children or teenagers. Do not use the app if you are under 18. If you believe a child or teenager sent personal information to StrideBuddy’s backend, contact us. We will review the request and delete relevant backend records where possible.</p>
 
       <h2>Changes</h2>
-      <p>StrideBuddy may revise this policy when the app, its providers, or legal requirements change. If a revision materially changes the data, provider, purpose, or risk involved in AI processing, AI features will not run again until the required updated acceptance. If the optional analytics scope materially changes, StrideBuddy will ask for a new analytics choice before collecting under the new scope.</p>
+      <p>StrideBuddy may revise this policy when the app, its providers, or legal requirements change. If a revision materially changes required account storage or other core processing, the app will ask you to accept the updated Terms and Privacy Policy before you continue. If a revision materially changes the data, provider, purpose, or risk involved in AI processing, AI features will not run again until the required updated acceptance. If the optional analytics scope materially changes, StrideBuddy will ask for a new analytics choice before collecting under the new scope.</p>
 
       <h2>Questions</h2>
       <p>For privacy questions, contact:
