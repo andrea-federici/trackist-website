@@ -9,7 +9,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, problem, features, logging, Daily Review, records, how-it-works, credibility, CTA). |
+| `index.html` | The one-page landing site (hero, problem, features, logging, Coach, periodization, records, how-it-works, credibility, CTA). |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
@@ -273,13 +273,15 @@ The page uses real app screenshots exported with a transparent device frame:
 | --- | --- | --- |
 | `assets/screenshots/today.png` | Today | Hero (layered inside `assets/iphone-17-black-bezel.png`) |
 | `assets/screenshots/central_log.png` | Add a session tray, Log face | Logging section |
-| `assets/screenshots/log_strength.png` | Strength logging chip picker | Logging section |
+| `assets/screenshots/log_strength.png` | Strength logging form | Logging section |
 | `assets/screenshots/log_structured.png` | Structured track-session logging | Logging section |
 | `assets/screenshots/central_plan.png` | Add a session tray, Plan face | Plan section |
-| `assets/screenshots/review.png` | Review tab / Daily Review feedback | Review section |
-| `assets/screenshots/volume.png` | Review tab / weekly volume and training mix | Volume section |
+| `assets/screenshots/review.png` | Coach / Season status and weekly plan | Coach section |
+| `assets/screenshots/volume.png` | You / weekly volume | Volume section |
 | `assets/screenshots/records.png` | Records / speed curve | Records section |
 | `assets/screenshots/race_calendar.png` | Race calendar | Races section |
+| `assets/screenshots/periodization.png` | Coach periodization introduction | Periodization section |
+| `assets/screenshots/coach_session.png` | Coach session detail | Session purpose section |
 | `assets/screenshots/diary.png` | Diary week view | Unused on the page; kept in sync for the App Store posters |
 
 Every file above is the composite: the raw screen scaled into the device frame,

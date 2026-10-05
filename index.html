@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrideBuddy | A training diary for track athletes</title>
-  <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy handles reps, splits, strength work, races, Daily Review feedback, and records.">
+  <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy brings reps, splits, strength work, races, records and weekly Coach plans into one diary.">
   <!--
     Apex, no extension. That is what the host serves: Cloudflare Pages strips
     the extension, so /index.html 307s here and /support.html 307s to /support.
@@ -30,7 +30,7 @@
   <meta property="og:site_name" content="StrideBuddy">
   <meta property="og:url" content="https://stridebuddy.app/">
   <meta property="og:title" content="StrideBuddy | A training diary for track athletes">
-  <meta property="og:description" content="Log reps, splits, strength work, and races in one track-specific diary. Review recent training and keep every record in view.">
+  <meta property="og:description" content="Log track training and races in one diary. Coach plans your week around your event, recent training and season.">
   <meta property="og:image" content="https://stridebuddy.app/assets/stridebuddy_icon.png">
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="1024">
@@ -76,15 +76,15 @@
       "https://stridebuddy.app/assets/screenshots/race_calendar.png",
       "https://stridebuddy.app/assets/screenshots/volume.png"
     ],
-    "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races, review your recent training, and keep personal bests and rep records in view.",
+    "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races, plan your week with Coach, and keep personal bests and rep records in view.",
     "featureList": [
       "Structured track session logging with reps, recoveries and splits",
       "Hurdles and steeplechase reps kept distinct from flat distances",
       "Strength, road, trail and race logging",
       "Personal bests and rep records",
       "Planned sessions and a race calendar",
-      "Weekly volume and training mix from your own entries",
-      "Daily Review feedback on recent training",
+      "Weekly running volume from your logged sessions",
+      "Weekly Coach plans built around modern periodization",
       "Account sync across devices with offline access"
     ],
     "offers": {
@@ -611,7 +611,7 @@
         <a class="navlink" href="#why">Why StrideBuddy</a>
         <a class="navlink" href="#features">Features</a>
         <a class="navlink" href="#plan">Plan</a>
-        <a class="navlink" href="#review">Review</a>
+        <a class="navlink" href="#coach">Coach</a>
         <a class="navlink" href="#records">Records</a>
         <a class="navlink" href="#races">Races</a>
         <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
@@ -628,8 +628,8 @@
           <p class="eyebrow">Track &amp; field training diary</p>
           <h1>A training diary that understands track.</h1>
           <p class="lede">
-            Log reps, splits, races, and strength work without wrestling with a generic running app.
-            Review your recent training with Daily Review and see your reps and races together in Records.
+            Log reps, splits, races and strength work in one diary.
+            Coach plans your week around your event, recent training and season. Keep your reps and race records together.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
@@ -732,8 +732,8 @@
             <div class="fmark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M18 17h2V7h-2"/><path d="M8 8h6M8 12h4"/></svg>
             </div>
-            <h3>A review of your recent training</h3>
-            <p>When there is enough in your diary, Daily Review gives you a practical read on your recent training.</p>
+            <h3>A week that fits your season</h3>
+            <p>Coach uses modern periodization to change your training focus through the season. Your recent training helps it choose the demands of each week.</p>
           </article>
 
         </div>
@@ -751,15 +751,15 @@
 
         <div class="shots">
           <div class="shot">
-            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="StrideBuddy's Add a session tray, showing the five session types" loading="lazy">
+            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="StrideBuddy's logging menu with Structured, Continuous, Strength, Race and Quick Note" loading="lazy">
             <div class="cap">
               <h3>One place to start</h3>
-              <p>Choose continuous, structured, strength, race, or a quick note from one menu.</p>
+              <p>Choose Structured, Continuous, Strength or Race. Use Quick Note for anything else you want to record.</p>
             </div>
           </div>
 
           <div class="shot">
-            <img class="phone" src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Exercise picker for a strength session in StrideBuddy" loading="lazy">
+            <img class="phone" src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Strength logging form in StrideBuddy" loading="lazy">
             <div class="cap">
               <h3>Strength</h3>
               <p>Build the session by tapping exercises instead of filling out a long form.</p>
@@ -789,8 +789,8 @@
           </p>
           <div class="recap-points" aria-label="What you can plan in StrideBuddy">
             <div class="recap-point"><strong>Log or plan</strong><span>Log covers today and any earlier day. Plan covers tomorrow onwards, as far as a year out.</span></div>
-            <div class="recap-point"><strong>The same session types</strong><span>Continuous, structured, strength, race, or a quick note.</span></div>
-            <div class="recap-point"><strong>Waiting on Today</strong><span>A planned session sits on Today and in your Diary until you log the result against it.</span></div>
+            <div class="recap-point"><strong>The same session types</strong><span>Structured, Continuous, Strength, Race and Quick Note.</span></div>
+            <div class="recap-point"><strong>Waiting on Today</strong><span>Find upcoming sessions on Today and in the Plan page. Log the result when you have done the session.</span></div>
             <div class="recap-point"><strong>Races go to the calendar</strong><span>Plan a race and it lands in your race calendar instead.</span></div>
           </div>
         </div>
@@ -801,26 +801,53 @@
       </div>
     </section>
 
-    <!-- ============ REVIEW (Daily Review) ============ -->
-    <section id="review" class="section recap">
+    <!-- ============ COACH ============ -->
+    <section id="coach" class="section recap">
       <div class="wrap recap-grid">
         <div class="recap-copy">
-          <p class="eyebrow">Review</p>
-          <h2>Finish the log, then read the session back.</h2>
-          <p>
-            When there is enough recent training to review, Daily Review uses your sessions, notes,
-            and event profile to give you specific feedback without reducing the work to a score.
-          </p>
-          <div class="recap-points" aria-label="What Daily Review includes">
-            <div class="recap-point"><strong>Updates with your diary</strong><span>New workouts can update your review, up to ten times a day.</span></div>
-            <div class="recap-point"><strong>About this workout</strong><span>It can discuss the stimulus, execution, effort, and how the session felt.</span></div>
-            <div class="recap-point"><strong>Connected to your week</strong><span>A compact recent history adds context without sending your entire diary.</span></div>
-            <div class="recap-point"><strong>Feedback, not a grade</strong><span>You get useful takeaways and things to watch, not a ranking.</span></div>
+          <p class="eyebrow">Coach</p>
+          <h2>Your training week, built for your season.</h2>
+          <p>Coach builds a weekly plan from your event, recent training, available days and races. The season sets the direction. Your diary helps it choose how much work to prescribe.</p>
+          <div class="recap-points" aria-label="How Coach plans your training">
+            <div class="recap-point"><strong>Season status</strong><span>Read where you are in the season and what your training is working toward.</span></div>
+            <div class="recap-point"><strong>This week</strong><span>Understand the focus of the week before you open its sessions.</span></div>
+            <div class="recap-point"><strong>Your event and races</strong><span>Training reflects your event and the importance of the races in your calendar.</span></div>
+            <div class="recap-point"><strong>You choose when to build</strong><span>Ask for your week when you are ready. Saved plans remain available offline.</span></div>
           </div>
+          <p>Coach uses AI to write the plan within event-specific training rules. It is a free beta feature and needs an internet connection to build or change a plan.</p>
         </div>
-
         <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Daily Review feedback for a workout in StrideBuddy" loading="lazy">
+          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status, This week and a saved weekly training plan" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="periodization" class="section recap band">
+      <div class="wrap recap-grid reverse">
+        <div class="recap-copy">
+          <p class="eyebrow">Modern periodization</p>
+          <h2>Change the focus as your season progresses.</h2>
+          <p>Periodization means changing the focus of training over time. Build a base, develop the qualities your event needs, then prepare for racing. Easier weeks and recovery are part of the plan.</p>
+          <p>Coach keeps useful training qualities in the plan as the main focus changes. It considers your recent sessions and race priorities when choosing the next week's work.</p>
+          <p>A return from a break starts with a gradual return to training. A nearby race can change the week's preparation. The plan follows your situation.</p>
+        </div>
+        <div class="recap-stage">
+          <img class="phone" src="assets/screenshots/periodization.png" width="1800" height="3680" alt="Coach's periodization introduction showing Base, Build, Sharpen and Compete" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="coach-session" class="section recap">
+      <div class="wrap recap-grid">
+        <div class="recap-copy">
+          <p class="eyebrow">Each session has a purpose</p>
+          <h2>Know what to do and why it belongs.</h2>
+          <p>Open a Coach session to see its reps, recoveries and execution cues. Read what the session develops and how it supports your event.</p>
+          <p>Coach can include time or pace ranges when your recent training and personal bests support them. A session can also come without a numerical target.</p>
+          <p>Use the planned session to start your log when its day arrives. Record the result you actually ran.</p>
+        </div>
+        <div class="recap-stage tint-moss">
+          <img class="phone" src="assets/screenshots/coach_session.png" width="1800" height="3680" alt="A Coach session showing its purpose, repetitions, recoveries and execution advice" loading="lazy">
         </div>
       </div>
     </section>
@@ -832,20 +859,19 @@
           <p class="eyebrow">Volume</p>
           <h2>How much you trained, counted from the diary.</h2>
           <p>
-            Below the Daily Review, the same tab adds up what you logged: a bar for each week,
-            the sessions behind any week you open, and the mix of work across the month. None
-            of it is estimated.
+            The You tab adds up the running distance you logged, with a bar for each week.
+            Open a week to see its days and sessions.
           </p>
-          <div class="recap-points" aria-label="What the Review tab counts">
+          <div class="recap-points" aria-label="What the weekly volume chart shows">
             <div class="recap-point"><strong>Week by week</strong><span>Four weeks on screen at a time, and you can page back through earlier ones.</span></div>
             <div class="recap-point"><strong>Open a week</strong><span>Tap a bar to see its days and the sessions inside them.</span></div>
-            <div class="recap-point"><strong>Training mix</strong><span>Which kinds of session your month was made of.</span></div>
+            <div class="recap-point"><strong>From your entries</strong><span>The chart uses your logged distance.</span></div>
             <div class="recap-point"><strong>Counted, not scored</strong><span>No readiness score and no training load index. These are your own entries, added up.</span></div>
           </div>
         </div>
 
         <div class="recap-stage tint-purple">
-          <img class="phone" src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's Review tab" loading="lazy">
+          <img class="phone" src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's You tab" loading="lazy">
         </div>
       </div>
     </section>
@@ -905,7 +931,7 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">How it works</p>
-          <h2>Save the session in three quick steps.</h2>
+          <h2>Keep a clear record of your training.</h2>
         </div>
         <div class="steps">
           <article class="step">
@@ -921,7 +947,7 @@
           <article class="step">
             <div class="n">3</div>
             <h3>Review the result</h3>
-            <p>Read the Daily Review feedback, check your records, and see how the workout fits into your week.</p>
+            <p>Find the session in your Diary, check your records and see how much running you logged that week.</p>
           </article>
         </div>
       </div>
@@ -994,7 +1020,7 @@
           <a href="#why">Why StrideBuddy</a>
           <a href="#features">Features</a>
           <a href="#plan">Plan</a>
-          <a href="#review">Review</a>
+          <a href="#coach">Coach</a>
           <a href="#records">Records</a>
           <a href="#races">Races</a>
           <a href="support">Support</a>
