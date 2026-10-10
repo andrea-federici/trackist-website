@@ -22,7 +22,7 @@ measurable — nothing fails, no test breaks, and the installs quietly report as
 
 | Thing | Why it must stay |
 | --- | --- |
-| The inline script at the bottom of `index.html` | Reads `?c=<campaign>` and rewrites `ct` on the three App Store links. **The Instagram profile's "Explore StrideBuddy" link is `https://stridebuddy.app/?c=instagram` and depends entirely on it.** Delete the script and that traffic reports as `website` |
+| The inline script at the bottom of `index.html` | Reads `?c=<campaign>` and rewrites `ct` on every App Store link on the page. **The Instagram profile's "Explore StrideBuddy" link is `https://stridebuddy.app/?c=instagram` and depends entirely on it.** Delete the script and that traffic reports as `website` |
 | `s/community/index.html` | The `/s/community` landing page, and the only thing carrying `ct=community`. **It is the link posted in forums, on Reddit, in Discord and in club spaces**, where a bare App Store link is a dead end for desktop readers and reads as spam. Delete it and every link already posted 404s while that campaign reports nothing |
 | `s/campaign.css` | Styles the call to action on `/s/community`. **One consumer is not a reason to inline or remove it.** Deleting it is the quietest failure here: the page still returns 200 and still carries its token, so attribution keeps working while the page renders unstyled at the end of every community link |
 | The `pt` and `ct` parameters on every `apps.apple.com` link | `pt=128627634` is the provider token; `ct` is the campaign. A link missing them is an invisible install |

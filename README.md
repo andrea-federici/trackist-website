@@ -9,7 +9,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, problem, features, logging, Coach, periodization, records, how-it-works, credibility, CTA). |
+| `index.html` | The one-page landing site (hero, sessions, features, plan, Coach, periodization, session purpose, volume, records, races, iPhone and web, how it works, CTA). |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
@@ -68,7 +68,7 @@ invisible. Never send channel traffic to the plain homepage either — it tags a
 
 Someone told to "explore" wants the full site, not a landing stub, so the
 homepage can carry any campaign's token. Adding `?c=<campaign>` to it rewrites
-the `ct` on its three App Store links, and an inline script at the bottom of
+the `ct` on its App Store links, and an inline script at the bottom of
 `index.html` does the rewrite.
 
 Only campaigns named in that script's `campaigns` array are accepted, so a
@@ -93,7 +93,7 @@ community  https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=c
 website    https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
 ```
 
-The `website` link is the one already in `index.html`, three times. The other two
+The `website` link is the one on every App Store button in `index.html`. The other two
 are in their landing pages' call to action.
 
 Use the generated link verbatim when adding a channel — note the
@@ -258,12 +258,17 @@ so local matches production. It is a development tool and is never deployed.
 
 ## Design system
 
-Colors, type, radius, and tone all mirror `iOS/docs/DESIGN.md` and the app's
-Swift design tokens: a neutral near-white canvas (`#F8F8F8`), ink text, true-white
-cards, the StrideBuddy red accent (`#DB2412`), system-sans typography, and
-monospaced numerals. The palette adapts to the design system's night-paper colors
-when the visitor prefers dark mode. Do not introduce a separate web palette —
-derive from those tokens.
+Colors, type, radius, and tone mirror `iOS/docs/DESIGN.md` and the app's Swift
+design tokens (`iOS/StrideBuddy/DesignSystem/StrideBuddyColors.swift`): a white
+paper page with white cards, ink text, the StrideBuddy red accent (`#DB2412`),
+system-sans typography with tabular digits, and the app's 32px card radius. Dark
+appearance is the app's: a black page with warm smoke cards, cream ink and the
+lifted red. **Light is the default.** Dark is used only when the visitor's device
+asks for it through `prefers-color-scheme`; there is no toggle on the page. Do not
+introduce a separate web palette — derive from those tokens.
+
+The support, legal and campaign pages share `legal.css`, which still uses the
+older warm-brown dark palette. Bring it in line when those pages are next touched.
 
 ## App screenshots
 
@@ -271,22 +276,22 @@ The page uses real app screenshots exported with a transparent device frame:
 
 | File | Screen | Used in |
 | --- | --- | --- |
-| `assets/screenshots/today.png` | Today | Hero (layered inside `assets/iphone-17-black-bezel.png`) |
-| `assets/screenshots/central_log.png` | Add a session tray, Log face | Logging section |
-| `assets/screenshots/log_strength.png` | Strength logging form | Logging section |
-| `assets/screenshots/log_structured.png` | Structured track-session logging | Logging section |
+| `assets/screenshots/today.png` | Today | Hero front phone, and the iPhone and web section (layered inside `assets/iphone-17-black-bezel.png`) |
+| `assets/screenshots/diary.png` | Diary week view | Hero cascade |
+| `assets/screenshots/review.png` | Coach / Season status and weekly plan | Hero cascade, Coach section |
+| `assets/screenshots/records.png` | Records / speed curve | Hero cascade, Records section |
+| `assets/screenshots/race_calendar.png` | Race calendar | Hero cascade, Races section |
+| `assets/screenshots/central_log.png` | Add a session tray, Log face | Features |
+| `assets/screenshots/log_structured.png` | Structured track-session logging | Features |
+| `assets/screenshots/log_strength.png` | Strength logging form, filled from the capture diary | Features |
 | `assets/screenshots/central_plan.png` | Add a session tray, Plan face | Plan section |
-| `assets/screenshots/review.png` | Coach / Season status and weekly plan | Coach section |
-| `assets/screenshots/volume.png` | You / weekly volume | Volume section |
-| `assets/screenshots/records.png` | Records / speed curve | Records section |
-| `assets/screenshots/race_calendar.png` | Race calendar | Races section |
-| `assets/screenshots/periodization.png` | Coach periodization introduction | Periodization section |
 | `assets/screenshots/coach_session.png` | Coach session detail | Session purpose section |
-| `assets/screenshots/diary.png` | Diary week view | Unused on the page; kept in sync for the App Store posters |
+| `assets/screenshots/volume.png` | You / weekly volume | Volume section |
+| `assets/screenshots/periodization.png` | Coach periodization introduction | Unused on the page; kept in sync with the App Store set |
 
 Every file above is the composite: the raw screen scaled into the device frame,
 **2015×4120** with the area outside the phone transparent. `today.png` is the one
-exception. The hero layers the frame over it in CSS, so that file is the bare
+exception. The page layers the frame over it in CSS, so that file is the bare
 **1206×2622** screen. The `<img>` tags declare 1800×3680, which is the same
 aspect at a smaller nominal size and only sets the intrinsic ratio.
 
@@ -295,20 +300,24 @@ are the inputs, not page assets: nothing links to them, and they exist so a fram
 change does not need the screenshots retaken. Previous versions are archived
 under `assets/screenshots/old/`, which is gitignored.
 
-The frame is applied by `../iOS/AppStore/tools/bezel.py`, which measures the
-screen window out of the frame image rather than assuming an offset:
+The captures come from the `AppStore/` workspace's capture simulator, using
+its fictional diary. `capture --run RUN_ID --website` adds the planning tray and
+the strength form, which only the website uses. The frame is applied by
+`../AppStore/tools/bezel.py`, which measures the screen window out of the frame
+image rather than assuming an offset:
 
 ```sh
-~/.cache/stridebuddy-social/venv/bin/python ../iOS/AppStore/tools/bezel.py \
+~/.cache/stridebuddy-social/venv/bin/python ../AppStore/tools/bezel.py \
   assets/screenshots/central_log_raw.png assets/screenshots/central_plan_raw.png \
-  assets/screenshots/diary_raw.png assets/screenshots/log_strength_raw.png \
-  assets/screenshots/log_structured_raw.png assets/screenshots/race_calendar_raw.png \
+  assets/screenshots/coach_session_raw.png assets/screenshots/diary_raw.png \
+  assets/screenshots/log_strength_raw.png assets/screenshots/log_structured_raw.png \
+  assets/screenshots/periodization_raw.png assets/screenshots/race_calendar_raw.png \
   assets/screenshots/records_raw.png assets/screenshots/review_raw.png \
   assets/screenshots/volume_raw.png --out assets/screenshots --strip-raw
 ```
 
 **Do not pass `today_raw.png` to it.** That would write a framed `today.png` over
-the bare screen the hero needs, and the result is a phone drawn inside a phone.
+the bare screen the page needs, and the result is a phone drawn inside a phone.
 `today.png` is a plain copy of `today_raw.png`.
 
 Keep the same aspect ratio and transparent device treatment when replacing them.

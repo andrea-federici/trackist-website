@@ -17,8 +17,9 @@
   -->
   <link rel="canonical" href="https://stridebuddy.app/">
   <meta name="apple-itunes-app" content="app-id=6760190939">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
 
   <!--
     Open Graph / social. og:image must be an absolute URL — a relative path is
@@ -105,15 +106,21 @@
   <style>
     /*
       StrideBuddy marketing site palette.
-      Tokens mirror iOS/docs/DESIGN.md and the app's Swift design tokens.
-      Neutral paper canvas, ink type, semantic workout color, soft white cards.
+      Tokens mirror the app's Swift design tokens (iOS/StrideBuddy/DesignSystem/
+      StrideBuddyColors.swift): a white paper page with white cards in light
+      appearance, and in dark appearance a black page with warm smoke cards,
+      cream ink and the lifted red. Light is the default; dark follows the
+      visitor's device setting and nothing else.
     */
     :root {
+      color-scheme: light;
+
       /* Paper + surfaces */
-      --paper:   #F8F8F8;
-      --paper-2: #FFFFFF;
-      --paper-3: #F2F2F0;
-      --card:    #FFFFFF;
+      --paper:  #FFFFFF;
+      --paper-3: #F4F3F1;   /* banded sections */
+      --card:   #FFFFFF;
+      --card-2: #F4F3F1;    /* chips and inner tiles on a card */
+      --stage:  #F4F3F1;    /* the rounded panel a phone sits on */
 
       /* Ink */
       --ink:   #0C0B0A;
@@ -121,479 +128,320 @@
       --ink-3: #6F655E;
       --ink-4: #998D82;
       --rule:  #E9DED6;
+      --edge:  rgba(12,11,10,.07);
 
-      /* Semantic workout color */
-      --accent:      #DB2412; /* track / primary action */
-      --accent-dark: #B52B20;
+      /* Accent. The fill stays the brand red in both appearances so white
+         button text keeps its contrast; red text lifts in dark. */
+      --accent:      #DB2412;
+      --accent-fill: #DB2412;
       --accent-hover: #B52B20;
-      --accent-soft: #FDE5DF;
-      --moss:  #4F6B3A;       /* continuous / easy */
-      --purple: #825AA0;       /* strength */
-      --race:   #A8262D;       /* race */
-      --rest:  #8A8170;       /* rest / recovery */
-      --mark-on-color: rgba(255,255,255,.94);
-      --button-on-accent: #FFFFFF;
 
-      /* Semantic fills */
-      --moss-soft: #E2EAD8;
-      --purple-soft: #E8DAF8;
-      --race-soft: #F5DADA;
-      --purple-text: #5F3C82;
-      --race-text: #821E26;
+      /* Semantic workout and season colors */
+      --moss:   #4F6B3A;
+      --slate:  #2A3D55;
+      --gold:   #C49A1F;
+      --purple: #825AA0;
+      --race:   #A8262D;
+      --rest:   #8A8170;
 
-      /* Adaptive chrome */
-      --header-bg: rgba(248,248,248,.84);
-      --header-border: rgba(233,222,214,.72);
-      --ledger-rule: rgba(233,222,214,.22);
-      --card-border: rgba(12,11,10,.10);
-      --cta-bg: #16120E;
-      --cta-text: #F7F0E7;
-      --cta-copy: #DCD1C3;
-      --cta-ghost: rgba(255,247,235,.12);
-      --cta-ghost-border: #463A2E;
+      /* Final call to action */
+      --cta-bg:   #0C0B0A;
+      --cta-ink:  #F7F0E7;
+      --cta-ink-2: #DCD1C3;
 
-      /* Radius */
-      --r-card:  18px;
-      --r-hero:  22px;
-      --r-panel: 15px;
-      --r-ctrl:  14px;
-      --r-chip:  7px;
+      /* Chrome */
+      --header-bg: rgba(255,255,255,.86);
+      --btn-2: #FFFFFF;
+
+      /* Radius, from StrideBuddyRadius */
+      --r-card:  32px;
+      --r-panel: 24px;
+      --r-ctrl:  20px;
+      --r-stage: 40px;
 
       /* Type */
-      --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --mono:  ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
       /* Elevation */
-      --shadow-card:  0 1px 2px rgba(12,11,10,.04), 0 8px 24px rgba(12,11,10,.06);
-      --shadow-float: 0 4px 10px rgba(12,11,10,.08), 0 18px 44px rgba(12,11,10,.12);
-      --shadow-accent: 0 8px 22px rgba(219,36,18,.28);
+      --shadow: 0 1px 2px rgba(12,11,10,.04), 0 10px 28px rgba(12,11,10,.06);
+      --phone-shadow: drop-shadow(0 22px 30px rgba(12,11,10,.18));
+      --shadow-accent: 0 8px 22px rgba(219,36,18,.24);
 
-      --screen-x: 22px;
+      --gutter: 32px;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --paper: #16120E;
-        --paper-2: #201A14;
-        --paper-3: #2B231B;
-        --card: #261F18;
-        --ink: #F7F0E7;
+        color-scheme: dark;
+        --paper:  #000000;
+        --paper-3: #0E0D0C;
+        --card:   #1C1A18;
+        --card-2: #2A2724;
+        --stage:  #151413;
+        --ink:   #F7F0E7;
         --ink-2: #DCD1C3;
         --ink-3: #B5A999;
         --ink-4: #877B6D;
-        --rule: #463A2E;
-        --accent: #DB2412;
-        --accent-dark: #FFA697;
-        --accent-hover: #B52B20;
-        --accent-soft: #40231D;
-        --moss: #8CBD72;
+        --rule:  #3A3530;
+        --edge:  rgba(255,247,235,.10);
+        --accent: #F2463A;
+        --moss:   #8CBD72;
+        --slate:  #5F88B8;
+        --gold:   #D1A83E;
         --purple: #9E76BE;
-        --race: #CD5050;
-        --rest: #A8A29A;
-        --mark-on-color: rgba(22,18,14,.92);
-        --moss-soft: #273D22;
-        --purple-soft: #322048;
-        --race-soft: #411C1E;
-        --purple-text: #B28CD0;
-        --race-text: #D25A5F;
-        --header-bg: rgba(22,18,14,.84);
-        --header-border: rgba(70,58,46,.72);
-        --ledger-rule: rgba(70,58,46,.22);
-        --card-border: rgba(247,240,231,.10);
-        --shadow-card: 0 1px 2px rgba(0,0,0,.16), 0 8px 24px rgba(0,0,0,.18);
-        --shadow-float: 0 4px 10px rgba(0,0,0,.20), 0 18px 44px rgba(0,0,0,.28);
+        --race:   #CD5050;
+        --rest:   #A8A29A;
+        --cta-bg: #1C1A18;
+        --header-bg: rgba(0,0,0,.82);
+        --btn-2: #2A2724;
+        --shadow: none;
+        --phone-shadow: drop-shadow(0 28px 40px rgba(0,0,0,.7));
       }
-
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
     body {
       margin: 0;
       background: var(--paper);
       color: var(--ink);
       font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
-
-    /* Subtle paper lane texture with faint horizontal rule lines, like a ledger */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent 0,
-        transparent 47px,
-        var(--ledger-rule) 47px,
-        var(--ledger-rule) 48px
-      );
-      opacity: .5;
-    }
-
-    a { color: var(--accent-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: var(--sans); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 
-    h1, h2, h3 { font-family: var(--sans); font-weight: 600; line-height: 1.1; color: var(--ink); margin: 0; letter-spacing: -0.025em; }
-
-    .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
-
-    .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 var(--screen-x); position: relative; z-index: 1; }
-
-    .eyebrow {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent-dark);
-      margin: 0 0 14px;
-    }
+    .wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+    .num { font-variant-numeric: tabular-nums; }
+    .cap { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .h2 { font-size: clamp(34px, 4.2vw, 48px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.06; margin-top: 14px; }
+    .lead { font-size: 18px; color: var(--ink-2); margin-top: 18px; max-width: 34em; }
+    .more { font-size: 18px; color: var(--ink-2); margin-top: 16px; max-width: 34em; }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
 
     /* ---------- Buttons ---------- */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px 22px;
-      border-radius: var(--r-ctrl);
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 54px; padding: 0 26px; border-radius: var(--r-ctrl);
+      font-size: 17px; font-weight: 600; white-space: nowrap;
+      transition: transform .15s ease, background .2s ease;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--button-on-accent);
-      box-shadow: var(--shadow-accent);
-    }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); text-decoration: none; }
-    .btn-secondary {
-      background: var(--card);
-      color: var(--ink);
-      border-color: var(--rule);
-      box-shadow: var(--shadow-card);
-    }
-    .btn-secondary:hover { transform: translateY(-1px); text-decoration: none; background: var(--card); }
-    .btn-ghost { background: transparent; color: var(--ink-2); padding: 10px 14px; }
-    .btn-ghost:hover { color: var(--ink); text-decoration: none; }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-red { background: var(--accent-fill); color: #FFFFFF; box-shadow: var(--shadow-accent); }
+    .btn-red:hover { background: var(--accent-hover); }
+    .btn-smoke { background: var(--btn-2); color: var(--ink); border: 1px solid var(--edge); box-shadow: var(--shadow); }
+    .btn-small { min-height: 44px; padding: 0 18px; font-size: 15px; border-radius: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 
     /* ---------- Header ---------- */
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
+      background: var(--header-bg);
       backdrop-filter: saturate(140%) blur(14px);
       -webkit-backdrop-filter: saturate(140%) blur(14px);
-      background: var(--header-bg);
-      border-bottom: 1px solid var(--header-border);
+      border-bottom: 1px solid var(--edge);
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 66px;
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+    .brand img { height: 28px; width: auto; }
+    .navlinks { display: flex; gap: 2px; }
+    .navlinks a { padding: 8px 16px; border-radius: 13px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+    .navlinks a:hover { color: var(--ink); background: var(--card-2); }
+    .nav-actions { display: flex; align-items: center; gap: 6px; }
+    .nav-web { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; font-size: 15px; font-weight: 600; }
+    .lockup-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .lockup-light { display: none; }
+      .lockup-dark { display: block; }
     }
-    .brand { display: inline-flex; align-items: center; }
-    .brand img { height: 32px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-    .nav-links a.navlink {
-      font-size: 14px; font-weight: 600; color: var(--ink-2);
-      padding: 8px 12px; border-radius: var(--r-chip);
-    }
-    .nav-links a.navlink:hover { color: var(--ink); background: var(--paper-2); text-decoration: none; }
-    .nav-cta { margin-left: 4px; }
-    .nav-toggle { display: none; }
 
-    @media (max-width: 760px) {
-      .nav-links .navlink { display: none; }
+    /* ---------- Phones ----------
+       Every framed screenshot is the 2015x4120 composite with the area outside
+       the phone transparent, so the shadow follows the device outline. */
+    .phone { width: 290px; aspect-ratio: 2015 / 4120; filter: var(--phone-shadow); }
+    .phone img { width: 100%; height: 100%; }
+
+    /* The bare Today screen inside the shared frame (README § App screenshots). */
+    .phone-layered { position: relative; }
+    .phone-layered .screen {
+      position: absolute; left: 5.333%; top: 2.5%; width: 89.33%; height: 95%;
+      object-fit: cover; border-radius: 12% / 5.5%;
     }
+    .phone-layered .bezel { position: absolute; inset: 0; }
 
     /* ---------- Hero ---------- */
-    .hero { padding: 72px 0 40px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 48px;
-      align-items: center;
+    .hero { padding: 56px 0 96px; }
+    .hero h1 { font-size: clamp(44px, 6.4vw, 76px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; max-width: 11em; }
+    .hero .lede { font-size: 20px; color: var(--ink-2); margin-top: 24px; max-width: 34em; }
+    .hero .btn-row { justify-content: center; }
+    .hero-note { font-size: 14px; color: var(--ink-3); margin-top: 16px; }
+    .notice {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 32px;
+      padding: 6px 14px 6px 6px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--edge); box-shadow: var(--shadow);
+      font-size: 14px; font-weight: 600; color: var(--ink-2);
     }
-    .hero h1 { font-size: clamp(38px, 5.4vw, 62px); }
-    .hero .lede {
-      font-size: 18px;
-      color: var(--ink-2);
-      margin: 22px 0 0;
-      max-width: 30em;
-    }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .hero-note { margin-top: 16px; font-size: 13px; color: var(--ink-3); }
+    .notice .tag { font-size: 10px; padding: 4px 9px; border-radius: 999px; background: var(--accent-fill); color: #FFFFFF; }
 
-    /* ---------- Phone mockups ---------- */
-    .phone {
-      width: 300px;
-      height: auto;
-      filter: drop-shadow(0 18px 22px rgba(12,11,10,.16));
-    }
+    /*
+      The five-phone cascade. Positions are offsets from the centre so the
+      overlaps stay fixed while the page width changes. The box is as tall as
+      the front phone, so no phone is ever cut at the bottom.
+    */
+    .cascade { position: relative; height: 655px; max-width: 1176px; margin: 64px auto 0; }
+    .cascade .phone { position: absolute; }
+    .cascade .p-front { width: 320px; top: 0; left: 50%; margin-left: -160px; }
+    .cascade .p-mid   { width: 270px; top: 64px; }
+    .cascade .p-back  { width: 230px; top: 128px; }
+    .cascade .left.p-mid   { left: calc(50% - 395px); }
+    .cascade .right.p-mid  { right: calc(50% - 395px); }
+    .cascade .left.p-back  { left: calc(50% - 585px); }
+    .cascade .right.p-back { right: calc(50% - 585px); }
 
-    .phone-mockup {
-      position: relative;
-      width: 300px;
-      aspect-ratio: 2015 / 4120;
-      flex: 0 0 auto;
-      filter: drop-shadow(0 18px 22px rgba(12,11,10,.16));
-    }
-    .phone-screenshot {
-      position: absolute;
-      left: 5.333%;
-      top: 2.5%;
-      width: 89.33%;
-      height: 95%;
-      object-fit: cover;
-      border-radius: 12% / 5.5%;
-    }
-    .phone-bezel {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
+    /* ---------- Sections ---------- */
+    section { position: relative; }
+    .sec { padding: 112px 0; }
+    .band { background: var(--paper-3); --stage: var(--card); }
+    @media (prefers-color-scheme: dark) { .band { --stage: #1C1A18; } }
 
-    .hero-phones { position: relative; display: flex; justify-content: center; align-items: center; }
-    .hero-phones .phone { transform: rotate(-3deg); }
-    .hero-phones .phone-mockup { transform: rotate(-3deg); }
+    .g4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+    .g3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 
-    /* --- In-app UI styles retained for lightweight embeds elsewhere --- */
-    .scr { flex: 1; padding: 46px 16px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; font-family: var(--sans); }
-    .scr-date { font-family: var(--sans); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
-    .scr-title { font-family: var(--sans); font-size: 26px; font-weight: 600; color: var(--ink); line-height: 1; letter-spacing: -.015em; }
-    .scr-strip { display: flex; gap: 6px; margin-top: 2px; }
-    .scr-day { flex: 1; text-align: center; padding: 8px 0; border-radius: 10px; background: var(--paper-2); font-size: 10px; color: var(--ink-3); font-weight: 700; }
-    .scr-day .dn { display: block; font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-top: 3px; }
-    .scr-day.on { background: var(--accent); color: var(--mark-on-color); }
-    .scr-day.on .dn { color: var(--mark-on-color); }
-    .scr-card { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; box-shadow: var(--shadow-card); padding: 12px 13px; }
-    .scr-card .mark { width: 4px; border-radius: 4px; align-self: stretch; }
-    .scr-row { display: flex; gap: 10px; align-items: stretch; }
-    .scr-k { font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-    .scr-k.track { color: var(--accent); }
-    .scr-k.cont { color: var(--moss); }
-    .scr-k.str { color: var(--purple); }
-    .scr-k.race { color: var(--race); }
-    .scr-wt { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--ink); margin-top: 2px; }
-    .scr-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 3px; }
-    .scr-chips { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
-    .scr-chip { font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 6px; background: var(--paper-2); color: var(--ink-2); }
-    .scr-chip.acc { background: var(--accent-soft); color: var(--accent-dark); }
-    .scr-bignum { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 30px; color: var(--ink); letter-spacing: -.02em; }
-    .scr-sub { font-size: 11px; color: var(--ink-3); }
-    .scr-rep { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: 12px; }
-    .scr-rep:last-child { border-bottom: 0; }
-    .scr-rep .lbl { color: var(--ink-2); font-weight: 600; }
-    .scr-rep .val { font-family: var(--mono); color: var(--ink); }
+    /* Diary-style session cards, as in the app's Diary. */
+    .dcard { background: var(--card); border: 1px solid var(--edge); border-radius: 28px; padding: 22px 22px 24px; box-shadow: var(--shadow); }
+    .dcard .kind { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-3); }
+    .dcard .kind svg { width: 14px; height: 14px; flex: none; }
+    .dcard h3 { font-size: 21px; font-weight: 700; margin-top: 8px; }
+    .dcard p.detail { font-size: 15px; color: var(--ink-2); margin-top: 4px; }
 
-    /* ---------- Generic section ---------- */
-    section { position: relative; z-index: 1; }
-    .section { padding: 64px 0; }
-    .section-head { max-width: 36em; margin-bottom: 36px; }
-    .section-head h2 { font-size: clamp(28px, 3.6vw, 40px); }
-    .section-head p { color: var(--ink-2); font-size: 17px; margin: 16px 0 0; }
-    .center { text-align: center; margin-left: auto; margin-right: auto; }
+    /* Feature cards with a cropped phone. */
+    .shotcard { display: flex; flex-direction: column; background: var(--paper-3); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 30px 28px 0; overflow: hidden; }
+    .shotcard h3, .tile h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+    .shotcard p, .tile p.body { font-size: 16px; color: var(--ink-2); margin-top: 8px; }
+    /* align-items: flex-start keeps each phone at its own aspect ratio. The
+       default stretch squeezed it to the crop's height. */
+    .crop { display: flex; justify-content: center; align-items: flex-start; flex: 1 0 380px; overflow: hidden; margin-top: 26px; }
+    /* flex-grow: a card with a shorter heading still runs its phone to the bottom edge. */
+    /* No drop shadow here: the crop clips it into a hard-edged box. */
+    .crop .phone { width: 270px; flex: none; filter: none; }
+    .tile { background: var(--card); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 30px; box-shadow: var(--shadow); }
+    .tile h3 { font-size: 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 18px; background: var(--card-2); font-size: 14px; font-weight: 600; color: var(--ink-2); }
+    .times { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+    .times div { background: var(--card-2); border-radius: 16px; padding: 10px 12px; }
+    .times .d { font-size: 12px; color: var(--ink-3); }
+    .times .t { font-size: 20px; font-weight: 700; }
 
-    /* ---------- Problem ---------- */
-    .problem { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
-    .pcard { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-card); padding: 22px; box-shadow: var(--shadow-card); }
-    .pcard h3 { font-family: var(--sans); font-weight: 700; font-size: 16px; margin-bottom: 8px; color: var(--ink); }
-    .pcard p { margin: 0; color: var(--ink-3); font-size: 14.5px; line-height: 1.55; }
-    .pcard .ic { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    /* Season strip: the app's Coach season blocks (CoachSeasonOverviewCard). */
+    .season { display: grid; gap: 3px; align-items: end; }
+    .season span { height: 16px; border-radius: 4px; }
+    .season .now { height: 22px; border: 2px solid var(--accent); background: var(--card); }
+    .season .past { opacity: .35; }
+    .w-base { background: var(--slate); } .w-build { background: var(--moss); }
+    .w-sharpen { background: var(--gold); } .w-race { background: var(--race); } .w-rest { background: var(--rest); }
 
-    /* ---------- Features ---------- */
-    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .fcard {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--r-card);
-      padding: 26px 24px;
-      box-shadow: var(--shadow-card);
-      transition: transform .18s ease, box-shadow .2s ease;
-    }
-    .fcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-float); }
-    .fcard .fmark {
-      width: 38px; height: 38px; border-radius: 11px;
-      display: grid; place-items: center; margin-bottom: 16px;
-      background: var(--accent-soft); color: var(--accent-dark);
-    }
-    .fcard .fmark svg { width: 20px; height: 20px; }
-    .fcard h3 { font-family: var(--sans); font-size: 21px; font-weight: 600; margin-bottom: 8px; }
-    .fcard p { margin: 0; color: var(--ink-2); font-size: 15px; }
-    /* per-card mark tints to echo semantic workout colors */
-    .fcard.t-track .fmark { background: var(--accent-soft); color: var(--accent-dark); }
-    .fcard.t-cont  .fmark { background: var(--moss-soft); color: var(--moss); }
-    .fcard.t-event .fmark { background: var(--purple-soft); color: var(--purple-text); }
-    .fcard.t-pb    .fmark { background: var(--accent-soft); color: var(--accent-dark); }
-    .fcard.t-flow  .fmark { background: var(--race-soft); color: var(--race-text); }
-    .fcard.t-review .fmark { background: var(--moss-soft); color: var(--moss); }
+    /* Copy beside a phone. */
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
+    .split.rev { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); }
+    .split.rev .stage { order: -1; }
+    .stage { background: var(--stage); border-radius: var(--r-stage); padding: 48px 24px; display: flex; justify-content: center; align-items: center; }
+    .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+    .pt { background: var(--card); border: 1px solid var(--edge); border-radius: 22px; padding: 16px 18px; box-shadow: var(--shadow); }
+    .pt strong { display: block; font-size: 17px; font-weight: 700; }
+    .pt span { display: block; font-size: 14px; color: var(--ink-3); margin-top: 3px; line-height: 1.45; }
+    .note { font-size: 15px; color: var(--ink-3); margin-top: 22px; max-width: 36em; }
 
-    /* ---------- Detail sections ---------- */
-    .recap { overflow: hidden; }
-    .recap-grid {
-      display: grid;
-      grid-template-columns: 1fr .9fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .recap-copy h2 { font-size: clamp(30px, 4vw, 44px); max-width: 12em; }
-    .recap-copy > p:not(.eyebrow) { color: var(--ink-2); font-size: 17px; margin: 18px 0 0; max-width: 35em; }
-    .recap-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
-    .recap-point {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--r-panel);
-      padding: 15px 16px;
-      box-shadow: var(--shadow-card);
-    }
-    .recap-point strong { display: block; font-family: var(--sans); font-size: 17px; font-weight: 600; color: var(--ink); }
-    .recap-point span { display: block; color: var(--ink-3); font-size: 13px; line-height: 1.45; margin-top: 3px; }
-    .recap-stage {
-      position: relative;
-      min-height: 610px;
-      display: grid;
-      place-items: center;
-    }
-    .recap-stage::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      opacity: .72;
-    }
-    .recap-stage .phone { position: relative; width: 320px; transform: rotate(2deg); }
+    /* Large season card for the periodization section. */
+    .season-card { width: 100%; max-width: 480px; background: var(--card); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 28px; box-shadow: var(--shadow); }
+    .season-card .big { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
+    .season-card .season { grid-template-columns: repeat(18, minmax(0, 1fr)); gap: 4px; margin-top: 24px; }
+    .season-card .season span { height: 56px; border-radius: 9px; }
+    .season-card .ends { display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--ink-4); }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-3); }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 
-    /* Mirrored detail section, so a run of them alternates instead of marching
-       down the same side. The copy stays first in the DOM: the stack order at
-       narrow widths is reset in the responsive block below. */
-    .recap-grid.reverse { grid-template-columns: .9fr 1fr; }
-    .recap-grid.reverse .recap-stage { order: -1; }
-    .recap-grid.reverse .recap-stage .phone { transform: rotate(-2deg); }
+    /* iPhone and web. */
+    .checks { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; font-size: 17px; color: var(--ink-2); }
+    .checks p { display: flex; gap: 12px; align-items: center; }
+    .checks svg { width: 20px; height: 20px; flex: none; }
+    .browser { border-radius: 22px; background: var(--card); border: 1px solid var(--edge); overflow: hidden; box-shadow: 0 30px 70px rgba(12,11,10,.14); }
+    .browser .bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--edge); }
+    .browser .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
+    .browser .url { margin: 0 auto; padding: 4px 16px; border-radius: 9px; background: var(--card-2); font-size: 12px; font-weight: 600; color: var(--ink-2); }
+    .browser .body { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 20px; height: 280px; }
+    .browser .side { display: flex; flex-direction: column; gap: 10px; }
+    .browser .side span { height: 10px; border-radius: 5px; background: var(--rule); }
+    .browser .side span:first-child { height: 26px; border-radius: 9px; background: var(--card-2); }
+    .browser .main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 70px 1fr; gap: 12px; }
+    .browser .main span { border-radius: 18px; background: var(--card-2); }
+    .browser .main span:first-child { grid-column: span 2; }
+    .devices { position: relative; padding-bottom: 44px; }
+    .devices .phone-layered { position: absolute; right: -8px; bottom: 0; width: 150px; }
 
-    /* ---------- Screenshots showcase ---------- */
-    .showcase, .band { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-    .shots { display: flex; gap: 28px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
-    .shot { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 300px; }
-    .shot .cap { text-align: center; }
-    .shot .cap h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; }
-    .shot .cap p { margin: 4px 0 0; color: var(--ink-3); font-size: 13.5px; }
+    /* How it works. */
+    .step-n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-fill); color: #FFFFFF; font-size: 16px; font-weight: 700; margin-bottom: 18px; }
 
-    .recap-stage.tint-slate::before { background: var(--race-soft); }
-    .recap-stage.tint-moss::before { background: var(--moss-soft); }
-    .recap-stage.tint-purple::before { background: var(--purple-soft); }
+    /* Final call to action. */
+    .final { padding: 112px 0; }
+    .final-card { background: var(--cta-bg); border: 1px solid var(--edge); border-radius: var(--r-stage); padding: 80px 32px; text-align: center; }
+    .final-card img { width: 80px; height: 80px; border-radius: 18px; margin: 0 auto; }
+    .final-card h2 { color: var(--cta-ink); margin: 28px auto 0; max-width: 12em; }
+    .final-card p { font-size: 18px; color: var(--cta-ink-2); margin: 18px auto 0; max-width: 34em; }
+    .final-card .btn-row { justify-content: center; }
+    .btn-on-dark { color: #F7F0E7; border: 1px solid rgba(255,247,235,.24); }
 
-    /* ---------- How it works ---------- */
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
-    .step { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--r-card); padding: 26px 24px; box-shadow: var(--shadow-card); }
-    .step .n {
-      font-family: var(--mono); font-size: 13px; font-weight: 700;
-      width: 34px; height: 34px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: var(--accent); color: var(--button-on-accent); margin-bottom: 16px;
-    }
-    .step h3 { font-family: var(--sans); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-    .step p { margin: 0; color: var(--ink-2); font-size: 15px; }
-
-    /* ---------- Credibility ---------- */
-    .cred { }
-    /* The session column is the narrower one. Each card holds a label and a
-       session name and nothing else, so a half-width column left it stretched
-       with the name floating at the far left of a lot of empty card. */
-    .cred-grid { display: grid; grid-template-columns: 1fr .68fr; gap: 44px; align-items: center; }
-    .cred h2 { font-size: clamp(28px, 3.6vw, 40px); }
-    .cred .pull { font-family: var(--sans); font-style: italic; font-size: 20px; color: var(--ink-2); margin: 20px 0 0; }
-    .session-list { display: flex; flex-direction: column; gap: 10px; }
-    .session {
-      display: flex; align-items: center; gap: 14px;
-      background: var(--card); border: 1px solid var(--card-border);
-      border-radius: var(--r-card); padding: 14px 16px; box-shadow: var(--shadow-card);
-    }
-    .session .bar { width: 4px; height: 38px; border-radius: 4px; flex: none; }
-    .session .body { flex: 1; min-width: 0; }
-    .session .name { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); }
-    .session .kind { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
-    .k-track { color: var(--accent); } .b-track { background: var(--accent); }
-    .k-cont  { color: var(--moss); }   .b-cont  { background: var(--moss); }
-    .k-str   { color: var(--purple); } .b-str   { background: var(--purple); }
-    .k-race  { color: var(--race); }   .b-race  { background: var(--race); }
-
-    /* ---------- Final CTA ---------- */
-    .final { padding: 80px 0; }
-    .final-card {
-      background: var(--cta-bg);
-      border-radius: var(--r-hero);
-      padding: 56px 40px;
-      text-align: center;
-      box-shadow: var(--shadow-float);
-      position: relative;
-      overflow: hidden;
-    }
-    .final-card::before {
-      content: "";
-      position: absolute; inset: 0;
-      background: radial-gradient(120% 90% at 50% -10%, rgba(219,36,18,.30), transparent 60%);
-      pointer-events: none;
-    }
-    .final-card h2 { color: var(--cta-text); font-size: clamp(28px, 4vw, 44px); position: relative; }
-    .final-card p { color: var(--cta-copy); font-size: 17px; margin: 18px auto 28px; max-width: 34em; position: relative; }
-    .final-card .hero-cta { justify-content: center; position: relative; }
-
-    /* ---------- Footer ---------- */
-    .site-footer { border-top: 1px solid var(--rule); padding: 40px 0 56px; }
+    /* Footer. */
+    .site-footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; }
     .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .footer-grid img { height: 22px; }
-    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-    .footer-links a { color: var(--ink-3); font-size: 14px; font-weight: 600; }
+    .footer-grid .brand img { height: 22px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
     .footer-links a:hover { color: var(--ink); }
-    .copyright { color: var(--ink-4); font-size: 13px; width: 100%; margin-top: 18px; }
+    .copyright { width: 100%; font-size: 13px; color: var(--ink-3); }
 
     /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero { padding: 48px 0 24px; }
-      .hero-phones { order: -1; }
-      .problem-grid, .feat-grid, .steps { grid-template-columns: 1fr; }
-      .recap-grid, .recap-grid.reverse { grid-template-columns: 1fr; gap: 20px; }
-      .recap-grid.reverse .recap-stage { order: 0; }
-      .recap-copy h2 { max-width: 14em; }
-      .recap-stage { min-height: 590px; }
-      .cred-grid { grid-template-columns: 1fr; gap: 28px; }
+    @media (max-width: 1240px) {
+      .cascade .p-back { display: none; }
     }
-    @media (min-width: 561px) and (max-width: 900px) {
-      .problem-grid, .feat-grid, .steps { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 980px) {
+      .navlinks { display: none; }
+      .g3, .split, .split.rev { grid-template-columns: minmax(0, 1fr); }
+      .split { gap: 40px; }
+      .split.rev .stage { order: 0; }
+      .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      :root { --gutter: 16px; }
+      .sec { padding: 72px 0; }
+      .hero { padding: 40px 0 72px; }
+      .nav-web { display: none; }
+      .cascade .p-mid { display: none; }
+      .cascade { height: 573px; margin-top: 48px; }
+      .cascade .p-front { width: 280px; margin-left: -140px; }
+      .stage { padding: 36px 16px; }
+      .final-card { padding: 56px 20px; }
     }
     @media (max-width: 560px) {
-      .recap-points { grid-template-columns: 1fr; }
-      .recap-stage { min-height: 535px; }
-      .recap-stage::before { width: 330px; height: 330px; }
-      .recap-stage .phone { width: min(280px, 82vw); }
+      .notice { font-size: 13px; gap: 8px; }
+      .btn-row .btn { width: 100%; }
+      .g4, .points { grid-template-columns: minmax(0, 1fr); }
+      .phone { width: 260px; }
+      .season-card .season span { height: 40px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; transition: none !important; }
+      .btn:hover { transform: none; }
     }
-
-    /* Visually-hidden helper for a11y */
-    .vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   </style>
 </head>
 <body>
@@ -602,20 +450,20 @@
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="StrideBuddy home">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png">
-          <img src="assets/stridebuddy_lockup.png" alt="StrideBuddy">
-        </picture>
+        <img class="lockup-light" src="assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a class="navlink" href="#why">Why StrideBuddy</a>
-        <a class="navlink" href="#features">Features</a>
-        <a class="navlink" href="#plan">Plan</a>
-        <a class="navlink" href="#coach">Coach</a>
-        <a class="navlink" href="#records">Records</a>
-        <a class="navlink" href="#races">Races</a>
-        <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#coach">Coach</a>
+        <a href="#records">Records</a>
       </nav>
+      <div class="nav-actions">
+        <a class="nav-web" href="https://web.stridebuddy.app">Web app
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
     </div>
   </header>
 
@@ -623,374 +471,313 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Track &amp; field training diary</p>
-          <h1>A training diary that understands track.</h1>
-          <p class="lede">
-            Log reps, splits, races and strength work in one diary.
-            Coach plans your week around your event, recent training and season. Keep your reps and race records together.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
-            <a class="btn btn-secondary" href="#how">See how it works</a>
-          </div>
-          <p class="hero-note">Free account required. Sign in with Apple or Google.</p>
+      <div class="wrap center" style="text-align:center">
+        <a class="notice" href="https://web.stridebuddy.app">
+          <span class="tag cap">New</span>
+          StrideBuddy now works in your web browser
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <h1 class="center">A training diary that understands track.</h1>
+        <p class="lede center">Log reps, splits, races and strength work in one diary. Coach plans your week around your event, recent training and season. Keep your reps and race records together.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-smoke" href="https://web.stridebuddy.app">Open the web app
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
         </div>
+        <p class="hero-note">Free account required. Sign in with Apple or Google.</p>
+      </div>
 
-        <div class="hero-phones">
-          <div class="phone-mockup">
-            <img class="phone-screenshot" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy's Today screen, with the prompt to log a session and this week's training">
-            <img class="phone-bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
+      <div class="wrap">
+        <div class="cascade">
+          <div class="phone p-back left"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Records with the speed curve and times by distance"></div>
+          <div class="phone p-back right"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in the race calendar"></div>
+          <div class="phone p-mid left"><img src="assets/screenshots/diary.png" width="1800" height="3680" alt="StrideBuddy's Diary with this week's sessions"></div>
+          <div class="phone p-mid right"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status and this week's plan"></div>
+          <div class="phone phone-layered p-front">
+            <img class="screen" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy's Today screen, with today's logged session and this week's training">
+            <img class="bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROBLEM / WHY ============ -->
-    <section id="why" class="section problem">
+    <!-- ============ SESSIONS ============ -->
+    <section id="sessions" class="sec band">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Why StrideBuddy</p>
-          <h2>Track sessions don’t fit neatly into generic running apps.</h2>
-          <p>Your diary should understand reps, recoveries, splits, and the reason behind the session.</p>
+        <p class="eyebrow">For track athletes</p>
+        <h2 class="h2">Built around track-specific sessions.</h2>
+        <p class="lead">StrideBuddy recognizes sprint work, speed endurance, aerobic quality, tempo, hills, strength, and race day.</p>
+        <div class="g4" aria-label="Examples of sessions in a StrideBuddy diary">
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"><path d="M12 3c1 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-6 .5-8.5z"/></svg>Lactic</p>
+            <h3>Speed Endurance</h3>
+            <p class="detail num">3x(300m + 200m)</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg>Aerobic base</p>
+            <h3>Easy Recovery 5K</h3>
+            <p class="detail num">5.0km, 27:30, 5:30 /km</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2.4" stroke-linecap="round"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12"/></svg>Strength</p>
+            <h3>Strength Workout</h3>
+            <p class="detail">Back squat, barbell hip thrust, medicine ball overhead throw</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--race)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></svg>Race</p>
+            <h3>City Meeting</h3>
+            <p class="detail num">800m, 1:51.60, PB</p>
+          </article>
         </div>
-        <div class="problem-grid">
-          <article class="pcard">
-            <p class="ic" style="color:var(--accent)">Track training</p>
-            <h3>The whole track session</h3>
-            <p>A track session can include reps, sets, recoveries, split times, race pace, and how the work felt. Those details belong in the log.</p>
-          </article>
-          <article class="pcard">
-            <p class="ic" style="color:var(--rest)">Notes apps</p>
-            <h3>Easy to write, hard to revisit</h3>
-            <p>Notes can hold the session, but they don’t give it enough structure to compare workouts or review a season.</p>
-          </article>
-          <article class="pcard">
-            <p class="ic" style="color:var(--race)">GPS running apps</p>
-            <h3>Good at routes, less useful on the track</h3>
-            <p>Most running apps are designed around GPS runs, so a structured session built for your event gets flattened into distance and pace.</p>
-          </article>
-        </div>
-        <p style="margin:28px 0 0; font-family:var(--sans); font-style:italic; font-size:19px; color:var(--ink-2); max-width:40em;">
-          StrideBuddy records a session in the same terms you and your coach use at the track.
-        </p>
       </div>
     </section>
 
     <!-- ============ FEATURES ============ -->
-    <section id="features" class="section">
+    <section id="features" class="sec">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Features</p>
-          <h2>Keep the session details without slowing down.</h2>
-          <p>StrideBuddy knows that a tempo run and a set of 300s are different kinds of work.</p>
-        </div>
-        <div class="feat-grid">
+        <p class="eyebrow">Features</p>
+        <h2 class="h2">Keep the session details without slowing down.</h2>
+        <p class="lead">StrideBuddy knows that a tempo run and a set of 300s are different kinds of work.</p>
 
-          <article class="fcard t-track">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
-            </div>
-            <h3>Log the session as it happened</h3>
-            <p>Build sessions from blocks, reps, splits, and recoveries, including active jogs and floats. You can also mark any rep as hurdles or steeple.</p>
-          </article>
-
-          <article class="fcard t-cont">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
-            </div>
+        <div class="g3" style="margin-top:48px">
+          <article class="shotcard">
             <h3>Five ways to start a log</h3>
-            <p>Choose continuous, structured, strength, or race logging. For anything that doesn’t fit those four, use the free-text Quick Note. They all open from the same Log button.</p>
+            <p>They all open from the same Log button.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/central_log.png" width="1800" height="3680" alt="The Add a session tray with Continuous, Structured, Strength, Race and Quick Note" loading="lazy"></div></div>
           </article>
-
-          <article class="fcard t-event">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10"/></svg>
-            </div>
+          <article class="shotcard">
+            <h3>Log the session as it happened</h3>
+            <p>Build sessions from blocks, reps, splits, and recoveries.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/log_structured.png" width="1800" height="3680" alt="Structured workout builder with a block of 300m and 200m reps and their recoveries" loading="lazy"></div></div>
+          </article>
+          <article class="shotcard">
             <h3>Strength logging that stays out of the way</h3>
-            <p>Tap exercises to add them, or begin with a template. Sets, reps, and load are there when you need them, but you don’t have to fill in a spreadsheet first.</p>
+            <p>Tap exercises to add them, or begin with a template.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Strength logging form with Back Squat, Barbell Hip Thrust and Medicine Ball Overhead Throw" loading="lazy"></div></div>
           </article>
+        </div>
 
-          <article class="fcard t-flow">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
-            </div>
-            <h3>Add as much detail as you need</h3>
-            <p>The basic log is quick. Open Optional Signals when you want to add effort, how the session felt, weather, surface, or other feel tags.</p>
-          </article>
-
-          <article class="fcard t-pb">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>
-            </div>
-            <h3>A curve for speed, a ledger for times</h3>
-            <p>Your signature speed curve covers the distances you run, while the ledger breaks them down by distance. Switch between one season and all time, with reps and races shown side by side and never scored.</p>
-          </article>
-
-          <article class="fcard t-review">
-            <div class="fmark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M18 17h2V7h-2"/><path d="M8 8h6M8 12h4"/></svg>
-            </div>
+        <div class="g3" style="margin-top:16px">
+          <article class="tile">
             <h3>A week that fits your season</h3>
-            <p>Coach uses modern periodization to change your training focus through the season. Your recent training helps it choose the demands of each week.</p>
+            <p class="body">Coach uses modern periodization to change your training focus through the season.</p>
+            <div class="season" aria-hidden="true" style="grid-template-columns:repeat(12, minmax(0, 1fr)); margin-top:24px">
+              <span class="w-base past"></span><span class="now"></span><span class="w-build"></span><span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+            </div>
           </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ LOGGING ============ -->
-    <section id="logging" class="section showcase">
-      <div class="wrap">
-        <div class="section-head center">
-          <p class="eyebrow">Logging</p>
-          <h2>Log the work while it’s still fresh.</h2>
-          <p>Start from one Log button, choose the right session type, and add only the detail you want to keep.</p>
-        </div>
-
-        <div class="shots">
-          <div class="shot">
-            <img class="phone" src="assets/screenshots/central_log.png" width="1800" height="3680" alt="StrideBuddy's logging menu with Structured, Continuous, Strength, Race and Quick Note" loading="lazy">
-            <div class="cap">
-              <h3>One place to start</h3>
-              <p>Choose Structured, Continuous, Strength or Race. Use Quick Note for anything else you want to record.</p>
+          <article class="tile">
+            <h3>A curve for speed, a ledger for times</h3>
+            <p class="body">Reps and races shown side by side and never scored.</p>
+            <div class="times num" aria-hidden="true">
+              <div><p class="d">60m</p><p class="t">7.40</p></div>
+              <div><p class="d">200m</p><p class="t">26.80</p></div>
+              <div><p class="d">400m</p><p class="t">55.80</p></div>
             </div>
-          </div>
-
-          <div class="shot">
-            <img class="phone" src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Strength logging form in StrideBuddy" loading="lazy">
-            <div class="cap">
-              <h3>Strength</h3>
-              <p>Build the session by tapping exercises instead of filling out a long form.</p>
-            </div>
-          </div>
-
-          <div class="shot">
-            <img class="phone" src="assets/screenshots/log_structured.png" width="1800" height="3680" alt="Structured workout builder with blocks, reps, and recovery in StrideBuddy" loading="lazy">
-            <div class="cap">
-              <h3>Structured</h3>
-              <p>Keep the blocks, reps, splits, and recoveries that define the workout.</p>
-            </div>
-          </div>
+          </article>
+          <article class="tile">
+            <h3>Add as much detail as you need</h3>
+            <p class="body">The basic log is quick. Open Optional Signals when you want more.</p>
+            <div class="chips" aria-hidden="true"><span class="chip">Effort</span><span class="chip">Feel</span><span class="chip">Weather</span><span class="chip">Surface</span></div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ============ PLAN ============ -->
-    <section id="plan" class="section recap">
-      <div class="wrap recap-grid reverse">
-        <div class="recap-copy">
+    <section id="plan" class="sec band">
+      <div class="wrap split rev">
+        <div>
           <p class="eyebrow">Plan</p>
-          <h2>Plan the session now, log the result later.</h2>
-          <p>
-            The tray that logs a session will also plan one. Switch it to Plan, choose a day
-            ahead, and pick the workout type you have in mind.
-          </p>
-          <div class="recap-points" aria-label="What you can plan in StrideBuddy">
-            <div class="recap-point"><strong>Log or plan</strong><span>Log covers today and any earlier day. Plan covers tomorrow onwards, as far as a year out.</span></div>
-            <div class="recap-point"><strong>The same session types</strong><span>Structured, Continuous, Strength, Race and Quick Note.</span></div>
-            <div class="recap-point"><strong>Waiting on Today</strong><span>Find upcoming sessions on Today and in the Plan page. Log the result when you have done the session.</span></div>
-            <div class="recap-point"><strong>Races go to the calendar</strong><span>Plan a race and it lands in your race calendar instead.</span></div>
+          <h2 class="h2">Plan the session now, log the result later.</h2>
+          <p class="lead">The tray that logs a session will also plan one. Switch it to Plan, choose a day ahead, and pick the workout type you have in mind.</p>
+          <div class="points" aria-label="What you can plan in StrideBuddy">
+            <div class="pt"><strong>Log or plan</strong><span>Log covers today and any earlier day. Plan covers tomorrow onwards, as far as a year out.</span></div>
+            <div class="pt"><strong>The same session types</strong><span>Structured, Continuous, Strength, Race and Quick Note.</span></div>
+            <div class="pt"><strong>Waiting on Today</strong><span>Find upcoming sessions on Today and in the Plan page. Log the result when you have done the session.</span></div>
+            <div class="pt"><strong>Races go to the calendar</strong><span>Plan a race and it lands in your race calendar instead.</span></div>
           </div>
         </div>
-
-        <div class="recap-stage tint-moss">
-          <img class="phone" src="assets/screenshots/central_plan.png" width="1800" height="3680" alt="StrideBuddy's Add a session tray switched to Plan, scheduling a workout for tomorrow" loading="lazy">
-        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/central_plan.png" width="1800" height="3680" alt="StrideBuddy's Add a session tray switched to Plan, scheduling a workout for tomorrow" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ COACH ============ -->
-    <section id="coach" class="section recap">
-      <div class="wrap recap-grid">
-        <div class="recap-copy">
+    <section id="coach" class="sec">
+      <div class="wrap split">
+        <div>
           <p class="eyebrow">Coach</p>
-          <h2>Your training week, built for your season.</h2>
-          <p>Coach builds a weekly plan from your event, recent training, available days and races. The season sets the direction. Your diary helps it choose how much work to prescribe.</p>
-          <div class="recap-points" aria-label="How Coach plans your training">
-            <div class="recap-point"><strong>Season status</strong><span>Read where you are in the season and what your training is working toward.</span></div>
-            <div class="recap-point"><strong>This week</strong><span>Understand the focus of the week before you open its sessions.</span></div>
-            <div class="recap-point"><strong>Your event and races</strong><span>Training reflects your event and the importance of the races in your calendar.</span></div>
-            <div class="recap-point"><strong>You choose when to build</strong><span>Ask for your week when you are ready. Saved plans remain available offline.</span></div>
+          <h2 class="h2">Your training week, built for your season.</h2>
+          <p class="lead">Coach builds a weekly plan from your event, recent training, available days and races. The season sets the direction. Your diary helps it choose how much work to prescribe.</p>
+          <div class="points" aria-label="How Coach plans your training">
+            <div class="pt"><strong>Season status</strong><span>Read where you are in the season and what your training is working toward.</span></div>
+            <div class="pt"><strong>This week</strong><span>Understand the focus of the week before you open its sessions.</span></div>
+            <div class="pt"><strong>Your event and races</strong><span>Training reflects your event and the importance of the races in your calendar.</span></div>
+            <div class="pt"><strong>You choose when to build</strong><span>Ask for your week when you are ready. Saved plans remain available offline.</span></div>
           </div>
-          <p>Coach uses AI to write the plan within event-specific training rules. It is a free beta feature and needs an internet connection to build or change a plan.</p>
+          <p class="note">Coach uses AI to write the plan within event-specific training rules. It is a free beta feature and needs an internet connection to build or change a plan.</p>
         </div>
-        <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status, This week and a saved weekly training plan" loading="lazy">
-        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status, This week and a saved weekly training plan" loading="lazy"></div></div>
       </div>
     </section>
 
-    <section id="periodization" class="section recap band">
-      <div class="wrap recap-grid reverse">
-        <div class="recap-copy">
+    <!-- ============ PERIODIZATION ============ -->
+    <section id="periodization" class="sec band">
+      <div class="wrap split rev">
+        <div>
           <p class="eyebrow">Modern periodization</p>
-          <h2>Change the focus as your season progresses.</h2>
-          <p>Periodization means changing the focus of training over time. Build a base, develop the qualities your event needs, then prepare for racing. Easier weeks and recovery are part of the plan.</p>
-          <p>Coach keeps useful training qualities in the plan as the main focus changes. It considers your recent sessions and race priorities when choosing the next week's work.</p>
-          <p>A return from a break starts with a gradual return to training. A nearby race can change the week's preparation. The plan follows your situation.</p>
+          <h2 class="h2">Change the focus as your season progresses.</h2>
+          <p class="lead">Periodization means changing the focus of training over time. Build a base, develop the qualities your event needs, then prepare for racing. Easier weeks and recovery are part of the plan.</p>
+          <p class="more">Coach keeps useful training qualities in the plan as the main focus changes. It considers your recent sessions and race priorities when choosing the next week's work.</p>
+          <p class="more">A return from a break starts with a gradual return to training. A nearby race can change the week's preparation. The plan follows your situation.</p>
         </div>
-        <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/periodization.png" width="1800" height="3680" alt="Coach's periodization introduction showing Base, Build, Sharpen and Compete" loading="lazy">
+        <div class="stage" style="padding:48px 32px">
+          <div class="season-card">
+            <p class="cap" style="font-size:11px; color:var(--ink-3)">Season status</p>
+            <p class="big num">2 days</p>
+            <p style="font-size:15px; color:var(--ink-2)">until Summer Opener</p>
+            <div class="season" role="img" aria-label="An example season from May 15 to September 15. The weeks move from base to building and sharpening, then racing, then rest.">
+              <span class="w-base past"></span><span class="w-base past"></span><span class="now"></span>
+              <span class="w-build"></span><span class="w-build"></span>
+              <span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-sharpen"></span>
+              <span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span>
+              <span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+            </div>
+            <div class="ends num" aria-hidden="true"><span>MAY 15</span><span>SEP 15</span></div>
+            <div class="legend" aria-hidden="true">
+              <span><i class="w-base"></i>BASE</span>
+              <span><i class="w-build"></i>BUILD</span>
+              <span><i class="w-sharpen"></i>SHARPEN</span>
+              <span><i class="w-race"></i>COMPETE</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="coach-session" class="section recap">
-      <div class="wrap recap-grid">
-        <div class="recap-copy">
+    <!-- ============ COACH SESSION ============ -->
+    <section id="coach-session" class="sec">
+      <div class="wrap split">
+        <div>
           <p class="eyebrow">Each session has a purpose</p>
-          <h2>Know what to do and why it belongs.</h2>
-          <p>Open a Coach session to see its reps, recoveries and execution cues. Read what the session develops and how it supports your event.</p>
-          <p>Coach can include time or pace ranges when your recent training and personal bests support them. A session can also come without a numerical target.</p>
-          <p>Use the planned session to start your log when its day arrives. Record the result you actually ran.</p>
+          <h2 class="h2">Know what to do and why it belongs.</h2>
+          <p class="lead">Open a Coach session to see its reps, recoveries and execution cues. Read what the session develops and how it supports your event.</p>
+          <p class="more">Coach can include time or pace ranges when your recent training and personal bests support them. A session can also come without a numerical target.</p>
+          <p class="more">Use the planned session to start your log when its day arrives. Record the result you actually ran.</p>
         </div>
-        <div class="recap-stage tint-moss">
-          <img class="phone" src="assets/screenshots/coach_session.png" width="1800" height="3680" alt="A Coach session showing its purpose, repetitions, recoveries and execution advice" loading="lazy">
-        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/coach_session.png" width="1800" height="3680" alt="A Coach session showing its reps, recoveries and the answer to why this session now" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ VOLUME ============ -->
-    <section id="volume" class="section recap band">
-      <div class="wrap recap-grid reverse">
-        <div class="recap-copy">
+    <section id="volume" class="sec band">
+      <div class="wrap split rev">
+        <div>
           <p class="eyebrow">Volume</p>
-          <h2>How much you trained, counted from the diary.</h2>
-          <p>
-            The You tab adds up the running distance you logged, with a bar for each week.
-            Open a week to see its days and sessions.
-          </p>
-          <div class="recap-points" aria-label="What the weekly volume chart shows">
-            <div class="recap-point"><strong>Week by week</strong><span>Four weeks on screen at a time, and you can page back through earlier ones.</span></div>
-            <div class="recap-point"><strong>Open a week</strong><span>Tap a bar to see its days and the sessions inside them.</span></div>
-            <div class="recap-point"><strong>From your entries</strong><span>The chart uses your logged distance.</span></div>
-            <div class="recap-point"><strong>Counted, not scored</strong><span>No readiness score and no training load index. These are your own entries, added up.</span></div>
+          <h2 class="h2">How much you trained, counted from the diary.</h2>
+          <p class="lead">The You tab adds up the running distance you logged, with a bar for each week. Open a week to see its days and sessions.</p>
+          <div class="points" aria-label="What the weekly volume chart shows">
+            <div class="pt"><strong>Week by week</strong><span>Four weeks on screen at a time, and you can page back through earlier ones.</span></div>
+            <div class="pt"><strong>Open a week</strong><span>Tap a bar to see its days and the sessions inside them.</span></div>
+            <div class="pt"><strong>From your entries</strong><span>The chart uses your logged distance.</span></div>
+            <div class="pt"><strong>Counted, not scored</strong><span>No readiness score and no training load index. These are your own entries, added up.</span></div>
           </div>
         </div>
-
-        <div class="recap-stage tint-purple">
-          <img class="phone" src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's You tab" loading="lazy">
-        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's You tab" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ RECORDS ============ -->
-    <section id="records" class="section recap">
-      <div class="wrap recap-grid">
-        <div class="recap-copy">
+    <section id="records" class="sec">
+      <div class="wrap split">
+        <div>
           <p class="eyebrow">Records</p>
-          <h2>Your reps and races, side by side.</h2>
-          <p>
-            Records brings your fastest reps and races onto one page. A hand-drawn signature curve
-            follows the distances you run, and the ledger lists your times by distance. You can look
-            at a single season or your full history.
-          </p>
-          <div class="recap-points" aria-label="What you can see in Records">
-            <div class="recap-point"><strong>Your speed curve</strong><span>See your rep speed at every distance, with race results overlaid.</span></div>
-            <div class="recap-point"><strong>Times by distance</strong><span>Compare your fastest and typical times for reps or races.</span></div>
-            <div class="recap-point"><strong>One season or all time</strong><span>Focus on one season or open your complete training history.</span></div>
-            <div class="recap-point"><strong>Times without judgment</strong><span>A slower rep isn’t treated as a bad rep. It’s simply part of the record.</span></div>
+          <h2 class="h2">Your reps and races, side by side.</h2>
+          <p class="lead">Records brings your fastest reps and races onto one page. A hand-drawn signature curve follows the distances you run, and the ledger lists your times by distance. You can look at a single season or your full history.</p>
+          <div class="points" aria-label="What you can see in Records">
+            <div class="pt"><strong>Your speed curve</strong><span>See your rep speed at every distance, with race results overlaid.</span></div>
+            <div class="pt"><strong>Times by distance</strong><span>Compare your fastest and typical times for reps or races.</span></div>
+            <div class="pt"><strong>One season or all time</strong><span>Focus on one season or open your complete training history.</span></div>
+            <div class="pt"><strong>Times without judgment</strong><span>A slower rep isn’t treated as a bad rep. It’s simply part of the record.</span></div>
           </div>
         </div>
-
-        <div class="recap-stage tint-slate">
-          <img class="phone" src="assets/screenshots/records.png" width="1800" height="3680" alt="Signature speed curve and personal records in StrideBuddy" loading="lazy">
-        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Signature speed curve and personal records in StrideBuddy" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ RACES ============ -->
-    <section id="races" class="section recap">
-      <div class="wrap recap-grid reverse">
-        <div class="recap-copy">
+    <section id="races" class="sec band">
+      <div class="wrap split rev">
+        <div>
           <p class="eyebrow">Races</p>
-          <h2>The races you have coming, and the ones you have run.</h2>
-          <p>
-            The race calendar keeps upcoming meets and past results on one page. A race you
-            entered weeks ahead and a race you logged straight into the diary both appear
-            here, so the list stays complete.
-          </p>
-          <div class="recap-points" aria-label="What the race calendar holds">
-            <div class="recap-point"><strong>What’s next</strong><span>Each upcoming race with its distance, venue, and the days left.</span></div>
-            <div class="recap-point"><strong>A, B, or C</strong><span>Full taper, short taper, or train through. You say which when you add the race.</span></div>
-            <div class="recap-point"><strong>Season or all time</strong><span>Read one season of results, or your whole history.</span></div>
-            <div class="recap-point"><strong>Personal bests marked</strong><span>A PB is flagged on the race where you set it.</span></div>
+          <h2 class="h2">The races you have coming, and the ones you have run.</h2>
+          <p class="lead">The race calendar keeps upcoming meets and past results on one page. A race you entered weeks ahead and a race you logged straight into the diary both appear here, so the list stays complete.</p>
+          <div class="points" aria-label="What the race calendar holds">
+            <div class="pt"><strong>What’s next</strong><span>Each upcoming race with its distance, venue, and the days left.</span></div>
+            <div class="pt"><strong>A, B, or C</strong><span>Full taper, short taper, or train through. You say which when you add the race.</span></div>
+            <div class="pt"><strong>Season or all time</strong><span>Read one season of results, or your whole history.</span></div>
+            <div class="pt"><strong>Personal bests marked</strong><span>A PB is flagged on the race where you set it.</span></div>
           </div>
         </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in StrideBuddy's race calendar" loading="lazy"></div></div>
+      </div>
+    </section>
 
-        <div class="recap-stage">
-          <img class="phone" src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in StrideBuddy's race calendar" loading="lazy">
+    <!-- ============ IPHONE AND WEB ============ -->
+    <section id="web" class="sec">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">iPhone and web</p>
+          <h2 class="h2">Use StrideBuddy on your iPhone or in your web browser.</h2>
+          <p class="lead">The web app uses the same account as the iPhone app. Sign in on web.stridebuddy.app to see the same diary.</p>
+          <div class="checks">
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Your sessions sync between the iPhone app and the web app.</p>
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Use it on a computer or on a phone that is not an iPhone.</p>
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>You do not need to install anything.</p>
+          </div>
+          <div class="btn-row" style="margin-top:32px">
+            <a class="btn btn-smoke" href="https://web.stridebuddy.app">Open the web app
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="devices" aria-hidden="true">
+          <div class="browser">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">web.stridebuddy.app</span></div>
+            <div class="body">
+              <div class="side"><span></span><span style="width:70%"></span><span style="width:60%"></span><span style="width:66%"></span></div>
+              <div class="main"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="phone phone-layered">
+            <img class="screen" src="assets/screenshots/today.png" width="1206" height="2622" alt="" loading="lazy">
+            <img class="bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="section">
+    <section id="how" class="sec band">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">How it works</p>
-          <h2>Keep a clear record of your training.</h2>
-        </div>
-        <div class="steps">
-          <article class="step">
-            <div class="n">1</div>
+        <p class="eyebrow">How it works</p>
+        <h2 class="h2">Keep a clear record of your training.</h2>
+        <div class="g3" style="margin-top:48px">
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">1</div>
             <h3>Log the session</h3>
-            <p>Pick the workout type and enter the details you want to remember, such as reps, splits, recovery, and feel.</p>
+            <p class="body">Pick the workout type and enter the details you want to remember, such as reps, splits, recovery, and feel.</p>
           </article>
-          <article class="step">
-            <div class="n">2</div>
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">2</div>
             <h3>Keep its structure</h3>
-            <p>StrideBuddy saves and names the session, then categorizes it with your event in mind.</p>
+            <p class="body">StrideBuddy saves and names the session, then categorizes it with your event in mind.</p>
           </article>
-          <article class="step">
-            <div class="n">3</div>
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">3</div>
             <h3>Review the result</h3>
-            <p>Find the session in your Diary, check your records and see how much running you logged that week.</p>
+            <p class="body">Find the session in your Diary, check your records and see how much running you logged that week.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CREDIBILITY ============ -->
-    <section class="section cred band">
-      <div class="wrap cred-grid">
-        <div>
-          <p class="eyebrow">For track athletes</p>
-          <h2>Built around track-specific sessions.</h2>
-          <p style="color:var(--ink-2); font-size:17px; margin:16px 0 0;">
-            StrideBuddy recognizes sprint work, speed endurance, aerobic quality, tempo, hills, strength, and race day.
-          </p>
-          <p class="pull">
-            Keep structured sessions, race preparation, strength work, and recovery in a diary instead of another GPS feed.
-          </p>
-        </div>
-        <div class="session-list" aria-label="Examples of sessions you can log in StrideBuddy">
-          <div class="session">
-            <span class="bar b-track"></span>
-            <div class="body"><div class="kind k-track">Track</div><div class="name">6×150m speed endurance</div></div>
-          </div>
-          <div class="session">
-            <span class="bar b-track"></span>
-            <div class="body"><div class="kind k-track">Track</div><div class="name">5×300m race-pace work</div></div>
-          </div>
-          <div class="session">
-            <span class="bar b-cont"></span>
-            <div class="body"><div class="kind k-cont">Continuous</div><div class="name">3×1000m aerobic quality</div></div>
-          </div>
-          <div class="session">
-            <span class="bar b-cont"></span>
-            <div class="body"><div class="kind k-cont">Continuous</div><div class="name">Tempo intervals and hill sprints</div></div>
-          </div>
-          <div class="session">
-            <span class="bar b-str"></span>
-            <div class="body"><div class="kind k-str">Strength</div><div class="name">Lower body + plyos</div></div>
-          </div>
-          <div class="session">
-            <span class="bar b-race"></span>
-            <div class="body"><div class="kind k-race">Race</div><div class="name">400m personal best</div></div>
-          </div>
         </div>
       </div>
     </section>
@@ -999,11 +786,12 @@
     <section id="download" class="final">
       <div class="wrap">
         <div class="final-card">
-          <h2>Keep your track training in one diary.</h2>
+          <img src="assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+          <h2 class="h2">Keep your track training in one diary.</h2>
           <p>Download StrideBuddy for iPhone to log workouts, strength work, races, and recovery.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
-            <a class="btn btn-secondary" href="#features" style="background:var(--cta-ghost); color:var(--cta-text); border-color:var(--cta-ghost-border); box-shadow:none;">Explore features</a>
+          <div class="btn-row">
+            <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+            <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
           </div>
         </div>
       </div>
@@ -1013,21 +801,21 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <a class="brand" href="#top" aria-label="StrideBuddy home"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stridebuddy_lockup_dark.png"><img src="assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a>
-        <nav class="footer-links" aria-label="Footer navigation">
-          <a href="#why">Why StrideBuddy</a>
-          <a href="#features">Features</a>
-          <a href="#plan">Plan</a>
-          <a href="#coach">Coach</a>
-          <a href="#records">Records</a>
-          <a href="#races">Races</a>
-          <a href="support">Support</a>
-          <a href="terms">Terms</a>
-          <a href="privacy">Privacy</a>
-        </nav>
-      </div>
+    <div class="wrap footer-grid">
+      <a class="brand" href="#top" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#features">Features</a>
+        <a href="#coach">Coach</a>
+        <a href="#records">Records</a>
+        <a href="#races">Races</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="support">Support</a>
+        <a href="terms">Terms</a>
+        <a href="privacy">Privacy</a>
+      </nav>
       <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
     </div>
   </footer>
