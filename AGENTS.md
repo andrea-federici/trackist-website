@@ -9,6 +9,7 @@
 - Keep the website dependency-free and static: plain HTML and CSS with no build step, client framework, analytics, or tracking unless the user explicitly changes that product direction. **The one exception is the campaign-attribution script described below, which is deliberate and load-bearing.** The rule is about tracking, third-party requests and dependencies, not about JavaScript as such; judge a proposed script by whether it does any of those, and never delete this one as dependency-free cleanup.
 - Preserve public behavior, responsive layout, dark mode, accessibility, metadata, URLs, legal meaning, and product claims during architecture-only cleanup.
 - Keep the canonical public domain and support contact as `stridebuddy.app` and `support@stridebuddy.app`.
+- **Every file in this folder is published unless `.assetsignore` excludes it.** The deploy serves the whole repository folder. When you add a file that is only for the repository (notes, scripts, tool config), add it to `.assetsignore` in the same commit. Never add anything the site needs to it: pages, `assets/`, `robots.txt`, `llms.txt`, `sitemap.xml`, `BingSiteAuth.xml` or the IndexNow key file.
 - Treat `README.md` as the website file and asset map. Use `../iOS/docs/DESIGN.md` for high-level design direction and the live iOS design-system code for exact shared tokens.
 
 ## Campaign attribution: in use, do not remove
@@ -86,6 +87,14 @@ reasoning; the rules that matter when editing are these.
 - Adding a page means adding it to `sitemap.xml` with a canonical tag, or
   deciding it is `noindex` and leaving it out. Silently doing neither is the
   failure mode.
+- **IndexNow: after a push to `main` that adds or changes pages, run
+  `python3 indexnow.py` with the changed paths** (or with no arguments for the
+  whole sitemap) once the deploy is live. It tells Bing and the other IndexNow
+  engines to recrawl; Google does not use it. The key file
+  `a7689d76cbf393f0b43d86b076b47f32.txt` stays at the root, holds exactly the key with no
+  newline, and stays out of `sitemap.xml`. The key is public on purpose and is not a secret. Cloudflare
+  Crawler Hints also pings IndexNow and does not conflict.
+  `README.md § IndexNow` has the details.
 
 ## Shared Design Values
 

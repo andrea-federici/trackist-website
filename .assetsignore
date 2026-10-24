@@ -1,0 +1,20 @@
+# Files Wrangler must not publish. The Worker serves this whole folder as the
+# site, so anything that is only for the repository goes here. Same syntax as
+# .gitignore. Wrangler never uploads this file, _headers or _redirects itself.
+
+# Git and tooling
+.git
+.gitignore
+.wrangler
+.claude
+node_modules
+.DS_Store
+
+# The wrangler config the build writes on each deploy
+wrangler.json
+wrangler.jsonc
+wrangler.toml
+
+# Docs and dev scripts (README.md, AGENTS.md, CLAUDE.md, serve.py, indexnow.py)
+*.md
+*.py

@@ -20,15 +20,24 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
 | `robots.txt` | The whole crawler policy: allows every crawler, AI ones included, plus the Sitemap line. |
-| `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
+| `serve.py` | Local dev server that strips `.html` like production does. Not deployed (see `.assetsignore`). |
 | `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
+| `a7689d76cbf393f0b43d86b076b47f32.txt` | The IndexNow key file. Its content is exactly the key, with no newline. Must stay at the site root. See § IndexNow. |
+| `indexnow.py` | Sends changed URLs to IndexNow. Run it by hand after a push that adds or changes pages. Not deployed (see `.assetsignore`). |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
 | `sitemap.xml` | The seven indexable URLs, with `hreflang` alternates for `/` and `/it` and for `/privacy` and `/it/privacy`. Must agree with the `rel="canonical"` tags. |
+| `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md` and every `*.py`. Same syntax as `.gitignore`. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
 | `assets/og-image-it.png` | The Italian share card, on `/it` and `/it/privacy`. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 | `assets/screenshots/it/` | Italian screenshots for `it.html`. See § App screenshots. |
+
+**Everything in this folder is published unless `.assetsignore` excludes it.**
+Pushing `main` runs `npx wrangler deploy` on Cloudflare, which serves the whole
+repository folder as the site's files. Until 2026-10-24 that included `.git/`,
+this README and the Python scripts. Add any new file that is only for the
+repository (notes, scripts, tool config) to `.assetsignore` in the same commit.
 
 ## Campaign attribution
 
@@ -191,6 +200,42 @@ here: **this repository is public**, and an address written into it is
 permanently harvestable. Check there before assuming a console is reachable from
 whichever account you happen to be signed in to — the *Import from Google Search
 Console* path in Bing failed on 2026-08-12 for what was most likely this reason.
+
+### IndexNow
+
+[IndexNow](https://www.indexnow.org) lets a site tell search engines that a page
+was added, changed or removed, so they crawl it soon instead of whenever they
+next visit. Bing, Yandex, Seznam, Naver and the other engines that take part
+share each ping. **Google does not take part**, so IndexNow adds to the sitemap
+in Search Console and never replaces it.
+
+**The key lives in `a7689d76cbf393f0b43d86b076b47f32.txt` at the site root**, served at
+`https://stridebuddy.app/a7689d76cbf393f0b43d86b076b47f32.txt`.
+The file holds exactly the key and nothing else, not even a newline. The key is
+public on purpose: it proves we control the host, it is not a password. Like
+`BingSiteAuth.xml`, it is not a page, so it stays out of `sitemap.xml`. Do not
+move, rename or delete it. To change the key, replace the file and update `KEY`
+in `indexnow.py` in the same commit.
+
+**Run `indexnow.py` after a push to `main` that adds or changes pages**, once the
+deploy is live (about a minute). Send only what changed; resending unchanged
+pages wastes the site's crawl quota.
+
+```sh
+python3 indexnow.py /faq /it      # only these pages
+python3 indexnow.py               # every URL in the live sitemap.xml
+python3 indexnow.py --dry-run     # print the request, send nothing
+```
+
+It checks the live key file first, then prints the HTTP status. `200` and `202`
+(key check still pending, usual on the first run) are success. `403` or `422`
+means the engine could not fetch or match the key file.
+
+**Cloudflare Crawler Hints is also on for the zone and does not conflict.**
+Cloudflare sends its own IndexNow pings as a partner of the engines, with no key
+file on our host, so our key is independent of it. It guesses from cache
+signals when a page has likely changed, so it may ping late or not at all. The
+script is the deliberate ping right after a deploy.
 
 ### State as of 2026-08-12
 
