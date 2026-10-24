@@ -25,8 +25,12 @@ import sys
 class ExtensionStrippingHandler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
         resolved = super().translate_path(path)
-        if not os.path.exists(resolved) and os.path.exists(resolved + ".html"):
-            return resolved + ".html"
+        # /it is it.html even though an it/ folder (it/privacy.html) exists,
+        # as in production: a folder without index.html is not a page.
+        is_page_dir = os.path.isdir(resolved) and os.path.exists(os.path.join(resolved, "index.html"))
+        if (not os.path.exists(resolved) or (os.path.isdir(resolved) and not is_page_dir)) \
+                and os.path.exists(resolved.rstrip("/") + ".html"):
+            return resolved.rstrip("/") + ".html"
         return resolved
 
 

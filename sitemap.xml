@@ -19,9 +19,10 @@
   directly in forums, it near-duplicates the homepage, and it carries
   noindex,follow for that reason.
 
-  / and /it are language versions of the homepage. Each lists both as
-  xhtml:link alternates, plus x-default, matching the hreflang links in
-  index.html and it.html.
+  / and /it are language versions of the homepage, and /privacy and
+  /it/privacy of the privacy policy. Each pair lists both as xhtml:link
+  alternates, plus x-default pointing at the English page, matching the
+  hreflang links in the pages themselves.
 
   Update lastmod when a page's content changes, not when an unrelated file in
   the repository does.
@@ -63,6 +64,18 @@
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/privacy"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/privacy</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/privacy"/>
   </url>
   <url>
     <loc>https://stridebuddy.app/terms</loc>

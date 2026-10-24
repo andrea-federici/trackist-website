@@ -14,7 +14,8 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `faq.html` | FAQ (`/faq`), with `FAQPage` JSON-LD that must match the visible answers word for word. |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
-| `privacy.html` | Privacy policy. |
+| `privacy.html` | Privacy policy. The official text. |
+| `it/privacy.html` | Italian translation of the privacy policy (`/it/privacy`). It says the English page is the official one, keeps its "Last updated" date, and changes in the same commit as `privacy.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
@@ -22,9 +23,10 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
 | `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
-| `sitemap.xml` | The six indexable URLs, with `hreflang` alternates for `/` and `/it`. Must agree with the `rel="canonical"` tags. |
+| `sitemap.xml` | The seven indexable URLs, with `hreflang` alternates for `/` and `/it` and for `/privacy` and `/it/privacy`. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
-| `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every indexable page. See § Share image. |
+| `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
+| `assets/og-image-it.png` | The Italian share card, on `/it` and `/it/privacy`. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 | `assets/screenshots/it/` | Italian screenshots for `it.html`. See § App screenshots. |
 
@@ -243,7 +245,10 @@ it empty. Every other `<img>` on the site has real alt text — that was checked
 ### Share image
 
 `assets/og-image.png` is the link-preview card (`og:image`, `twitter:image`,
-`summary_large_image`) on the homepage, the Italian homepage, FAQ, support, privacy and terms pages. It is
+`summary_large_image`) on the homepage, FAQ, support, privacy and terms pages.
+`assets/og-image-it.png` is the same layout with the Italian tagline *Il diario di
+allenamento per l’atletica leggera* and the Italian `today_raw.png` and `review.png`
+from `assets/screenshots/it/`; it is on `/it` and `/it/privacy`. It is
 1200×630, built with Pillow from repo assets only: `stridebuddy_lockup.png`, the
 tagline in SF Pro, and `today.png` in the bezel beside `review.png` on the
 `--stage` panel. Like every page image, it is compressed once with `pngquant`
@@ -367,8 +372,9 @@ Keep the same aspect ratio and transparent device treatment when replacing them.
 `../AppStore/approved/it-IT/sources/` (run `20261024T103032Z-fb2147`): the same file
 names, sizes and `pngquant` settings, with `_raw.png` inputs beside them. Run the
 commands above from inside that folder. `central_plan.png` and `log_strength.png`
-have no Italian capture (the `capture --website` extras exist only in `en-US`), so
-`it.html` uses the English ones. `periodization.png` is not on the page and has no
+have no Italian capture: `../AppStore/tools/workflow.py` makes the `capture --website`
+extras only for `en-US`, so `it.html` uses the English ones until Italian captures
+exist. `periodization.png` is not on the page and has no
 Italian copy here.
 
 ## Contact

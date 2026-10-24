@@ -78,6 +78,11 @@ reasoning; the rules that matter when editing are these.
   links for `en`, `it` and `x-default` (pointing at `/`), and `sitemap.xml`
   repeats them. Copy, sections, images, the campaign script and the style block
   change on both pages together. There is no redirect by browser language.
+- **`/it/privacy` is a translation of `/privacy`, and the English page is the
+  official text.** Change both in the same commit, keep the same "Last
+  updated" date, and keep the hreflang pair in both pages and in `sitemap.xml`.
+  A legal change is made in English first; the translation follows it and adds,
+  removes or softens nothing.
 - Adding a page means adding it to `sitemap.xml` with a canonical tag, or
   deciding it is `noindex` and leaving it out. Silently doing neither is the
   failure mode.
