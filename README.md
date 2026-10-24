@@ -290,9 +290,17 @@ The page uses real app screenshots exported with a transparent device frame:
 | `assets/screenshots/periodization.png` | Plan setup periodization introduction | Unused on the page; kept in sync with the App Store set |
 
 Every file above is the composite: the raw screen scaled into the device frame,
-**2015×4120** with the area outside the phone transparent. `today.png` is the one
-exception. The page layers the frame over it in CSS, so that file is the bare
-**1206×2622** screen. The `<img>` tags declare 1800×3680, which is the same
+with the area outside the phone transparent. `today.png` is the one exception.
+The page layers the frame over it in CSS, so that file is the bare screen.
+
+**The page files are downsized for loading speed:** composites and
+`assets/iphone-17-black-bezel.png` are **1008×2061** (half of the 2015×4120
+frame), and `today.png` is **900×1957**. The largest phone on the page is 320 CSS
+pixels wide, so this is still about 3× on a retina screen. They are then
+compressed with `pngquant` (`brew install pngquant`), which keeps transparency
+and shows no visible difference at full zoom. Full size, the page images were
+20.5 MB; downsized 7.4 MB; compressed 2.7 MB. The `_raw.png` inputs stay full
+size and uncompressed. The `<img>` tags declare 1800×3680, which is the same
 aspect at a smaller nominal size and only sets the intrinsic ratio.
 
 Each screen also keeps its unframed capture beside it as `<name>_raw.png`. Those
@@ -318,7 +326,30 @@ image rather than assuming an offset:
 
 **Do not pass `today_raw.png` to it.** That would write a framed `today.png` over
 the bare screen the page needs, and the result is a phone drawn inside a phone.
-`today.png` is a plain copy of `today_raw.png`.
+`today.png` is a copy of `today_raw.png`.
+
+`bezel.py` writes full-size 2015×4120 files, so downsize and compress
+afterwards. The downsize step leaves files already downsized alone:
+
+```sh
+~/.cache/stridebuddy-social/venv/bin/python - <<'PY'
+from PIL import Image
+import glob
+for p in glob.glob("assets/screenshots/*.png"):
+    if p.endswith("_raw.png"): continue
+    im = Image.open(p); im.load()
+    size = {(1206, 2622): (900, 1957), (2015, 4120): (1008, 2061)}.get(im.size)
+    if size:
+        im.resize(size, Image.LANCZOS).save(p, optimize=True)
+PY
+for f in assets/screenshots/*.png; do
+  case $f in *_raw.png) continue;; esac
+  pngquant --quality=85-98 --speed 1 --strip --skip-if-larger --force --ext .png -- "$f"
+done
+```
+
+Compress only freshly written files: running `pngquant` again on an already
+compressed file loses a little more each time.
 
 Keep the same aspect ratio and transparent device treatment when replacing them.
 
