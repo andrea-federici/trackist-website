@@ -83,6 +83,17 @@ reasoning; the rules that matter when editing are these.
 - Keep the StrideBuddy paper, ink, red accent, card, typography, and numerical treatments aligned with the app. Do not introduce a separate web visual language.
 - Preserve the existing screenshot filenames, aspect ratios, device treatment, and page references when replacing images.
 
+## Images: always downsize and compress with pngquant
+
+Every image the page loads must be downsized and then compressed with `pngquant` before it is committed. This covers adding a new image and replacing an existing one. A full-size screenshot is about 1.7 MB; downsized and compressed it is about 230 KB, with no visible difference. Before this rule the page loaded 20.5 MB of images and was slow; now it loads 2.7 MB.
+
+- **Downsize first.** Framed screenshots and `assets/iphone-17-black-bezel.png` are 1008×2061, and the bare `today.png` is 900×1957. The largest phone on the page is 320 CSS pixels wide, so that is still about 3× on a retina screen. `bezel.py` and the `AppStore/` pipeline write 2015×4120, so their output is never ready to commit as it is.
+- **Then compress with `pngquant`**, and no other tool. Install it with `brew install pngquant` if it is missing. Pillow's own palette mode was tried and rejected: it drops card shadows and bands gradients.
+- **Use the exact commands in `README.md § App screenshots`.** They hold the sizes and the `pngquant` settings (`--quality=85-98 --speed 1 --strip`).
+- **Compress each file once, right after it is written.** Running `pngquant` again on a file that is already compressed loses a little more quality each time.
+- **Leave the `_raw.png` inputs full size and uncompressed.** The page does not load them; they are the sources for the next frame.
+- **Look at the result before committing.** Compare a crop of a gradient, a shadow and small text against the uncompressed file. If you can see a difference, raise the quality floor rather than commit it.
+
 ## Verification
 
 - Serve the site locally with `python3 serve.py 8000` when visual verification is needed. **Not `python3 -m http.server`** — production strips the `.html` extension and the internal links match production, so the plain server 404s on all of them and the site looks broken when it is not.
