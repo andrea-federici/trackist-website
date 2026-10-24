@@ -9,7 +9,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, sessions, features, plan, Coach, periodization, session purpose, volume, records, races, iPhone and web, how it works, CTA). |
+| `index.html` | The one-page landing site (hero, sessions, features, plan, weekly Plan, periodization, session purpose, race predictions, volume, records, races, iPhone and web, how it works, CTA). |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
@@ -276,18 +276,18 @@ The page uses real app screenshots exported with a transparent device frame:
 
 | File | Screen | Used in |
 | --- | --- | --- |
-| `assets/screenshots/today.png` | Today | Hero front phone, and the iPhone and web section (layered inside `assets/iphone-17-black-bezel.png`) |
-| `assets/screenshots/diary.png` | Diary week view | Hero cascade |
-| `assets/screenshots/review.png` | Coach / Season status and weekly plan | Hero cascade, Coach section |
-| `assets/screenshots/records.png` | Records / speed curve | Hero cascade, Records section |
-| `assets/screenshots/race_calendar.png` | Race calendar | Hero cascade, Races section |
+| `assets/screenshots/today.png` | Training page (Log a session and the diary) | Hero front phone, and the iPhone and web section (layered inside `assets/iphone-17-black-bezel.png`) |
+| `assets/screenshots/review.png` | Plan / Season status and weekly plan | Hero cascade, Plan section (`#coach`) |
+| `assets/screenshots/predictions.png` | Insights / 800m performance prediction sheet | Hero cascade, Race predictions section |
+| `assets/screenshots/records.png` | Records / personal bests and training records | Hero cascade, Records section |
+| `assets/screenshots/race_calendar.png` | Race calendar (upcoming races only) | Hero cascade, Races section |
 | `assets/screenshots/central_log.png` | Add a session tray, Log face | Features |
 | `assets/screenshots/log_structured.png` | Structured track-session logging | Features |
 | `assets/screenshots/log_strength.png` | Strength logging form, filled from the capture diary | Features |
 | `assets/screenshots/central_plan.png` | Add a session tray, Plan face | Plan section |
-| `assets/screenshots/coach_session.png` | Coach session detail | Session purpose section |
-| `assets/screenshots/volume.png` | You / weekly volume | Volume section |
-| `assets/screenshots/periodization.png` | Coach periodization introduction | Unused on the page; kept in sync with the App Store set |
+| `assets/screenshots/coach_session.png` | Planned session detail | Session purpose section |
+| `assets/screenshots/volume.png` | Insights / volume and predictions | Volume section |
+| `assets/screenshots/periodization.png` | Plan setup periodization introduction | Unused on the page; kept in sync with the App Store set |
 
 Every file above is the composite: the raw screen scaled into the device frame,
 **2015×4120** with the area outside the phone transparent. `today.png` is the one
@@ -309,7 +309,7 @@ image rather than assuming an offset:
 ```sh
 ~/.cache/stridebuddy-social/venv/bin/python ../AppStore/tools/bezel.py \
   assets/screenshots/central_log_raw.png assets/screenshots/central_plan_raw.png \
-  assets/screenshots/coach_session_raw.png assets/screenshots/diary_raw.png \
+  assets/screenshots/coach_session_raw.png assets/screenshots/predictions_raw.png \
   assets/screenshots/log_strength_raw.png assets/screenshots/log_structured_raw.png \
   assets/screenshots/periodization_raw.png assets/screenshots/race_calendar_raw.png \
   assets/screenshots/records_raw.png assets/screenshots/review_raw.png \

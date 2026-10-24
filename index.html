@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StrideBuddy | A training diary for track athletes</title>
-  <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy brings reps, splits, strength work, races, records and weekly Coach plans into one diary.">
+  <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy brings reps, splits, strength work, races, records, race predictions and weekly plans into one diary.">
   <!--
     Apex, no extension. That is what the host serves: Cloudflare Pages strips
     the extension, so /index.html 307s here and /support.html 307s to /support.
@@ -31,7 +31,7 @@
   <meta property="og:site_name" content="StrideBuddy">
   <meta property="og:url" content="https://stridebuddy.app/">
   <meta property="og:title" content="StrideBuddy | A training diary for track athletes">
-  <meta property="og:description" content="Log track training and races in one diary. Coach plans your week around your event, recent training and season.">
+  <meta property="og:description" content="Log track training and races in one diary. StrideBuddy plans your week around your event, recent training and season, and predicts your race times.">
   <meta property="og:image" content="https://stridebuddy.app/assets/stridebuddy_icon.png">
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="1024">
@@ -73,19 +73,21 @@
       "https://stridebuddy.app/assets/screenshots/today.png",
       "https://stridebuddy.app/assets/screenshots/log_structured.png",
       "https://stridebuddy.app/assets/screenshots/review.png",
+      "https://stridebuddy.app/assets/screenshots/predictions.png",
       "https://stridebuddy.app/assets/screenshots/records.png",
       "https://stridebuddy.app/assets/screenshots/race_calendar.png",
       "https://stridebuddy.app/assets/screenshots/volume.png"
     ],
-    "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races, plan your week with Coach, and keep personal bests and rep records in view.",
+    "description": "A training diary for competitive track and field athletes. Log reps, recoveries, splits, strength work and races, get a weekly plan and race predictions, and keep personal bests and rep records in view.",
     "featureList": [
       "Structured track session logging with reps, recoveries and splits",
       "Hurdles and steeplechase reps kept distinct from flat distances",
       "Strength, road, trail and race logging",
       "Personal bests and rep records",
       "Planned sessions and a race calendar",
+      "Race predictions with a range and a confidence level",
       "Weekly running volume from your logged sessions",
-      "Weekly Coach plans built around modern periodization",
+      "Weekly plans built around modern periodization",
       "Account sync across devices with offline access"
     ],
     "offers": {
@@ -455,7 +457,8 @@
       </a>
       <nav class="navlinks" aria-label="Main navigation">
         <a href="#features">Features</a>
-        <a href="#coach">Coach</a>
+        <a href="#coach">Plan</a>
+        <a href="#predictions">Predictions</a>
         <a href="#records">Records</a>
       </nav>
       <div class="nav-actions">
@@ -478,7 +481,7 @@
           <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <h1 class="center">A training diary that understands track.</h1>
-        <p class="lede center">Log reps, splits, races and strength work in one diary. Coach plans your week around your event, recent training and season. Keep your reps and race records together.</p>
+        <p class="lede center">Log reps, splits, races and strength work in one diary. StrideBuddy plans your week around your event, recent training and season, and predicts your race times. Keep your reps and race records together.</p>
         <div class="btn-row">
           <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
           <a class="btn btn-smoke" href="https://web.stridebuddy.app">Open the web app
@@ -490,12 +493,12 @@
 
       <div class="wrap">
         <div class="cascade">
-          <div class="phone p-back left"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Records with the speed curve and times by distance"></div>
-          <div class="phone p-back right"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in the race calendar"></div>
-          <div class="phone p-mid left"><img src="assets/screenshots/diary.png" width="1800" height="3680" alt="StrideBuddy's Diary with this week's sessions"></div>
-          <div class="phone p-mid right"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status and this week's plan"></div>
+          <div class="phone p-back left"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Records with personal bests and training records"></div>
+          <div class="phone p-back right"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming races in the race calendar"></div>
+          <div class="phone p-mid left"><img src="assets/screenshots/predictions.png" width="1800" height="3680" alt="An 800m race prediction with its range and confidence level"></div>
+          <div class="phone p-mid right"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Plan showing Season status and this week's sessions"></div>
           <div class="phone phone-layered p-front">
-            <img class="screen" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy's Today screen, with today's logged session and this week's training">
+            <img class="screen" src="assets/screenshots/today.png" width="1206" height="2622" alt="StrideBuddy's training page, with the Log button and this week's diary">
             <img class="bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
           </div>
         </div>
@@ -561,13 +564,13 @@
         <div class="g3" style="margin-top:16px">
           <article class="tile">
             <h3>A week that fits your season</h3>
-            <p class="body">Coach uses modern periodization to change your training focus through the season.</p>
+            <p class="body">Plan uses modern periodization to change your training focus through the season.</p>
             <div class="season" aria-hidden="true" style="grid-template-columns:repeat(12, minmax(0, 1fr)); margin-top:24px">
               <span class="w-base past"></span><span class="now"></span><span class="w-build"></span><span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
             </div>
           </article>
           <article class="tile">
-            <h3>A curve for speed, a ledger for times</h3>
+            <h3>Your fastest reps and races</h3>
             <p class="body">Reps and races shown side by side and never scored.</p>
             <div class="times num" aria-hidden="true">
               <div><p class="d">60m</p><p class="t">7.40</p></div>
@@ -594,7 +597,7 @@
           <div class="points" aria-label="What you can plan in StrideBuddy">
             <div class="pt"><strong>Log or plan</strong><span>Log covers today and any earlier day. Plan covers tomorrow onwards, as far as a year out.</span></div>
             <div class="pt"><strong>The same session types</strong><span>Structured, Continuous, Strength, Race and Quick Note.</span></div>
-            <div class="pt"><strong>Waiting on Today</strong><span>Find upcoming sessions on Today and in the Plan page. Log the result when you have done the session.</span></div>
+            <div class="pt"><strong>Ready on the day</strong><span>On the day, the session waits on your training page. Find later sessions in Plan. Log the result when you have done the session.</span></div>
             <div class="pt"><strong>Races go to the calendar</strong><span>Plan a race and it lands in your race calendar instead.</span></div>
           </div>
         </div>
@@ -606,18 +609,18 @@
     <section id="coach" class="sec">
       <div class="wrap split">
         <div>
-          <p class="eyebrow">Coach</p>
+          <p class="eyebrow">Plan</p>
           <h2 class="h2">Your training week, built for your season.</h2>
-          <p class="lead">Coach builds a weekly plan from your event, recent training, available days and races. The season sets the direction. Your diary helps it choose how much work to prescribe.</p>
-          <div class="points" aria-label="How Coach plans your training">
+          <p class="lead">In Plan, StrideBuddy builds a weekly plan from your event, recent training, available days and races. The season sets the direction. Your diary helps it choose how much work to prescribe.</p>
+          <div class="points" aria-label="How Plan builds your training week">
             <div class="pt"><strong>Season status</strong><span>Read where you are in the season and what your training is working toward.</span></div>
             <div class="pt"><strong>This week</strong><span>Understand the focus of the week before you open its sessions.</span></div>
             <div class="pt"><strong>Your event and races</strong><span>Training reflects your event and the importance of the races in your calendar.</span></div>
             <div class="pt"><strong>You choose when to build</strong><span>Ask for your week when you are ready. Saved plans remain available offline.</span></div>
           </div>
-          <p class="note">Coach uses AI to write the plan within event-specific training rules. It is a free beta feature and needs an internet connection to build or change a plan.</p>
+          <p class="note">Plan uses AI to write the plan within event-specific training rules. It is a free beta feature and needs an internet connection to build or change a plan.</p>
         </div>
-        <div class="stage"><div class="phone"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Coach showing Season status, This week and a saved weekly training plan" loading="lazy"></div></div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/review.png" width="1800" height="3680" alt="Plan showing Season status, This week and a saved weekly training plan" loading="lazy"></div></div>
       </div>
     </section>
 
@@ -628,7 +631,7 @@
           <p class="eyebrow">Modern periodization</p>
           <h2 class="h2">Change the focus as your season progresses.</h2>
           <p class="lead">Periodization means changing the focus of training over time. Build a base, develop the qualities your event needs, then prepare for racing. Easier weeks and recovery are part of the plan.</p>
-          <p class="more">Coach keeps useful training qualities in the plan as the main focus changes. It considers your recent sessions and race priorities when choosing the next week's work.</p>
+          <p class="more">The plan keeps useful training qualities in the plan as the main focus changes. It considers your recent sessions and race priorities when choosing the next week's work.</p>
           <p class="more">A return from a break starts with a gradual return to training. A nearby race can change the week's preparation. The plan follows your situation.</p>
         </div>
         <div class="stage" style="padding:48px 32px">
@@ -661,70 +664,89 @@
         <div>
           <p class="eyebrow">Each session has a purpose</p>
           <h2 class="h2">Know what to do and why it belongs.</h2>
-          <p class="lead">Open a Coach session to see its reps, recoveries and execution cues. Read what the session develops and how it supports your event.</p>
-          <p class="more">Coach can include time or pace ranges when your recent training and personal bests support them. A session can also come without a numerical target.</p>
+          <p class="lead">Open a planned session to see its reps, recoveries and execution cues. Read what the session develops and how it supports your event.</p>
+          <p class="more">A session can include time or pace ranges when your recent training and personal bests support them. A session can also come without a numerical target.</p>
           <p class="more">Use the planned session to start your log when its day arrives. Record the result you actually ran.</p>
         </div>
-        <div class="stage"><div class="phone"><img src="assets/screenshots/coach_session.png" width="1800" height="3680" alt="A Coach session showing its reps, recoveries and the answer to why this session now" loading="lazy"></div></div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/coach_session.png" width="1800" height="3680" alt="A planned session showing its reps, recoveries and the answer to why this session now" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ PREDICTIONS ============ -->
+    <section id="predictions" class="sec band">
+      <div class="wrap split rev">
+        <div>
+          <p class="eyebrow">Race predictions</p>
+          <h2 class="h2">Race predictions from your training.</h2>
+          <p class="lead">StrideBuddy uses AI to read your diary and predict your race times. You get predictions for your main event and for related numbers. For example, an 800m runner sees the 800m, 400m and 1500m.</p>
+          <div class="points" aria-label="What a race prediction shows">
+            <div class="pt"><strong>A range, not one number</strong><span>Each prediction shows the most likely time and a range around it.</span></div>
+            <div class="pt"><strong>Low, medium or high</strong><span>A confidence level tells you how sure the prediction is.</span></div>
+            <div class="pt"><strong>See it change</strong><span>A chart shows each prediction over the last 6 months, next to your PB.</span></div>
+            <div class="pt"><strong>Grows with your diary</strong><span>Your first predictions can appear after you log 5 sessions. They update as you log more.</span></div>
+          </div>
+          <p class="note">A prediction is an estimate, not a promise. Race predictions use AI. They are optional and free, with usage limits, and need an internet connection. Your last predictions stay available offline.</p>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/predictions.png" width="1800" height="3680" alt="An 800m race prediction of 1:50.0, with its range, a medium confidence level and a chart of the last 6 months" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ VOLUME ============ -->
-    <section id="volume" class="sec band">
-      <div class="wrap split rev">
+    <section id="volume" class="sec">
+      <div class="wrap split">
         <div>
           <p class="eyebrow">Volume</p>
           <h2 class="h2">How much you trained, counted from the diary.</h2>
-          <p class="lead">The You tab adds up the running distance you logged, with a bar for each week. Open a week to see its days and sessions.</p>
+          <p class="lead">Insights adds up the running distance you logged and shows the last 12 weeks as one line. Hold your finger on the line to read any week.</p>
           <div class="points" aria-label="What the weekly volume chart shows">
-            <div class="pt"><strong>Week by week</strong><span>Four weeks on screen at a time, and you can page back through earlier ones.</span></div>
-            <div class="pt"><strong>Open a week</strong><span>Tap a bar to see its days and the sessions inside them.</span></div>
+            <div class="pt"><strong>12 weeks at a glance</strong><span>See this week next to the weeks before it.</span></div>
+            <div class="pt"><strong>Your usual week</strong><span>A dashed line shows how much you usually run, so a big or small week is easy to spot.</span></div>
             <div class="pt"><strong>From your entries</strong><span>The chart uses your logged distance.</span></div>
             <div class="pt"><strong>Counted, not scored</strong><span>No readiness score and no training load index. These are your own entries, added up.</span></div>
           </div>
         </div>
-        <div class="stage"><div class="phone"><img src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly volume chart and one week's sessions in StrideBuddy's You tab" loading="lazy"></div></div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/volume.png" width="1800" height="3680" alt="Weekly running volume and race predictions in StrideBuddy's Insights" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ RECORDS ============ -->
-    <section id="records" class="sec">
-      <div class="wrap split">
+    <section id="records" class="sec band">
+      <div class="wrap split rev">
         <div>
           <p class="eyebrow">Records</p>
           <h2 class="h2">Your reps and races, side by side.</h2>
-          <p class="lead">Records brings your fastest reps and races onto one page. A hand-drawn signature curve follows the distances you run, and the ledger lists your times by distance. You can look at a single season or your full history.</p>
+          <p class="lead">Records brings your personal bests and your fastest reps onto one page. You can look at a single season or your full history.</p>
           <div class="points" aria-label="What you can see in Records">
-            <div class="pt"><strong>Your speed curve</strong><span>See your rep speed at every distance, with race results overlaid.</span></div>
-            <div class="pt"><strong>Times by distance</strong><span>Compare your fastest and typical times for reps or races.</span></div>
-            <div class="pt"><strong>One season or all time</strong><span>Focus on one season or open your complete training history.</span></div>
-            <div class="pt"><strong>Times without judgment</strong><span>A slower rep isn’t treated as a bad rep. It’s simply part of the record.</span></div>
+            <div class="pt"><strong>Personal bests</strong><span>Add the PBs you already have. A faster race in your diary replaces them on its own.</span></div>
+            <div class="pt"><strong>Training records</strong><span>Your fastest rep at each distance, from your logged sessions.</span></div>
+            <div class="pt"><strong>One season or all time</strong><span>See this season's bests or your complete history.</span></div>
+            <div class="pt"><strong>Hurdles kept apart</strong><span>Hurdle reps have their own records, apart from flat reps.</span></div>
           </div>
         </div>
-        <div class="stage"><div class="phone"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Signature speed curve and personal records in StrideBuddy" loading="lazy"></div></div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/records.png" width="1800" height="3680" alt="Personal bests and training records in StrideBuddy" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ RACES ============ -->
-    <section id="races" class="sec band">
-      <div class="wrap split rev">
+    <section id="races" class="sec">
+      <div class="wrap split">
         <div>
           <p class="eyebrow">Races</p>
-          <h2 class="h2">The races you have coming, and the ones you have run.</h2>
-          <p class="lead">The race calendar keeps upcoming meets and past results on one page. A race you entered weeks ahead and a race you logged straight into the diary both appear here, so the list stays complete.</p>
+          <h2 class="h2">Every race ahead, in one calendar.</h2>
+          <p class="lead">Add your upcoming races and mark how important each one is. Races shows every race ahead and how many days are left. Plan uses them to shape your training.</p>
           <div class="points" aria-label="What the race calendar holds">
-            <div class="pt"><strong>What’s next</strong><span>Each upcoming race with its distance, venue, and the days left.</span></div>
+            <div class="pt"><strong>What’s next</strong><span>Each upcoming race with its distance and the days left.</span></div>
             <div class="pt"><strong>A, B, or C</strong><span>Full taper, short taper, or train through. You say which when you add the race.</span></div>
-            <div class="pt"><strong>Season or all time</strong><span>Read one season of results, or your whole history.</span></div>
-            <div class="pt"><strong>Personal bests marked</strong><span>A PB is flagged on the race where you set it.</span></div>
+            <div class="pt"><strong>Part of your plan</strong><span>Your weekly plan gets you ready for the races that matter most.</span></div>
+            <div class="pt"><strong>Results in Records</strong><span>Log a race and its time counts toward your personal bests.</span></div>
           </div>
         </div>
-        <div class="stage"><div class="phone"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming and past races in StrideBuddy's race calendar" loading="lazy"></div></div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/race_calendar.png" width="1800" height="3680" alt="Upcoming races in StrideBuddy's race calendar" loading="lazy"></div></div>
       </div>
     </section>
 
     <!-- ============ IPHONE AND WEB ============ -->
-    <section id="web" class="sec">
+    <section id="web" class="sec band">
       <div class="wrap split">
         <div>
           <p class="eyebrow">iPhone and web</p>
@@ -758,7 +780,7 @@
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
-    <section id="how" class="sec band">
+    <section id="how" class="sec">
       <div class="wrap">
         <p class="eyebrow">How it works</p>
         <h2 class="h2">Keep a clear record of your training.</h2>
@@ -776,7 +798,7 @@
           <article class="tile">
             <div class="step-n num" aria-hidden="true">3</div>
             <h3>Review the result</h3>
-            <p class="body">Find the session in your Diary, check your records and see how much running you logged that week.</p>
+            <p class="body">Find the session in your diary, check your records and race predictions, and see how much you ran each week.</p>
           </article>
         </div>
       </div>
@@ -808,7 +830,8 @@
       </a>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="#features">Features</a>
-        <a href="#coach">Coach</a>
+        <a href="#coach">Plan</a>
+        <a href="#predictions">Predictions</a>
         <a href="#records">Records</a>
         <a href="#races">Races</a>
         <a href="https://web.stridebuddy.app">Web app</a>
