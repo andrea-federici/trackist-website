@@ -1,18 +1,11 @@
 # StrideBuddy — https://stridebuddy.app
 #
-# This file deliberately contains only the Sitemap directive.
-#
-# Cloudflare serves a managed robots.txt block for this zone and appends it
-# below, between its own BEGIN/END markers. That block already grants the
-# permissive default — "User-agent: *", "Allow: /", "Content-Signal: search=yes"
-# — and disallows the AI training crawlers (GPTBot, ClaudeBot, CCBot,
-# Google-Extended, Applebot-Extended and the rest).
-#
-# Sitemap is a group-independent directive, so it applies regardless of which
-# user-agent group a crawler matches and cannot conflict with the managed block.
-# Do NOT add a "User-agent: *" group here: two groups for the same agent in one
-# file is ambiguous, crawlers resolve it inconsistently, and the managed block
-# is already correct. Change the crawler rules in the Cloudflare dashboard
-# instead, under AI Crawl Control.
+# Every crawler is welcome, including AI search and training crawlers.
+# Cloudflare's managed robots.txt and AI-bot blocking are off (2026-10-24),
+# so this file is the whole policy. Change it here, not in the dashboard.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
 
 Sitemap: https://stridebuddy.app/sitemap.xml

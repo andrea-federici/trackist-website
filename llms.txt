@@ -1,0 +1,36 @@
+# StrideBuddy
+
+> StrideBuddy is a training diary app for track and field athletes. It runs on iPhone with iOS 18 or later. Athletes log reps, splits, races and strength work, get a weekly training plan and see race predictions.
+
+StrideBuddy is a training diary, not a GPS running app. You enter the session you did: reps, splits, recoveries, race results and strength work. It does not import workouts from a watch, Strava or Garmin.
+
+It is for adult athletes, 18 or older, who race on the track: sprinters, hurdlers, middle-distance and distance runners, and steeplechasers. It does not support jumps or throws.
+
+Main features:
+
+- Structured sessions with blocks, reps, splits and recoveries, including hurdles, steeplechase and hills
+- Continuous runs, race results, strength work and Quick Notes
+- Personal bests and training records. Hurdle reps have their own records, apart from flat reps
+- A race calendar. Each race is marked A, B or C by how important it is
+- Plan: a weekly training plan built with AI from your event, recent training, available days and races. Plan is in beta
+- Race predictions made with AI, with a range and a confidence level. The first ones can appear after 5 logged sessions
+- Weekly running volume for the last 12 weeks
+- A free account (Sign in with Apple or Google) that syncs the diary across devices. The saved diary works offline
+
+Price: StrideBuddy is in preview, and every feature is free during the preview. An account is required. Most features will stay free. A paid subscription for some AI features is planned for January 2027. AI features need an internet connection.
+
+Platforms: an iPhone app for iOS 18 or later. A web app at https://web.stridebuddy.app uses the same account and shows the same diary.
+
+Languages: English and Italian.
+
+App Store: https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
+
+Support: support@stridebuddy.app
+
+## Pages
+
+- [Home](https://stridebuddy.app/): What StrideBuddy does, with a screenshot of each feature
+- [FAQ](https://stridebuddy.app/faq): Short answers about features, price, devices, languages, sync and privacy
+- [Support](https://stridebuddy.app/support): How to get help, account help and how to delete your data
+- [Privacy Policy](https://stridebuddy.app/privacy): What data StrideBuddy stores and what the AI features send
+- [Terms of Use](https://stridebuddy.app/terms): The rules for using StrideBuddy, including the AI disclosure

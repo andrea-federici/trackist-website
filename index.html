@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StrideBuddy | A training diary for track athletes</title>
+  <title>StrideBuddy: Track &amp; Field</title>
   <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy brings reps, splits, strength work, races, records, race predictions and weekly plans into one diary.">
   <!--
     Apex, no extension. That is what the host serves: Cloudflare Pages strips
@@ -12,8 +12,8 @@
     form and must stay in step — a canonical pointing at a redirect contradicts
     itself, and a sitemap full of redirects is a defect Google reports.
 
-    www. is the case this tag genuinely resolves: it answers with a 200 and
-    does not redirect to apex, so nothing else distinguishes the two hosts.
+    www. 301-redirects to apex through a Cloudflare redirect rule
+    (2026-10-24), and this tag agrees with it.
   -->
   <link rel="canonical" href="https://stridebuddy.app/">
   <meta name="apple-itunes-app" content="app-id=6760190939">
@@ -24,19 +24,23 @@
   <!--
     Open Graph / social. og:image must be an absolute URL — a relative path is
     not resolved by most unfurlers, so the card renders with no image at all.
-    The image is the 1024x1024 icon, which is why the Twitter card is "summary"
-    rather than "summary_large_image": the large card crops a square badly.
+    The image is the 1200x630 share card (README § Share image), so the Twitter
+    card is "summary_large_image". The legal and support pages reuse it.
   -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StrideBuddy">
   <meta property="og:url" content="https://stridebuddy.app/">
-  <meta property="og:title" content="StrideBuddy | A training diary for track athletes">
+  <meta property="og:title" content="StrideBuddy: Track &amp; Field">
   <meta property="og:description" content="Log track training and races in one diary. StrideBuddy plans your week around your event, recent training and season, and predicts your race times.">
-  <meta property="og:image" content="https://stridebuddy.app/assets/stridebuddy_icon.png">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
-  <meta property="og:image:alt" content="The StrideBuddy app icon.">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrideBuddy on iPhone, showing the Today diary and the weekly Plan, beside the line A training diary for track and field athletes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StrideBuddy: Track &amp; Field">
+  <meta name="twitter:description" content="Log track training and races in one diary. StrideBuddy plans your week around your event, recent training and season, and predicts your race times.">
+  <meta name="twitter:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta name="twitter:image:alt" content="StrideBuddy on iPhone, showing the Today diary and the weekly Plan, beside the line A training diary for track and field athletes.">
 
   <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
   <link rel="apple-touch-icon" href="assets/stridebuddy_icon.png">
@@ -61,11 +65,15 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "StrideBuddy",
-    "alternateName": "StrideBuddy: Track Diary",
+    "alternateName": "StrideBuddy: Track & Field",
     "applicationCategory": "HealthAndFitnessApplication",
     "applicationSubCategory": "Training diary for track and field athletes",
     "operatingSystem": "iOS",
     "url": "https://stridebuddy.app/",
+    "sameAs": [
+      "https://apps.apple.com/app/id6760190939",
+      "https://www.instagram.com/stridebuddy.app/"
+    ],
     "downloadUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
     "installUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
     "image": "https://stridebuddy.app/assets/stridebuddy_icon.png",
@@ -488,7 +496,7 @@
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
           </a>
         </div>
-        <p class="hero-note">Free account required. Sign in with Apple or Google.</p>
+        <p class="hero-note">Free during the preview. Account required: sign in with Apple or Google.</p>
       </div>
 
       <div class="wrap">
@@ -835,6 +843,7 @@
         <a href="#records">Records</a>
         <a href="#races">Races</a>
         <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="faq">FAQ</a>
         <a href="support">Support</a>
         <a href="terms">Terms</a>
         <a href="privacy">Privacy</a>

@@ -12,9 +12,8 @@
   self-contradicting signal, so all three — this file, the canonical tags, and
   the internal links — name the 200-returning URL.
 
-  The host also answers www. with no redirect to apex. The canonical tags are
-  what resolve that; a 301 at the Cloudflare level would be better and is not
-  configured.
+  www. 301-redirects to apex through a Cloudflare redirect rule (2026-10-24),
+  and the canonical tags agree with it.
 
   /s/community is deliberately absent. It is a campaign landing page shared
   directly in forums, it near-duplicates the homepage, and it carries
@@ -26,25 +25,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stridebuddy.app/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://stridebuddy.app/faq</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://stridebuddy.app/support</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://stridebuddy.app/privacy</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://stridebuddy.app/terms</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

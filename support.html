@@ -7,10 +7,20 @@
   <meta name="description" content="Get help with StrideBuddy, report a problem, or share feedback about the app.">
   <!--
     Cloudflare Pages strips the extension: /support.html 307s to /support, so the
-    extensionless form is the real URL and the canonical must name it. The host
-    also answers www. with no redirect to apex, which this resolves too.
+    extensionless form is the real URL and the canonical must name it. www.
+    301-redirects to apex (Cloudflare redirect rule, 2026-10-24).
   -->
   <link rel="canonical" href="https://stridebuddy.app/support">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/support">
+  <meta property="og:title" content="StrideBuddy Support">
+  <meta property="og:description" content="Get help with StrideBuddy, report a problem, or share feedback about the app.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrideBuddy on iPhone, showing the Today diary and the weekly Plan, beside the line A training diary for track and field athletes.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
   <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
@@ -25,6 +35,7 @@
       <p class="eyebrow">Support</p>
       <h1>Need a hand with StrideBuddy?</h1>
       <p>If something isn’t working, or if you have an idea for the app, send us a note. Feedback from athletes and coaches helps us decide what to fix and build next.</p>
+      <p>Many questions have a short answer in the <a href="faq">FAQ</a>.</p>
 
       <div class="card">
         <h2>Contact</h2>

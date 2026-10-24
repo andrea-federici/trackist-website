@@ -10,17 +10,20 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | File | Purpose |
 | --- | --- |
 | `index.html` | The one-page landing site (hero, sessions, features, plan, weekly Plan, periodization, session purpose, race predictions, volume, records, races, iPhone and web, how it works, CTA). |
+| `faq.html` | FAQ (`/faq`), with `FAQPage` JSON-LD that must match the visible answers word for word. |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
-| `robots.txt` | Sitemap declaration only. Cloudflare appends the managed crawler block. |
+| `robots.txt` | The whole crawler policy: allows every crawler, AI ones included, plus the Sitemap line. |
 | `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
 | `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
-| `sitemap.xml` | The four indexable URLs. Must agree with the `rel="canonical"` tags. |
+| `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
+| `sitemap.xml` | The five indexable URLs. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
+| `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every indexable page. See § Share image. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 
 ## Campaign attribution
@@ -134,34 +137,27 @@ corrected.
 curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\n' https://stridebuddy.app/support
 ```
 
-`www.stridebuddy.app` is the separate case, and the one the canonical tags
-genuinely earn their place on: it answers 200 and does **not** redirect to apex,
-so nothing else distinguishes the two hosts. A 301 at the Cloudflare level would
-be better and is not configured.
+`www.stridebuddy.app` 301-redirects to apex through a Cloudflare redirect rule
+(2026-10-24), keeping the path and query; the canonical tags agree with it.
 
-### robots.txt is mostly not ours
+### robots.txt
 
-Cloudflare serves a **managed robots.txt** block for this zone, injected between
-`# BEGIN Cloudflare Managed content` and `# END Cloudflare Managed Content`. It
-already grants `User-agent: *` / `Allow: /` with `Content-Signal: search=yes`, and
-disallows the AI training crawlers — GPTBot, ClaudeBot, CCBot, Google-Extended,
-Applebot-Extended, Bytespider, Amazonbot, meta-externalagent.
-
-The repository's `robots.txt` therefore holds **only** the `Sitemap:` line, which
-is group-independent and cannot conflict. Do not add a `User-agent: *` group to
-it — two groups for one agent is ambiguous and crawlers resolve it inconsistently.
-Crawler rules change in the Cloudflare dashboard, under AI Crawl Control.
-
-**Verify after any deploy that touches this**: fetch `https://stridebuddy.app/robots.txt`
-and confirm both the `Sitemap:` line and the managed block are present. The
-append behaviour is Cloudflare's, not ours, and a change on their side would be
-silent.
+`robots.txt` is the whole crawler policy. It allows every crawler, including AI
+search and training crawlers (`Content-Signal: search=yes, ai-input=yes,
+ai-train=yes`), because being found and recommended by chatbots matters for the
+app. Cloudflare's managed robots.txt, Bot Preference Sync and AI-bot blocking
+were switched off on 2026-10-24, so nothing is appended. Don't turn them back on
+without the user.
 
 ### Structured data
 
 `index.html` carries a `SoftwareApplication` JSON-LD block. It is inert JSON —
 no execution, no request, no third party — so it does not bear on the
 dependency-free rule.
+
+Its `alternateName` is the App Store name, `StrideBuddy: Track & Field`, and the
+homepage `<title>` and `og:title` match it. `sameAs` lists the App Store product
+URL and the Instagram profile, `https://www.instagram.com/stridebuddy.app/`.
 
 It deliberately omits `aggregateRating`. Google requires rating markup to reflect
 ratings genuinely displayed on the page, and the App Store count was 0/0/1 across
@@ -219,8 +215,7 @@ Bing's is a **URL property**, not a domain one, so unlike Google's it covers onl
 `www` would split the reporting rather than add to it, and the canonical tags
 already point Bing at the apex.
 
-**Still not done, and not doable from this repository:** the `www` → apex 301,
-which is a Cloudflare setting. Tracked in `WEB-003`.
+The `www` → apex 301 is a Cloudflare redirect rule, live since 2026-10-24.
 
 ### Bing's "Alt attribute for images is missing" is wrong — do not fix it
 
@@ -241,6 +236,16 @@ frame drawn around a screenshot that already carries its own `alt`; describing i
 makes every screen reader announce "iPhone 17 black bezel" over the hero. Leave
 it empty. Every other `<img>` on the site has real alt text — that was checked on
 2026-08-12, not assumed.
+
+### Share image
+
+`assets/og-image.png` is the link-preview card (`og:image`, `twitter:image`,
+`summary_large_image`) on the homepage, FAQ, support, privacy and terms pages. It is
+1200×630, built with Pillow from repo assets only: `stridebuddy_lockup.png`, the
+tagline in SF Pro, and `today.png` in the bezel beside `review.png` on the
+`--stage` panel. Like every page image, it is compressed once with `pngquant`
+(`--quality=85-98 --speed 1 --strip`). Rebuild it when the lockup or those
+screens change.
 
 ## Running it
 

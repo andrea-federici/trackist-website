@@ -56,18 +56,20 @@ reasoning; the rules that matter when editing are these.
   200 and hides the hop. That is exactly how this rule was first written
   backwards, on 2026-08-11, and shipped in `4d67a0a` before being corrected —
   `curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\n' <url>`.
-- **`www.stridebuddy.app` is the case the canonical tags genuinely earn.** It
-  answers 200 and does not redirect to apex, so nothing else distinguishes the
-  two hosts. A 301 at the Cloudflare level would be better and is not configured.
-- **`robots.txt` holds only the `Sitemap:` line, deliberately.** Cloudflare
-  appends a managed block with the `User-agent: *` group and the AI-crawler
-  rules. Do not add a second `User-agent: *` group here; change crawler rules in
-  the Cloudflare dashboard under AI Crawl Control.
+- **`www.stridebuddy.app` 301-redirects to apex** through a Cloudflare redirect
+  rule (2026-10-24). The canonical tags agree with it.
+- **`robots.txt` is the whole crawler policy and allows every crawler, AI ones
+  included.** Cloudflare's managed robots.txt and AI-bot blocking are off
+  (2026-10-24) because being found by chatbots matters. Change crawler rules in
+  this file, and don't re-enable the Cloudflare blocks without the user.
 - **The JSON-LD is not a script in the sense the dependency rule means.** It is
   inert data: no execution, no request, no third party. It omits
   `aggregateRating` on purpose — Google requires that to reflect a rating shown
   on the page, and there is effectively no rating yet. Do not add one to look
   more complete.
+- **The FAQ's `FAQPage` JSON-LD must match the visible questions and answers
+  word for word.** Google requires it. Change both together. `llms.txt` repeats
+  the same facts; update it when they change.
 - **`/s/community` is `noindex, follow`, and `follow` is the load-bearing half.**
   That page is where the site's inbound forum and Reddit links land. `nofollow`
   would discard them. It near-duplicates the homepage, which is why it is not
