@@ -6,7 +6,8 @@
   the rel="canonical" on the page itself and every internal link on the site.
 
   That form is not a preference, it is what the host actually serves.
-  Cloudflare Pages strips the extension: /support.html returns a 307 to
+  The Cloudflare Worker that serves the site (trackist-website, static
+  assets) strips the extension: /support.html returns a 307 to
   /support, and /index.html a 307 to /. A sitemap that lists redirecting URLs
   is a defect Google reports, and a canonical pointing at a redirect is a
   self-contradicting signal, so all three — this file, the canonical tags, and

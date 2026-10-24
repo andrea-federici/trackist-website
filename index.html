@@ -6,8 +6,9 @@
   <title>StrideBuddy: Track &amp; Field</title>
   <meta name="description" content="Log track sessions without forcing them into a generic running app. StrideBuddy brings reps, splits, strength work, races, records, race predictions and weekly plans into one diary.">
   <!--
-    Apex, no extension. That is what the host serves: Cloudflare Pages strips
-    the extension, so /index.html 307s here and /support.html 307s to /support.
+    Apex, no extension. That is what the host serves: the Cloudflare Worker
+    (static assets) strips the extension, so /index.html 307s here and
+    /support.html 307s to /support.
     The canonical, sitemap.xml and every internal link name the 200-returning
     form and must stay in step — a canonical pointing at a redirect contradicts
     itself, and a sitemap full of redirects is a defect Google reports.

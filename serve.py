@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Local dev server that behaves like the production host.
 
-Cloudflare Pages serves this site with the .html extension stripped: /support
-returns support.html, and the /support.html form 307s to it. Every internal
+The Cloudflare Worker `trackist-website` serves this site as static assets with
+the .html extension stripped: /support returns support.html, and the
+/support.html form 307s to it. Every internal
 link, every rel="canonical" and every URL in sitemap.xml therefore uses the
 extensionless form.
 

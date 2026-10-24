@@ -26,7 +26,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `indexnow.py` | Sends changed URLs to IndexNow. Run it by hand after a push that adds or changes pages. Not deployed (see `.assetsignore`). |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
 | `sitemap.xml` | The seven indexable URLs, with `hreflang` alternates for `/` and `/it` and for `/privacy` and `/it/privacy`. Must agree with the `rel="canonical"` tags. |
-| `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md` and every `*.py`. Same syntax as `.gitignore`. |
+| `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md`, every `*.py` and the `*_raw.png` screenshot sources. Same syntax as `.gitignore`. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
 | `assets/og-image-it.png` | The Italian share card, on `/it` and `/it/privacy`. |
@@ -132,7 +132,8 @@ They do not make the site rank; they make it eligible.
 
 ### The canonical URL form is apex, no extension
 
-**Cloudflare Pages strips the `.html` extension.** `/support.html` returns a 307
+**The site runs on the Cloudflare Worker `trackist-website` as static assets,
+and it strips the `.html` extension.** `/support.html` returns a 307
 to `/support`, and `/index.html` a 307 to `/`. The extensionless URL is the one
 that returns 200, so it is the real URL, and the canonical tags, `sitemap.xml`
 and every internal link all name it.
@@ -362,8 +363,9 @@ size and uncompressed. The `<img>` tags declare 1800×3680, which is the same
 aspect at a smaller nominal size and only sets the intrinsic ratio.
 
 Each screen also keeps its unframed capture beside it as `<name>_raw.png`. Those
-are the inputs, not page assets: nothing links to them, and they exist so a frame
-change does not need the screenshots retaken. Previous versions are archived
+are the inputs, not page assets: nothing links to them, and `.assetsignore`
+keeps them off the live site. They exist so a frame change does not need the
+screenshots retaken. Previous versions are archived
 under `assets/screenshots/old/`, which is gitignored.
 
 The captures come from the `AppStore/` workspace's capture simulator, using

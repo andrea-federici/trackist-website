@@ -18,3 +18,6 @@ wrangler.toml
 # Docs and dev scripts (README.md, AGENTS.md, CLAUDE.md, serve.py, indexnow.py)
 *.md
 *.py
+
+# Unframed screenshot captures: inputs for the next frame, no page loads them
+*_raw.png

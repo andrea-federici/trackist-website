@@ -50,7 +50,8 @@ reasoning; the rules that matter when editing are these.
 - **Three things must agree: the canonical tags, `sitemap.xml`, and the internal
   links.** All three name the apex host with **no `.html` extension** — `/support`,
   not `/support.html`, and `/` rather than `/index.html`. That is what the host
-  serves: Cloudflare Pages strips the extension and 307s the `.html` form to it.
+  serves: the Cloudflare Worker `trackist-website` (static assets) strips the
+  extension and 307s the `.html` form to it.
   A sitemap listing redirecting URLs is a defect Google reports, and a canonical
   pointing at a redirect contradicts itself. Change all three together or none.
 - **Check redirects with `curl` and no `-L`.** Following them reports the final
@@ -111,7 +112,7 @@ Every image the page loads must be downsized and then compressed with `pngquant`
 - **Then compress with `pngquant`**, and no other tool. Install it with `brew install pngquant` if it is missing. Pillow's own palette mode was tried and rejected: it drops card shadows and bands gradients.
 - **Use the exact commands in `README.md § App screenshots`.** They hold the sizes and the `pngquant` settings (`--quality=85-98 --speed 1 --strip`).
 - **Compress each file once, right after it is written.** Running `pngquant` again on a file that is already compressed loses a little more quality each time.
-- **Leave the `_raw.png` inputs full size and uncompressed.** The page does not load them; they are the sources for the next frame.
+- **Leave the `_raw.png` inputs full size and uncompressed.** The page does not load them, and `.assetsignore` keeps them off the live site; they are the sources for the next frame.
 - **Look at the result before committing.** Compare a crop of a gradient, a shadow and small text against the uncompressed file. If you can see a difference, raise the quality floor rather than commit it.
 
 ## Verification
