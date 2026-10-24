@@ -16,6 +16,14 @@
     (2026-10-24), and this tag agrees with it.
   -->
   <link rel="canonical" href="https://stridebuddy.app/">
+  <!--
+    Language alternates. it.html carries the same three links, and sitemap.xml
+    repeats them; all three must change together. No redirect by browser
+    language: the visitor picks with the switch in the header and footer.
+  -->
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/">
   <meta name="apple-itunes-app" content="app-id=6760190939">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
@@ -121,6 +129,9 @@
       appearance, and in dark appearance a black page with warm smoke cards,
       cream ink and the lifted red. Light is the default; dark follows the
       visitor's device setting and nothing else.
+
+      it.html (the Italian homepage) carries a copy of this whole block.
+      Change both together.
     */
     :root {
       color-scheme: light;
@@ -267,6 +278,8 @@
     .navlinks a:hover { color: var(--ink); background: var(--card-2); }
     .nav-actions { display: flex; align-items: center; gap: 6px; }
     .nav-web { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; font-size: 15px; font-weight: 600; }
+    .nav-lang { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+    .nav-lang:hover { color: var(--ink); }
     .lockup-dark { display: none; }
     @media (prefers-color-scheme: dark) {
       .lockup-light { display: none; }
@@ -416,6 +429,9 @@
     .footer-grid .brand img { height: 22px; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
     .footer-links a:hover { color: var(--ink); }
+    .lang-links { display: flex; gap: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
+    .lang-links a:hover { color: var(--ink); }
+    .lang-links a[aria-current] { color: var(--ink); }
     .copyright { width: 100%; font-size: 13px; color: var(--ink-3); }
 
     /* ---------- Responsive ---------- */
@@ -470,6 +486,7 @@
         <a href="#records">Records</a>
       </nav>
       <div class="nav-actions">
+        <a class="nav-lang" href="it" hreflang="it" lang="it" data-campaign-carry>Italiano</a>
         <a class="nav-web" href="https://web.stridebuddy.app">Web app
           <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
         </a>
@@ -848,6 +865,10 @@
         <a href="terms">Terms</a>
         <a href="privacy">Privacy</a>
       </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/" hreflang="en" aria-current="page">English</a>
+        <a href="it" hreflang="it" lang="it" data-campaign-carry>Italiano</a>
+      </nav>
       <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
     </div>
   </footer>
@@ -883,6 +904,15 @@
       Array.prototype.forEach.call(links, function (link) {
         var url = new URL(link.href);
         url.searchParams.set("ct", c);
+        link.href = url.href;
+      });
+
+      // The language switch keeps ?c=, so a visitor who changes language
+      // still installs under the channel that sent them.
+      var carry = document.querySelectorAll("a[data-campaign-carry]");
+      Array.prototype.forEach.call(carry, function (link) {
+        var url = new URL(link.href);
+        url.searchParams.set("c", c);
         link.href = url.href;
       });
     })();

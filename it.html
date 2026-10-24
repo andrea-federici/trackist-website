@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StrideBuddy: Atletica Leggera</title>
+  <meta name="description" content="Registra gli allenamenti di pista senza adattarli a una normale app di corsa. StrideBuddy riunisce ripetute, parziali, forza, gare, record, previsioni di gara e piani settimanali in un solo diario.">
+  <!--
+    The Italian homepage, served at /it the same way faq.html is served at
+    /faq. Same layout, styles and campaign script as index.html: the style
+    block is a copy of index.html's and the two must change together.
+
+    Apex, no extension, as on every page (AGENTS.md § Search indexing). The
+    hreflang links match index.html and sitemap.xml; change all three together.
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/it">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/">
+  <meta name="apple-itunes-app" content="app-id=6760190939">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+
+  <!-- Open Graph / social. The share card is the English one (README § Share image). -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://stridebuddy.app/it">
+  <meta property="og:title" content="StrideBuddy: Atletica Leggera">
+  <meta property="og:description" content="Registra allenamenti e gare di atletica in un solo diario. StrideBuddy pianifica la tua settimana in base a specialità, allenamenti recenti e stagione, e prevede i tuoi tempi di gara.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrideBuddy su iPhone, con il diario e il piano della settimana, accanto alla scritta in inglese A training diary for track and field athletes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StrideBuddy: Atletica Leggera">
+  <meta name="twitter:description" content="Registra allenamenti e gare di atletica in un solo diario. StrideBuddy pianifica la tua settimana in base a specialità, allenamenti recenti e stagione, e prevede i tuoi tempi di gara.">
+  <meta name="twitter:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta name="twitter:image:alt" content="StrideBuddy su iPhone, con il diario e il piano della settimana, accanto alla scritta in inglese A training diary for track and field athletes.">
+
+  <link rel="icon" type="image/png" href="assets/stridebuddy_icon_track.png">
+  <link rel="apple-touch-icon" href="assets/stridebuddy_icon.png">
+
+  <!--
+    Structured data: inert JSON, as in index.html, and for the same reasons it
+    omits aggregateRating and keeps ct=website on the download URL.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "StrideBuddy",
+    "alternateName": "StrideBuddy: Atletica Leggera",
+    "inLanguage": "it",
+    "applicationCategory": "HealthAndFitnessApplication",
+    "applicationSubCategory": "Diario di allenamento per atleti di atletica leggera",
+    "operatingSystem": "iOS",
+    "url": "https://stridebuddy.app/it",
+    "sameAs": [
+      "https://apps.apple.com/app/id6760190939",
+      "https://www.instagram.com/stridebuddy.app/"
+    ],
+    "downloadUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
+    "installUrl": "https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8",
+    "image": "https://stridebuddy.app/assets/stridebuddy_icon.png",
+    "screenshot": [
+      "https://stridebuddy.app/assets/screenshots/it/today.png",
+      "https://stridebuddy.app/assets/screenshots/it/log_structured.png",
+      "https://stridebuddy.app/assets/screenshots/it/review.png",
+      "https://stridebuddy.app/assets/screenshots/it/predictions.png",
+      "https://stridebuddy.app/assets/screenshots/it/records.png",
+      "https://stridebuddy.app/assets/screenshots/it/race_calendar.png",
+      "https://stridebuddy.app/assets/screenshots/it/volume.png"
+    ],
+    "description": "Un diario di allenamento per atleti di atletica leggera che gareggiano in pista. Registra ripetute, recuperi, parziali, lavoro di forza e gare, ricevi un piano settimanale e previsioni di gara, e tieni sotto controllo primati personali e record in allenamento.",
+    "featureList": [
+      "Allenamenti strutturati in pista con ripetute, recuperi e parziali",
+      "Ripetute con ostacoli e siepi tenute separate da quelle piane",
+      "Registrazione di forza, corse su strada e sentiero, e gare",
+      "Primati personali e record in allenamento",
+      "Sedute pianificate e calendario gare",
+      "Previsioni di gara con un intervallo e un livello di affidabilità",
+      "Volume di corsa settimanale dagli allenamenti registrati",
+      "Piani settimanali basati sulla periodizzazione moderna",
+      "Account sincronizzato tra dispositivi, con accesso offline"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StrideBuddy",
+      "url": "https://stridebuddy.app/",
+      "logo": "https://stridebuddy.app/assets/stridebuddy_lockup.png",
+      "email": "support@stridebuddy.app"
+    }
+  }
+  </script>
+
+  <style>
+    /*
+      StrideBuddy marketing site palette.
+      Tokens mirror the app's Swift design tokens (iOS/StrideBuddy/DesignSystem/
+      StrideBuddyColors.swift): a white paper page with white cards in light
+      appearance, and in dark appearance a black page with warm smoke cards,
+      cream ink and the lifted red. Light is the default; dark follows the
+      visitor's device setting and nothing else.
+
+      it.html (the Italian homepage) carries a copy of this whole block.
+      Change both together.
+    */
+    :root {
+      color-scheme: light;
+
+      /* Paper + surfaces */
+      --paper:  #FFFFFF;
+      --paper-3: #F4F3F1;   /* banded sections */
+      --card:   #FFFFFF;
+      --card-2: #F4F3F1;    /* chips and inner tiles on a card */
+      --stage:  #F4F3F1;    /* the rounded panel a phone sits on */
+
+      /* Ink */
+      --ink:   #0C0B0A;
+      --ink-2: #524C46;
+      --ink-3: #6F655E;
+      --ink-4: #998D82;
+      --rule:  #E9DED6;
+      --edge:  rgba(12,11,10,.07);
+
+      /* Accent. The fill stays the brand red in both appearances so white
+         button text keeps its contrast; red text lifts in dark. */
+      --accent:      #DB2412;
+      --accent-fill: #DB2412;
+      --accent-hover: #B52B20;
+
+      /* Semantic workout and season colors */
+      --moss:   #4F6B3A;
+      --slate:  #2A3D55;
+      --gold:   #C49A1F;
+      --purple: #825AA0;
+      --race:   #A8262D;
+      --rest:   #8A8170;
+
+      /* Final call to action */
+      --cta-bg:   #0C0B0A;
+      --cta-ink:  #F7F0E7;
+      --cta-ink-2: #DCD1C3;
+
+      /* Chrome */
+      --header-bg: rgba(255,255,255,.86);
+      --btn-2: #FFFFFF;
+
+      /* Radius, from StrideBuddyRadius */
+      --r-card:  32px;
+      --r-panel: 24px;
+      --r-ctrl:  20px;
+      --r-stage: 40px;
+
+      /* Type */
+      --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+      /* Elevation */
+      --shadow: 0 1px 2px rgba(12,11,10,.04), 0 10px 28px rgba(12,11,10,.06);
+      --phone-shadow: drop-shadow(0 22px 30px rgba(12,11,10,.18));
+      --shadow-accent: 0 8px 22px rgba(219,36,18,.24);
+
+      --gutter: 32px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --paper:  #000000;
+        --paper-3: #0E0D0C;
+        --card:   #1C1A18;
+        --card-2: #2A2724;
+        --stage:  #151413;
+        --ink:   #F7F0E7;
+        --ink-2: #DCD1C3;
+        --ink-3: #B5A999;
+        --ink-4: #877B6D;
+        --rule:  #3A3530;
+        --edge:  rgba(255,247,235,.10);
+        --accent: #F2463A;
+        --moss:   #8CBD72;
+        --slate:  #5F88B8;
+        --gold:   #D1A83E;
+        --purple: #9E76BE;
+        --race:   #CD5050;
+        --rest:   #A8A29A;
+        --cta-bg: #1C1A18;
+        --header-bg: rgba(0,0,0,.82);
+        --btn-2: #2A2724;
+        --shadow: none;
+        --phone-shadow: drop-shadow(0 28px 40px rgba(0,0,0,.7));
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: var(--sans); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+    .wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+    .num { font-variant-numeric: tabular-nums; }
+    .cap { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .h2 { font-size: clamp(34px, 4.2vw, 48px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.06; margin-top: 14px; }
+    .lead { font-size: 18px; color: var(--ink-2); margin-top: 18px; max-width: 34em; }
+    .more { font-size: 18px; color: var(--ink-2); margin-top: 16px; max-width: 34em; }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 54px; padding: 0 26px; border-radius: var(--r-ctrl);
+      font-size: 17px; font-weight: 600; white-space: nowrap;
+      transition: transform .15s ease, background .2s ease;
+    }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-red { background: var(--accent-fill); color: #FFFFFF; box-shadow: var(--shadow-accent); }
+    .btn-red:hover { background: var(--accent-hover); }
+    .btn-smoke { background: var(--btn-2); color: var(--ink); border: 1px solid var(--edge); box-shadow: var(--shadow); }
+    .btn-small { min-height: 44px; padding: 0 18px; font-size: 15px; border-radius: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--edge);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+    .brand img { height: 28px; width: auto; }
+    .navlinks { display: flex; gap: 2px; }
+    .navlinks a { padding: 8px 16px; border-radius: 13px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+    .navlinks a:hover { color: var(--ink); background: var(--card-2); }
+    .nav-actions { display: flex; align-items: center; gap: 6px; }
+    .nav-web { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; font-size: 15px; font-weight: 600; }
+    .nav-lang { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+    .nav-lang:hover { color: var(--ink); }
+    .lockup-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .lockup-light { display: none; }
+      .lockup-dark { display: block; }
+    }
+
+    /* ---------- Phones ----------
+       Every framed screenshot is the 2015x4120 composite with the area outside
+       the phone transparent, so the shadow follows the device outline. */
+    .phone { width: 290px; aspect-ratio: 2015 / 4120; filter: var(--phone-shadow); }
+    .phone img { width: 100%; height: 100%; }
+
+    /* The bare Today screen inside the shared frame (README § App screenshots). */
+    .phone-layered { position: relative; }
+    .phone-layered .screen {
+      position: absolute; left: 5.333%; top: 2.5%; width: 89.33%; height: 95%;
+      object-fit: cover; border-radius: 12% / 5.5%;
+    }
+    .phone-layered .bezel { position: absolute; inset: 0; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 56px 0 96px; }
+    .hero h1 { font-size: clamp(44px, 6.4vw, 76px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; max-width: 11em; }
+    .hero .lede { font-size: 20px; color: var(--ink-2); margin-top: 24px; max-width: 34em; }
+    .hero .btn-row { justify-content: center; }
+    .hero-note { font-size: 14px; color: var(--ink-3); margin-top: 16px; }
+    .notice {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 32px;
+      padding: 6px 14px 6px 6px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--edge); box-shadow: var(--shadow);
+      font-size: 14px; font-weight: 600; color: var(--ink-2);
+    }
+    .notice .tag { font-size: 10px; padding: 4px 9px; border-radius: 999px; background: var(--accent-fill); color: #FFFFFF; }
+
+    /*
+      The five-phone cascade. Positions are offsets from the centre so the
+      overlaps stay fixed while the page width changes. The box is as tall as
+      the front phone, so no phone is ever cut at the bottom.
+    */
+    .cascade { position: relative; height: 655px; max-width: 1176px; margin: 64px auto 0; }
+    .cascade .phone { position: absolute; }
+    .cascade .p-front { width: 320px; top: 0; left: 50%; margin-left: -160px; }
+    .cascade .p-mid   { width: 270px; top: 64px; }
+    .cascade .p-back  { width: 230px; top: 128px; }
+    .cascade .left.p-mid   { left: calc(50% - 395px); }
+    .cascade .right.p-mid  { right: calc(50% - 395px); }
+    .cascade .left.p-back  { left: calc(50% - 585px); }
+    .cascade .right.p-back { right: calc(50% - 585px); }
+
+    /* ---------- Sections ---------- */
+    section { position: relative; }
+    .sec { padding: 112px 0; }
+    .band { background: var(--paper-3); --stage: var(--card); }
+    @media (prefers-color-scheme: dark) { .band { --stage: #1C1A18; } }
+
+    .g4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+    .g3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+
+    /* Diary-style session cards, as in the app's Diary. */
+    .dcard { background: var(--card); border: 1px solid var(--edge); border-radius: 28px; padding: 22px 22px 24px; box-shadow: var(--shadow); }
+    .dcard .kind { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-3); }
+    .dcard .kind svg { width: 14px; height: 14px; flex: none; }
+    .dcard h3 { font-size: 21px; font-weight: 700; margin-top: 8px; }
+    .dcard p.detail { font-size: 15px; color: var(--ink-2); margin-top: 4px; }
+
+    /* Feature cards with a cropped phone. */
+    .shotcard { display: flex; flex-direction: column; background: var(--paper-3); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 30px 28px 0; overflow: hidden; }
+    .shotcard h3, .tile h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+    .shotcard p, .tile p.body { font-size: 16px; color: var(--ink-2); margin-top: 8px; }
+    /* align-items: flex-start keeps each phone at its own aspect ratio. The
+       default stretch squeezed it to the crop's height. */
+    .crop { display: flex; justify-content: center; align-items: flex-start; flex: 1 0 380px; overflow: hidden; margin-top: 26px; }
+    /* flex-grow: a card with a shorter heading still runs its phone to the bottom edge. */
+    /* No drop shadow here: the crop clips it into a hard-edged box. */
+    .crop .phone { width: 270px; flex: none; filter: none; }
+    .tile { background: var(--card); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 30px; box-shadow: var(--shadow); }
+    .tile h3 { font-size: 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 18px; background: var(--card-2); font-size: 14px; font-weight: 600; color: var(--ink-2); }
+    .times { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+    .times div { background: var(--card-2); border-radius: 16px; padding: 10px 12px; }
+    .times .d { font-size: 12px; color: var(--ink-3); }
+    .times .t { font-size: 20px; font-weight: 700; }
+
+    /* Season strip: the app's Coach season blocks (CoachSeasonOverviewCard). */
+    .season { display: grid; gap: 3px; align-items: end; }
+    .season span { height: 16px; border-radius: 4px; }
+    .season .now { height: 22px; border: 2px solid var(--accent); background: var(--card); }
+    .season .past { opacity: .35; }
+    .w-base { background: var(--slate); } .w-build { background: var(--moss); }
+    .w-sharpen { background: var(--gold); } .w-race { background: var(--race); } .w-rest { background: var(--rest); }
+
+    /* Copy beside a phone. */
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
+    .split.rev { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); }
+    .split.rev .stage { order: -1; }
+    .stage { background: var(--stage); border-radius: var(--r-stage); padding: 48px 24px; display: flex; justify-content: center; align-items: center; }
+    .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+    .pt { background: var(--card); border: 1px solid var(--edge); border-radius: 22px; padding: 16px 18px; box-shadow: var(--shadow); }
+    .pt strong { display: block; font-size: 17px; font-weight: 700; }
+    .pt span { display: block; font-size: 14px; color: var(--ink-3); margin-top: 3px; line-height: 1.45; }
+    .note { font-size: 15px; color: var(--ink-3); margin-top: 22px; max-width: 36em; }
+
+    /* Large season card for the periodization section. */
+    .season-card { width: 100%; max-width: 480px; background: var(--card); border: 1px solid var(--edge); border-radius: var(--r-card); padding: 28px; box-shadow: var(--shadow); }
+    .season-card .big { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
+    .season-card .season { grid-template-columns: repeat(18, minmax(0, 1fr)); gap: 4px; margin-top: 24px; }
+    .season-card .season span { height: 56px; border-radius: 9px; }
+    .season-card .ends { display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--ink-4); }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-3); }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+    /* iPhone and web. */
+    .checks { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; font-size: 17px; color: var(--ink-2); }
+    .checks p { display: flex; gap: 12px; align-items: center; }
+    .checks svg { width: 20px; height: 20px; flex: none; }
+    .browser { border-radius: 22px; background: var(--card); border: 1px solid var(--edge); overflow: hidden; box-shadow: 0 30px 70px rgba(12,11,10,.14); }
+    .browser .bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--edge); }
+    .browser .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
+    .browser .url { margin: 0 auto; padding: 4px 16px; border-radius: 9px; background: var(--card-2); font-size: 12px; font-weight: 600; color: var(--ink-2); }
+    .browser .body { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; padding: 20px; height: 280px; }
+    .browser .side { display: flex; flex-direction: column; gap: 10px; }
+    .browser .side span { height: 10px; border-radius: 5px; background: var(--rule); }
+    .browser .side span:first-child { height: 26px; border-radius: 9px; background: var(--card-2); }
+    .browser .main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 70px 1fr; gap: 12px; }
+    .browser .main span { border-radius: 18px; background: var(--card-2); }
+    .browser .main span:first-child { grid-column: span 2; }
+    .devices { position: relative; padding-bottom: 44px; }
+    .devices .phone-layered { position: absolute; right: -8px; bottom: 0; width: 150px; }
+
+    /* How it works. */
+    .step-n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-fill); color: #FFFFFF; font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+
+    /* Final call to action. */
+    .final { padding: 112px 0; }
+    .final-card { background: var(--cta-bg); border: 1px solid var(--edge); border-radius: var(--r-stage); padding: 80px 32px; text-align: center; }
+    .final-card img { width: 80px; height: 80px; border-radius: 18px; margin: 0 auto; }
+    .final-card h2 { color: var(--cta-ink); margin: 28px auto 0; max-width: 12em; }
+    .final-card p { font-size: 18px; color: var(--cta-ink-2); margin: 18px auto 0; max-width: 34em; }
+    .final-card .btn-row { justify-content: center; }
+    .btn-on-dark { color: #F7F0E7; border: 1px solid rgba(255,247,235,.24); }
+
+    /* Footer. */
+    .site-footer { border-top: 1px solid var(--edge); padding: 40px 0 56px; }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-grid .brand img { height: 22px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
+    .footer-links a:hover { color: var(--ink); }
+    .lang-links { display: flex; gap: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
+    .lang-links a:hover { color: var(--ink); }
+    .lang-links a[aria-current] { color: var(--ink); }
+    .copyright { width: 100%; font-size: 13px; color: var(--ink-3); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1240px) {
+      .cascade .p-back { display: none; }
+    }
+    @media (max-width: 980px) {
+      .navlinks { display: none; }
+      .g3, .split, .split.rev { grid-template-columns: minmax(0, 1fr); }
+      .split { gap: 40px; }
+      .split.rev .stage { order: 0; }
+      .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      :root { --gutter: 16px; }
+      .sec { padding: 72px 0; }
+      .hero { padding: 40px 0 72px; }
+      .nav-web { display: none; }
+      .cascade .p-mid { display: none; }
+      .cascade { height: 573px; margin-top: 48px; }
+      .cascade .p-front { width: 280px; margin-left: -140px; }
+      .stage { padding: 36px 16px; }
+      .final-card { padding: 56px 20px; }
+    }
+    @media (max-width: 560px) {
+      .notice { font-size: 13px; gap: 8px; }
+      .btn-row .btn { width: 100%; }
+      .g4, .points { grid-template-columns: minmax(0, 1fr); }
+      .phone { width: 260px; }
+      .season-card .season span { height: 40px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="StrideBuddy, inizio pagina">
+        <img class="lockup-light" src="assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <nav class="navlinks" aria-label="Navigazione principale">
+        <a href="#features">Funzioni</a>
+        <a href="#coach">Piano</a>
+        <a href="#predictions">Previsioni</a>
+        <a href="#records">Record</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-lang" href="/" hreflang="en" lang="en" data-campaign-carry>English</a>
+        <a class="nav-web" href="https://web.stridebuddy.app">App web
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap center" style="text-align:center">
+        <a class="notice" href="https://web.stridebuddy.app">
+          <span class="tag cap">Novità</span>
+          StrideBuddy ora funziona anche nel browser
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <h1 class="center">Il diario di allenamento che capisce la pista.</h1>
+        <p class="lede center">Registra ripetute, parziali, gare e lavoro di forza in un solo diario. StrideBuddy pianifica la tua settimana in base a specialità, allenamenti recenti e stagione, e prevede i tuoi tempi di gara. Record delle ripetute e delle gare restano insieme.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-smoke" href="https://web.stridebuddy.app">Apri l’app web
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+        <p class="hero-note">Gratis durante l’anteprima. Serve un account: accedi con Apple o Google.</p>
+      </div>
+
+      <div class="wrap">
+        <div class="cascade">
+          <div class="phone p-back left"><img src="assets/screenshots/it/records.png" width="1800" height="3680" alt="Record con primati personali e record di allenamento"></div>
+          <div class="phone p-back right"><img src="assets/screenshots/it/race_calendar.png" width="1800" height="3680" alt="Le prossime gare nel calendario gare"></div>
+          <div class="phone p-mid left"><img src="assets/screenshots/it/predictions.png" width="1800" height="3680" alt="Una previsione sugli 800m con intervallo e livello di affidabilità"></div>
+          <div class="phone p-mid right"><img src="assets/screenshots/it/review.png" width="1800" height="3680" alt="Piano con la situazione della stagione e le sedute di questa settimana"></div>
+          <div class="phone phone-layered p-front">
+            <img class="screen" src="assets/screenshots/it/today.png" width="1206" height="2622" alt="La pagina di allenamento di StrideBuddy, con il pulsante per registrare e il diario della settimana">
+            <img class="bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" aria-hidden="true">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SESSIONS ============ -->
+    <section id="sessions" class="sec band">
+      <div class="wrap">
+        <p class="eyebrow">Per chi corre in pista</p>
+        <h2 class="h2">Pensato per gli allenamenti di pista.</h2>
+        <p class="lead">StrideBuddy riconosce velocità, resistenza alla velocità, lavori aerobici di qualità, corse a ritmo, salite, forza e giorni di gara.</p>
+        <div class="g4" aria-label="Esempi di allenamenti in un diario StrideBuddy">
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"><path d="M12 3c1 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-6 .5-8.5z"/></svg>Lattacido</p>
+            <h3>Resistenza alla velocità</h3>
+            <p class="detail num">3x(300m + 200m)</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></svg>Base aerobica</p>
+            <h3>Recupero facile 5 km</h3>
+            <p class="detail num">5.0km, 27:30, 5:30 /km</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2.4" stroke-linecap="round"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12"/></svg>Forza</p>
+            <h3>Allenamento di forza</h3>
+            <p class="detail">Back squat, barbell hip thrust, medicine ball overhead throw</p>
+          </article>
+          <article class="dcard">
+            <p class="kind cap"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--race)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></svg>Gara</p>
+            <h3>Meeting cittadino</h3>
+            <p class="detail num">800m, 1:51.60, PB</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="features" class="sec">
+      <div class="wrap">
+        <p class="eyebrow">Funzioni</p>
+        <h2 class="h2">Tutti i dettagli della seduta, senza rallentarti.</h2>
+        <p class="lead">StrideBuddy sa che una corsa a ritmo e una serie di 300 sono lavori diversi.</p>
+
+        <div class="g3" style="margin-top:48px">
+          <article class="shotcard">
+            <h3>Cinque modi per iniziare</h3>
+            <p>Partono tutti dallo stesso pulsante Registra.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/it/central_log.png" width="1800" height="3680" alt="Il pannello Aggiungi con Corsa continua, Strutturato, Forza, Gara e Nota rapida" loading="lazy"></div></div>
+          </article>
+          <article class="shotcard">
+            <h3>Registra la seduta com’è andata</h3>
+            <p>Costruisci la seduta con blocchi, ripetute, parziali e recuperi.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/it/log_structured.png" width="1800" height="3680" alt="Allenamento strutturato con un blocco di ripetute sui 300m e sui 200m e i loro recuperi" loading="lazy"></div></div>
+          </article>
+          <article class="shotcard">
+            <h3>La forza, senza complicazioni</h3>
+            <p>Tocca gli esercizi per aggiungerli, o parti da un modello.</p>
+            <div class="crop"><div class="phone"><img src="assets/screenshots/log_strength.png" width="1800" height="3680" alt="Registrazione della forza con Back Squat, Barbell Hip Thrust e Medicine Ball Overhead Throw" loading="lazy"></div></div>
+          </article>
+        </div>
+
+        <div class="g3" style="margin-top:16px">
+          <article class="tile">
+            <h3>Una settimana adatta alla tua stagione</h3>
+            <p class="body">Piano usa la periodizzazione moderna per cambiare l’obiettivo dell’allenamento durante la stagione.</p>
+            <div class="season" aria-hidden="true" style="grid-template-columns:repeat(12, minmax(0, 1fr)); margin-top:24px">
+              <span class="w-base past"></span><span class="now"></span><span class="w-build"></span><span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+            </div>
+          </article>
+          <article class="tile">
+            <h3>Le tue ripetute e gare più veloci</h3>
+            <p class="body">Ripetute e gare una accanto all’altra, senza punteggi.</p>
+            <div class="times num" aria-hidden="true">
+              <div><p class="d">60m</p><p class="t">7.40</p></div>
+              <div><p class="d">200m</p><p class="t">26.80</p></div>
+              <div><p class="d">400m</p><p class="t">55.80</p></div>
+            </div>
+          </article>
+          <article class="tile">
+            <h3>Tutti i dettagli che vuoi</h3>
+            <p class="body">La registrazione di base è veloce. Apri Segnali facoltativi quando vuoi aggiungere altro.</p>
+            <div class="chips" aria-hidden="true"><span class="chip">Sforzo</span><span class="chip">Sensazione</span><span class="chip">Meteo</span><span class="chip">Superficie</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLAN ============ -->
+    <section id="plan" class="sec band">
+      <div class="wrap split rev">
+        <div>
+          <p class="eyebrow">Pianifica</p>
+          <h2 class="h2">Pianifica la seduta ora, registra il risultato dopo.</h2>
+          <p class="lead">Il pannello che registra un allenamento serve anche a pianificarlo. Passa a Pianifica, scegli un giorno e il tipo di allenamento che hai in mente.</p>
+          <div class="points" aria-label="Cosa puoi pianificare in StrideBuddy">
+            <div class="pt"><strong>Registra o pianifica</strong><span>Registra vale per oggi e per i giorni passati. Pianifica vale da domani in poi, fino a un anno.</span></div>
+            <div class="pt"><strong>Gli stessi tipi di allenamento</strong><span>Strutturato, Corsa continua, Forza, Gara e Nota rapida.</span></div>
+            <div class="pt"><strong>Pronta per quel giorno</strong><span>Quel giorno la seduta ti aspetta nella pagina di allenamento. Le sedute dei giorni dopo sono in Piano. Registra il risultato quando hai finito.</span></div>
+            <div class="pt"><strong>Le gare vanno nel calendario</strong><span>Se pianifichi una gara, finisce nel calendario gare.</span></div>
+          </div>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/central_plan.png" width="1800" height="3680" alt="Il pannello Aggiungi di StrideBuddy su Pianifica, con un allenamento per domani" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ COACH ============ -->
+    <section id="coach" class="sec">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">Piano</p>
+          <h2 class="h2">La tua settimana di allenamento, pensata per la stagione.</h2>
+          <p class="lead">In Piano, StrideBuddy crea un piano settimanale in base a specialità, allenamenti recenti, giorni disponibili e gare. La stagione dà la direzione. Il diario aiuta a scegliere quanto lavoro proporre.</p>
+          <div class="points" aria-label="Come Piano crea la tua settimana">
+            <div class="pt"><strong>Situazione della stagione</strong><span>Vedi a che punto sei della stagione e verso cosa lavora il tuo allenamento.</span></div>
+            <div class="pt"><strong>Questa settimana</strong><span>Capisci l’obiettivo della settimana prima di aprire le sedute.</span></div>
+            <div class="pt"><strong>Specialità e gare</strong><span>L’allenamento tiene conto della tua specialità e dell’importanza delle gare in calendario.</span></div>
+            <div class="pt"><strong>Decidi tu quando</strong><span>Chiedi la tua settimana quando vuoi. I piani salvati restano disponibili offline.</span></div>
+          </div>
+          <p class="note">Piano usa l’IA per scrivere il piano seguendo regole di allenamento specifiche per ogni specialità. È una funzione beta gratuita e serve una connessione a internet per creare o modificare un piano.</p>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/review.png" width="1800" height="3680" alt="Piano con la situazione della stagione, l’obiettivo di questa settimana e un piano settimanale salvato" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ PERIODIZATION ============ -->
+    <section id="periodization" class="sec band">
+      <div class="wrap split rev">
+        <div>
+          <p class="eyebrow">Periodizzazione moderna</p>
+          <h2 class="h2">L’obiettivo cambia con la stagione.</h2>
+          <p class="lead">Periodizzare vuol dire cambiare l’obiettivo dell’allenamento nel tempo. Prima costruisci una base, poi sviluppi le qualità che servono alla tua specialità, infine ti prepari alle gare. Settimane più leggere e recupero fanno parte del piano.</p>
+          <p class="more">Quando cambia l’obiettivo principale, il piano mantiene le qualità utili. Per scegliere il lavoro della settimana dopo, tiene conto delle sedute recenti e dell’importanza delle gare.</p>
+          <p class="more">Dopo una pausa, il ritorno all’allenamento è graduale. Una gara vicina può cambiare la preparazione della settimana. Il piano segue la tua situazione.</p>
+        </div>
+        <div class="stage" style="padding:48px 32px">
+          <div class="season-card">
+            <p class="cap" style="font-size:11px; color:var(--ink-3)">Situazione della stagione</p>
+            <p class="big num">2 giorni</p>
+            <p style="font-size:15px; color:var(--ink-2)">alla gara Apertura estiva</p>
+            <div class="season" role="img" aria-label="Una stagione di esempio dal 15 maggio al 15 settembre. Le settimane passano da base a sviluppo e rifinitura, poi gare, poi recupero.">
+              <span class="w-base past"></span><span class="w-base past"></span><span class="now"></span>
+              <span class="w-build"></span><span class="w-build"></span>
+              <span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-sharpen"></span>
+              <span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span>
+              <span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+            </div>
+            <div class="ends num" aria-hidden="true"><span>15 MAG</span><span>15 SET</span></div>
+            <div class="legend" aria-hidden="true">
+              <span><i class="w-base"></i>BASE</span>
+              <span><i class="w-build"></i>SVILUPPO</span>
+              <span><i class="w-sharpen"></i>RIFINITURA</span>
+              <span><i class="w-race"></i>GARE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COACH SESSION ============ -->
+    <section id="coach-session" class="sec">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">Ogni seduta ha uno scopo</p>
+          <h2 class="h2">Sai cosa fare e perché.</h2>
+          <p class="lead">Apri una seduta pianificata per vedere ripetute, recuperi e indicazioni su come eseguirla. Leggi cosa sviluppa la seduta e come aiuta la tua specialità.</p>
+          <p class="more">Una seduta può indicare intervalli di tempo o di ritmo, se i tuoi allenamenti recenti e i tuoi primati lo permettono. Può anche non avere un obiettivo numerico.</p>
+          <p class="more">Quando arriva il giorno, parti dalla seduta pianificata per registrarla. Inserisci il risultato che hai fatto davvero.</p>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/coach_session.png" width="1800" height="3680" alt="Una seduta pianificata con ripetute, recuperi e la risposta a Perché questa attività adesso?" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ PREDICTIONS ============ -->
+    <section id="predictions" class="sec band">
+      <div class="wrap split rev">
+        <div>
+          <p class="eyebrow">Previsioni di gara</p>
+          <h2 class="h2">Previsioni di gara dai tuoi allenamenti.</h2>
+          <p class="lead">StrideBuddy usa l’IA per leggere il tuo diario e prevedere i tuoi tempi di gara. Ricevi previsioni per la tua specialità principale e per valori collegati. Chi corre gli 800m, per esempio, vede 800m, 400m e 1500m.</p>
+          <div class="points" aria-label="Cosa mostra una previsione di gara">
+            <div class="pt"><strong>Un intervallo, non un solo tempo</strong><span>Ogni previsione mostra il tempo più probabile e un intervallo intorno.</span></div>
+            <div class="pt"><strong>Bassa, media o alta</strong><span>Il livello di affidabilità dice quanto è sicura la previsione.</span></div>
+            <div class="pt"><strong>Guarda come cambia</strong><span>Un grafico mostra ogni previsione negli ultimi 6 mesi, accanto al tuo PB.</span></div>
+            <div class="pt"><strong>Cresce con il diario</strong><span>Le prime previsioni possono arrivare dopo 5 allenamenti registrati. Si aggiornano quando ne registri altri.</span></div>
+          </div>
+          <p class="note">Una previsione è una stima, non una promessa. Le previsioni di gara usano l’IA. Sono facoltative e gratuite, con limiti di utilizzo, e serve una connessione a internet. Le ultime previsioni restano disponibili offline.</p>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/predictions.png" width="1800" height="3680" alt="Una previsione sugli 800m di 1:50.0, con intervallo, affidabilità media e un grafico degli ultimi 6 mesi" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ VOLUME ============ -->
+    <section id="volume" class="sec">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">Volume</p>
+          <h2 class="h2">Quanto hai corso, calcolato dal diario.</h2>
+          <p class="lead">Analisi somma la distanza di corsa che hai registrato e mostra le ultime 12 settimane in una linea. Tieni il dito sulla linea per leggere ogni settimana.</p>
+          <div class="points" aria-label="Cosa mostra il grafico del volume settimanale">
+            <div class="pt"><strong>12 settimane a colpo d’occhio</strong><span>Confronta questa settimana con quelle precedenti.</span></div>
+            <div class="pt"><strong>La tua settimana tipo</strong><span>Una linea tratteggiata mostra quanto corri di solito, così vedi subito una settimana più carica o più leggera.</span></div>
+            <div class="pt"><strong>Dai tuoi dati</strong><span>Il grafico usa la distanza che hai registrato.</span></div>
+            <div class="pt"><strong>Contato, non valutato</strong><span>Nessun punteggio di forma e nessun indice di carico. Sono i tuoi dati, sommati.</span></div>
+          </div>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/volume.png" width="1800" height="3680" alt="Volume di corsa settimanale e previsioni di gara in Analisi" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ RECORDS ============ -->
+    <section id="records" class="sec band">
+      <div class="wrap split rev">
+        <div>
+          <p class="eyebrow">Record</p>
+          <h2 class="h2">Ripetute e gare, fianco a fianco.</h2>
+          <p class="lead">Record riunisce in una pagina i tuoi primati personali e le tue ripetute più veloci. Puoi guardare una sola stagione o tutta la tua storia.</p>
+          <div class="points" aria-label="Cosa trovi in Record">
+            <div class="pt"><strong>Primati personali</strong><span>Aggiungi i primati che hai già. Se nel diario registri una gara più veloce, il primato si aggiorna da solo.</span></div>
+            <div class="pt"><strong>Record di allenamento</strong><span>La tua ripetuta più veloce su ogni distanza, dagli allenamenti registrati.</span></div>
+            <div class="pt"><strong>Una stagione o di sempre</strong><span>Guarda i migliori tempi di questa stagione o di tutta la tua storia.</span></div>
+            <div class="pt"><strong>Ostacoli a parte</strong><span>Le ripetute con ostacoli hanno record propri, separati da quelle piane.</span></div>
+          </div>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/records.png" width="1800" height="3680" alt="Primati personali e record di allenamento in StrideBuddy" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ RACES ============ -->
+    <section id="races" class="sec">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">Gare</p>
+          <h2 class="h2">Tutte le prossime gare, in un calendario.</h2>
+          <p class="lead">Aggiungi le prossime gare e indica quanto conta ognuna. Gare mostra tutte le gare in arrivo e quanti giorni mancano. Piano le usa per organizzare il tuo allenamento.</p>
+          <div class="points" aria-label="Cosa contiene il calendario gare">
+            <div class="pt"><strong>La prossima gara</strong><span>Ogni gara in arrivo, con la distanza e i giorni che mancano.</span></div>
+            <div class="pt"><strong>A, B o C</strong><span>Scarico completo, scarico breve o senza scarico. Lo scegli quando aggiungi la gara.</span></div>
+            <div class="pt"><strong>Parte del tuo piano</strong><span>Il piano settimanale ti prepara alle gare che contano di più.</span></div>
+            <div class="pt"><strong>Risultati in Record</strong><span>Registra una gara e il suo tempo conta per i tuoi primati personali.</span></div>
+          </div>
+        </div>
+        <div class="stage"><div class="phone"><img src="assets/screenshots/it/race_calendar.png" width="1800" height="3680" alt="Le prossime gare nel calendario gare di StrideBuddy" loading="lazy"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ IPHONE AND WEB ============ -->
+    <section id="web" class="sec band">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">iPhone e web</p>
+          <h2 class="h2">Usa StrideBuddy su iPhone o nel browser.</h2>
+          <p class="lead">L’app web usa lo stesso account dell’app per iPhone. Accedi su web.stridebuddy.app per vedere lo stesso diario.</p>
+          <div class="checks">
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Gli allenamenti si sincronizzano tra l’app per iPhone e l’app web.</p>
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Usala su un computer o su un telefono che non è un iPhone.</p>
+            <p><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>Non devi installare niente.</p>
+          </div>
+          <div class="btn-row" style="margin-top:32px">
+            <a class="btn btn-smoke" href="https://web.stridebuddy.app">Apri l’app web
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="devices" aria-hidden="true">
+          <div class="browser">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">web.stridebuddy.app</span></div>
+            <div class="body">
+              <div class="side"><span></span><span style="width:70%"></span><span style="width:60%"></span><span style="width:66%"></span></div>
+              <div class="main"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="phone phone-layered">
+            <img class="screen" src="assets/screenshots/it/today.png" width="1206" height="2622" alt="" loading="lazy">
+            <img class="bezel" src="assets/iphone-17-black-bezel.png" width="2015" height="4120" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how" class="sec">
+      <div class="wrap">
+        <p class="eyebrow">Come funziona</p>
+        <h2 class="h2">Un registro chiaro dei tuoi allenamenti.</h2>
+        <div class="g3" style="margin-top:48px">
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">1</div>
+            <h3>Registra la seduta</h3>
+            <p class="body">Scegli il tipo di allenamento e inserisci i dettagli che vuoi ricordare, come ripetute, parziali, recuperi e sensazioni.</p>
+          </article>
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">2</div>
+            <h3>Mantieni la sua struttura</h3>
+            <p class="body">StrideBuddy salva la seduta, le dà un nome e la classifica tenendo conto della tua specialità.</p>
+          </article>
+          <article class="tile">
+            <div class="step-n num" aria-hidden="true">3</div>
+            <h3>Rileggi il risultato</h3>
+            <p class="body">Ritrova la seduta nel diario, controlla record e previsioni di gara e guarda quanto hai corso ogni settimana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section id="download" class="final">
+      <div class="wrap">
+        <div class="final-card">
+          <img src="assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+          <h2 class="h2">Tutto il tuo allenamento di pista in un diario.</h2>
+          <p>Scarica StrideBuddy per iPhone per registrare allenamenti, lavoro di forza, gare e recupero.</p>
+          <div class="btn-row">
+            <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+            <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="#top" aria-label="StrideBuddy, inizio pagina">
+        <img class="lockup-light" src="assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <!-- FAQ, support, terms and privacy are English-only pages for now. -->
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="#features">Funzioni</a>
+        <a href="#coach">Piano</a>
+        <a href="#predictions">Previsioni</a>
+        <a href="#records">Record</a>
+        <a href="#races">Gare</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="faq" hreflang="en">FAQ</a>
+        <a href="support" hreflang="en">Supporto</a>
+        <a href="terms" hreflang="en">Termini</a>
+        <a href="privacy" hreflang="en">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/" hreflang="en" lang="en" data-campaign-carry>English</a>
+        <a href="it" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      Campaign attribution. IN USE — DO NOT DELETE. A copy of the script at the
+      bottom of index.html; see AGENTS.md § Campaign attribution. /it?c=instagram
+      tags this page's App Store links exactly as /?c=instagram does, and the
+      language switch keeps the parameter. Keep the campaigns array identical
+      to index.html's.
+    */
+    (function () {
+      var campaigns = ["instagram", "community"];
+      var c = new URLSearchParams(window.location.search).get("c");
+      if (campaigns.indexOf(c) === -1) return;
+
+      var links = document.querySelectorAll('a[href^="https://apps.apple.com/"]');
+      Array.prototype.forEach.call(links, function (link) {
+        var url = new URL(link.href);
+        url.searchParams.set("ct", c);
+        link.href = url.href;
+      });
+
+      var carry = document.querySelectorAll("a[data-campaign-carry]");
+      Array.prototype.forEach.call(carry, function (link) {
+        var url = new URL(link.href);
+        url.searchParams.set("c", c);
+        link.href = url.href;
+      });
+    })();
+  </script>
+
+</body>
+</html>

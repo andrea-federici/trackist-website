@@ -10,6 +10,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | File | Purpose |
 | --- | --- |
 | `index.html` | The one-page landing site (hero, sessions, features, plan, weekly Plan, periodization, session purpose, race predictions, volume, records, races, iPhone and web, how it works, CTA). |
+| `it.html` | The Italian homepage (`/it`): the same sections in Italian, with Italian screenshots. Its `<style>` block and campaign script are copies of `index.html`'s; change both pages together. `hreflang` links on both pages and in `sitemap.xml` pair `/` and `/it`. |
 | `faq.html` | FAQ (`/faq`), with `FAQPage` JSON-LD that must match the visible answers word for word. |
 | `support.html` | Support / contact page. |
 | `terms.html` | Terms of use and AI disclosure. |
@@ -21,10 +22,11 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `serve.py` | Local dev server that strips `.html` like production does. Never deployed. |
 | `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
-| `sitemap.xml` | The five indexable URLs. Must agree with the `rel="canonical"` tags. |
+| `sitemap.xml` | The six indexable URLs, with `hreflang` alternates for `/` and `/it`. Must agree with the `rel="canonical"` tags. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every indexable page. See § Share image. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
+| `assets/screenshots/it/` | Italian screenshots for `it.html`. See § App screenshots. |
 
 ## Campaign attribution
 
@@ -72,7 +74,8 @@ invisible. Never send channel traffic to the plain homepage either — it tags a
 Someone told to "explore" wants the full site, not a landing stub, so the
 homepage can carry any campaign's token. Adding `?c=<campaign>` to it rewrites
 the `ct` on its App Store links, and an inline script at the bottom of
-`index.html` does the rewrite.
+`index.html` does the rewrite. `it.html` carries a copy, so `/it?c=instagram` works
+the same way, and both pages' language switch keeps the `?c=` value.
 
 Only campaigns named in that script's `campaigns` array are accepted, so a
 made-up value cannot invent a campaign or repoint the button; anything
@@ -96,7 +99,7 @@ community  https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=c
 website    https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
 ```
 
-The `website` link is the one on every App Store button in `index.html`. The other two
+The `website` link is the one on every App Store button in `index.html` and `it.html`. The other two
 are in their landing pages' call to action.
 
 Use the generated link verbatim when adding a channel — note the
@@ -240,7 +243,7 @@ it empty. Every other `<img>` on the site has real alt text — that was checked
 ### Share image
 
 `assets/og-image.png` is the link-preview card (`og:image`, `twitter:image`,
-`summary_large_image`) on the homepage, FAQ, support, privacy and terms pages. It is
+`summary_large_image`) on the homepage, the Italian homepage, FAQ, support, privacy and terms pages. It is
 1200×630, built with Pillow from repo assets only: `stridebuddy_lockup.png`, the
 tagline in SF Pro, and `today.png` in the bezel beside `review.png` on the
 `--stage` panel. Like every page image, it is compressed once with `pngquant`
@@ -357,6 +360,16 @@ Compress only freshly written files: running `pngquant` again on an already
 compressed file loses a little more each time.
 
 Keep the same aspect ratio and transparent device treatment when replacing them.
+
+### Italian screenshots
+
+`assets/screenshots/it/` holds the Italian set for `it.html`, made the same way from
+`../AppStore/approved/it-IT/sources/` (run `20261024T103032Z-fb2147`): the same file
+names, sizes and `pngquant` settings, with `_raw.png` inputs beside them. Run the
+commands above from inside that folder. `central_plan.png` and `log_strength.png`
+have no Italian capture (the `capture --website` extras exist only in `en-US`), so
+`it.html` uses the English ones. `periodization.png` is not on the page and has no
+Italian copy here.
 
 ## Contact
 

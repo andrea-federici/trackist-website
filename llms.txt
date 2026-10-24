@@ -30,6 +30,7 @@ Support: support@stridebuddy.app
 ## Pages
 
 - [Home](https://stridebuddy.app/): What StrideBuddy does, with a screenshot of each feature
+- [Home in Italian](https://stridebuddy.app/it): The same homepage in Italian
 - [FAQ](https://stridebuddy.app/faq): Short answers about features, price, devices, languages, sync and privacy
 - [Support](https://stridebuddy.app/support): How to get help, account help and how to delete your data
 - [Privacy Policy](https://stridebuddy.app/privacy): What data StrideBuddy stores and what the AI features send

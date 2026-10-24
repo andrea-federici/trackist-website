@@ -22,7 +22,7 @@ measurable — nothing fails, no test breaks, and the installs quietly report as
 
 | Thing | Why it must stay |
 | --- | --- |
-| The inline script at the bottom of `index.html` | Reads `?c=<campaign>` and rewrites `ct` on every App Store link on the page. **The Instagram profile's "Explore StrideBuddy" link is `https://stridebuddy.app/?c=instagram` and depends entirely on it.** Delete the script and that traffic reports as `website` |
+| The inline script at the bottom of `index.html` and its copy in `it.html` | Reads `?c=<campaign>` and rewrites `ct` on every App Store link on the page. **The Instagram profile's "Explore StrideBuddy" link is `https://stridebuddy.app/?c=instagram` and depends entirely on it.** Delete the script and that traffic reports as `website` |
 | `s/community/index.html` | The `/s/community` landing page, and the only thing carrying `ct=community`. **It is the link posted in forums, on Reddit, in Discord and in club spaces**, where a bare App Store link is a dead end for desktop readers and reads as spam. Delete it and every link already posted 404s while that campaign reports nothing |
 | `s/campaign.css` | Styles the call to action on `/s/community`. **One consumer is not a reason to inline or remove it.** Deleting it is the quietest failure here: the page still returns 200 and still carries its token, so attribution keeps working while the page renders unstyled at the end of every community link |
 | The `pt` and `ct` parameters on every `apps.apple.com` link | `pt=128627634` is the provider token; `ct` is the campaign. A link missing them is an invisible install |
@@ -74,6 +74,10 @@ reasoning; the rules that matter when editing are these.
   That page is where the site's inbound forum and Reddit links land. `nofollow`
   would discard them. It near-duplicates the homepage, which is why it is not
   indexed, and it is absent from `sitemap.xml` for the same reason.
+- **`/` and `/it` are language versions of one page.** Each carries `hreflang`
+  links for `en`, `it` and `x-default` (pointing at `/`), and `sitemap.xml`
+  repeats them. Copy, sections, images, the campaign script and the style block
+  change on both pages together. There is no redirect by browser language.
 - Adding a page means adding it to `sitemap.xml` with a canonical tag, or
   deciding it is `noindex` and leaving it out. Silently doing neither is the
   failure mode.

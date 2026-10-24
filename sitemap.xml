@@ -19,15 +19,32 @@
   directly in forums, it near-duplicates the homepage, and it carries
   noindex,follow for that reason.
 
+  / and /it are language versions of the homepage. Each lists both as
+  xhtml:link alternates, plus x-default, matching the hreflang links in
+  index.html and it.html.
+
   Update lastmod when a page's content changes, not when an unrelated file in
   the repository does.
 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://stridebuddy.app/</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/"/>
   </url>
   <url>
     <loc>https://stridebuddy.app/faq</loc>
