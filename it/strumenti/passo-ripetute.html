@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcolatore del passo delle ripetute | StrideBuddy</title>
+  <meta name="description" content="Scrivi una seduta di pista come 6x200 in 27-28 e ottieni il passo ai 100 m, ai 400 m e al km, il volume totale e quanto sono veloci le ripetute rispetto al tuo primato.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <meta property="og:title" content="Calcolatore del passo delle ripetute">
+  <meta property="og:description" content="Scrivi una seduta come 6x200 in 27-28. Ottieni il passo ai 100 m, ai 400 m e al km, il volume e la % del primato.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle FAQ deve coincidere parola per parola con le risposte visibili. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Strumenti per l’atletica", "item": "https://stridebuddy.app/it/strumenti" },
+          { "@type": "ListItem", "position": 2, "name": "Passo delle ripetute", "item": "https://stridebuddy.app/it/strumenti/passo-ripetute" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come si calcola il passo di una ripetuta?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dividi il tempo della ripetuta per la sua distanza, poi moltiplica per la distanza che ti interessa. Un 200 m in 27.5 secondi vale 27.5 ÷ 200 × 400 = 55.0 secondi ai 400 m." }
+          },
+          {
+            "@type": "Question",
+            "name": "Cosa vuol dire 6x200 in 27-28?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sei ripetute da 200 m, ognuna corsa tra 27 e 28 secondi. Il calcolatore usa il centro dell’intervallo, 27.5 secondi, per il passo." }
+          },
+          {
+            "@type": "Question",
+            "name": "Il volume totale comprende il recupero?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Il volume totale conta solo la distanza delle ripetute. Il tempo di recupero è mostrato a parte, e un recupero camminato o di corsa lenta non si somma al volume." }
+          },
+          {
+            "@type": "Question",
+            "name": "Cos’è la % del passo del primato?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Confronta la velocità della ripetuta con la velocità media del tuo primato. 100% è il passo del primato. Sopra il 100% sei più veloce, sotto il 100% più lento. Un 200 m in 27.5 è il 109% del passo di un 800 m in 2:00." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Passo delle ripetute</nav>
+    <div class="page-head">
+      <p class="eyebrow">Allenamento</p>
+      <h1>Calcolatore del passo delle ripetute</h1>
+      <p class="lead">Scrivi una seduta di pista come 6x200 in 27-28. Ottieni il passo ai 100 m, ai 400 m e al km, il volume totale e quanto sono veloci le ripetute rispetto al tuo primato.</p>
+    </div>
+
+    <form class="tool stack" id="rep-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="col">
+        <div class="field">
+          <label for="session">Seduta</label>
+          <textarea id="session" name="session" spellcheck="false" aria-describedby="session-hint">6x200 in 27-28, rec 2:00</textarea>
+          <span class="hint" id="session-hint">Separa i blocchi con una virgola o con +. Aggiungi il recupero con rec.</span>
+        </div>
+        <div class="chips" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"session":"6x200 in 27-28, rec 2:00"}'>6x200 in 27-28</button>
+          <button type="button" class="chip" data-fill='{"session":"10x400 a 68 rec 60s"}'>10x400 a 68</button>
+          <button type="button" class="chip" data-fill='{"session":"5x1k in 3:05-3:10 rec 2:00"}'>5x1k in 3:05-3:10</button>
+          <button type="button" class="chip" data-fill='{"session":"3x300 in 42 rec 5:00 + 3x150 in 19 rec 2:00"}'>3x300 + 3x150</button>
+        </div>
+        </div>
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Il tuo primato (facoltativo)</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="">Nessun primato</option>
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Miglio</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10.000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">Tempo del primato</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="rep-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Volume totale</span><output class="v">1200 m</output><div class="s">di corsa veloce</div></div><div class="stat"><span class="k">Tempo di corsa</span><output class="v">2:45.0</output><div class="s">più 10:00 di recupero</div></div><div class="stat"><span class="k">Passo medio</span><output class="v">55.0</output><div class="s">ogni 400 m</div></div></div><div class="table-wrap"><table><thead><tr><th>Ripetute</th><th>Obiettivo</th><th>/100 m</th><th>/400 m</th><th>/km</th><th>km/h</th><th>% PB</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>27.00–28.00</td><td>13.8</td><td>55.0</td><td>2:18</td><td>26,2</td><td class="hl">109%</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>A questo passo</th><th>400 m</th><th>800 m</th><th>1500 m</th><th>5000 m</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>55.0</td><td>1:50.0</td><td>3:26.3</td><td>11:28</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Il passo è il tempo della ripetuta diviso per la sua distanza. Se scrivi un intervallo, come 27-28, il calcolatore usa il centro.</p>
+      <div class="formula">passo ai 400 m = tempo della ripetuta ÷ distanza × 400</div>
+      <p>Il volume totale è il numero di ripetute per la distanza, sommato per ogni blocco. Il recupero non fa parte del volume. Il tempo di corsa somma solo i tempi delle ripetute; il recupero è mostrato accanto.</p>
+      <p>La % del primato confronta la velocità della ripetuta con la velocità media della gara del tuo primato. 100% è il passo del primato. 109% vuol dire che le ripetute sono il 9% più veloci del passo del primato.</p>
+      <div class="formula">% del primato = (tempo del primato ÷ distanza) ÷ (tempo della ripetuta ÷ distanza) × 100</div>
+      <p>La tabella <strong>A questo passo</strong> tiene lo stesso passo su una distanza di gara. Non è una previsione: nessuno corre un 5000 m al passo delle ripetute da 200 m. Per stimare un tempo di gara usa la <a href="/it/strumenti/previsione-tempi">previsione dei tempi di gara</a>.</p>
+
+      <h2>Come scrivere una seduta</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Scrivi</th><th>Viene letto come</th></tr></thead>
+        <tbody>
+          <tr><td><code>6x200 in 27-28</code></td><td>6 ripetute da 200 m in 27-28 s</td></tr>
+          <tr><td><code>10x400 a 68 rec 60s</code></td><td>10 × 400 m in 68 s, recupero 60 s</td></tr>
+          <tr><td><code>5x1k in 3:05-3:10</code></td><td>5 × 1000 m in 3:05-3:10</td></tr>
+          <tr><td><code>3x300 a 45"5 recupero 3'</code></td><td>3 × 300 m in 45.5 s, recupero 3 min</td></tr>
+          <tr><td><code>3x300 in 42 + 3x150 in 19</code></td><td>Due blocchi, sommati</td></tr>
+        </tbody>
+      </table></div>
+      <p>I tempi si possono scrivere come <code>27.5</code>, <code>27,5</code>, <code>1:05</code>, <code>1'05"</code> o <code>1.05.20</code>.</p>
+
+      <h2>Esempio</h2>
+      <p>Un ottocentista con un primato di 2:00.00 corre 6x200 in 27-28 con 2 minuti di recupero. Il centro dell’intervallo è 27.5 s: 55.0 ai 400 m e 13.8 ai 100 m. La seduta vale 1200 m di corsa veloce in 2:45, più 10 minuti di recupero tra le sei ripetute. Il passo del primato è 15.0 s ai 100 m, quindi le ripetute sono al 109% del passo degli 800 m.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Come si calcola il passo di una ripetuta?</summary>
+        <p>Dividi il tempo della ripetuta per la sua distanza, poi moltiplica per la distanza che ti interessa. Un 200 m in 27.5 secondi vale 27.5 ÷ 200 × 400 = 55.0 secondi ai 400 m.</p>
+      </details>
+      <details>
+        <summary>Cosa vuol dire 6x200 in 27-28?</summary>
+        <p>Sei ripetute da 200 m, ognuna corsa tra 27 e 28 secondi. Il calcolatore usa il centro dell’intervallo, 27.5 secondi, per il passo.</p>
+      </details>
+      <details>
+        <summary>Il volume totale comprende il recupero?</summary>
+        <p>No. Il volume totale conta solo la distanza delle ripetute. Il tempo di recupero è mostrato a parte, e un recupero camminato o di corsa lenta non si somma al volume.</p>
+      </details>
+      <details>
+        <summary>Cos’è la % del passo del primato?</summary>
+        <p>Confronta la velocità della ripetuta con la velocità media del tuo primato. 100% è il passo del primato. Sopra il 100% sei più veloce, sotto il 100% più lento. Un 200 m in 27.5 è il 109% del passo di un 800 m in 2:00.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Registra la seduta, tieni i passaggi.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra ogni ripetuta e ogni passaggio: la tua ripetuta più veloce su ogni distanza diventa un record di allenamento da sola.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/ritmi-allenamento"><h3>Ritmi di allenamento dal primato</h3><p>Tempi delle ripetute dal 60 al 120% del passo del primato.</p></a>
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un primato.</p></a>
+        <a class="tcard" href="/it/strumenti/convertitore-passo"><h3>Convertitore di passo e unità</h3><p>min/km, min/miglio, ai 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/passo-ripetute" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/rep-pace.js"></script>
+</body>
+</html>

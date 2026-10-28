@@ -20,8 +20,9 @@
   directly in forums, it near-duplicates the homepage, and it carries
   noindex,follow for that reason.
 
-  / and /it are language versions of the homepage, and /privacy and
-  /it/privacy of the privacy policy. Each pair lists both as xhtml:link
+  / and /it are language versions of the homepage, /privacy and
+  /it/privacy of the privacy policy, and each /tools page of its
+  /it/strumenti page. Each pair lists both as xhtml:link
   alternates, plus x-default pointing at the English page, matching the
   hreflang links in the pages themselves.
 
@@ -83,5 +84,221 @@
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/rep-pace</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/passo-ripetute</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/training-paces</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/training-paces"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/training-paces"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/ritmi-allenamento</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/training-paces"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/training-paces"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/race-predictor</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/race-predictor"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/previsione-tempi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/race-predictor"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/previsione-tempi</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/race-predictor"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/previsione-tempi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/race-predictor"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/split-planner</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/split-planner"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passaggi-gara"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/split-planner"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/passaggi-gara</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/split-planner"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passaggi-gara"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/split-planner"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/mile-converter</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/mile-converter"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/conversione-miglio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/mile-converter"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/conversione-miglio</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/mile-converter"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/conversione-miglio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/mile-converter"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/hand-timing</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hand-timing"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hand-timing"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/cronometraggio-manuale</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hand-timing"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hand-timing"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/wind-adjustment</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/wind-adjustment"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/correzione-vento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/correzione-vento</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/wind-adjustment"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/correzione-vento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/combined-events</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/prove-multiple</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/pace-converter</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/convertitore-passo</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/hurdle-heights</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hurdle-heights"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/altezze-ostacoli"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hurdle-heights"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/altezze-ostacoli</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hurdle-heights"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/altezze-ostacoli"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hurdle-heights"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/tools/lane-stagger</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/lane-stagger"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/distanze-corsie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/lane-stagger"/>
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/strumenti/distanze-corsie</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/lane-stagger"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/distanze-corsie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/lane-stagger"/>
   </url>
 </urlset>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Race split planner for 400 m to 10,000 m | StrideBuddy</title>
+  <meta name="description" content="Plan your race splits for 400 m, 800 m, 1500 m, the mile, 3000 m, 5000 m and 10,000 m. Even pace or a faster first half, on a 400 m track or a 200 m indoor track.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/split-planner">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/split-planner">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passaggi-gara">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/split-planner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/split-planner">
+  <meta property="og:title" content="Race split planner">
+  <meta property="og:description" content="Lap splits for 400 m to 10,000 m, at even pace or with a fade, outdoors or indoors.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Track tools",
+            "item": "https://stridebuddy.app/tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Race split planner",
+            "item": "https://stridebuddy.app/tools/split-planner"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are even splits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Even splits mean every lap takes the same time. For a 2:00 800 m that is 60 seconds per lap, or 30 seconds per 200 m."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the 800 m run at even pace?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The fastest 800 m races usually are not. In 24 of 26 men’s world records from 1912 to 1997, the first lap was faster than the second. Since 2011, Olympic and world medallists have run the first lap about 2 seconds faster."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is the first split in a 1500 m?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "At 300 m. The 1500 m is three laps and 300 m, so the runners first cross the finish line after 300 m. After that there is a split every 400 m: 700 m, 1100 m and 1500 m."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are the splits in the mile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "At 409 m, 809 m, 1209 m and the finish. The mile is 1609.34 m, four laps and 9.34 m, so the start is 9.34 m behind the finish line."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/passaggi-gara" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Split planner</nav>
+    <div class="page-head">
+      <p class="eyebrow">Racing</p>
+      <h1>Race split planner</h1>
+      <p class="lead">Enter a target time and get the split at every lap, on an outdoor 400 m track or an indoor 200 m track. Run it at even pace, or with a faster first or second half.</p>
+    </div>
+
+    <form class="tool" id="split-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field">
+            <label for="event">Race</label>
+            <select id="event" name="event">
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Mile</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10,000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="target">Target time</label>
+            <input type="text" id="target" name="target" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+        <fieldset>
+          <legend>Track</legend>
+          <div class="seg">
+            <label><input type="radio" name="track" value="400" checked><span>Outdoor 400 m</span></label>
+            <label><input type="radio" name="track" value="200"><span>Indoor 200 m</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="fade">Second half: % slower than the first</label>
+          <input type="text" id="fade" name="fade" inputmode="decimal" value="0" aria-describedby="fade-hint">
+          <span class="hint" id="fade-hint">0 is even pace. Use a minus sign for a faster second half.</span>
+        </div>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"event":"400","target":"50.00","fade":"8.2"}'>400 m in 50.00, fast start</button>
+          <button type="button" class="chip" data-fill='{"event":"800","target":"2:00.00","fade":"4.6"}'>800 m in 2:00, like the records</button>
+          <button type="button" class="chip" data-fill='{"event":"1500","target":"4:00.00","fade":"0"}'>1500 m in 4:00, even</button>
+          <button type="button" class="chip" data-fill='{"event":"5000","target":"15:00.00","fade":"-2"}'>5000 m in 15:00, negative split</button>
+        </div>
+      </div>
+      <div class="tool-results" id="split-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Target</span><output class="v">2:00.00</output><div class="s">800 m</div></div><div class="stat"><span class="k">Average pace</span><output class="v">1:00.00</output><div class="s">per 400 m</div></div><div class="stat"><span class="k">First half</span><output class="v">1:00.00</output><div class="s">400 m</div></div><div class="stat"><span class="k">Second half</span><output class="v">1:00.00</output><div class="s">even pace</div></div></div><div class="table-wrap"><table><thead><tr><th>Mark</th><th>Split</th><th>Segment</th><th>Segment time</th><th>Pace /400 m</th></tr></thead><tbody><tr><td>200 m</td><td>30.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>400 m</td><td>1:00.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>600 m</td><td>1:30.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>800 m</td><td class="hl">2:00.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>The planner spreads the target time over the race. At even pace every metre takes the same time.</p>
+      <div class="formula">split at d metres = target time × d ÷ race distance</div>
+      <p>With a fade, the second half takes longer than the first by the percentage you choose. The pace changes steadily from start to finish, so you slow down (or speed up) a little on every lap rather than all at once.</p>
+      <div class="formula">first half = target ÷ (2 + f) · second half = target − first half, where f = percentage ÷ 100</div>
+
+      <h2>Where the splits are</h2>
+      <p>Splits are taken on the finish line, where the clock is. The 1500 m is three laps and 300 m, so the first split is at 300 m. The mile is 1609.34 m, four laps and 9.34 m, so it starts 9.34 m behind the line and the first split is at 409 m. The 3000 m and 5000 m start on the far side of the track, so the first split is at 200 m. The 400 m and 800 m also show every 100 m or 200 m. On a 200 m indoor track, the 1500 m first crosses the line at 100 m.</p>
+
+      <h2>Races are not run at even pace</h2>
+      <p>In 26 men’s 800 m world records from 1912 to 1997, the first lap averaged 52.0 s and the second 54.4 s. Only 2 of them had a faster second lap (Tucker, Lambert and Noakes, 2006). That is the +4.6% in the 800 m example.</p>
+      <p>Since 2011, Olympic and world championship 800 m medallists have run the first lap about 2.2 s faster than the second (Sandford and others, 2018).</p>
+      <p>In the 400 m the first 200 m is almost always the faster half. Sydney McLaughlin-Levrone won the 2025 world title in 47.78 and passed 200 m in 22.95, so her second 200 m took 24.83: 8.2% longer. That is the +8.2% in the 400 m example.</p>
+      <p>From 1500 m up, records are closer to even pace. In 5000 m and 10,000 m world records, the first and last kilometres were the fastest and the middle ones slower (Tucker, Lambert and Noakes, 2006).</p>
+
+      <h2>Worked example</h2>
+      <p>A 2:00.00 800 m at even pace passes 200 m in 30.00, 400 m in 1:00.00 and 600 m in 1:30.00. With +4.6%, the first lap takes 58.65 and the second 1:01.35. The splits become 28.99 at 200 m, 58.65 at 400 m and 1:28.99 at 600 m.</p>
+
+      <h2>Limits</h2>
+      <p>The steady fade is a model, and real races are less smooth. A 400 m starts from blocks, so the first 100 m is slower than the table shows: McLaughlin-Levrone ran 11.71 for her first 100 m and 11.24 for the second. The middle laps of a 5000 m depend on the pack. Indoors, the tight bends make the same time harder, and the planner does not adjust for that.</p>
+      <p class="sources">Sources: Tucker R, Lambert MI, Noakes TD (2006), <a href="https://doi.org/10.1123/ijspp.1.3.233">An analysis of pacing strategies during men’s world-record performances in track athletics</a>, International Journal of Sports Physiology and Performance 1(3): 233–245. Sandford GN and others (2018), <a href="https://doi.org/10.1123/ijspp.2016-0780">Tactical behaviors in men’s 800-m Olympic and world-championship medalists: a changing of the guard</a>, International Journal of Sports Physiology and Performance 13(2): 246–249. World Athletics, <a href="https://worldathletics.org/results/world-athletics-championships/2025/world-athletics-championships-tokyo-2025-8137/women/400-metres/final/result">Tokyo 2025 women’s 400 m final, results and splits</a>.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>What are even splits?</summary>
+        <p>Even splits mean every lap takes the same time. For a 2:00 800 m that is 60 seconds per lap, or 30 seconds per 200 m.</p>
+      </details>
+      <details>
+        <summary>Is the 800 m run at even pace?</summary>
+        <p>The fastest 800 m races usually are not. In 24 of 26 men’s world records from 1912 to 1997, the first lap was faster than the second. Since 2011, Olympic and world medallists have run the first lap about 2 seconds faster.</p>
+      </details>
+      <details>
+        <summary>Where is the first split in a 1500 m?</summary>
+        <p>At 300 m. The 1500 m is three laps and 300 m, so the runners first cross the finish line after 300 m. After that there is a split every 400 m: 700 m, 1100 m and 1500 m.</p>
+      </details>
+      <details>
+        <summary>Where are the splits in the mile?</summary>
+        <p>At 409 m, 809 m, 1209 m and the finish. The mile is 1609.34 m, four laps and 9.34 m, so the start is 9.34 m behind the finish line.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Race it, then log it.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log a race and its time counts for your personal bests. StrideBuddy also uses AI to predict your race times from your training.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate a race time from a PB.</p></a>
+        <a class="tcard" href="/tools/mile-converter"><h3>Mile, 1600 m and 1500 m converter</h3><p>Convert a time between the three.</p></a>
+        <a class="tcard" href="/tools/training-paces"><h3>Training paces from PB</h3><p>Rep times at 60–120% of your PB pace.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/split-planner" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/passaggi-gara" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/split-planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcolatore dei passaggi di gara, dai 400 ai 10.000 m | StrideBuddy</title>
+  <meta name="description" content="Calcola i passaggi di gara per 400 m, 800 m, 1500 m, miglio, 3000 m, 5000 m e 10.000 m. A ritmo costante o con la prima metà più veloce, su pista da 400 m o indoor da 200 m.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/passaggi-gara">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/split-planner">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passaggi-gara">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/split-planner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/passaggi-gara">
+  <meta property="og:title" content="Calcolatore dei passaggi di gara">
+  <meta property="og:description" content="Passaggi a ogni giro dai 400 ai 10.000 m, a ritmo costante o in calo, all’aperto o indoor.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strumenti per la pista",
+            "item": "https://stridebuddy.app/it/strumenti"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Calcolatore dei passaggi di gara",
+            "item": "https://stridebuddy.app/it/strumenti/passaggi-gara"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Cosa vuol dire correre a ritmo costante?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vuol dire correre ogni giro nello stesso tempo. Per un 800 m in 2:00 sono 60 secondi al giro, o 30 secondi ogni 200 m."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gli 800 m si corrono a ritmo costante?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gli 800 m più veloci di solito no. In 24 dei 26 record del mondo maschili dal 1912 al 1997 il primo giro è stato più veloce del secondo. Dal 2011 i medagliati di Olimpiadi e Mondiali hanno corso il primo giro circa 2 secondi più veloce."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove si prende il primo passaggio nei 1500 m?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ai 300 m. I 1500 m sono tre giri e 300 m, quindi si passa sulla linea d’arrivo la prima volta dopo 300 m. Poi c’è un passaggio ogni 400 m: 700 m, 1100 m e 1500 m."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove si prendono i passaggi nel miglio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ai 409 m, 809 m, 1209 m e all’arrivo. Il miglio è 1609,34 m, cioè quattro giri e 9,34 m, quindi la partenza è 9,34 m prima della linea d’arrivo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/split-planner" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per la pista</a><span aria-hidden="true">/</span>Passaggi di gara</nav>
+    <div class="page-head">
+      <p class="eyebrow">Gara</p>
+      <h1>Calcolatore dei passaggi di gara</h1>
+      <p class="lead">Inserisci un tempo obiettivo e ottieni il passaggio a ogni giro, su pista all’aperto da 400 m o indoor da 200 m. A ritmo costante, oppure con la prima o la seconda metà più veloce.</p>
+    </div>
+
+    <form class="tool" id="split-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field">
+            <label for="event">Gara</label>
+            <select id="event" name="event">
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Miglio</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10.000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="target">Tempo obiettivo</label>
+            <input type="text" id="target" name="target" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+        <fieldset>
+          <legend>Pista</legend>
+          <div class="seg">
+            <label><input type="radio" name="track" value="400" checked><span>All’aperto 400 m</span></label>
+            <label><input type="radio" name="track" value="200"><span>Indoor 200 m</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="fade">Seconda metà: % più lenta della prima</label>
+          <input type="text" id="fade" name="fade" inputmode="decimal" value="0" aria-describedby="fade-hint">
+          <span class="hint" id="fade-hint">0 è il ritmo costante. Con il segno meno la seconda metà è più veloce.</span>
+        </div>
+        <div class="chips" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"event":"400","target":"50.00","fade":"8,2"}'>400 m in 50.00, partenza veloce</button>
+          <button type="button" class="chip" data-fill='{"event":"800","target":"2:00.00","fade":"4,6"}'>800 m in 2:00, come i record</button>
+          <button type="button" class="chip" data-fill='{"event":"1500","target":"4:00.00","fade":"0"}'>1500 m in 4:00, costante</button>
+          <button type="button" class="chip" data-fill='{"event":"5000","target":"15:00.00","fade":"-2"}'>5000 m in 15:00, in progressione</button>
+        </div>
+      </div>
+      <div class="tool-results" id="split-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Obiettivo</span><output class="v">2:00.00</output><div class="s">800 m</div></div><div class="stat"><span class="k">Passo medio</span><output class="v">1:00.00</output><div class="s">ogni 400 m</div></div><div class="stat"><span class="k">Prima metà</span><output class="v">1:00.00</output><div class="s">400 m</div></div><div class="stat"><span class="k">Seconda metà</span><output class="v">1:00.00</output><div class="s">ritmo costante</div></div></div><div class="table-wrap"><table><thead><tr><th>Passaggio</th><th>Tempo</th><th>Tratto</th><th>Tempo del tratto</th><th>Passo /400 m</th></tr></thead><tbody><tr><td>200 m</td><td>30.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>400 m</td><td>1:00.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>600 m</td><td>1:30.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr><tr><td>800 m</td><td class="hl">2:00.00</td><td>200 m</td><td>30.00</td><td>1:00.0</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Il calcolatore distribuisce il tempo obiettivo sulla gara. A ritmo costante ogni metro richiede lo stesso tempo.</p>
+      <div class="formula">passaggio ai d metri = tempo obiettivo × d ÷ distanza di gara</div>
+      <p>Con un calo, la seconda metà dura più della prima della percentuale che scegli. Il ritmo cambia in modo graduale dalla partenza all’arrivo: rallenti (o acceleri) un po’ a ogni giro, non tutto in una volta.</p>
+      <div class="formula">prima metà = obiettivo ÷ (2 + f) · seconda metà = obiettivo − prima metà, con f = percentuale ÷ 100</div>
+
+      <h2>Dove si prendono i passaggi</h2>
+      <p>I passaggi si prendono sulla linea d’arrivo, dove c’è il cronometro. I 1500 m sono tre giri e 300 m, quindi il primo passaggio è ai 300 m. Il miglio è 1609,34 m, cioè quattro giri e 9,34 m: si parte 9,34 m prima della linea e il primo passaggio è ai 409 m. I 3000 e i 5000 m partono dal lato opposto della pista, con il primo passaggio ai 200 m. Per 400 e 800 m ci sono anche i passaggi ogni 100 o 200 m. Su una pista indoor da 200 m, i 1500 m passano la prima volta sulla linea ai 100 m.</p>
+
+      <h2>In gara il ritmo non è costante</h2>
+      <p>Nei 26 record del mondo maschili degli 800 m dal 1912 al 1997, il primo giro è stato in media di 52,0 s e il secondo di 54,4 s. Solo in 2 record il secondo giro è stato più veloce (Tucker, Lambert e Noakes, 2006). Da qui il +4,6% dell’esempio sugli 800 m.</p>
+      <p>Dal 2011 i medagliati degli 800 m a Olimpiadi e Mondiali hanno corso il primo giro circa 2,2 s più veloce del secondo (Sandford e altri, 2018).</p>
+      <p>Nei 400 m la prima metà è quasi sempre la più veloce. Sydney McLaughlin-Levrone ha vinto i Mondiali 2025 in 47.78 passando ai 200 m in 22.95: i suoi secondi 200 m sono durati 24.83, l’8,2% in più. Da qui il +8,2% dell’esempio sui 400 m.</p>
+      <p>Dai 1500 m in su i record sono più vicini al ritmo costante. Nei record del mondo dei 5000 e dei 10.000 m il primo e l’ultimo chilometro sono stati i più veloci, quelli centrali più lenti (Tucker, Lambert e Noakes, 2006).</p>
+
+      <h2>Esempio</h2>
+      <p>Un 800 m in 2:00.00 a ritmo costante passa in 30.00 ai 200 m, 1:00.00 ai 400 m e 1:30.00 ai 600 m. Con +4,6% il primo giro dura 58.65 e il secondo 1:01.35. I passaggi diventano 28.99 ai 200 m, 58.65 ai 400 m e 1:28.99 ai 600 m.</p>
+
+      <h2>Limiti</h2>
+      <p>Il calo graduale è un modello, e le gare vere sono meno regolari. I 400 m partono dai blocchi, quindi i primi 100 m sono più lenti di quanto mostra la tabella: McLaughlin-Levrone ha corso i primi 100 m in 11.71 e i secondi in 11.24. I giri centrali dei 5000 m dipendono dal gruppo. Indoor le curve strette rendono più difficile lo stesso tempo, e il calcolatore non ne tiene conto.</p>
+      <p class="sources">Fonti: Tucker R, Lambert MI, Noakes TD (2006), <a href="https://doi.org/10.1123/ijspp.1.3.233">An analysis of pacing strategies during men’s world-record performances in track athletics</a>, International Journal of Sports Physiology and Performance 1(3): 233–245. Sandford GN e altri (2018), <a href="https://doi.org/10.1123/ijspp.2016-0780">Tactical behaviors in men’s 800-m Olympic and world-championship medalists: a changing of the guard</a>, International Journal of Sports Physiology and Performance 13(2): 246–249. World Athletics, <a href="https://worldathletics.org/results/world-athletics-championships/2025/world-athletics-championships-tokyo-2025-8137/women/400-metres/final/result">finale dei 400 m femminili di Tokyo 2025, risultati e passaggi</a>.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Cosa vuol dire correre a ritmo costante?</summary>
+        <p>Vuol dire correre ogni giro nello stesso tempo. Per un 800 m in 2:00 sono 60 secondi al giro, o 30 secondi ogni 200 m.</p>
+      </details>
+      <details>
+        <summary>Gli 800 m si corrono a ritmo costante?</summary>
+        <p>Gli 800 m più veloci di solito no. In 24 dei 26 record del mondo maschili dal 1912 al 1997 il primo giro è stato più veloce del secondo. Dal 2011 i medagliati di Olimpiadi e Mondiali hanno corso il primo giro circa 2 secondi più veloce.</p>
+      </details>
+      <details>
+        <summary>Dove si prende il primo passaggio nei 1500 m?</summary>
+        <p>Ai 300 m. I 1500 m sono tre giri e 300 m, quindi si passa sulla linea d’arrivo la prima volta dopo 300 m. Poi c’è un passaggio ogni 400 m: 700 m, 1100 m e 1500 m.</p>
+      </details>
+      <details>
+        <summary>Dove si prendono i passaggi nel miglio?</summary>
+        <p>Ai 409 m, 809 m, 1209 m e all’arrivo. Il miglio è 1609,34 m, cioè quattro giri e 9,34 m, quindi la partenza è 9,34 m prima della linea d’arrivo.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Corri la gara, poi registrala.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra una gara e il suo tempo conta per i tuoi primati personali. StrideBuddy usa anche l’IA per prevedere i tuoi tempi di gara dai tuoi allenamenti.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Altri strumenti</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un personale.</p></a>
+        <a class="tcard" href="/it/strumenti/conversione-miglio"><h3>Miglio, 1600 m e 1500 m</h3><p>Converti un tempo tra le tre distanze.</p></a>
+        <a class="tcard" href="/it/strumenti/ritmi-allenamento"><h3>Ritmi di allenamento dal personale</h3><p>Tempi delle ripetute dal 60 al 120% del passo del personale.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti per la pista</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/split-planner" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/passaggi-gara" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/split-planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correzione del vento per 100 m, 200 m e ostacoli | StrideBuddy</title>
+  <meta name="description" content="Correggi per il vento un tempo sui 100 m, 200 m, 100 hs o 110 hs. Ottieni il tempo a vento zero, la stessa corsa con altri venti e se il vento era regolare.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/correzione-vento">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/wind-adjustment">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/correzione-vento">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/correzione-vento">
+  <meta property="og:title" content="Correzione del vento per velocità e ostacoli">
+  <meta property="og:description" content="Correggi per il vento un tempo di velocità o di ostacoli, con una formula pubblicata. Tempo a vento zero, altri venti e vento regolare.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle domande deve coincidere parola per parola con quello visibile. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Strumenti per l’atletica", "item": "https://stridebuddy.app/it/strumenti" },
+          { "@type": "ListItem", "position": 2, "name": "Correzione del vento", "item": "https://stridebuddy.app/it/strumenti/correzione-vento" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto aiuta un vento di +2,0 m/s nei 100 m?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Circa 0,08 secondi per chi corre in 10.00 e circa 0,14 secondi per chi corre in 13.00, secondo la formula di Moinat, Fabius ed Emanuel (2018). Chi è più lento resta più a lungo nel vento, quindi ne guadagna di più." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quale vento è regolare per i record?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un vento a favore fino a +2,0 m/s. Con un vento più forte il risultato è ventoso. Vale per la gara, ma non può essere un record." }
+          },
+          {
+            "@type": "Question",
+            "name": "Il vento contrario rallenta più di quanto aiuti quello a favore?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì. Nei 200 m, un vento contrario di −2,0 m/s costa circa 0,22 secondi, mentre un vento a favore di +2,0 m/s fa guadagnare circa 0,14 secondi." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso trasformare un tempo con ostacoli in un tempo sui 100 m piani?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Questo strumento corregge per il vento un tempo con ostacoli e restituisce un tempo con ostacoli. Ostacoli e piani sono gare diverse, e un tempo non si converte nell’altro." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Correzione del vento</nav>
+    <div class="page-head">
+      <p class="eyebrow">Velocità</p>
+      <h1>Correzione del vento</h1>
+      <p class="lead">Inserisci un tempo sui 100 m, sui 200 m o sugli ostacoli alti e il vento misurato. Ottieni una stima del tempo a vento zero, la stessa corsa con altri venti e se il vento era regolare per i record.</p>
+    </div>
+
+    <form class="tool stack" id="wind-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Gara</legend>
+          <div class="seg">
+            <label><input type="radio" name="event" value="100" checked><span>100 m</span></label>
+            <label><input type="radio" name="event" value="200"><span>200 m</span></label>
+            <label><input type="radio" name="event" value="100H"><span>100 hs</span></label>
+            <label><input type="radio" name="event" value="110H"><span>110 hs</span></label>
+          </div>
+        </fieldset>
+        <div class="row align-start">
+          <div class="field">
+            <label for="time">Tempo</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.50" placeholder="10.50">
+          </div>
+          <div class="field">
+            <label for="wind">Vento (m/s)</label>
+            <input type="text" id="wind" name="wind" inputmode="decimal" value="+2.4" placeholder="+1.5" aria-describedby="wind-hint">
+            <span class="hint" id="wind-hint">A favore +, contrario −</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="otherWind">Confronta con un altro vento (facoltativo)</label>
+          <input type="text" id="otherWind" name="otherWind" inputmode="decimal" placeholder="+2.0">
+        </div>
+        <div class="chips full" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"event":"100","time":"10.50","wind":"+2.4","otherWind":""}'>100 m: 10.50, +2,4</button>
+          <button type="button" class="chip" data-fill='{"event":"100","time":"12.10","wind":"-1.8","otherWind":"+2.0"}'>100 m: 12.10, −1,8</button>
+          <button type="button" class="chip" data-fill='{"event":"200","time":"21.30","wind":"-1.2","otherWind":""}'>200 m: 21.30, −1,2</button>
+          <button type="button" class="chip" data-fill='{"event":"110H","time":"13.85","wind":"+3.1","otherWind":"+2.0"}'>110 hs: 13.85, +3,1</button>
+        </div>
+      </div>
+      <div class="tool-results" id="wind-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Tempo a vento zero</span><output class="v">10.61</output><div class="s">stima con 0,0 m/s</div></div><div class="stat"><span class="k">Effetto del vento</span><output class="v">−0,11 s</output><div class="s">il vento a favore ha aiutato</div></div><div class="stat"><span class="k">Per i record</span><output class="v">Ventoso</output><div class="s">vento oltre +2,0 m/s</div></div></div><div class="table-wrap"><table><thead><tr><th>Vento (m/s)</th><th>−2,0</th><th>−1,0</th><th class="hl">0,0</th><th>+1,0</th><th>+2,0</th><th>+3,0</th><th>+4,0</th></tr></thead><tbody><tr><td>100 m</td><td>10.74</td><td>10.67</td><td class="hl">10.61</td><td>10.56</td><td>10.51</td><td>10.48</td><td>10.46</td></tr></tbody></table></div><p class="note">Un modello fisico per i 100 m (Mureika, 2001) dà 10.62 a vento zero.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Lo strumento usa le formule di Moinat, Fabius ed Emanuel (2018), ricavate da 150.169 risultati di meeting di alto livello e di livello intermedio. In ogni formula <code>t</code> è il tuo tempo in secondi, <code>w</code> è il vento in m/s (positivo a favore, negativo contrario) e <code>t₀</code> è il tempo stimato a vento zero.</p>
+      <div class="formula">100 m: t₀ = t − 0,0449·w + 0,009459·t·w − 0,0042·w²</div>
+      <div class="formula">200 m: t₀ = t + 0,090·w − 0,010·w²</div>
+      <div class="formula">100 hs e 110 hs: t₀ = t + 0,093·w − 0,010·w²</div>
+      <p>In media, un vento a favore di +2,0 m/s vale 0,125 s nei 100 m, 0,140 s nei 200 m e 0,146 s negli ostacoli alti. Nei 100 m l’effetto dipende anche dal tempo: chi è più lento resta più a lungo nel vento e ne guadagna di più. La tabella con gli altri venti usa la stessa formula al contrario, partendo dal tempo a vento zero.</p>
+      <p>Per i 100 m la pagina mostra anche una seconda stima, da un modello fisico di Mureika (2001): <code>t₀ = t × [1,027 − 0,027 × (1 − w·t/100)²]</code> al livello del mare. Di solito i due modelli differiscono di pochi centesimi.</p>
+      <h3>Ostacoli</h3>
+      <p>La formula degli ostacoli è ricavata da gare con ostacoli, e il risultato è un tempo con ostacoli. Non trasforma un tempo con ostacoli in un tempo sui 100 m piani.</p>
+      <h3>Vento regolare</h3>
+      <p>Per i record il vento a favore deve essere al massimo +2,0 m/s. Con un vento più forte il risultato è ventoso. Il piazzamento e il tempo valgono per la gara, ma non possono essere un record.</p>
+
+      <h2>Esempio</h2>
+      <p>Un velocista corre i 100 m in 10.50 con un vento a favore di +2,4 m/s. La formula dà 10.61 a vento zero, quindi il vento valeva circa 0,11 s. Il vento supera +2,0, quindi il tempo è ventoso. Con un vento regolare di +2,0 m/s, la stessa corsa varrebbe circa 10.51.</p>
+
+      <h2>Limiti</h2>
+      <ul>
+        <li>È una media. Altezza, corporatura e partenza cambiano quanto vento senti.</li>
+        <li>Le formule vengono da meeting al livello del mare. Anche l’altitudine rende più veloci gli sprint, e qui non è considerata.</li>
+        <li>Solo venti tra −4,0 e +4,0 m/s. Fuori da questo intervallo i dati hanno poche gare.</li>
+        <li>L’anemometro misura il vento accanto al rettilineo per 10 secondi. Le raffiche, e il vento in curva nei 200 m, non entrano nel numero.</li>
+      </ul>
+      <p class="sources">Fonti: M. Moinat, O. Fabius, K. S. Emanuel, “Data-driven quantification of the effect of wind on athletics performance”, European Journal of Sport Science 18(9), 1185–1190, 2018, <a href="https://doi.org/10.1080/17461391.2018.1480062">doi:10.1080/17461391.2018.1480062</a>. J. R. Mureika, “Back-of-the-envelope wind and altitude correction for 100 metre sprint times”, <a href="https://arxiv.org/abs/physics/0006057">arXiv:physics/0006057</a>.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Quanto aiuta un vento di +2,0 m/s nei 100 m?</summary>
+        <p>Circa 0,08 secondi per chi corre in 10.00 e circa 0,14 secondi per chi corre in 13.00, secondo la formula di Moinat, Fabius ed Emanuel (2018). Chi è più lento resta più a lungo nel vento, quindi ne guadagna di più.</p>
+      </details>
+      <details>
+        <summary>Quale vento è regolare per i record?</summary>
+        <p>Un vento a favore fino a +2,0 m/s. Con un vento più forte il risultato è ventoso. Vale per la gara, ma non può essere un record.</p>
+      </details>
+      <details>
+        <summary>Il vento contrario rallenta più di quanto aiuti quello a favore?</summary>
+        <p>Sì. Nei 200 m, un vento contrario di −2,0 m/s costa circa 0,22 secondi, mentre un vento a favore di +2,0 m/s fa guadagnare circa 0,14 secondi.</p>
+      </details>
+      <details>
+        <summary>Posso trasformare un tempo con ostacoli in un tempo sui 100 m piani?</summary>
+        <p>No. Questo strumento corregge per il vento un tempo con ostacoli e restituisce un tempo con ostacoli. Ostacoli e piani sono gare diverse, e un tempo non si converte nell’altro.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Tutte le tue gare in un diario.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi fa atletica su pista. Registra le tue gare: se corri più veloce, il primato si aggiorna da solo. Le gare con ostacoli hanno record propri, separati da quelle piane.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/cronometraggio-manuale"><h3>Da tempo manuale a elettrico</h3><p>Trasforma un tempo manuale in una stima elettrica.</p></a>
+        <a class="tcard" href="/it/strumenti/altezze-ostacoli"><h3>Altezze e distanze degli ostacoli</h3><p>Altezze e distanze per ogni gara con ostacoli.</p></a>
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un primato.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/correzione-vento" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/wind-adjustment.js"></script>
+</body>
+</html>

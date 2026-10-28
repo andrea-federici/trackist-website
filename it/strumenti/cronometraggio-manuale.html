@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Da tempo manuale a tempo elettrico (0,24 / 0,14) | StrideBuddy</title>
+  <meta name="description" content="Converti un tempo preso a mano in una stima del tempo elettrico, o viceversa. Mostra le convenzioni da 0,24 e 0,14 secondi usate dagli statistici, nelle prove multiple e nei licei statunitensi.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hand-timing">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hand-timing">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/cronometraggio-manuale">
+  <meta property="og:title" content="Da tempo manuale a tempo elettrico">
+  <meta property="og:description" content="Trasforma un tempo da cronometro in una stima del tempo elettrico, con le convenzioni da 0,24 e 0,14 s a confronto.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle FAQ deve coincidere parola per parola con le risposte visibili. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strumenti per l’atletica",
+            "item": "https://stridebuddy.app/it/strumenti"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Cronometraggio manuale",
+            "item": "https://stridebuddy.app/it/strumenti/cronometraggio-manuale"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto si aggiunge a un tempo manuale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Di solito 0,24 secondi nelle gare sotto i 300 m e 0,14 secondi dai 300 m fino agli 800 m, dopo aver arrotondato il tempo manuale per eccesso al decimo. Le regole dei licei statunitensi (NFHS) aggiungono 0,24 secondi su ogni distanza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Perché i tempi manuali sono più veloci di quelli elettrici?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il cronometrista reagisce in ritardo allo sparo, quindi il cronometro parte a gara già cominciata. All’arrivo tende a fermarlo un po’ prima, mentre l’atleta arriva. Entrambe le cose accorciano il tempo manuale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Un tempo convertito vale per i record?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Un tempo convertito è una stima per confrontare i risultati. Record e minimi di partecipazione nelle gare di velocità richiedono il cronometraggio elettrico."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Perché 10.83 diventa 10.9?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I tempi manuali si registrano al decimo di secondo e si arrotondano sempre per eccesso. 10.83 sul cronometro si registra come 10.9 prima di ogni conversione."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/hand-timing" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Cronometraggio manuale</nav>
+    <div class="page-head">
+      <p class="eyebrow">Velocità</p>
+      <h1>Da tempo manuale a tempo elettrico</h1>
+      <p class="lead">Trasforma un tempo preso con il cronometro in una stima del tempo elettrico (FAT), o il contrario. Esistono tre convenzioni, e il convertitore mostra quanto aggiunge ciascuna.</p>
+    </div>
+
+    <form class="tool" id="hand-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset>
+          <legend>Converti</legend>
+          <div class="seg">
+            <label><input type="radio" name="direction" value="toFat" checked><span>Manuale → elettrico</span></label>
+            <label><input type="radio" name="direction" value="toHand"><span>Elettrico → manuale</span></label>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="field">
+            <label for="event">Gara</label>
+            <select id="event" name="event">
+              <option value="60">60 m</option>
+              <option value="100" selected>100 m</option>
+              <option value="100h">100 m ostacoli</option>
+              <option value="110h">110 m ostacoli</option>
+              <option value="200">200 m</option>
+              <option value="300">300 m</option>
+              <option value="400">400 m</option>
+              <option value="400h">400 m ostacoli</option>
+              <option value="800">800 m</option>
+              <option value="1500">1500 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="time" id="time-label">Tempo manuale</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.83" placeholder="10.8">
+          </div>
+        </div>
+        <div class="field">
+          <label for="convention">Convenzione</label>
+          <select id="convention" name="convention">
+            <option value="tfn" selected>Statistiche (Track &amp; Field News)</option>
+            <option value="combined">Prove multiple</option>
+            <option value="nfhs">Licei USA (NFHS)</option>
+          </select>
+        </div>
+        <div class="chips" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"100","time":"10.83"}'>10.83 nei 100 m</button>
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"400","time":"48.2"}'>48.2 nei 400 m</button>
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"110h","time":"14.1"}'>14.1 nei 110 m ostacoli</button>
+          <button type="button" class="chip" data-fill='{"direction":"toHand","event":"200","time":"22.04"}'>Elettrico 22.04 nei 200 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="hand-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Stima elettrica</span><output class="v">11.14</output><div class="s">tempo manuale + 0,24 s</div></div><div class="stat"><span class="k">Tempo manuale registrato</span><output class="v">10.9</output><div class="s">arrotondato per eccesso da 10.83</div></div><div class="stat"><span class="k">Aggiunti</span><output class="v">0,24 s</output><div class="s">Statistiche (T&amp;F News)</div></div></div><div class="table-wrap"><table><thead><tr><th>Convenzione</th><th>Differenza</th><th>Stima elettrica</th></tr></thead><tbody><tr><td>Statistiche (T&amp;F News)</td><td>0,24 s</td><td class="hl">11.14</td></tr><tr><td>Prove multiple</td><td>0,24 s</td><td>11.14</td></tr><tr><td>Licei USA (NFHS)</td><td>0,24 s</td><td>11.14</td></tr></tbody></table></div><p class="warn">Una stima per confrontare i tempi. Un tempo convertito non vale per record, graduatorie che richiedono il cronometraggio elettrico o minimi di partecipazione.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Perché i tempi manuali sono più veloci</h2>
+      <p>Il cronometrista fa partire il cronometro quando vede il lampo o il fumo della pistola. Reagire richiede tempo, quindi il cronometro parte a gara già cominciata. All’arrivo, chi cronometra segue l’atleta che arriva e tende a fermare il cronometro un po’ prima. Entrambi gli errori accorciano il tempo.</p>
+      <p>Il cronometraggio elettrico parte dal segnale della pistola e legge l’arrivo da una foto, quindi non ha nessuno dei due errori. Il valore di 0,24 s viene da uno studio sui cronometristi esperti alle Olimpiadi di Monaco 1972. Entrambi i valori hanno retto in una verifica informale ai Trials olimpici statunitensi del 1976. Cronometristi meno esperti possono sbagliare di più: nei confronti di Track &amp; Field News, i cronometristi dei licei sbagliavano in media da 0,40 a 0,45 s.</p>
+
+      <h2>Come si calcola</h2>
+      <ol>
+        <li>Arrotonda il tempo manuale per eccesso al decimo. I tempi manuali si registrano in decimi e si arrotondano sempre per eccesso: 10.83 sul cronometro diventa 10.9.</li>
+        <li>Aggiungi il valore della convenzione per quella distanza.</li>
+      </ol>
+      <div class="formula">stima elettrica = tempo manuale arrotondato per eccesso al decimo + 0,24 s (o 0,14 s)</div>
+      <p>Dall’elettrico al manuale, il valore si toglie e il risultato si arrotonda per eccesso al decimo, come si registrerebbe un tempo manuale. Le tre convenzioni aggiungono questi valori:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Convenzione</th><th>Sotto i 300 m</th><th>300 m</th><th>400 m</th><th>500–600 m</th><th>Dagli 800 m</th></tr></thead>
+        <tbody>
+          <tr><td>Statistiche (T&amp;F News, Athletic.net)</td><td>0,24 s</td><td>0,14 s</td><td>0,14 s</td><td>0,14 s</td><td>nulla</td></tr>
+          <tr><td>Prove multiple (USATF, WMA)</td><td>0,24 s</td><td>0,24 s</td><td>0,14 s</td><td>nulla</td><td>nulla</td></tr>
+          <tr><td>Licei USA (NFHS)</td><td>0,24 s</td><td>0,24 s</td><td>0,24 s</td><td>0,24 s</td><td>0,24 s</td></tr>
+        </tbody>
+      </table></div>
+      <p>Le graduatorie di Track &amp; Field News e di Athletic.net usano la convenzione statistica. Nelle prove multiple la correzione si aggiunge al tempo manuale prima di calcolare il punteggio. La NFHS pubblica un solo valore, 0,24 s, per tutte le gare.</p>
+
+      <h2>Esempio</h2>
+      <p>Un 100 m preso a mano in 10.83 si registra come 10.9. Aggiungendo 0,24 s la stima elettrica è 11.14. Un 400 m manuale in 48.2 vale circa 48.34 con la convenzione statistica o delle prove multiple, e 48.44 con il valore NFHS.</p>
+
+      <h2>Limiti</h2>
+      <ul>
+        <li>I valori sono medie di cronometristi esperti. Una singola gara può scostarsi di più, e con cronometristi inesperti molto di più.</li>
+        <li>Un tempo convertito è una stima per confrontare i risultati. Non vale per record, per graduatorie che richiedono il cronometraggio elettrico o per i minimi di partecipazione. Record e minimi nelle gare di velocità richiedono il cronometraggio elettrico.</li>
+        <li>Dagli 800 m in su la maggior parte delle convenzioni non aggiunge nulla: l’arrotondamento è tutta la differenza.</li>
+      </ul>
+
+      <h2>Fonti</h2>
+      <p class="sources"><a href="https://nfhs.org/resources/sports/converting-times-manual-to-fat-and-from-english-to-metric-distances">NFHS, “Converting Times: Manual to FAT”</a> (2014). <a href="https://support.athletic.net/article/4sjokyho13-hand-time-conversion-standards">Athletic.net, “Hand Time Conversion Standards”</a>, che segue Track &amp; Field News. <a href="https://usatf.org/statistics/calculators/combinedEventsScoring/index.html">Calcolatore USATF per le prove multiple</a>. World Masters Athletics, regolamento 2023, Appendice B (prove multiple). World Athletics, Regola tecnica 19.10.1 (tempi manuali registrati al decimo superiore). <a href="https://trackandfieldnews.com/hand-timing-myth-hollobaugh-hammers-a-final-nail/">Track &amp; Field News, “Hand-Timing Myth? Hollobaugh Hammers A Final Nail”</a> (2026).</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Quanto si aggiunge a un tempo manuale?</summary>
+        <p>Di solito 0,24 secondi nelle gare sotto i 300 m e 0,14 secondi dai 300 m fino agli 800 m, dopo aver arrotondato il tempo manuale per eccesso al decimo. Le regole dei licei statunitensi (NFHS) aggiungono 0,24 secondi su ogni distanza.</p>
+      </details>
+      <details>
+        <summary>Perché i tempi manuali sono più veloci di quelli elettrici?</summary>
+        <p>Il cronometrista reagisce in ritardo allo sparo, quindi il cronometro parte a gara già cominciata. All’arrivo tende a fermarlo un po’ prima, mentre l’atleta arriva. Entrambe le cose accorciano il tempo manuale.</p>
+      </details>
+      <details>
+        <summary>Un tempo convertito vale per i record?</summary>
+        <p>No. Un tempo convertito è una stima per confrontare i risultati. Record e minimi di partecipazione nelle gare di velocità richiedono il cronometraggio elettrico.</p>
+      </details>
+      <details>
+        <summary>Perché 10.83 diventa 10.9?</summary>
+        <p>I tempi manuali si registrano al decimo di secondo e si arrotondano sempre per eccesso. 10.83 sul cronometro si registra come 10.9 prima di ogni conversione.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Registra le gare con il tempo che hai corso.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra i risultati di gare piane, a ostacoli e siepi. Una gara più veloce nel diario sostituisce da sola il tuo primato.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/correzione-vento"><h3>Correzione del vento</h3><p>Tempo equivalente senza vento per 100 m, 200 m e ostacoli.</p></a>
+        <a class="tcard" href="/it/strumenti/prove-multiple"><h3>Punteggi delle prove multiple</h3><p>Punteggi di decathlon ed eptathlon.</p></a>
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un primato.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/hand-timing" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/cronometraggio-manuale" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/hand-timing.js"></script>
+</body>
+</html>

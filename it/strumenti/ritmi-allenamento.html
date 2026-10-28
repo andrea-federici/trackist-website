@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ritmi di allenamento dal personale: tabella in % del passo gara | StrideBuddy</title>
+  <meta name="description" content="Inserisci un personale e ottieni i tempi delle ripetute dal 60% al 120% del tuo passo gara, sulle distanze più comuni. Stampa la tabella e portala al campo.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/training-paces">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/training-paces">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/ritmi-allenamento">
+  <meta property="og:title" content="Ritmi di allenamento dal personale">
+  <meta property="og:description" content="Tempi delle ripetute dal 60% al 120% del passo del tuo personale, pronti da stampare.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <style media="print">
+    /* The printed page is the table: no site chrome, light colours whatever the screen theme. */
+    :root { --paper:#FFFFFF; --card:#FFFFFF; --card-2:#F4F3F1; --ink:#000000; --ink-2:#222222; --ink-3:#444444; --edge:#CCCCCC; --edge-2:#999999; --accent:#B52B20; --accent-soft:#FFFFFF; --shadow:none; }
+    .site-header, .site-footer, .crumbs, .lead, .tool-inputs, .prose, .faq, .app-cta, .related { display: none !important; }
+    .page-head { padding: 0 0 12px; }
+    .page-head h1 { font-size: 22pt; }
+    .page-head::after { content: "stridebuddy.app/it/strumenti/ritmi-allenamento"; display: block; font-size: 10pt; color: #444444; margin-top: 4px; }
+    .tool { border: 0; box-shadow: none; padding: 0; }
+    .stat { border: 1px solid #CCCCCC; }
+    .table-wrap { overflow: visible; }
+    table { font-size: 11pt; }
+    th, td { padding: 5px 8px; }
+  </style>
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strumenti per la pista",
+            "item": "https://stridebuddy.app/it/strumenti"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ritmi di allenamento dal personale",
+            "item": "https://stridebuddy.app/it/strumenti/ritmi-allenamento"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come si calcola una percentuale del passo del personale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dividi il tempo del personale per la sua distanza: ottieni i secondi per metro. Moltiplica per la distanza della ripetuta e dividi per la percentuale. Con 2:00 negli 800 m, un 400 m al 90% è 400 × 0,15 ÷ 0,9 = 66,7 secondi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Il 90% del passo del personale vuol dire il 10% più lento?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. La percentuale è della velocità. Il 90% della velocità richiede l’11,1% di tempo in più, non il 10%. Un giro da 60,0 secondi al 90% è 66,7 secondi, non 66,0."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso stampare la tabella?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sì. Usa il pulsante Stampa la tabella. La pagina stampata contiene solo la tabella e il tuo personale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Perché le distanze cambiano con la gara?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ogni gara mostra le distanze di ripetuta intorno a sé: più corte per i velocisti, più lunghe per i fondisti. Un personale sui 100 m mostra dai 60 ai 300 m. Un personale sui 5000 m mostra dai 400 ai 2000 m."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/training-paces" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per la pista</a><span aria-hidden="true">/</span>Ritmi di allenamento</nav>
+    <div class="page-head">
+      <p class="eyebrow">Allenamento</p>
+      <h1>Ritmi di allenamento dal personale</h1>
+      <p class="lead">Inserisci un personale e ottieni una tabella con i tempi delle ripetute dal 60% al 120% del tuo passo gara, sulle distanze adatte alla tua specialità. Stampala e portala al campo.</p>
+    </div>
+
+    <form class="tool stack" id="paces-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Gara del personale</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Miglio</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10.000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">Tempo del personale</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+        <div class="col">
+          <div class="chips" aria-label="Esempi">
+            <button type="button" class="chip" data-fill='{"pbEvent":"100","pbTime":"11.50"}'>100 m in 11.50</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"400","pbTime":"50.00"}'>400 m in 50.00</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"1500","pbTime":"4:00.00"}'>1500 m in 4:00.00</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"5000","pbTime":"15:00.00"}'>5000 m in 15:00.00</button>
+          </div>
+          <div class="chips"><button type="button" class="chip" id="paces-print">Stampa la tabella</button></div>
+        </div>
+      </div>
+      <div class="tool-results" id="paces-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Passo del personale</span><output class="v">1:00.0</output><div class="s">ogni 400 m = 100%</div></div><div class="stat"><span class="k">Ogni 100 m</span><output class="v">15.00</output><div class="s">al 100%</div></div><div class="stat"><span class="k">Al km</span><output class="v">2:30</output><div class="s">al 100%</div></div></div><p class="note">Il tuo personale: 800 m in 2:00.00. Ogni casella è il tempo di una ripetuta.</p><div class="table-wrap"><table class="paces"><thead><tr><th>% PB</th><th>200 m</th><th>300 m</th><th>400 m</th><th>600 m</th><th>800 m</th><th>1000 m</th></tr></thead><tbody><tr><td>120%</td><td>25.0</td><td>37.5</td><td>50.0</td><td>1:15</td><td>1:40</td><td>2:05</td></tr><tr><td>115%</td><td>26.1</td><td>39.1</td><td>52.2</td><td>1:18</td><td>1:44</td><td>2:10</td></tr><tr><td>110%</td><td>27.3</td><td>40.9</td><td>54.5</td><td>1:22</td><td>1:49</td><td>2:16</td></tr><tr><td>105%</td><td>28.6</td><td>42.9</td><td>57.1</td><td>1:26</td><td>1:54</td><td>2:23</td></tr><tr><td class="hl">100%</td><td class="hl">30.0</td><td class="hl">45.0</td><td class="hl">1:00.0</td><td class="hl">1:30</td><td class="hl">2:00</td><td class="hl">2:30</td></tr><tr><td>95%</td><td>31.6</td><td>47.4</td><td>1:03.2</td><td>1:35</td><td>2:06</td><td>2:38</td></tr><tr><td>90%</td><td>33.3</td><td>50.0</td><td>1:06.7</td><td>1:40</td><td>2:13</td><td>2:47</td></tr><tr><td>85%</td><td>35.3</td><td>52.9</td><td>1:10.6</td><td>1:46</td><td>2:21</td><td>2:56</td></tr><tr><td>80%</td><td>37.5</td><td>56.3</td><td>1:15.0</td><td>1:53</td><td>2:30</td><td>3:08</td></tr><tr><td>75%</td><td>40.0</td><td>1:00.0</td><td>1:20.0</td><td>2:00</td><td>2:40</td><td>3:20</td></tr><tr><td>70%</td><td>42.9</td><td>1:04.3</td><td>1:25.7</td><td>2:09</td><td>2:51</td><td>3:34</td></tr><tr><td>65%</td><td>46.2</td><td>1:09.2</td><td>1:32.3</td><td>2:18</td><td>3:05</td><td>3:51</td></tr><tr><td>60%</td><td>50.0</td><td>1:15.0</td><td>1:40.0</td><td>2:30</td><td>3:20</td><td>4:10</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Il personale dà il tuo passo gara: il tempo diviso per la distanza. Il 100% è quel passo. Una percentuale più alta è più veloce: 110% vuol dire una velocità del 10% più alta del passo del personale.</p>
+      <div class="formula">tempo della ripetuta = distanza × (tempo del personale ÷ distanza del personale) ÷ (% ÷ 100)</div>
+      <p>È la stessa % del personale del <a href="/it/strumenti/passo-ripetute">calcolatore del passo delle ripetute</a>, quindi i due strumenti danno gli stessi numeri.</p>
+
+      <h2>Una percentuale della velocità, non del tempo</h2>
+      <p>Il 90% della velocità non vuol dire il 10% di tempo in più, ma l’11,1%. Un 400 m da 60.0 al 90% è 66.7, non 66.0. Alcuni allenatori usano invece una percentuale del tempo: in quel caso i loro numeri saranno un po’ diversi.</p>
+
+      <h2>Come leggere la tabella</h2>
+      <p>La riga del 100% è il tuo passo gara, ed è evidenziata. Quanto è dura una percentuale dipende dalla distanza della ripetuta. Il 110% del passo dei 5000 m sui 400 m è un buon lavoro per un fondista. Il 110% del passo dei 400 m sui 400 m è più veloce del personale stesso, quindi non è possibile.</p>
+
+      <h2>Esempio</h2>
+      <p>Un ottocentista con un personale di 2:00.00 ha un passo gara di 15,0 s ogni 100 m, cioè 60.0 ogni 400 m. Una ripetuta di 400 m al 100% è 60.0, al 110% è 54.5 e al 90% è 66.7. Un 200 m al 120% è 25.0.</p>
+
+      <h2>Limiti</h2>
+      <p>Le percentuali di un personale non dicono quanto puoi correre in gara su altre distanze: per questo usa la <a href="/it/strumenti/previsione-tempi">previsione dei tempi di gara</a>. La tabella non sceglie la seduta per te: quante ripetute, quanto recupero e a che percentuale lo decidi tu con il tuo allenatore, o con il tuo piano.</p>
+
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Come si calcola una percentuale del passo del personale?</summary>
+        <p>Dividi il tempo del personale per la sua distanza: ottieni i secondi per metro. Moltiplica per la distanza della ripetuta e dividi per la percentuale. Con 2:00 negli 800 m, un 400 m al 90% è 400 × 0,15 ÷ 0,9 = 66,7 secondi.</p>
+      </details>
+      <details>
+        <summary>Il 90% del passo del personale vuol dire il 10% più lento?</summary>
+        <p>No. La percentuale è della velocità. Il 90% della velocità richiede l’11,1% di tempo in più, non il 10%. Un giro da 60,0 secondi al 90% è 66,7 secondi, non 66,0.</p>
+      </details>
+      <details>
+        <summary>Posso stampare la tabella?</summary>
+        <p>Sì. Usa il pulsante Stampa la tabella. La pagina stampata contiene solo la tabella e il tuo personale.</p>
+      </details>
+      <details>
+        <summary>Perché le distanze cambiano con la gara?</summary>
+        <p>Ogni gara mostra le distanze di ripetuta intorno a sé: più corte per i velocisti, più lunghe per i fondisti. Un personale sui 100 m mostra dai 60 ai 300 m. Un personale sui 5000 m mostra dai 400 ai 2000 m.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Allenati a questi ritmi, poi registra le ripetute.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra ogni ripetuta e ogni parziale: la tua ripetuta più veloce su ogni distanza diventa da sola un record di allenamento. StrideBuddy può anche pianificare la tua settimana in base a specialità, allenamenti recenti e gare.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Altri strumenti</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/passo-ripetute"><h3>Passo delle ripetute</h3><p>Passo, volume e % del personale di una seduta.</p></a>
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un personale.</p></a>
+        <a class="tcard" href="/it/strumenti/convertitore-passo"><h3>Convertitore di passo e unità</h3><p>min/km, min/miglio, ogni 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti per la pista</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/training-paces" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/ritmi-allenamento" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/training-paces.js"></script>
+</body>
+</html>

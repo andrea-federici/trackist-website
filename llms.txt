@@ -36,3 +36,20 @@ Support: support@stridebuddy.app
 - [Privacy Policy](https://stridebuddy.app/privacy): What data StrideBuddy stores and what the AI features send
 - [Privacy Policy in Italian](https://stridebuddy.app/it/privacy): An Italian translation of the privacy policy. The English one is official
 - [Terms of Use](https://stridebuddy.app/terms): The rules for using StrideBuddy, including the AI disclosure
+
+## Track tools
+
+Free calculators and reference pages for track and field athletes. Each page shows the formula it uses, a worked example, its limits and its sources. Every tool is also in Italian: [Strumenti per l'atletica](https://stridebuddy.app/it/strumenti).
+
+- [Track tools](https://stridebuddy.app/tools): All the tools on one page
+- [Rep pace calculator](https://stridebuddy.app/tools/rep-pace): Type a session like 6x200 in 27-28 and get the pace per 100 m, 400 m and km, the total volume and the % of PB pace
+- [Training paces from your PB](https://stridebuddy.app/tools/training-paces): A table of rep times at 60% to 120% of PB pace for common rep distances
+- [Race time predictor](https://stridebuddy.app/tools/race-predictor): Race time estimates from 60 m to 10,000 m with the Riegel formula, from one PB or from two PBs
+- [Race split planner](https://stridebuddy.app/tools/split-planner): Lap and cumulative splits for 400 m to 10,000 m on a 400 m or 200 m track, at even pace or with a chosen fade
+- [Mile, 1500 m and 1600 m converter](https://stridebuddy.app/tools/mile-converter): Convert a time between the 1500 m, the mile and the 1600 m, and between the 3000 m, 2 miles and 3200 m
+- [Hand time to FAT converter](https://stridebuddy.app/tools/hand-timing): Convert a hand time to a fully automatic time estimate and back, with the three conventions in use
+- [Wind adjustment calculator](https://stridebuddy.app/tools/wind-adjustment): Still-air time estimates for the 100 m, 200 m and sprint hurdles, and whether the wind was legal for records
+- [Decathlon and heptathlon points calculator](https://stridebuddy.app/tools/combined-events): Points per event and in total with the World Athletics scoring formulas, and the marks needed for a target score
+- [Pace and unit converter](https://stridebuddy.app/tools/pace-converter): min/km, min/mile, per 400 m, km/h, mph and m/s, plus field-event marks in metres and feet and inches
+- [Hurdle heights and spacings](https://stridebuddy.app/tools/hurdle-heights): Heights, number of hurdles and distances for every hurdle race and the steeplechase, by age group
+- [Lane distances and staggers](https://stridebuddy.app/tools/lane-stagger): How far one lap is in each lane, and the staggers for the 200 m, 400 m, 800 m and relays

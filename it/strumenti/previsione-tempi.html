@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Previsione dei tempi di gara, dai 60 m ai 10.000 m | StrideBuddy</title>
+  <meta name="description" content="Stima i tuoi tempi di gara da un primato con la formula di Riegel, dai 60 m ai 10.000 m. Cambia l’esponente, o inserisci due primati per calcolare il tuo.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/previsione-tempi">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/race-predictor">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/previsione-tempi">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/race-predictor">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/previsione-tempi">
+  <meta property="og:title" content="Previsione dei tempi di gara">
+  <meta property="og:description" content="Tempi di gara da un primato con la formula di Riegel, dai 60 m ai 10.000 m. Con due primati calcola il tuo esponente.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle domande deve coincidere parola per parola con le risposte visibili. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Strumenti per l’atletica", "item": "https://stridebuddy.app/it/strumenti" },
+          { "@type": "ListItem", "position": 2, "name": "Previsione dei tempi di gara", "item": "https://stridebuddy.app/it/strumenti/previsione-tempi" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come funziona la formula di Riegel?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Parte dall’idea che il tempo cresca un po’ più della distanza. La formula è T2 = T1 × (D2 ÷ D1)^1,06. Ogni volta che la distanza raddoppia, il passo rallenta di circa il 4%." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto è precisa la previsione?",
+            "acceptedAnswer": { "@type": "Answer", "text": "È una formula, non un test della tua forma. È più vicina al vero quando la gara è simile alla distanza del tuo primato e ti alleni per quella gara. È meno affidabile per la velocità e per gare molto più lunghe o più corte del tuo primato." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quale esponente devo usare?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1,06 è il valore di Riegel ed è un buon punto di partenza. Se hai due primati recenti, usa la modalità con due primati per calcolare il tuo. Un esponente più basso vuol dire che tieni bene il passo nelle gare lunghe. Uno più alto vuol dire che rendi meglio nelle gare corte." }
+          },
+          {
+            "@type": "Question",
+            "name": "StrideBuddy prevede i tempi di gara in questo modo?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Questa pagina usa una formula. L’app StrideBuddy usa l’IA per leggere il tuo diario di allenamento e prevedere i tuoi tempi di gara. Ogni previsione mostra il tempo più probabile, un intervallo intorno e un livello di affidabilità." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/race-predictor" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Previsione dei tempi di gara</nav>
+    <div class="page-head">
+      <p class="eyebrow">Gare</p>
+      <h1>Previsione dei tempi di gara</h1>
+      <p class="lead">Inserisci un primato e ottieni una stima per ogni gara di pista dai 60 m ai 10.000 m. Le stime vengono dalla formula di Riegel. Con due primati calcola anche il tuo esponente.</p>
+    </div>
+
+    <form class="tool stack" id="pred-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Calcola da</legend>
+          <div class="seg">
+            <label><input type="radio" name="mode" value="one" checked><span>Un primato</span></label>
+            <label><input type="radio" name="mode" value="two"><span>Due primati</span></label>
+          </div>
+        </fieldset>
+        <div class="col">
+          <div class="row">
+            <div class="field">
+              <label for="pbEvent">Gara del primato</label>
+              <select id="pbEvent" name="pbEvent">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800">800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500" selected>1500 m</option>
+                <option value="1609.344">Miglio</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10.000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime">Tempo</label>
+              <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="4:10.00" placeholder="4:10.00">
+            </div>
+          </div>
+          <div class="row" id="second-pb" hidden>
+            <div class="field">
+              <label for="pbEvent2">Gara del secondo primato</label>
+              <select id="pbEvent2" name="pbEvent2">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800" selected>800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500">1500 m</option>
+                <option value="1609.344">Miglio</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10.000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime2">Tempo</label>
+              <input type="text" id="pbTime2" name="pbTime2" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field" id="exponent-field">
+            <label for="k">Esponente</label>
+            <input type="text" id="k" name="k" inputmode="decimal" value="1,06" aria-describedby="k-hint">
+            <span class="hint" id="k-hint">Riegel usava 1,06. Più è alto, più rallenti quando la gara si allunga.</span>
+          </div>
+          <div class="chips" aria-label="Esempi">
+            <button type="button" class="chip" data-fill='{"mode":"one","pbEvent":"1500","pbTime":"4:10.00","k":"1,06"}'>1500 m in 4:10</button>
+            <button type="button" class="chip" data-fill='{"mode":"one","pbEvent":"5000","pbTime":"15:30.0","k":"1,06"}'>5000 m in 15:30</button>
+            <button type="button" class="chip" data-fill='{"mode":"two","pbEvent":"1500","pbTime":"4:05.00","pbEvent2":"800","pbTime2":"2:00.00"}'>800 m + 1500 m</button>
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="pred-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Esponente</span><output class="v">1,060</output><div class="s">1,06 è il valore di Riegel</div></div><div class="stat"><span class="k">Rallentamento</span><output class="v">+4,2%</output><div class="s">di passo ogni volta che la distanza raddoppia</div></div></div><div class="table-wrap"><table><thead><tr><th>Gara</th><th>Tempo</th><th>/400 m</th><th>/km</th><th>Nota</th></tr></thead><tbody><tr><td>60 m</td><td>8.24</td><td>55.0</td><td>2:17</td><td>Indicativo: velocità</td></tr><tr><td>100 m</td><td>14.17</td><td>56.7</td><td>2:22</td><td>Indicativo: velocità</td></tr><tr><td>200 m</td><td>29.54</td><td>59.1</td><td>2:28</td><td>Indicativo: velocità</td></tr><tr><td>400 m</td><td>1:01.58</td><td>1:01.6</td><td>2:34</td><td></td></tr><tr><td>800 m</td><td>2:08.40</td><td>1:04.2</td><td>2:40</td><td></td></tr><tr><td>1000 m</td><td>2:42.66</td><td>1:05.1</td><td>2:43</td><td></td></tr><tr><td class="hl">1500 m</td><td class="hl">4:10.00</td><td>1:06.7</td><td>2:47</td><td>Il tuo primato</td></tr><tr><td>Miglio</td><td>4:29.36</td><td>1:06.9</td><td>2:47</td><td></td></tr><tr><td>3000 m</td><td>8:41.23</td><td>1:09.5</td><td>2:54</td><td></td></tr><tr><td>5000 m</td><td>14:55.8</td><td>1:11.7</td><td>2:59</td><td></td></tr><tr><td>10.000 m</td><td>31:07.6</td><td>1:14.7</td><td>3:07</td><td>Indicativo: lontano dal primato</td></tr></tbody></table></div><p class="note">Indicativo vuol dire che la formula è fuori dal campo in cui funziona bene: sotto i 400 m, o a più di 4 volte la distanza del tuo primato, in più o in meno.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Lo strumento usa la formula pubblicata da Peter Riegel nel 1981. Dice che il tempo cresce un po’ più della distanza.</p>
+      <div class="formula">T2 = T1 × (D2 ÷ D1)<sup>k</sup></div>
+      <p>T1 è il tempo del tuo primato sulla distanza D1. T2 è la stima sulla distanza D2. Riegel ha ricavato k = 1,06 dai record del mondo. Con 1,06 il passo rallenta di circa il 4% ogni volta che la distanza raddoppia.</p>
+      <p>Con due primati, lo strumento calcola l’esponente che va bene per entrambi:</p>
+      <div class="formula">k = ln(T2 ÷ T1) ÷ ln(D2 ÷ D1)</div>
+      <p>Poi usa quell’esponente per tutte le altre gare. I tuoi due primati restano esattamente come li hai inseriti.</p>
+      <p>Questa pagina usa una formula. Non è la previsione di gara dell’app StrideBuddy, che legge il tuo diario di allenamento.</p>
+
+      <h2>Esempio</h2>
+      <p>Un atleta ha 4:10.00 di primato sui 1500 m. Per i 5000 m la formula dà 250 s × (5000 ÷ 1500)<sup>1,06</sup> = 895,8 s, cioè 14:55.8. Sono 71.7 s ai 400 m, contro i 66.7 s ai 400 m dei 1500 m.</p>
+      <p>Lo stesso atleta ha anche 2:00.00 sugli 800 m. Con due primati l’esponente diventa ln(250 ÷ 120) ÷ ln(1500 ÷ 800) = 1,168. Questo atleta rallenta più della media quando la gara si allunga, quindi la stima sui 5000 m sale.</p>
+
+      <h2>Limiti</h2>
+      <ul>
+        <li>La formula viene dai record del mondo sulle gare più lunghe. Non descrive bene la velocità, quindi ogni stima sotto i 400 m, o fatta da un primato di velocità, è segnata come indicativa.</li>
+        <li>Più la gara è lontana dal tuo primato, più cresce l’errore. Le stime a più di 4 volte la distanza del primato più vicino, in più o in meno, sono segnate come indicative.</li>
+        <li>Presuppone che ti alleni per la gara che stai stimando. Chi corre i 1500 m e non fa mai lavori lunghi non correrà i 10.000 m previsti.</li>
+        <li>Non sa nulla del meteo, della tattica di gara o della tua forma di oggi.</li>
+      </ul>
+
+      <h2>Fonti</h2>
+      <p class="sources">Riegel, P. S. (1981). Athletic records and human endurance. <em>American Scientist</em>, 69(3), 285–290. <a href="https://www.jstor.org/stable/27850427">jstor.org/stable/27850427</a></p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Come funziona la formula di Riegel?</summary>
+        <p>Parte dall’idea che il tempo cresca un po’ più della distanza. La formula è T2 = T1 × (D2 ÷ D1)^1,06. Ogni volta che la distanza raddoppia, il passo rallenta di circa il 4%.</p>
+      </details>
+      <details>
+        <summary>Quanto è precisa la previsione?</summary>
+        <p>È una formula, non un test della tua forma. È più vicina al vero quando la gara è simile alla distanza del tuo primato e ti alleni per quella gara. È meno affidabile per la velocità e per gare molto più lunghe o più corte del tuo primato.</p>
+      </details>
+      <details>
+        <summary>Quale esponente devo usare?</summary>
+        <p>1,06 è il valore di Riegel ed è un buon punto di partenza. Se hai due primati recenti, usa la modalità con due primati per calcolare il tuo. Un esponente più basso vuol dire che tieni bene il passo nelle gare lunghe. Uno più alto vuol dire che rendi meglio nelle gare corte.</p>
+      </details>
+      <details>
+        <summary>StrideBuddy prevede i tempi di gara in questo modo?</summary>
+        <p>No. Questa pagina usa una formula. L’app StrideBuddy usa l’IA per leggere il tuo diario di allenamento e prevedere i tuoi tempi di gara. Ogni previsione mostra il tempo più probabile, un intervallo intorno e un livello di affidabilità.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Previsioni di gara dai tuoi allenamenti.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Usa l’IA per leggere il tuo diario e prevedere i tuoi tempi di gara, con il tempo più probabile, un intervallo intorno e un livello di affidabilità.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/conversione-miglio"><h3>Conversione miglio, 1500 m e 1600 m</h3><p>Converti un tempo tra le tre gare.</p></a>
+        <a class="tcard" href="/it/strumenti/passaggi-gara"><h3>Passaggi di gara</h3><p>I passaggi giro per giro per una gara regolare o pianificata.</p></a>
+        <a class="tcard" href="/it/strumenti/ritmi-allenamento"><h3>Ritmi di allenamento dal primato</h3><p>Tempi delle ripetute dal 60 al 120% del passo del primato.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/race-predictor" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/previsione-tempi" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/race-predictor.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decathlon and heptathlon points calculator | StrideBuddy</title>
+  <meta name="description" content="Enter your marks to get the points for every event and your total in the decathlon, heptathlon, indoor pentathlon and indoor heptathlon. Set a target score to see the marks you still need.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/combined-events">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/combined-events">
+  <meta property="og:title" content="Decathlon and heptathlon points calculator">
+  <meta property="og:description" content="Points for every event and your total in the decathlon, heptathlon, indoor pentathlon and indoor heptathlon, plus the marks you need for a target score.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Track tools", "item": "https://stridebuddy.app/tools" },
+          { "@type": "ListItem", "position": 2, "name": "Combined events points", "item": "https://stridebuddy.app/tools/combined-events" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How are decathlon points calculated?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Each mark is turned into points with a published formula: a × (b − T)^c for running events, and a × (M − b)^c for jumps and throws. T is the time in seconds, and M is the jump in centimetres or the throw in metres. The result is rounded down, and the points of all events are added up." }
+          },
+          {
+            "@type": "Question",
+            "name": "What do I add to a hand time?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Add 0.24 seconds for events shorter than 400 m and 0.14 seconds for the 400 m. Nothing is added for the 800 m, 1000 m and 1500 m. The calculator does this when you choose hand timing." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does an event score zero?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Every event has a cut-off mark. A time at or slower than the cut-off, or a jump or throw at or below it, scores zero points. In the men’s 100 m the cut-off is 18.00 seconds." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do younger athletes use different scoring tables?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Under World Athletics rules the same tables are used for every age group, even when the hurdles are lower or the implements are lighter. Masters competitions add age factors on top, which this calculator does not apply." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Combined events points</nav>
+    <div class="page-head">
+      <p class="eyebrow">Combined events</p>
+      <h1>Decathlon and heptathlon points calculator</h1>
+      <p class="lead">Enter your marks to get the points for each event and your total. It covers the decathlon, the heptathlon, and the indoor pentathlon and heptathlon. Set a target score to see the marks you still need.</p>
+    </div>
+
+    <form class="tool stack" id="ce-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Competition</legend>
+          <div class="seg">
+            <label><input type="radio" name="comp" value="decathlon" checked><span>Decathlon</span></label>
+            <label><input type="radio" name="comp" value="heptathlon"><span>Heptathlon</span></label>
+            <label><input type="radio" name="comp" value="indoorHeptathlon"><span>Indoor heptathlon (men)</span></label>
+            <label><input type="radio" name="comp" value="indoorPentathlon"><span>Indoor pentathlon (women)</span></label>
+            <label><input type="radio" name="comp" value="womensDecathlon"><span>Women’s decathlon</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Timing</legend>
+          <div class="seg">
+            <label><input type="radio" name="timing" value="fat" checked><span>Fully automatic</span></label>
+            <label><input type="radio" name="timing" value="hand"><span>Hand</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="target">Target score (optional)</label>
+          <input type="text" id="target" name="target" inputmode="numeric" value="7000" placeholder="7000">
+        </div>
+        <div class="row full" id="ce-events"><div class="field"><label for="ce-m100">100 m</label><input type="text" id="ce-m100" name="m100" inputmode="decimal" placeholder="11.00" value="11.00"></div><div class="field"><label for="ce-mLJ">Long jump</label><input type="text" id="ce-mLJ" name="mLJ" inputmode="decimal" placeholder="7.00" value="7.00"></div><div class="field"><label for="ce-mSP">Shot put</label><input type="text" id="ce-mSP" name="mSP" inputmode="decimal" placeholder="13.50" value="13.50"></div><div class="field"><label for="ce-mHJ">High jump</label><input type="text" id="ce-mHJ" name="mHJ" inputmode="decimal" placeholder="1.90" value="1.90"></div><div class="field"><label for="ce-m400">400 m</label><input type="text" id="ce-m400" name="m400" inputmode="decimal" placeholder="50.00" value="50.00"></div><div class="field"><label for="ce-m110H">110 m hurdles</label><input type="text" id="ce-m110H" name="m110H" inputmode="decimal" placeholder="15.00" value=""></div><div class="field"><label for="ce-mDT">Discus</label><input type="text" id="ce-mDT" name="mDT" inputmode="decimal" placeholder="40.00" value=""></div><div class="field"><label for="ce-mPV">Pole vault</label><input type="text" id="ce-mPV" name="mPV" inputmode="decimal" placeholder="4.50" value=""></div><div class="field"><label for="ce-mJT">Javelin</label><input type="text" id="ce-mJT" name="mJT" inputmode="decimal" placeholder="55.00" value=""></div><div class="field"><label for="ce-m1500">1500 m</label><input type="text" id="ce-m1500" name="m1500" inputmode="decimal" placeholder="4:40.00" value=""></div></div>
+        <p class="note full">Times as 11.00 or 4:35.13. Jumps and throws in metres, such as 7.00.</p>
+      </div>
+      <div class="tool-results" id="ce-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Total</span><output class="v">3,902</output><div class="s">5 of 10 events scored</div></div><div class="stat"><span class="k">Still needed</span><output class="v">3,098</output><div class="s">points for 7,000</div></div><div class="stat"><span class="k">Per event left</span><output class="v">620</output><div class="s">points on average</div></div></div><div class="table-wrap"><table><thead><tr><th>Event</th><th>Mark</th><th>Points</th><th>Total</th><th>For target</th></tr></thead><tbody><tr><td>100 m</td><td>11.00</td><td class="hl">861</td><td>861</td><td></td></tr><tr><td>Long jump</td><td>7.00 m</td><td class="hl">814</td><td>1,675</td><td></td></tr><tr><td>Shot put</td><td>13.50 m</td><td class="hl">698</td><td>2,373</td><td></td></tr><tr><td>High jump</td><td>1.90 m</td><td class="hl">714</td><td>3,087</td><td></td></tr><tr><td>400 m</td><td>50.00</td><td class="hl">815</td><td>3,902</td><td></td></tr><tr><td>110 m hurdles</td><td>–</td><td class="hl">–</td><td>–</td><td>17.04</td></tr><tr><td>Discus</td><td>–</td><td class="hl">–</td><td>–</td><td>37.78 m</td></tr><tr><td>Pole vault</td><td>–</td><td class="hl">–</td><td>–</td><td>4.01 m</td></tr><tr><td>Javelin</td><td>–</td><td class="hl">–</td><td>–</td><td>52.09 m</td></tr><tr><td>1500 m</td><td>–</td><td class="hl">–</td><td>–</td><td>4:49.86</td></tr></tbody></table></div><p class="note">For target: the mark that scores 620 points in each event left. Any mix of marks with the same total works.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>Each mark is turned into points with one of three formulas. World Athletics publishes them in its scoring tables for combined events, with the values of a, b and c for each event.</p>
+      <div class="formula">Running events: points = a × (b − T)<sup>c</sup>, with T in seconds<br>Jumps: points = a × (M − b)<sup>c</sup>, with M in centimetres<br>Throws: points = a × (D − b)<sup>c</sup>, with D in metres</div>
+      <p>The result is always rounded down to a whole number. A mark at or below b scores zero: b is the cut-off. The total is the sum of the points of every event.</p>
+      <p>For the men’s 100 m, a is 25.4347, b is 18.00 and c is 1.81. A time of 10.62 gives 25.4347 × (18.00 − 10.62)<sup>1.81</sup> = 947.56, which is rounded down to 947 points.</p>
+
+      <h3>Hand times</h3>
+      <p>The formulas are built for fully automatic times. With hand timing, add 0.24 s to times in events shorter than 400 m and 0.14 s in the 400 m, then score the result. Nothing is added from 800 m up. Choose Hand above and the calculator adds it for you.</p>
+
+      <h3>Target score</h3>
+      <p>Enter a target and leave the events you have not done yet empty. The calculator splits the points still needed evenly across those events and shows the mark that scores them in each one. It is one way to reach the target, not the only one: more points in your best event let you score fewer in another.</p>
+
+      <h2>Worked example</h2>
+      <p>As a check, the formulas reproduce the decathlon that won the 2001 World Championships in Edmonton, scored at 8,902 points. The first day was 10.62 in the 100 m (947 points), 8.07 m in the long jump (1,079), 16.57 m in the shot put (886), 2.00 m in the high jump (803) and 47.74 in the 400 m (922), for 4,637 points. Enter those marks above and you get the same points for each event.</p>
+      <p>The official scoring tables print the score sheets of the top three in the decathlon and the heptathlon at those championships. The calculator matches all 51 event scores and all six totals.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>This is a calculator, not an official result. Officials score competitions from the official tables.</li>
+        <li>Wind does not change the points.</li>
+        <li>In the high jump and pole vault the bar goes up in fixed steps of 3 cm and 10 cm, so a target height may need rounding up to the next height on the bar.</li>
+        <li>Masters age factors are not applied.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Formulas, parameters, rounding and hand-timing adjustments: IAAF Scoring Tables for Combined Events, 2001 edition, reprinted 2016. Events and order: World Athletics Technical Rules, Rule 39 and the short track rules, in the <a href="https://worldathletics.org/about-iaaf/documents/book-of-rules">World Athletics Book of Rules</a>. StrideBuddy is not affiliated with World Athletics.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How are decathlon points calculated?</summary>
+        <p>Each mark is turned into points with a published formula: a × (b − T)^c for running events, and a × (M − b)^c for jumps and throws. T is the time in seconds, and M is the jump in centimetres or the throw in metres. The result is rounded down, and the points of all events are added up.</p>
+      </details>
+      <details>
+        <summary>What do I add to a hand time?</summary>
+        <p>Add 0.24 seconds for events shorter than 400 m and 0.14 seconds for the 400 m. Nothing is added for the 800 m, 1000 m and 1500 m. The calculator does this when you choose hand timing.</p>
+      </details>
+      <details>
+        <summary>Why does an event score zero?</summary>
+        <p>Every event has a cut-off mark. A time at or slower than the cut-off, or a jump or throw at or below it, scores zero points. In the men’s 100 m the cut-off is 18.00 seconds.</p>
+      </details>
+      <details>
+        <summary>Do younger athletes use different scoring tables?</summary>
+        <p>No. Under World Athletics rules the same tables are used for every age group, even when the hurdles are lower or the implements are lighter. Masters competitions add age factors on top, which this calculator does not apply.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Keep your running training in one diary.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log your sprint, hurdle and middle-distance sessions with every rep and split. It does not log jumps or throws.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/hand-timing"><h3>Hand-to-FAT conversion</h3><p>Turn a hand time into an automatic-time equivalent.</p></a>
+        <a class="tcard" href="/tools/wind-adjustment"><h3>Wind adjustment</h3><p>What a sprint or hurdle time is worth without wind.</p></a>
+        <a class="tcard" href="/tools/hurdle-heights"><h3>Hurdle heights and spacings</h3><p>Heights and distances for every hurdle race.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/combined-events" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/combined-events.js"></script>
+</body>
+</html>

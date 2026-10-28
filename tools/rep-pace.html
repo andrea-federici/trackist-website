@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rep pace calculator for track sessions | StrideBuddy</title>
+  <meta name="description" content="Type a track session like 6x200 in 27-28 and get the pace per 100 m, 400 m and km, the total volume, and how fast the reps are compared with your PB.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/rep-pace">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/rep-pace">
+  <meta property="og:title" content="Rep pace calculator for track sessions">
+  <meta property="og:description" content="Type a session like 6x200 in 27-28. Get pace per 100 m, 400 m and km, total volume and % of PB.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Track tools", "item": "https://stridebuddy.app/tools" },
+          { "@type": "ListItem", "position": 2, "name": "Rep pace calculator", "item": "https://stridebuddy.app/tools/rep-pace" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I work out the pace of a rep?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Divide the rep time by the rep distance, then multiply by the distance you want the pace for. A 200 m in 27.5 seconds is 27.5 ÷ 200 × 400 = 55.0 seconds per 400 m." }
+          },
+          {
+            "@type": "Question",
+            "name": "What does 6x200 in 27-28 mean?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Six repetitions of 200 m, each run in 27 to 28 seconds. The calculator uses the middle of the range, 27.5 seconds, for the pace." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does total volume include the recovery?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Total volume counts only the distance of the reps. The recovery time is shown on its own, and a walking or jogging recovery does not add to the volume." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is % of PB pace?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It compares the speed of the rep with the average speed of your PB. 100% is your PB pace. Above 100% is faster than PB pace, below 100% is slower. A 200 m in 27.5 is 109% of the pace of a 2:00 800 m." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Rep pace</nav>
+    <div class="page-head">
+      <p class="eyebrow">Training</p>
+      <h1>Rep pace calculator</h1>
+      <p class="lead">Type a track session like 6x200 in 27-28. You get the pace per 100 m, 400 m and km, the total volume, and how fast the reps are compared with your PB.</p>
+    </div>
+
+    <form class="tool stack" id="rep-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="col">
+        <div class="field">
+          <label for="session">Session</label>
+          <textarea id="session" name="session" spellcheck="false" aria-describedby="session-hint">6x200 in 27-28, rec 2:00</textarea>
+          <span class="hint" id="session-hint">Separate blocks with a comma or +. Add recovery with rec.</span>
+        </div>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"session":"6x200 in 27-28, rec 2:00"}'>6x200 in 27-28</button>
+          <button type="button" class="chip" data-fill='{"session":"10x400 @ 68 rec 60s"}'>10x400 @ 68</button>
+          <button type="button" class="chip" data-fill='{"session":"5x1k in 3:05-3:10 rec 2:00"}'>5x1k in 3:05-3:10</button>
+          <button type="button" class="chip" data-fill='{"session":"3x300 in 42 rec 5:00 + 3x150 in 19 rec 2:00"}'>3x300 + 3x150</button>
+        </div>
+        </div>
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Your PB (optional)</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="">No PB</option>
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Mile</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10,000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">PB time</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="rep-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Total volume</span><output class="v">1200 m</output><div class="s">of fast running</div></div><div class="stat"><span class="k">Running time</span><output class="v">2:45.0</output><div class="s">plus 10:00 of recovery</div></div><div class="stat"><span class="k">Average pace</span><output class="v">55.0</output><div class="s">per 400 m</div></div></div><div class="table-wrap"><table><thead><tr><th>Reps</th><th>Target</th><th>/100 m</th><th>/400 m</th><th>/km</th><th>km/h</th><th>% PB</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>27.00–28.00</td><td>13.8</td><td>55.0</td><td>2:18</td><td>26.2</td><td class="hl">109%</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>At this pace</th><th>400 m</th><th>800 m</th><th>1500 m</th><th>5000 m</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>55.0</td><td>1:50.0</td><td>3:26.3</td><td>11:28</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>Pace is the rep time divided by the rep distance. When you give a range, such as 27-28, the calculator uses the middle of it.</p>
+      <div class="formula">pace per 400 m = rep time ÷ rep distance × 400</div>
+      <p>Total volume is the number of reps times the rep distance, added up for every block. Recovery is not part of the volume. Running time adds up the rep times only, and the recovery is shown next to it.</p>
+      <p>% of PB compares the speed of the rep with the average speed of your PB race. 100% is PB pace. 109% means the reps are 9% faster than your PB pace.</p>
+      <div class="formula">% of PB = (PB time ÷ PB distance) ÷ (rep time ÷ rep distance) × 100</div>
+      <p>The <strong>At this pace</strong> table holds the same pace over a race distance. It is not a prediction: nobody runs 5000 m at their 200 m rep pace. For a race estimate, use the <a href="/tools/race-predictor">race time predictor</a>.</p>
+
+      <h2>How to write a session</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>You type</th><th>It reads</th></tr></thead>
+        <tbody>
+          <tr><td><code>6x200 in 27-28</code></td><td>6 reps of 200 m in 27 to 28 s</td></tr>
+          <tr><td><code>10x400 @ 68 rec 60s</code></td><td>10 × 400 m in 68 s, 60 s recovery</td></tr>
+          <tr><td><code>5x1k in 3:05-3:10</code></td><td>5 × 1000 m in 3:05 to 3:10</td></tr>
+          <tr><td><code>4x1 mile in 5:20</code></td><td>4 × 1609 m in 5:20</td></tr>
+          <tr><td><code>3x300 in 42 + 3x150 in 19</code></td><td>Two blocks, added together</td></tr>
+        </tbody>
+      </table></div>
+      <p>Times can be written as <code>27.5</code>, <code>1:05</code>, <code>1:05-1:07</code> or <code>1'05"</code>.</p>
+
+      <h2>Worked example</h2>
+      <p>An 800 m runner with a PB of 2:00.00 runs 6x200 in 27-28 with 2 minutes of recovery. The middle of the range is 27.5 s, which is 55.0 per 400 m and 13.8 per 100 m. The session is 1200 m of fast running in 2:45, plus 10 minutes of recovery between the six reps. The PB pace is 15.0 s per 100 m, so the reps are run at 109% of 800 m pace.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How do I work out the pace of a rep?</summary>
+        <p>Divide the rep time by the rep distance, then multiply by the distance you want the pace for. A 200 m in 27.5 seconds is 27.5 ÷ 200 × 400 = 55.0 seconds per 400 m.</p>
+      </details>
+      <details>
+        <summary>What does 6x200 in 27-28 mean?</summary>
+        <p>Six repetitions of 200 m, each run in 27 to 28 seconds. The calculator uses the middle of the range, 27.5 seconds, for the pace.</p>
+      </details>
+      <details>
+        <summary>Does total volume include the recovery?</summary>
+        <p>No. Total volume counts only the distance of the reps. The recovery time is shown on its own, and a walking or jogging recovery does not add to the volume.</p>
+      </details>
+      <details>
+        <summary>What is % of PB pace?</summary>
+        <p>It compares the speed of the rep with the average speed of your PB. 100% is your PB pace. Above 100% is faster than PB pace, below 100% is slower. A 200 m in 27.5 is 109% of the pace of a 2:00 800 m.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Log the session, keep the splits.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log every rep and split, and your fastest rep at each distance becomes a training record on its own.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/training-paces"><h3>Training paces from PB</h3><p>Rep times at 60–120% of your PB pace.</p></a>
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate a race time from a PB.</p></a>
+        <a class="tcard" href="/tools/pace-converter"><h3>Pace and unit converter</h3><p>min/km, min/mile, per 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/rep-pace" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/rep-pace.js"></script>
+</body>
+</html>

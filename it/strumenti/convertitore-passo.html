@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertitore di passo: min/km, min/miglio, ai 400 m, km/h | StrideBuddy</title>
+  <meta name="description" content="Converti passo e velocità tra min/km, min/miglio, ai 400 m, ai 100 m, km/h, mph e m/s, vedi il tempo su ogni distanza di gara e converti le misure dei concorsi in piedi e pollici.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <meta property="og:title" content="Convertitore di passo e unità per chi corre">
+  <meta property="og:description" content="min/km, min/miglio, ai 400 m, km/h, mph e m/s in un solo posto, più metri in piedi e pollici.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle FAQ deve coincidere parola per parola con le risposte visibili. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strumenti per l’atletica",
+            "item": "https://stridebuddy.app/it/strumenti"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Convertitore di passo",
+            "item": "https://stridebuddy.app/it/strumenti/convertitore-passo"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come si converte il passo al km in passo al miglio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Moltiplica il passo al km per 1,609344. Un passo di 4:00 al km è 6:26 al miglio."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanti km/h sono 4:00 al km?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "15 km/h. Dividi 60 per il passo in minuti: 60 ÷ 4 = 15."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Che passo ai 400 m è un 5 km in 20:00?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1:36 ai 400 m. 20 minuti sono 1200 secondi, e 1200 ÷ 5000 × 400 = 96 secondi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come si convertono i metri in piedi e pollici?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dividi i metri per 0,0254 per avere i pollici, poi dividi per 12 per i piedi. 6,50 m sono 255,91 pollici, cioè 21 ft 3,91 in. I risultati statunitensi arrotondano per difetto al quarto di pollice, quindi si scrive 21 ft 3¾ in."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Convertitore di passo</nav>
+    <div class="page-head">
+      <p class="eyebrow">Conversioni</p>
+      <h1>Convertitore di passo e unità</h1>
+      <p class="lead">Scrivi un passo o una velocità in una casella qualsiasi. Le altre caselle e la tabella delle distanze si aggiornano mentre scrivi. Più sotto, un secondo convertitore trasforma le misure dei concorsi in piedi e pollici.</p>
+    </div>
+
+    <form class="tool" id="pace-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field"><label for="perKm">Al km</label><input type="text" id="perKm" name="perKm" inputmode="decimal" value="4:00"></div>
+          <div class="field"><label for="perMile">Al miglio</label><input type="text" id="perMile" name="perMile" inputmode="decimal" value="6:26"></div>
+          <div class="field"><label for="per400">Ai 400 m</label><input type="text" id="per400" name="per400" inputmode="decimal" value="1:36.0"></div>
+          <div class="field"><label for="per100">Ai 100 m</label><input type="text" id="per100" name="per100" inputmode="decimal" value="24.0"></div>
+          <div class="field"><label for="kmh">km/h</label><input type="text" id="kmh" name="kmh" inputmode="decimal" value="15,00"></div>
+          <div class="field"><label for="mph">mph</label><input type="text" id="mph" name="mph" inputmode="decimal" value="9,32"></div>
+          <div class="field"><label for="ms">m/s</label><input type="text" id="ms" name="ms" inputmode="decimal" value="4,17"></div>
+        </div>
+        <span class="hint">Scrivi in una casella qualsiasi. I tempi come 4:00 o 1:36.0.</span>
+        <div class="chips" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"perKm":"4:00"}'>4:00 /km</button>
+          <button type="button" class="chip" data-fill='{"perMile":"6:00"}'>6:00 /miglio</button>
+          <button type="button" class="chip" data-fill='{"per400":"1:10"}'>70 s ai 400 m</button>
+          <button type="button" class="chip" data-fill='{"kmh":"20"}'>20 km/h</button>
+          <button type="button" class="chip" data-fill='{"mph":"8"}'>8 mph</button>
+        </div>
+      </div>
+      <div class="tool-results" id="pace-results" aria-live="polite"><div class="table-wrap"><table><thead><tr><th>Distanza</th><th>Tempo a questo passo</th></tr></thead><tbody><tr><td>100 m</td><td>24.0</td></tr><tr><td>200 m</td><td>48.0</td></tr><tr><td>400 m</td><td>1:36.0</td></tr><tr><td>800 m</td><td>3:12.0</td></tr><tr><td>1500 m</td><td>6:00.0</td></tr><tr><td>Miglio</td><td>6:26.2</td></tr><tr><td>5 km</td><td>20:00</td></tr><tr><td>10 km</td><td>40:00</td></tr><tr><td>Mezza maratona</td><td>1:24:23</td></tr><tr><td>Maratona</td><td>2:48:47</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2 id="marks">Misure dei concorsi in piedi e pollici</h2>
+      <p>Salti e lanci si misurano in metri. I risultati negli Stati Uniti li riportano anche in piedi e pollici. Scrivi una misura in una delle due unità.</p>
+    </section>
+    <form class="tool" id="marks-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="field"><label for="metres">Metri</label><input type="text" id="metres" name="metres" inputmode="decimal" value="6,50"></div>
+        <div class="row">
+          <div class="field"><label for="feet">Piedi</label><input type="text" id="feet" name="feet" inputmode="numeric" value="21"></div>
+          <div class="field"><label for="inches">Pollici</label><input type="text" id="inches" name="inches" inputmode="decimal" value="3,75"></div>
+        </div>
+        <span class="hint">I pollici possono avere decimali: 3,75 è 3¾.</span>
+        <div class="chips" aria-label="Esempi">
+          <button type="button" class="chip" data-fill='{"metres":"2,00"}'>2,00 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"6,50"}'>6,50 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"17,50"}'>17,50 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"60,00"}'>60,00 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="marks-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Piedi e pollici</span><output class="v">21 ft 3¾ in</output><div class="s">arrotondato per difetto al ¼ di pollice</div></div><div class="stat"><span class="k">Metri</span><output class="v">6,50 m</output><div class="s">come nel risultato</div></div><div class="stat"><span class="k">Pollici esatti</span><output class="v">255,91</output><div class="s">prima dell’arrotondamento</div></div></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Ogni casella viene trasformata in una sola velocità, in metri al secondo. Le altre caselle si ricavano da quella velocità.</p>
+      <div class="formula">velocità (m/s) = distanza ÷ tempo<br>passo al km = 1000 ÷ velocità<br>km/h = m/s × 3,6<br>mph = m/s × 3600 ÷ 1609,344</div>
+      <p>Un miglio misura esattamente 1609,344 m e un pollice esattamente 2,54 cm. Il passo al km e al miglio è mostrato al secondo, quello ai 400 m e ai 100 m al decimo.</p>
+      <p>Per le misure, i metri si dividono per 0,0254 per avere i pollici, e 12 pollici fanno un piede. Negli Stati Uniti la maggior parte delle misure si dà al quarto di pollice, e le misure dei concorsi si arrotondano sempre per difetto, quindi il risultato è arrotondato per difetto al quarto di pollice. Piedi e pollici si trasformano in metri e si arrotondano per difetto al centimetro, come World Athletics registra i salti al centimetro inferiore alla misura.</p>
+
+      <h2>Esempio</h2>
+      <p>Un passo di 4:00 al km vuol dire 1000 m in 240 s, quindi la velocità è 4,17 m/s. Sono 15,00 km/h, 9,32 mph, 6:26 al miglio e 1:36.0 ai 400 m. A questo passo un 5 km richiede 20:00 e una mezza maratona 1:24:23.</p>
+      <p>Un salto in lungo di 6,50 m vale 255,91 pollici. Sono 21 piedi e 3,91 pollici, cioè 21 ft 3¾ in dopo l’arrotondamento per difetto al quarto di pollice.</p>
+
+      <h2>Limiti</h2>
+      <ul>
+        <li>La tabella delle distanze tiene lo stesso passo per tutta la distanza. Non è una previsione di gara. Per quella usa la <a href="/it/strumenti/previsione-tempi">previsione dei tempi di gara</a>.</li>
+        <li>Un miglio è 9,344 m più lungo dei 1600 m. Per confrontarli usa il <a href="/it/strumenti/conversione-miglio">convertitore tra miglio e 1600 m</a>.</li>
+        <li>Il passo ai 400 m vale per un giro in prima corsia. I giri interi nelle corsie esterne sono più lunghi: vedi <a href="/it/strumenti/distanze-corsie">le distanze delle corsie</a>.</li>
+      </ul>
+
+      <h2>Fonti</h2>
+      <p class="sources">Fattori di conversione: <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST Special Publication 811, Appendice B.9</a> (pollice, piede, miglio e mph, tutti esatti). Misure al quarto di pollice nei licei statunitensi: <a href="https://coloradopreps.com/track-field-measuring-a-better-way/">CHSAANow, “Track &amp; field: measuring a better way”</a>. Arrotondamento per difetto: <a href="https://co.milesplit.com/articles/205020/getting-a-few-track-and-field-items-off-my-chest">MileSplit Colorado</a>. Salti registrati al centimetro inferiore: World Athletics, Regole tecniche, salti in estensione.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Come si converte il passo al km in passo al miglio?</summary>
+        <p>Moltiplica il passo al km per 1,609344. Un passo di 4:00 al km è 6:26 al miglio.</p>
+      </details>
+      <details>
+        <summary>Quanti km/h sono 4:00 al km?</summary>
+        <p>15 km/h. Dividi 60 per il passo in minuti: 60 ÷ 4 = 15.</p>
+      </details>
+      <details>
+        <summary>Che passo ai 400 m è un 5 km in 20:00?</summary>
+        <p>1:36 ai 400 m. 20 minuti sono 1200 secondi, e 1200 ÷ 5000 × 400 = 96 secondi.</p>
+      </details>
+      <details>
+        <summary>Come si convertono i metri in piedi e pollici?</summary>
+        <p>Dividi i metri per 0,0254 per avere i pollici, poi dividi per 12 per i piedi. 6,50 m sono 255,91 pollici, cioè 21 ft 3,91 in. I risultati statunitensi arrotondano per difetto al quarto di pollice, quindi si scrive 21 ft 3¾ in.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Tutti i tuoi passi in un solo diario.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra le corse continue con distanza, tempo e passo, e ogni ripetuta e ogni passaggio delle sedute in pista.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/passo-ripetute"><h3>Passo delle ripetute</h3><p>Passo, volume e % del primato per una seduta come 6x200.</p></a>
+        <a class="tcard" href="/it/strumenti/conversione-miglio"><h3>Miglio, 1600 m e 1500 m</h3><p>Converti un tempo tra le tre distanze.</p></a>
+        <a class="tcard" href="/it/strumenti/previsione-tempi"><h3>Previsione dei tempi di gara</h3><p>Stima un tempo di gara da un primato.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/convertitore-passo" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/pace-converter.js"></script>
+</body>
+</html>

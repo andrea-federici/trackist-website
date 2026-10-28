@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcolatore punteggio decathlon ed eptathlon | StrideBuddy</title>
+  <meta name="description" content="Inserisci le tue prestazioni e ottieni i punti di ogni prova e il totale nel decathlon, nell’eptathlon e nelle prove multiple indoor. Fissa un obiettivo e vedi le prestazioni che ti servono.">
+  <link rel="canonical" href="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <meta property="og:title" content="Calcolatore punteggio decathlon ed eptathlon">
+  <meta property="og:description" content="I punti di ogni prova e il totale nel decathlon, nell’eptathlon e nelle prove multiple indoor, più le prestazioni che servono per un obiettivo.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-it.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Dati strutturati inerti. Il testo delle FAQ deve coincidere parola per parola con le risposte visibili. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Strumenti per l’atletica", "item": "https://stridebuddy.app/it/strumenti" },
+          { "@type": "ListItem", "position": 2, "name": "Punteggio prove multiple", "item": "https://stridebuddy.app/it/strumenti/prove-multiple" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Come si calcolano i punti del decathlon?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ogni prestazione diventa punti con una formula pubblicata: a × (b − T)^c per le corse, e a × (M − b)^c per salti e lanci. T è il tempo in secondi, M è il salto in centimetri o il lancio in metri. Il risultato si arrotonda per difetto e si sommano i punti di tutte le prove." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto si aggiunge a un tempo manuale?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Si aggiungono 0,24 secondi nelle prove più corte dei 400 m e 0,14 secondi nei 400 m. Negli 800 m, 1000 m e 1500 m non si aggiunge nulla. Il calcolatore lo fa da solo quando scegli il cronometraggio manuale." }
+          },
+          {
+            "@type": "Question",
+            "name": "Perché una prova vale zero punti?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ogni prova ha una prestazione limite. Un tempo uguale o più lento del limite, o un salto o un lancio uguale o inferiore, vale zero punti. Nei 100 m maschili il limite è 18.00 secondi." }
+          },
+          {
+            "@type": "Question",
+            "name": "Le categorie giovanili usano tabelle diverse?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Secondo il regolamento di World Athletics si usano le stesse tabelle per tutte le categorie, anche quando gli ostacoli sono più bassi o gli attrezzi più leggeri. Le gare master aggiungono coefficienti per età, che questo calcolatore non applica." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/it/strumenti">Tutti gli strumenti</a>
+        <a class="nav-link" href="/tools/combined-events" hreflang="en" lang="en">English</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Scarica StrideBuddy su App Store">Scarica</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Percorso"><a href="/it/strumenti">Strumenti per l’atletica</a><span aria-hidden="true">/</span>Punteggio prove multiple</nav>
+    <div class="page-head">
+      <p class="eyebrow">Prove multiple</p>
+      <h1>Calcolatore punteggio decathlon ed eptathlon</h1>
+      <p class="lead">Inserisci le tue prestazioni e ottieni i punti di ogni prova e il totale. Funziona per decathlon, eptathlon, pentathlon ed eptathlon indoor. Fissa un obiettivo e vedi le prestazioni che ti servono ancora.</p>
+    </div>
+
+    <form class="tool stack" id="ce-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Gara</legend>
+          <div class="seg">
+            <label><input type="radio" name="comp" value="decathlon" checked><span>Decathlon</span></label>
+            <label><input type="radio" name="comp" value="heptathlon"><span>Eptathlon</span></label>
+            <label><input type="radio" name="comp" value="indoorHeptathlon"><span>Eptathlon indoor (uomini)</span></label>
+            <label><input type="radio" name="comp" value="indoorPentathlon"><span>Pentathlon indoor (donne)</span></label>
+            <label><input type="radio" name="comp" value="womensDecathlon"><span>Decathlon femminile</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Cronometraggio</legend>
+          <div class="seg">
+            <label><input type="radio" name="timing" value="fat" checked><span>Elettrico</span></label>
+            <label><input type="radio" name="timing" value="hand"><span>Manuale</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="target">Punteggio obiettivo (facoltativo)</label>
+          <input type="text" id="target" name="target" inputmode="numeric" value="7000" placeholder="7000">
+        </div>
+        <div class="row full" id="ce-events"><div class="field"><label for="ce-m100">100 m</label><input type="text" id="ce-m100" name="m100" inputmode="decimal" placeholder="11.00" value="11.00"></div><div class="field"><label for="ce-mLJ">Salto in lungo</label><input type="text" id="ce-mLJ" name="mLJ" inputmode="decimal" placeholder="7,00" value="7,00"></div><div class="field"><label for="ce-mSP">Getto del peso</label><input type="text" id="ce-mSP" name="mSP" inputmode="decimal" placeholder="13,50" value="13,50"></div><div class="field"><label for="ce-mHJ">Salto in alto</label><input type="text" id="ce-mHJ" name="mHJ" inputmode="decimal" placeholder="1,90" value="1,90"></div><div class="field"><label for="ce-m400">400 m</label><input type="text" id="ce-m400" name="m400" inputmode="decimal" placeholder="50.00" value="50.00"></div><div class="field"><label for="ce-m110H">110 m ostacoli</label><input type="text" id="ce-m110H" name="m110H" inputmode="decimal" placeholder="15.00" value=""></div><div class="field"><label for="ce-mDT">Lancio del disco</label><input type="text" id="ce-mDT" name="mDT" inputmode="decimal" placeholder="40,00" value=""></div><div class="field"><label for="ce-mPV">Salto con l’asta</label><input type="text" id="ce-mPV" name="mPV" inputmode="decimal" placeholder="4,50" value=""></div><div class="field"><label for="ce-mJT">Lancio del giavellotto</label><input type="text" id="ce-mJT" name="mJT" inputmode="decimal" placeholder="55,00" value=""></div><div class="field"><label for="ce-m1500">1500 m</label><input type="text" id="ce-m1500" name="m1500" inputmode="decimal" placeholder="4:40.00" value=""></div></div>
+        <p class="note full">Tempi come 11.00 o 4:35.13. Salti e lanci in metri, come 7,00.</p>
+      </div>
+      <div class="tool-results" id="ce-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Totale</span><output class="v">3902</output><div class="s">5 su 10 prove con un punteggio</div></div><div class="stat"><span class="k">Mancano</span><output class="v">3098</output><div class="s">punti per 7000</div></div><div class="stat"><span class="k">Per prova rimasta</span><output class="v">620</output><div class="s">punti in media</div></div></div><div class="table-wrap"><table><thead><tr><th>Prova</th><th>Prestazione</th><th>Punti</th><th>Totale</th><th>Per l’obiettivo</th></tr></thead><tbody><tr><td>100 m</td><td>11.00</td><td class="hl">861</td><td>861</td><td></td></tr><tr><td>Salto in lungo</td><td>7,00 m</td><td class="hl">814</td><td>1675</td><td></td></tr><tr><td>Getto del peso</td><td>13,50 m</td><td class="hl">698</td><td>2373</td><td></td></tr><tr><td>Salto in alto</td><td>1,90 m</td><td class="hl">714</td><td>3087</td><td></td></tr><tr><td>400 m</td><td>50.00</td><td class="hl">815</td><td>3902</td><td></td></tr><tr><td>110 m ostacoli</td><td>–</td><td class="hl">–</td><td>–</td><td>17.04</td></tr><tr><td>Lancio del disco</td><td>–</td><td class="hl">–</td><td>–</td><td>37,78 m</td></tr><tr><td>Salto con l’asta</td><td>–</td><td class="hl">–</td><td>–</td><td>4,01 m</td></tr><tr><td>Lancio del giavellotto</td><td>–</td><td class="hl">–</td><td>–</td><td>52,09 m</td></tr><tr><td>1500 m</td><td>–</td><td class="hl">–</td><td>–</td><td>4:49.86</td></tr></tbody></table></div><p class="note">Per l’obiettivo: la prestazione che vale 620 punti in ogni prova rimasta. Va bene qualsiasi combinazione con lo stesso totale.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Come si calcola</h2>
+      <p>Ogni prestazione diventa punti con una di tre formule. World Athletics le pubblica nelle sue tabelle di punteggio per le prove multiple, con i valori di a, b e c per ogni prova.</p>
+      <div class="formula">Corse: punti = a × (b − T)<sup>c</sup>, con T in secondi<br>Salti: punti = a × (M − b)<sup>c</sup>, con M in centimetri<br>Lanci: punti = a × (D − b)<sup>c</sup>, con D in metri</div>
+      <p>Il risultato si arrotonda sempre per difetto a un numero intero. Una prestazione uguale o peggiore di b vale zero: b è il limite. Il totale è la somma dei punti di tutte le prove.</p>
+      <p>Nei 100 m maschili a vale 25,4347, b vale 18,00 e c vale 1,81. Un tempo di 10.62 dà 25,4347 × (18,00 − 10,62)<sup>1,81</sup> = 947,56, che arrotondato per difetto fa 947 punti.</p>
+
+      <h3>Tempi manuali</h3>
+      <p>Le formule valgono per il cronometraggio elettrico. Con il cronometraggio manuale si aggiungono 0,24 s ai tempi delle prove più corte dei 400 m e 0,14 s nei 400 m, poi si calcolano i punti. Dagli 800 m in su non si aggiunge nulla. Scegli Manuale qui sopra e il calcolatore lo aggiunge da solo.</p>
+
+      <h3>Punteggio obiettivo</h3>
+      <p>Inserisci un obiettivo e lascia vuote le prove che non hai ancora fatto. Il calcolatore divide i punti che mancano in parti uguali tra quelle prove e mostra la prestazione che li vale in ognuna. È un modo per arrivare all’obiettivo, non l’unico: più punti nella tua prova migliore ti permettono di farne meno in un’altra.</p>
+
+      <h2>Esempio</h2>
+      <p>Come verifica, le formule riproducono il decathlon che ha vinto i Mondiali di Edmonton 2001, con 8902 punti. La prima giornata: 10.62 nei 100 m (947 punti), 8,07 m nel salto in lungo (1079), 16,57 m nel getto del peso (886), 2,00 m nel salto in alto (803) e 47.74 nei 400 m (922), per 4637 punti. Inserisci queste prestazioni qui sopra e ottieni gli stessi punti per ogni prova.</p>
+      <p>Le tabelle ufficiali riportano i fogli di punteggio dei primi tre del decathlon e dell’eptathlon di quei Mondiali. Il calcolatore coincide su tutti i 51 punteggi delle singole prove e su tutti i sei totali.</p>
+
+      <h2>Limiti</h2>
+      <ul>
+        <li>È un calcolatore, non un risultato ufficiale. I giudici calcolano le gare con le tabelle ufficiali.</li>
+        <li>Il vento non cambia i punti.</li>
+        <li>Nel salto in alto e nel salto con l’asta l’asticella sale di 3 cm e di 10 cm, quindi una misura obiettivo può andare arrotondata alla quota successiva.</li>
+        <li>I coefficienti per età delle gare master non sono applicati.</li>
+      </ul>
+
+      <h2>Fonti</h2>
+      <p class="sources">Formule, parametri, arrotondamento e correzione dei tempi manuali: IAAF Scoring Tables for Combined Events, edizione 2001, ristampa 2016. Prove e ordine: World Athletics Technical Rules, regola 39 e regole per la pista corta, nel <a href="https://worldathletics.org/about-iaaf/documents/book-of-rules">Book of Rules di World Athletics</a>. StrideBuddy non è affiliata a World Athletics.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Domande</h2>
+      <details>
+        <summary>Come si calcolano i punti del decathlon?</summary>
+        <p>Ogni prestazione diventa punti con una formula pubblicata: a × (b − T)^c per le corse, e a × (M − b)^c per salti e lanci. T è il tempo in secondi, M è il salto in centimetri o il lancio in metri. Il risultato si arrotonda per difetto e si sommano i punti di tutte le prove.</p>
+      </details>
+      <details>
+        <summary>Quanto si aggiunge a un tempo manuale?</summary>
+        <p>Si aggiungono 0,24 secondi nelle prove più corte dei 400 m e 0,14 secondi nei 400 m. Negli 800 m, 1000 m e 1500 m non si aggiunge nulla. Il calcolatore lo fa da solo quando scegli il cronometraggio manuale.</p>
+      </details>
+      <details>
+        <summary>Perché una prova vale zero punti?</summary>
+        <p>Ogni prova ha una prestazione limite. Un tempo uguale o più lento del limite, o un salto o un lancio uguale o inferiore, vale zero punti. Nei 100 m maschili il limite è 18.00 secondi.</p>
+      </details>
+      <details>
+        <summary>Le categorie giovanili usano tabelle diverse?</summary>
+        <p>No. Secondo il regolamento di World Athletics si usano le stesse tabelle per tutte le categorie, anche quando gli ostacoli sono più bassi o gli attrezzi più leggeri. Le gare master aggiungono coefficienti per età, che questo calcolatore non applica.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Tutto il tuo allenamento di corsa in un diario.</h2>
+        <p>StrideBuddy è un diario di allenamento per chi corre in pista. Registra le sedute di velocità, ostacoli e mezzofondo con ogni ripetuta e ogni passaggio. Non registra salti e lanci.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Scarica su App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Apri l’app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Strumenti collegati</h2>
+      <div class="cards">
+        <a class="tcard" href="/it/strumenti/cronometraggio-manuale"><h3>Da manuale a elettrico</h3><p>Converti un tempo manuale in un equivalente elettrico.</p></a>
+        <a class="tcard" href="/it/strumenti/correzione-vento"><h3>Correzione per il vento</h3><p>Quanto vale un tempo di velocità o ostacoli senza vento.</p></a>
+        <a class="tcard" href="/it/strumenti/altezze-ostacoli"><h3>Altezze e distanze degli ostacoli</h3><p>Altezze e distanze di ogni gara a ostacoli.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/it" aria-label="StrideBuddy, home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigazione a piè di pagina">
+        <a href="/it">Home</a>
+        <a href="/it/strumenti">Strumenti</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/faq" hreflang="en">FAQ (in inglese)</a>
+        <a href="/support" hreflang="en">Supporto (in inglese)</a>
+        <a href="/terms" hreflang="en">Termini (in inglese)</a>
+        <a href="/it/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Lingua">
+        <a href="/tools/combined-events" hreflang="en" lang="en">English</a>
+        <a href="/it/strumenti/prove-multiple" hreflang="it" aria-current="page">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. L’allenamento di atletica, in un solo diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/combined-events.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track lane distances and stagger calculator | StrideBuddy</title>
+  <meta name="description" content="How far one lap is in each lane of a 400 m track, and the staggers for the 200 m, 400 m, 800 m, 4x100 m and 4x400 m. Lane 8 is 453.03 m per lap.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/lane-stagger">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/lane-stagger">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/distanze-corsie">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/lane-stagger">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/lane-stagger">
+  <meta property="og:title" content="Track lane distances and staggers">
+  <meta property="og:description" content="One lap in each lane of a 400 m track, and the staggers for the 200 m, 400 m, 800 m and relays.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Track tools", "item": "https://stridebuddy.app/tools" },
+          { "@type": "ListItem", "position": 2, "name": "Lane distances and staggers", "item": "https://stridebuddy.app/tools/lane-stagger" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How far is lane 8 on a 400 m track?",
+            "acceptedAnswer": { "@type": "Answer", "text": "One lap in lane 8 is 453.03 m, if you stay in the lane the whole way. That is 53.03 m more than lane 1. In a 400 m race, lane 8 starts 53.03 m ahead, so every lane runs 400 m." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is lane 1 shorter?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Only if you stay in your lane for a full lap. Lane 1 is measured 0.30 m from the kerb, and one lap there is exactly 400 m. In a race with a stagger, every lane runs the same distance." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is the 800 m stagger a little more than one bend?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The 800 m is run in lanes for one bend. After the break line, runners in outer lanes cut across to lane 1, and that diagonal is slightly longer than the straight. The stagger adds the extra: 0.42 m in lane 8." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the stagger for the 4x100 m?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The same as the 400 m, because the 4x100 m is run in lanes all the way round: 7.04 m in lane 2, up to 53.03 m in lane 8." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/distanze-corsie" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Lane distances</nav>
+    <div class="page-head">
+      <p class="eyebrow">Reference</p>
+      <h1>Lane distances and staggers</h1>
+      <p class="lead">How far one lap is in each lane of a standard 400 m track, and how far ahead each lane starts in the 200 m, 400 m, 800 m and relays.</p>
+    </div>
+
+    <form class="tool stack" id="lane-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row align-start">
+          <fieldset>
+            <legend>Lanes</legend>
+            <div class="seg">
+              <label><input type="radio" name="lanes" value="8" checked><span>8</span></label>
+              <label><input type="radio" name="lanes" value="9"><span>9</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="width">Lane width (m)</label>
+            <input type="text" id="width" name="width" inputmode="decimal" value="1.22">
+          </div>
+        </div>
+        <div class="row align-start">
+          <div class="field">
+            <label for="bends">Your race: bends in lanes</label>
+            <input type="number" id="bends" name="bends" min="1" max="8" step="1" placeholder="3">
+          </div>
+          <fieldset>
+            <legend>Then cut in</legend>
+            <div class="seg">
+              <label><input type="radio" name="cutIn" value="no" checked><span>No</span></label>
+              <label><input type="radio" name="cutIn" value="yes"><span>Yes</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="chips full" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"lanes":"8","width":"1.22","bends":"","cutIn":"no"}'>Standard track</button>
+          <button type="button" class="chip" data-fill='{"bends":"3","cutIn":"yes"}'>3 bends, then cut in</button>
+          <button type="button" class="chip" data-fill='{"bends":"4","cutIn":"no"}'>4 bends in lanes</button>
+          <button type="button" class="chip" data-fill='{"lanes":"9"}'>9 lanes</button>
+        </div>
+      </div>
+      <div class="tool-results" id="lane-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Lane 8 lap</span><output class="v">453.03 m</output><div class="s">if you stayed in the lane</div></div><div class="stat"><span class="k">Extra per lane</span><output class="v">+7.67 m</output><div class="s">each lap, lanes 2 and out</div></div><div class="stat"><span class="k">400 m stagger, lane 8</span><output class="v">53.03 m</output><div class="s">ahead of lane 1</div></div></div><div class="table-wrap"><table><thead><tr><th>Lane</th><th>One lap</th><th>200 m</th><th>400 m · 4×100</th><th>800 m</th><th>4×400</th></tr></thead><tbody><tr><td>1</td><td>400.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>2</td><td>407.04</td><td>3.52</td><td>7.04</td><td>3.53</td><td>10.56</td></tr><tr><td>3</td><td>414.70</td><td>7.35</td><td>14.70</td><td>7.38</td><td>22.09</td></tr><tr><td>4</td><td>422.37</td><td>11.18</td><td>22.37</td><td>11.26</td><td>33.63</td></tr><tr><td>5</td><td>430.03</td><td>15.02</td><td>30.03</td><td>15.15</td><td>45.19</td></tr><tr><td>6</td><td>437.70</td><td>18.85</td><td>37.70</td><td>19.06</td><td>56.76</td></tr><tr><td>7</td><td>445.36</td><td>22.68</td><td>45.36</td><td>22.99</td><td>68.36</td></tr><tr><td>8</td><td>453.03</td><td>26.52</td><td>53.03</td><td>26.94</td><td>79.97</td></tr></tbody></table></div><p class="note">Staggers in metres ahead of lane 1. 800 m: in lanes for one bend. 4×400: in lanes for three bends. Both then cut in at the break line.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>How far is lane 8?</h2>
+      <p>One lap in lane 8 is 453.03 m if you stay in the lane, 53.03 m more than lane 1. Each lane further out adds 2π × 1.22 = 7.67 m per lap. From lane 1 to lane 2 the gap is a little smaller, 7.04 m, because lane 1 is measured 0.30 m from the kerb and the other lanes 0.20 m from their line.</p>
+      <p>That is why lane 8 starts 53.03 m ahead in the 400 m. With the stagger, every lane runs exactly 400 m.</p>
+
+      <h2>How it is calculated</h2>
+      <p>A standard 400 m track has two bends with a radius of 36.50 m to the kerb, joined by two straights of 84.39 m. The distance is measured along a running line: 0.30 m outside the kerb in lane 1, and 0.20 m outside the line on the inside of every other lane. Each lane is 1.22 m wide, including the line on its right.</p>
+      <div class="formula">running radius of lane n = 36.50 + 1.22 × (n − 1) + 0.20 &nbsp;(lane 1: 36.80)</div>
+      <div class="formula">one lap = 2 × 84.39 + 2π × running radius</div>
+      <div class="formula">stagger for b bends = b × π × (radius of lane n − radius of lane 1)</div>
+      <p>In the 800 m and the 4×400 m, runners leave their lanes at the break line and cut across the straight to lane 1. The diagonal is a little longer than the straight, so the stagger adds that extra:</p>
+      <div class="formula">extra = √(84.39² + d²) − 84.39, where d = radius of lane n − radius of lane 1</div>
+      <p>These formulas give the published World Athletics stagger values to within 3 mm.</p>
+
+      <h2>Worked example</h2>
+      <p>An 800 m runner in lane 5. The running radius is 36.50 + 4 × 1.22 + 0.20 = 41.58 m, which is 4.78 m outside lane 1. One bend adds π × 4.78 = 15.017 m. Cutting across the back straight adds √(84.39² + 4.78²) − 84.39 = 0.135 m. The stagger is 15.152 m, or 15.15 m.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>Standard 400 m tracks only, with a 36.50 m bend radius. Older tracks with other radii, or with two different bend radii, have different staggers.</li>
+        <li>The values are geometry. The marks on a real track come from a survey and can differ by a few millimetres.</li>
+        <li>Indoor 200 m tracks have banked bends and their own markings. This page does not cover them.</li>
+      </ul>
+      <p class="sources">Sources: World Athletics Technical Rules, Rule 14 (measurement of the track and lane width). IAAF Track and Field Facilities Manual, 2008 edition, data for staggered starts on the 400 m standard track.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How far is lane 8 on a 400 m track?</summary>
+        <p>One lap in lane 8 is 453.03 m, if you stay in the lane the whole way. That is 53.03 m more than lane 1. In a 400 m race, lane 8 starts 53.03 m ahead, so every lane runs 400 m.</p>
+      </details>
+      <details>
+        <summary>Is lane 1 shorter?</summary>
+        <p>Only if you stay in your lane for a full lap. Lane 1 is measured 0.30 m from the kerb, and one lap there is exactly 400 m. In a race with a stagger, every lane runs the same distance.</p>
+      </details>
+      <details>
+        <summary>Why is the 800 m stagger a little more than one bend?</summary>
+        <p>The 800 m is run in lanes for one bend. After the break line, runners in outer lanes cut across to lane 1, and that diagonal is slightly longer than the straight. The stagger adds the extra: 0.42 m in lane 8.</p>
+      </details>
+      <details>
+        <summary>What is the stagger for the 4x100 m?</summary>
+        <p>The same as the 400 m, because the 4x100 m is run in lanes all the way round: 7.04 m in lane 2, up to 53.03 m in lane 8.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Log the session, keep the splits.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log every rep and split, and your fastest rep at each distance becomes a training record on its own.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/split-planner"><h3>Race split planner</h3><p>Lap and 200 m splits for your target time.</p></a>
+        <a class="tcard" href="/tools/rep-pace"><h3>Rep pace calculator</h3><p>Pace, volume and % of PB for a session.</p></a>
+        <a class="tcard" href="/tools/hurdle-heights"><h3>Hurdle heights and spacings</h3><p>Heights and distances for every hurdle race.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/lane-stagger" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/distanze-corsie" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/lane-stagger.js"></script>
+</body>
+</html>

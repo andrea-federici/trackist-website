@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1500 m to mile and 1600 m to mile converter | StrideBuddy</title>
+  <meta name="description" content="Convert a time between the 1500 m, the mile and the 1600 m, or between the 3000 m, 2 miles and the 3200 m. Shows the factor and how it is worked out.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/mile-converter">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/mile-converter">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/conversione-miglio">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/mile-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/mile-converter">
+  <meta property="og:title" content="1500 m to mile and 1600 m to mile converter">
+  <meta property="og:description" content="Convert a time between the 1500 m, the mile and the 1600 m, or between the 3000 m, 2 miles and the 3200 m.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Track tools", "item": "https://stridebuddy.app/tools" },
+          { "@type": "ListItem", "position": 2, "name": "Mile, 1500 m and 1600 m converter", "item": "https://stridebuddy.app/tools/mile-converter" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert a 1500 m time to a mile time?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Multiply the 1500 m time by 1.077. A 4:10.00 1500 m becomes a 4:29.4 mile. The common rule of multiplying by 1.08 gives almost the same answer." }
+          },
+          {
+            "@type": "Question",
+            "name": "How much slower is a mile than a 1600 m?",
+            "acceptedAnswer": { "@type": "Answer", "text": "About 0.6%. Add about 1.5 seconds to a 4:00 1600 m, or about 1.9 seconds to a 5:00 1600 m." }
+          },
+          {
+            "@type": "Question",
+            "name": "Why not just keep the same pace?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A longer race is run at a slightly slower pace. Keeping the same pace makes the mile about 1 second too fast for a 4:10 1500 m runner." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert a 3200 m time to 2 miles?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose 3200 m. The same 0.6% applies, so a 10:00 3200 m is about 10:03.7 for 2 miles." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/conversione-miglio" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Mile converter</nav>
+    <div class="page-head">
+      <p class="eyebrow">Racing</p>
+      <h1>Mile, 1500 m and 1600 m converter</h1>
+      <p class="lead">Convert a time between the 1500 m, the mile and the 1600 m. It also converts between the 3000 m, 2 miles and the 3200 m.</p>
+    </div>
+
+    <form class="tool" id="mile-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="field">
+          <label for="event">Event you ran</label>
+          <select id="event" name="event">
+            <option value="1500" selected>1500 m</option>
+            <option value="1609.344">Mile</option>
+            <option value="1600">1600 m</option>
+            <option value="3000">3000 m</option>
+            <option value="3218.688">2 miles</option>
+            <option value="3200">3200 m</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="time">Time</label>
+          <input type="text" id="time" name="time" inputmode="decimal" value="4:10.00" placeholder="4:10.00">
+        </div>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"event":"1500","time":"4:10.00"}'>1500 m in 4:10</button>
+          <button type="button" class="chip" data-fill='{"event":"1609.344","time":"5:00.00"}'>Mile in 5:00</button>
+          <button type="button" class="chip" data-fill='{"event":"1600","time":"4:30.00"}'>1600 m in 4:30</button>
+          <button type="button" class="chip" data-fill='{"event":"3200","time":"10:00.0"}'>3200 m in 10:00</button>
+        </div>
+      </div>
+      <div class="tool-results" id="mile-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Mile</span><output class="v">4:29.36</output><div class="s">estimate from 1500 m 4:10.00</div></div><div class="stat"><span class="k">Factor</span><output class="v">× 1.0774</output><div class="s">Riegel, exponent 1.06</div></div></div><div class="table-wrap"><table><thead><tr><th>Event</th><th>Estimate</th><th>Same pace</th><th>/400 m</th></tr></thead><tbody><tr><td class="hl">1500 m</td><td class="hl">4:10.00</td><td>4:10.00</td><td>1:06.7</td></tr><tr><td>Mile</td><td>4:29.36</td><td>4:28.22</td><td>1:06.9</td></tr><tr><td>1600 m</td><td>4:27.70</td><td>4:26.67</td><td>1:06.9</td></tr></tbody></table></div><p class="note">Same pace is the time if you held exactly the same pace over the other distance. The estimate allows for pace dropping as a race gets longer, so it is the one to use.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>A mile is exactly 1609.344 m, so it is 109.344 m longer than a 1500 m and 9.344 m longer than a 1600 m. A longer race is also run at a slightly slower pace. The converter allows for both with the Riegel formula and its exponent of 1.06.</p>
+      <div class="formula">T2 = T1 × (D2 ÷ D1)<sup>1.06</sup></div>
+      <p>That gives one factor for each conversion:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+        <tbody>
+          <tr><td>1500 m</td><td>Mile</td><td>1.0774</td></tr>
+          <tr><td>Mile</td><td>1500 m</td><td>0.9281</td></tr>
+          <tr><td>1600 m</td><td>Mile</td><td>1.0062</td></tr>
+          <tr><td>Mile</td><td>1600 m</td><td>0.9938</td></tr>
+          <tr><td>1500 m</td><td>1600 m</td><td>1.0708</td></tr>
+        </tbody>
+      </table></div>
+      <p>The same factors work for 3000 m, 2 miles and 3200 m, because the distances are in the same ratio.</p>
+      <p>Many coaches multiply a 1500 m time by 1.08 to get a mile time. The formula gives 1.077, so the two agree within about a second for most runners. The <strong>Same pace</strong> column is the distance ratio alone, 1.0729. It makes the longer race too fast.</p>
+
+      <h2>Worked example</h2>
+      <p>A 4:10.00 1500 m is 250 s. For the mile: 250 × 1.0774 = 269.4 s, which is 4:29.4. At the same pace it would be 4:28.2, about a second faster. For the 1600 m: 250 × 1.0708 = 267.7 s, which is 4:27.7.</p>
+      <p>As a check against real races: Hicham El Guerrouj ran 3:26.00 for 1500 m in 1998 and 3:43.13 for the mile in 1999. The formula turns his 1500 m into a 3:41.95 mile, 1.2 s faster than he ran.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>It is an estimate. Race tactics, the weather and the shape you are in move a real time by more than the conversion does.</li>
+        <li>The factor is the same for everyone. A runner with more speed than endurance loses a little more over the extra distance than the formula says.</li>
+        <li>It converts between distances only. It does not turn an indoor time into an outdoor one.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Riegel, P. S. (1981). Athletic records and human endurance. <em>American Scientist</em>, 69(3), 285–290. <a href="https://www.jstor.org/stable/27850427">jstor.org/stable/27850427</a>. The international mile is defined as exactly 1609.344 m.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How do I convert a 1500 m time to a mile time?</summary>
+        <p>Multiply the 1500 m time by 1.077. A 4:10.00 1500 m becomes a 4:29.4 mile. The common rule of multiplying by 1.08 gives almost the same answer.</p>
+      </details>
+      <details>
+        <summary>How much slower is a mile than a 1600 m?</summary>
+        <p>About 0.6%. Add about 1.5 seconds to a 4:00 1600 m, or about 1.9 seconds to a 5:00 1600 m.</p>
+      </details>
+      <details>
+        <summary>Why not just keep the same pace?</summary>
+        <p>A longer race is run at a slightly slower pace. Keeping the same pace makes the mile about 1 second too fast for a 4:10 1500 m runner.</p>
+      </details>
+      <details>
+        <summary>Can I convert a 3200 m time to 2 miles?</summary>
+        <p>Yes. Choose 3200 m. The same 0.6% applies, so a 10:00 3200 m is about 10:03.7 for 2 miles.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Keep every race in one diary.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log your races and sessions, and a faster race replaces your PB on its own.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate any race time from a PB.</p></a>
+        <a class="tcard" href="/tools/split-planner"><h3>Race split planner</h3><p>Lap splits for an even or planned race.</p></a>
+        <a class="tcard" href="/tools/pace-converter"><h3>Pace and unit converter</h3><p>min/km, min/mile, per 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/mile-converter" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/conversione-miglio" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/mile-converter.js"></script>
+</body>
+</html>

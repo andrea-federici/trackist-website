@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hand time to FAT converter (0.24 / 0.14) | StrideBuddy</title>
+  <meta name="description" content="Convert a hand-timed sprint or middle-distance time to an estimated FAT time, or back. Shows the 0.24 and 0.14 second conventions used by statisticians, combined events and US high schools.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/hand-timing">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hand-timing">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hand-timing">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/hand-timing">
+  <meta property="og:title" content="Hand time to FAT converter">
+  <meta property="og:description" content="Turn a stopwatch time into an estimated FAT time, with the 0.24 and 0.14 s conventions side by side.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Track tools",
+            "item": "https://stridebuddy.app/tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Hand timing",
+            "item": "https://stridebuddy.app/tools/hand-timing"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much do you add to a hand time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most often 0.24 seconds for races under 300 m and 0.14 seconds from 300 m up to 800 m, after rounding the hand time up to the tenth. US high school (NFHS) rules add 0.24 seconds at every distance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are hand times faster than FAT?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The timer reacts late to the gun, so the watch starts after the race has begun. At the finish, timers tend to stop the watch early as the runner arrives. Both make the hand time shorter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is a converted time valid for records?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. A converted time is an estimate for comparing marks. Records and qualifying marks in sprint events need fully automatic timing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does 10.83 become 10.9?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hand times are recorded to the tenth of a second and always rounded up. A watch reading of 10.83 is recorded as 10.9 before any conversion."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/cronometraggio-manuale" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Hand timing</nav>
+    <div class="page-head">
+      <p class="eyebrow">Sprints</p>
+      <h1>Hand time to FAT converter</h1>
+      <p class="lead">Turn a stopwatch time into an estimated fully automatic (FAT) time, or the other way round. Three conventions are in use, and the converter shows what each one adds.</p>
+    </div>
+
+    <form class="tool" id="hand-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset>
+          <legend>Convert</legend>
+          <div class="seg">
+            <label><input type="radio" name="direction" value="toFat" checked><span>Hand → FAT</span></label>
+            <label><input type="radio" name="direction" value="toHand"><span>FAT → hand</span></label>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="field">
+            <label for="event">Event</label>
+            <select id="event" name="event">
+              <option value="60">60 m</option>
+              <option value="100" selected>100 m</option>
+              <option value="100h">100 m hurdles</option>
+              <option value="110h">110 m hurdles</option>
+              <option value="200">200 m</option>
+              <option value="300">300 m</option>
+              <option value="400">400 m</option>
+              <option value="400h">400 m hurdles</option>
+              <option value="800">800 m</option>
+              <option value="1500">1500 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="time" id="time-label">Hand time</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.83" placeholder="10.8">
+          </div>
+        </div>
+        <div class="field">
+          <label for="convention">Convention</label>
+          <select id="convention" name="convention">
+            <option value="tfn" selected>Statistics (Track &amp; Field News)</option>
+            <option value="combined">Combined events</option>
+            <option value="nfhs">US high school (NFHS)</option>
+          </select>
+        </div>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"100","time":"10.83"}'>10.83 in the 100 m</button>
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"400","time":"48.2"}'>48.2 in the 400 m</button>
+          <button type="button" class="chip" data-fill='{"direction":"toFat","event":"110h","time":"14.1"}'>14.1 in the 110 m hurdles</button>
+          <button type="button" class="chip" data-fill='{"direction":"toHand","event":"200","time":"22.04"}'>FAT 22.04 in the 200 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="hand-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">FAT estimate</span><output class="v">11.14</output><div class="s">hand time + 0.24 s</div></div><div class="stat"><span class="k">Hand time as recorded</span><output class="v">10.9</output><div class="s">rounded up from 10.83</div></div><div class="stat"><span class="k">Added</span><output class="v">0.24 s</output><div class="s">Statistics (T&amp;F News)</div></div></div><div class="table-wrap"><table><thead><tr><th>Convention</th><th>Difference</th><th>FAT estimate</th></tr></thead><tbody><tr><td>Statistics (T&amp;F News)</td><td>0.24 s</td><td class="hl">11.14</td></tr><tr><td>Combined events</td><td>0.24 s</td><td>11.14</td></tr><tr><td>US high school (NFHS)</td><td>0.24 s</td><td>11.14</td></tr></tbody></table></div><p class="warn">An estimate for comparing marks. A converted time is not valid for records, rankings that require FAT, or qualifying.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Why hand times are faster</h2>
+      <p>A hand timer starts the watch when they see the flash or smoke of the gun. That reaction takes time, so the watch starts after the race has begun. At the finish, timers watch the runner come in and tend to stop the watch a little early. Both errors make the time shorter.</p>
+      <p>FAT starts from the signal of the gun itself and reads the finish from a photo, so it has neither error. The 0.24 s figure comes from a study of expert timers at the 1972 Munich Olympics. Both figures held up in an informal check at the 1976 US Olympic Trials. Less experienced timers can be further off: in Track &amp; Field News comparisons, high school timers were off by 0.40 to 0.45 s on average.</p>
+
+      <h2>How it is calculated</h2>
+      <ol>
+        <li>Round the hand time up to the next tenth. Hand times are recorded in tenths and always rounded up: a watch reading of 10.83 is 10.9.</li>
+        <li>Add the figure for the convention and the race distance.</li>
+      </ol>
+      <div class="formula">FAT estimate = hand time rounded up to the tenth + 0.24 s (or 0.14 s)</div>
+      <p>Going from FAT to hand, the figure is taken off and the result is rounded up to the tenth, the way a hand time would be recorded. The three conventions add these amounts:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Convention</th><th>Under 300 m</th><th>300 m</th><th>400 m</th><th>500–600 m</th><th>800 m and up</th></tr></thead>
+        <tbody>
+          <tr><td>Statistics (T&amp;F News, Athletic.net)</td><td>0.24 s</td><td>0.14 s</td><td>0.14 s</td><td>0.14 s</td><td>none</td></tr>
+          <tr><td>Combined events (USATF, WMA)</td><td>0.24 s</td><td>0.24 s</td><td>0.14 s</td><td>none</td><td>none</td></tr>
+          <tr><td>US high school (NFHS)</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td></tr>
+        </tbody>
+      </table></div>
+      <p>Track &amp; Field News and Athletic.net rankings use the statistics convention. Combined events add the correction to a hand time before it is scored. NFHS publishes one figure, 0.24 s, for every race.</p>
+
+      <h2>Worked example</h2>
+      <p>A 100 m timed at 10.83 on a stopwatch is recorded as 10.9. Adding 0.24 s gives an estimated FAT time of 11.14. A hand-timed 400 m in 48.2 is an estimated 48.34 with the statistics or combined events convention, and 48.44 with the NFHS figure.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>The figures are averages from good timers. Any one race can be off by more, and inexperienced timers by much more.</li>
+        <li>A converted time is an estimate for comparing marks. It is not valid for records, for rankings that require FAT, or for qualifying marks. Records and qualifying marks in sprint events need fully automatic timing.</li>
+        <li>From 800 m up, most conventions add nothing: the rounding is the whole difference.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources"><a href="https://nfhs.org/resources/sports/converting-times-manual-to-fat-and-from-english-to-metric-distances">NFHS, “Converting Times: Manual to FAT”</a> (2014). <a href="https://support.athletic.net/article/4sjokyho13-hand-time-conversion-standards">Athletic.net, “Hand Time Conversion Standards”</a>, following Track &amp; Field News. <a href="https://usatf.org/statistics/calculators/combinedEventsScoring/index.html">USATF combined events scoring calculator</a>. World Masters Athletics, 2023 rules, Appendix B (combined events). World Athletics Technical Rule 19.10.1 (hand times recorded to the next longer tenth). <a href="https://trackandfieldnews.com/hand-timing-myth-hollobaugh-hammers-a-final-nail/">Track &amp; Field News, “Hand-Timing Myth? Hollobaugh Hammers A Final Nail”</a> (2026).</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How much do you add to a hand time?</summary>
+        <p>Most often 0.24 seconds for races under 300 m and 0.14 seconds from 300 m up to 800 m, after rounding the hand time up to the tenth. US high school (NFHS) rules add 0.24 seconds at every distance.</p>
+      </details>
+      <details>
+        <summary>Why are hand times faster than FAT?</summary>
+        <p>The timer reacts late to the gun, so the watch starts after the race has begun. At the finish, timers tend to stop the watch early as the runner arrives. Both make the hand time shorter.</p>
+      </details>
+      <details>
+        <summary>Is a converted time valid for records?</summary>
+        <p>No. A converted time is an estimate for comparing marks. Records and qualifying marks in sprint events need fully automatic timing.</p>
+      </details>
+      <details>
+        <summary>Why does 10.83 become 10.9?</summary>
+        <p>Hand times are recorded to the tenth of a second and always rounded up. A watch reading of 10.83 is recorded as 10.9 before any conversion.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Log races with the time you ran.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log race results for flat, hurdles and steeplechase events. A faster race in your diary replaces your PB on its own.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/wind-adjustment"><h3>Wind adjustment</h3><p>Wind-free equivalent for 100 m, 200 m and hurdles.</p></a>
+        <a class="tcard" href="/tools/combined-events"><h3>Combined events points</h3><p>Decathlon and heptathlon scores.</p></a>
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate a race time from a PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/hand-timing" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/cronometraggio-manuale" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/hand-timing.js"></script>
+</body>
+</html>

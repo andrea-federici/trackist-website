@@ -1,7 +1,7 @@
 # StrideBuddy — Marketing Website
 
-A single-page landing site for **StrideBuddy**, the iOS training diary for competitive
-track-and-field athletes. It is a static site (plain HTML + inline CSS, no build step,
+A landing site for **StrideBuddy**, the iOS training diary for competitive
+track-and-field athletes, plus the free **Track tools** calculators (see § Track tools). It is a static site (plain HTML + inline CSS, no build step,
 no dependencies, no tracking) styled with the app's **StrideBuddy Design System**
 (see `../iOS/docs/DESIGN.md`).
 
@@ -19,13 +19,20 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
+| `tools.html` | The Track tools hub (`/tools`): a card for every tool, grouped by use. |
+| `it/strumenti.html` | The Italian hub (`/it/strumenti`). Same cards, Italian pages. |
+| `tools/*.html` | One English page per tool (`/tools/rep-pace` and so on). See § Track tools for the list. |
+| `it/strumenti/*.html` | The Italian page for each tool, under an Italian slug (`/it/strumenti/passo-ripetute`). |
+| `tools/*.js` | One script per calculator. Each has a pure `view()` that writes its results markup. |
+| `tools/core.js` | Shared helpers for every calculator: time, distance and number parsing and formatting, form binding. |
+| `tools/tools.css` | Shared styles for the hubs and tool pages, using the homepage's tokens. |
 | `robots.txt` | The whole crawler policy: allows every crawler, AI ones included, plus the Sitemap line. |
 | `serve.py` | Local dev server that strips `.html` like production does. Not deployed (see `.assetsignore`). |
 | `BingSiteAuth.xml` | Bing Webmaster Tools site verification. Must stay at the site root. |
 | `a7689d76cbf393f0b43d86b076b47f32.txt` | The IndexNow key file. Its content is exactly the key, with no newline. Must stay at the site root. See § IndexNow. |
 | `indexnow.py` | Sends changed URLs to IndexNow. Run it by hand after a push that adds or changes pages. Not deployed (see `.assetsignore`). |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
-| `sitemap.xml` | The seven indexable URLs, with `hreflang` alternates for `/` and `/it` and for `/privacy` and `/it/privacy`. Must agree with the `rel="canonical"` tags. |
+| `sitemap.xml` | Every indexable URL, with `hreflang` alternates for `/` and `/it`, `/privacy` and `/it/privacy`, and each `/tools` page and its `/it/strumenti` page. Must agree with the `rel="canonical"` tags. |
 | `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md`, every `*.py` and the `*_raw.png` screenshot sources. Same syntax as `.gitignore`. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
@@ -118,8 +125,9 @@ Use the generated link verbatim when adding a channel — note the
 Attribution comes from the campaign token alone. The site adds no analytics,
 cookies, or third-party requests, and it must stay that way — but note that
 "no scripts" stopped being literally true: `index.html` carries the inline
-campaign script and an inert block of JSON-LD. Both are first-party, neither
-makes a request or records anything, and both are deliberate. Judge a proposed
+campaign script and an inert block of JSON-LD, and the Track tools pages run
+their calculators in the browser. All of it is first-party, none of it makes a
+request or records anything, and all of it is deliberate. Judge a proposed
 script by whether it tracks, fetches, or adds a dependency, not by whether it
 is JavaScript.
 
@@ -300,6 +308,54 @@ tagline in SF Pro, and `today.png` in the bezel beside `review.png` on the
 `--stage` panel. Like every page image, it is compressed once with `pngquant`
 (`--quality=85-98 --speed 1 --strip`). Rebuild it when the lockup or those
 screens change.
+
+## Track tools
+
+Free calculators and reference pages for track and field athletes, added on
+2026-10-28 (`WEB-016` in `../Planning/BACKLOG.md`). They exist to be found:
+by Google and by chatbots answering questions such as "rep pace calculator" or
+"how far is lane 8". A competitor won those answers with about 90 tool pages
+while this site had 7. Each page has to be genuinely useful on its own, and
+each ends with an App Store call to action (`ct=website`).
+
+| English | Italian | What it does |
+| --- | --- | --- |
+| `/tools/rep-pace` | `/it/strumenti/passo-ripetute` | Parses "6x200 in 27-28": pace per 100/400 m and km, volume, % of PB |
+| `/tools/training-paces` | `/it/strumenti/ritmi-allenamento` | Printable table of rep times at 60–120% of PB pace |
+| `/tools/race-predictor` | `/it/strumenti/previsione-tempi` | Riegel formula from one PB, or a personal exponent from two |
+| `/tools/split-planner` | `/it/strumenti/passaggi-gara` | Lap and cumulative splits, even or with a fade, 400 m or 200 m track |
+| `/tools/mile-converter` | `/it/strumenti/conversione-miglio` | 1500 m ↔ mile ↔ 1600 m, and 3000 m ↔ 2 miles ↔ 3200 m |
+| `/tools/hand-timing` | `/it/strumenti/cronometraggio-manuale` | Hand time ↔ FAT estimate under three published conventions |
+| `/tools/wind-adjustment` | `/it/strumenti/correzione-vento` | Still-air estimate for 100 m, 200 m and sprint hurdles (Moinat et al. 2018) |
+| `/tools/combined-events` | `/it/strumenti/prove-multiple` | Decathlon, heptathlon and indoor points with the World Athletics formulas |
+| `/tools/pace-converter` | `/it/strumenti/convertitore-passo` | Pace and speed in every unit, and marks in metres ↔ feet and inches |
+| `/tools/hurdle-heights` | `/it/strumenti/altezze-ostacoli` | Reference tables: hurdle and steeplechase specifications by category |
+| `/tools/lane-stagger` | `/it/strumenti/distanze-corsie` | Lap length per lane and staggers for 200, 400, 800 m and relays |
+
+How every tool page is built, and what to keep true when editing one:
+
+- **The page says something useful without JavaScript.** The results area is
+  shipped already filled in for the default inputs, written by the tool's own
+  `view()` function. When a tool's output or its default inputs change,
+  regenerate that markup from `view()` and paste it in, or the page shows one
+  answer before the script runs and another after.
+- **Show the method.** Every calculator has "How it is calculated" with the
+  formula, a worked example, its limits and its sources. Facts are taken from
+  a cited source, never from memory. The race predictor says plainly that it is
+  a formula, not the app's AI prediction.
+- **Licensing.** Combined events points are computed from the formulas World
+  Athletics publishes. The pages do not reproduce its scoring tables and say
+  nothing that suggests endorsement.
+- **Product claims stay true.** StrideBuddy does not log jumps or throws, so the
+  combined events and marks converter calls to action talk about running only.
+  Hurdle results are never turned into flat times (the wind tool returns a
+  hurdles time for hurdles).
+- **Pairs.** Each English page and its Italian page carry `hreflang` links to
+  each other plus `x-default` to the English page, `sitemap.xml` repeats them,
+  and each page's `FAQPage` JSON-LD matches its visible questions word for word.
+- **Adding a tool** means: the English and Italian pages, a `tools/<name>.js`,
+  a card on both hubs, both URLs in `sitemap.xml`, a line in `llms.txt`, and
+  links from related tools.
 
 ## Running it
 

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training paces from your PB: % of race pace table | StrideBuddy</title>
+  <meta name="description" content="Enter a PB and get rep times at 60% to 120% of your race pace for the common rep distances. Print the table and take it to the track.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/training-paces">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/training-paces">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/training-paces">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/training-paces">
+  <meta property="og:title" content="Training paces from your PB">
+  <meta property="og:description" content="Rep times at 60% to 120% of your PB pace, ready to print.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <style media="print">
+    /* The printed page is the table: no site chrome, light colours whatever the screen theme. */
+    :root { --paper:#FFFFFF; --card:#FFFFFF; --card-2:#F4F3F1; --ink:#000000; --ink-2:#222222; --ink-3:#444444; --edge:#CCCCCC; --edge-2:#999999; --accent:#B52B20; --accent-soft:#FFFFFF; --shadow:none; }
+    .site-header, .site-footer, .crumbs, .lead, .tool-inputs, .prose, .faq, .app-cta, .related { display: none !important; }
+    .page-head { padding: 0 0 12px; }
+    .page-head h1 { font-size: 22pt; }
+    .page-head::after { content: "stridebuddy.app/tools/training-paces"; display: block; font-size: 10pt; color: #444444; margin-top: 4px; }
+    .tool { border: 0; box-shadow: none; padding: 0; }
+    .stat { border: 1px solid #CCCCCC; }
+    .table-wrap { overflow: visible; }
+    table { font-size: 11pt; }
+    th, td { padding: 5px 8px; }
+  </style>
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Track tools",
+            "item": "https://stridebuddy.app/tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Training paces from your PB",
+            "item": "https://stridebuddy.app/tools/training-paces"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate a percentage of my PB pace?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide your PB time by its distance to get seconds per metre. Multiply by the rep distance, then divide by the percentage. With a 2:00 800 m PB, a 400 m at 90% is 400 × 0.15 ÷ 0.9 = 66.7 seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is 90% of PB pace the same as 10% slower?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The percentage is of speed. 90% of the speed takes 11.1% more time, not 10%. A 60.0 second lap at 90% is 66.7 seconds, not 66.0."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I print the table?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Use the Print the table button. The printed page has only the table and your PB."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do the rep distances change with the event?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each event shows a range of rep distances around it: shorter for sprinters, longer for distance runners. A 100 m PB shows 60 m to 300 m. A 5000 m PB shows 400 m to 2000 m."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/ritmi-allenamento" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Training paces</nav>
+    <div class="page-head">
+      <p class="eyebrow">Training</p>
+      <h1>Training paces from your PB</h1>
+      <p class="lead">Enter a PB and get a table of rep times from 60% to 120% of your race pace, for the rep distances that suit your event. Print it and take it to the track.</p>
+    </div>
+
+    <form class="tool stack" id="paces-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">PB event</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Mile</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10,000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">PB time</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+        <div class="col">
+          <div class="chips" aria-label="Examples">
+            <button type="button" class="chip" data-fill='{"pbEvent":"100","pbTime":"11.50"}'>100 m in 11.50</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"400","pbTime":"50.00"}'>400 m in 50.00</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"1500","pbTime":"4:00.00"}'>1500 m in 4:00.00</button>
+            <button type="button" class="chip" data-fill='{"pbEvent":"5000","pbTime":"15:00.00"}'>5000 m in 15:00.00</button>
+          </div>
+          <div class="chips"><button type="button" class="chip" id="paces-print">Print the table</button></div>
+        </div>
+      </div>
+      <div class="tool-results" id="paces-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">PB pace</span><output class="v">1:00.0</output><div class="s">per 400 m = 100%</div></div><div class="stat"><span class="k">Per 100 m</span><output class="v">15.00</output><div class="s">at 100%</div></div><div class="stat"><span class="k">Per km</span><output class="v">2:30</output><div class="s">at 100%</div></div></div><p class="note">Your PB: 800 m in 2:00.00. Each cell is the time for one rep.</p><div class="table-wrap"><table class="paces"><thead><tr><th>% PB</th><th>200 m</th><th>300 m</th><th>400 m</th><th>600 m</th><th>800 m</th><th>1000 m</th></tr></thead><tbody><tr><td>120%</td><td>25.0</td><td>37.5</td><td>50.0</td><td>1:15</td><td>1:40</td><td>2:05</td></tr><tr><td>115%</td><td>26.1</td><td>39.1</td><td>52.2</td><td>1:18</td><td>1:44</td><td>2:10</td></tr><tr><td>110%</td><td>27.3</td><td>40.9</td><td>54.5</td><td>1:22</td><td>1:49</td><td>2:16</td></tr><tr><td>105%</td><td>28.6</td><td>42.9</td><td>57.1</td><td>1:26</td><td>1:54</td><td>2:23</td></tr><tr><td class="hl">100%</td><td class="hl">30.0</td><td class="hl">45.0</td><td class="hl">1:00.0</td><td class="hl">1:30</td><td class="hl">2:00</td><td class="hl">2:30</td></tr><tr><td>95%</td><td>31.6</td><td>47.4</td><td>1:03.2</td><td>1:35</td><td>2:06</td><td>2:38</td></tr><tr><td>90%</td><td>33.3</td><td>50.0</td><td>1:06.7</td><td>1:40</td><td>2:13</td><td>2:47</td></tr><tr><td>85%</td><td>35.3</td><td>52.9</td><td>1:10.6</td><td>1:46</td><td>2:21</td><td>2:56</td></tr><tr><td>80%</td><td>37.5</td><td>56.3</td><td>1:15.0</td><td>1:53</td><td>2:30</td><td>3:08</td></tr><tr><td>75%</td><td>40.0</td><td>1:00.0</td><td>1:20.0</td><td>2:00</td><td>2:40</td><td>3:20</td></tr><tr><td>70%</td><td>42.9</td><td>1:04.3</td><td>1:25.7</td><td>2:09</td><td>2:51</td><td>3:34</td></tr><tr><td>65%</td><td>46.2</td><td>1:09.2</td><td>1:32.3</td><td>2:18</td><td>3:05</td><td>3:51</td></tr><tr><td>60%</td><td>50.0</td><td>1:15.0</td><td>1:40.0</td><td>2:30</td><td>3:20</td><td>4:10</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>Your PB gives your race pace: the PB time divided by the PB distance. 100% is that pace. A higher percentage is faster: 110% means 10% more speed than your PB pace.</p>
+      <div class="formula">rep time = rep distance × (PB time ÷ PB distance) ÷ (% ÷ 100)</div>
+      <p>This is the same % of PB as in the <a href="/tools/rep-pace">rep pace calculator</a>, so the two tools give the same numbers.</p>
+
+      <h2>A percentage of speed, not of time</h2>
+      <p>90% of the speed is not 10% more time: it is 11.1% more. A 60.0 s 400 m at 90% is 66.7 s, not 66.0 s. Some coaches use a percentage of time instead. If yours does, their numbers will be slightly different.</p>
+
+      <h2>Reading the table</h2>
+      <p>The 100% row is your race pace, and it is highlighted. How hard a percentage is depends on the rep distance. 110% of 5000 m pace over 400 m is a solid session for a distance runner. 110% of 400 m pace over 400 m is faster than the PB itself, so it is not possible.</p>
+
+      <h2>Worked example</h2>
+      <p>An 800 m runner with a PB of 2:00.00 has a race pace of 15.0 s per 100 m, which is 60.0 per 400 m. A 400 m rep at 100% is 60.0, at 110% it is 54.5 and at 90% it is 66.7. A 200 m rep at 120% is 25.0.</p>
+
+      <h2>Limits</h2>
+      <p>Percentages of one PB do not tell you how fast you can race other distances. For that, use the <a href="/tools/race-predictor">race time predictor</a>. The table does not choose the session for you: how many reps, how much recovery and which percentage is up to you and your coach, or your plan.</p>
+
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How do I calculate a percentage of my PB pace?</summary>
+        <p>Divide your PB time by its distance to get seconds per metre. Multiply by the rep distance, then divide by the percentage. With a 2:00 800 m PB, a 400 m at 90% is 400 × 0.15 ÷ 0.9 = 66.7 seconds.</p>
+      </details>
+      <details>
+        <summary>Is 90% of PB pace the same as 10% slower?</summary>
+        <p>No. The percentage is of speed. 90% of the speed takes 11.1% more time, not 10%. A 60.0 second lap at 90% is 66.7 seconds, not 66.0.</p>
+      </details>
+      <details>
+        <summary>Can I print the table?</summary>
+        <p>Yes. Use the Print the table button. The printed page has only the table and your PB.</p>
+      </details>
+      <details>
+        <summary>Why do the rep distances change with the event?</summary>
+        <p>Each event shows a range of rep distances around it: shorter for sprinters, longer for distance runners. A 100 m PB shows 60 m to 300 m. A 5000 m PB shows 400 m to 2000 m.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Train at these paces, then log the reps.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log every rep and split, and your fastest rep at each distance becomes a training record on its own. StrideBuddy can also build your training week from your event, your recent training and your races.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/rep-pace"><h3>Rep pace calculator</h3><p>Pace, volume and % of PB for a session.</p></a>
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate a race time from a PB.</p></a>
+        <a class="tcard" href="/tools/pace-converter"><h3>Pace and unit converter</h3><p>min/km, min/mile, per 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/training-paces" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/ritmi-allenamento" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/training-paces.js"></script>
+</body>
+</html>

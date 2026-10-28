@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pace converter: min/km, min/mile, per 400 m, km/h, mph | StrideBuddy</title>
+  <meta name="description" content="Convert running pace and speed between min/km, min/mile, per 400 m, per 100 m, km/h, mph and m/s, see the time for every race distance, and convert field-event marks to feet and inches.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/pace-converter">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/pace-converter">
+  <meta property="og:title" content="Pace and unit converter for runners">
+  <meta property="og:description" content="min/km, min/mile, per 400 m, km/h, mph and m/s in one place, plus metres to feet and inches.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Track tools",
+            "item": "https://stridebuddy.app/tools"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Pace converter",
+            "item": "https://stridebuddy.app/tools/pace-converter"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert min/km to min/mile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Multiply the pace per km by 1.609344. A pace of 4:00 per km is 6:26 per mile."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast is 4:00 per km in km/h?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "15 km/h. Divide 60 by the pace in minutes: 60 ÷ 4 = 15."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What pace per 400 m is a 5 km in 20:00?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1:36 per 400 m. 20 minutes is 1,200 seconds, and 1,200 ÷ 5,000 × 400 = 96 seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert metres to feet and inches?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide the metres by 0.0254 to get inches, then divide by 12 for feet. 6.50 m is 255.91 inches, or 21 ft 3.91 in. US results round down to the quarter inch, so it is written 21 ft 3¾ in."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Pace converter</nav>
+    <div class="page-head">
+      <p class="eyebrow">Conversions</p>
+      <h1>Pace and unit converter</h1>
+      <p class="lead">Type a pace or a speed in any box. The other boxes and the race-distance table update as you type. Below it, a second converter turns field-event marks into feet and inches.</p>
+    </div>
+
+    <form class="tool" id="pace-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field"><label for="perKm">Per km</label><input type="text" id="perKm" name="perKm" inputmode="decimal" value="4:00"></div>
+          <div class="field"><label for="perMile">Per mile</label><input type="text" id="perMile" name="perMile" inputmode="decimal" value="6:26"></div>
+          <div class="field"><label for="per400">Per 400 m</label><input type="text" id="per400" name="per400" inputmode="decimal" value="1:36.0"></div>
+          <div class="field"><label for="per100">Per 100 m</label><input type="text" id="per100" name="per100" inputmode="decimal" value="24.0"></div>
+          <div class="field"><label for="kmh">km/h</label><input type="text" id="kmh" name="kmh" inputmode="decimal" value="15.00"></div>
+          <div class="field"><label for="mph">mph</label><input type="text" id="mph" name="mph" inputmode="decimal" value="9.32"></div>
+          <div class="field"><label for="ms">m/s</label><input type="text" id="ms" name="ms" inputmode="decimal" value="4.17"></div>
+        </div>
+        <span class="hint">Type in any box. Write times as 4:00 or 1:36.0.</span>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"perKm":"4:00"}'>4:00 /km</button>
+          <button type="button" class="chip" data-fill='{"perMile":"6:00"}'>6:00 /mile</button>
+          <button type="button" class="chip" data-fill='{"per400":"1:10"}'>70 s per 400 m</button>
+          <button type="button" class="chip" data-fill='{"kmh":"20"}'>20 km/h</button>
+          <button type="button" class="chip" data-fill='{"mph":"8"}'>8 mph</button>
+        </div>
+      </div>
+      <div class="tool-results" id="pace-results" aria-live="polite"><div class="table-wrap"><table><thead><tr><th>Distance</th><th>Time at this pace</th></tr></thead><tbody><tr><td>100 m</td><td>24.0</td></tr><tr><td>200 m</td><td>48.0</td></tr><tr><td>400 m</td><td>1:36.0</td></tr><tr><td>800 m</td><td>3:12.0</td></tr><tr><td>1500 m</td><td>6:00.0</td></tr><tr><td>Mile</td><td>6:26.2</td></tr><tr><td>5 km</td><td>20:00</td></tr><tr><td>10 km</td><td>40:00</td></tr><tr><td>Half marathon</td><td>1:24:23</td></tr><tr><td>Marathon</td><td>2:48:47</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2 id="marks">Field-event marks in feet and inches</h2>
+      <p>Jumps and throws are measured in metres. US results also give them in feet and inches. Type a mark in either unit.</p>
+    </section>
+    <form class="tool" id="marks-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="field"><label for="metres">Metres</label><input type="text" id="metres" name="metres" inputmode="decimal" value="6.50"></div>
+        <div class="row">
+          <div class="field"><label for="feet">Feet</label><input type="text" id="feet" name="feet" inputmode="numeric" value="21"></div>
+          <div class="field"><label for="inches">Inches</label><input type="text" id="inches" name="inches" inputmode="decimal" value="3.75"></div>
+        </div>
+        <span class="hint">Inches can have decimals: 3.75 is 3¾.</span>
+        <div class="chips" aria-label="Examples">
+          <button type="button" class="chip" data-fill='{"metres":"2.00"}'>2.00 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"6.50"}'>6.50 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"17.50"}'>17.50 m</button>
+          <button type="button" class="chip" data-fill='{"metres":"60.00"}'>60.00 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="marks-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Feet and inches</span><output class="v">21 ft 3¾ in</output><div class="s">rounded down to the ¼ inch</div></div><div class="stat"><span class="k">Metres</span><output class="v">6.50 m</output><div class="s">as on the result</div></div><div class="stat"><span class="k">Exact inches</span><output class="v">255.91</output><div class="s">before rounding</div></div></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>Every box is turned into one speed, in metres per second. The other boxes are worked out from that speed.</p>
+      <div class="formula">speed (m/s) = distance ÷ time<br>pace per km = 1000 ÷ speed<br>km/h = m/s × 3.6<br>mph = m/s × 3600 ÷ 1609.344</div>
+      <p>A mile is exactly 1,609.344 m and an inch is exactly 2.54 cm. Pace per km and per mile is shown to the second, per 400 m and per 100 m to the tenth.</p>
+      <p>For marks, metres are divided by 0.0254 to get inches, and 12 inches make a foot. US results give most marks to the quarter inch, and field-event marks are always rounded down, so the result is rounded down to the quarter inch. Feet and inches are turned into metres and rounded down to the centimetre, as World Athletics records jumps to the centimetre below the distance measured.</p>
+
+      <h2>Worked example</h2>
+      <p>A pace of 4:00 per km is 1,000 m in 240 s, so the speed is 4.17 m/s. That is 15.00 km/h, 9.32 mph, 6:26 per mile and 1:36.0 per 400 m. At this pace a 5 km takes 20:00 and a half marathon 1:24:23.</p>
+      <p>A long jump of 6.50 m is 255.91 inches. That is 21 feet and 3.91 inches, written as 21 ft 3¾ in once rounded down to the quarter inch.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>The distance table holds one pace for the whole distance. It is not a race prediction. For that, use the <a href="/tools/race-predictor">race time predictor</a>.</li>
+        <li>A mile is 9.344 m longer than 1600 m. To compare the two, use the <a href="/tools/mile-converter">mile and 1600 m converter</a>.</li>
+        <li>Pace per 400 m assumes a lap in lane 1. Whole laps in an outer lane are longer: see <a href="/tools/lane-stagger">lane distances</a>.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Conversion factors: <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST Special Publication 811, Appendix B.9</a> (inch, foot, mile and mph, all exact). Quarter-inch marks in US high school results: <a href="https://coloradopreps.com/track-field-measuring-a-better-way/">CHSAANow, “Track &amp; field: measuring a better way”</a>. Rounding marks down: <a href="https://co.milesplit.com/articles/205020/getting-a-few-track-and-field-items-off-my-chest">MileSplit Colorado</a>. Jumps recorded to the centimetre below: World Athletics Technical Rules, horizontal jumps.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How do I convert min/km to min/mile?</summary>
+        <p>Multiply the pace per km by 1.609344. A pace of 4:00 per km is 6:26 per mile.</p>
+      </details>
+      <details>
+        <summary>How fast is 4:00 per km in km/h?</summary>
+        <p>15 km/h. Divide 60 by the pace in minutes: 60 ÷ 4 = 15.</p>
+      </details>
+      <details>
+        <summary>What pace per 400 m is a 5 km in 20:00?</summary>
+        <p>1:36 per 400 m. 20 minutes is 1,200 seconds, and 1,200 ÷ 5,000 × 400 = 96 seconds.</p>
+      </details>
+      <details>
+        <summary>How do I convert metres to feet and inches?</summary>
+        <p>Divide the metres by 0.0254 to get inches, then divide by 12 for feet. 6.50 m is 255.91 inches, or 21 ft 3.91 in. US results round down to the quarter inch, so it is written 21 ft 3¾ in.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Keep every pace in one diary.</h2>
+        <p>StrideBuddy is a training diary for track athletes. Log continuous runs with distance, time and pace, and every rep and split of your track sessions.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/rep-pace"><h3>Rep pace calculator</h3><p>Pace, volume and % of PB for a session like 6x200.</p></a>
+        <a class="tcard" href="/tools/mile-converter"><h3>Mile, 1600 m and 1500 m</h3><p>Convert a time between the three.</p></a>
+        <a class="tcard" href="/tools/race-predictor"><h3>Race time predictor</h3><p>Estimate a race time from a PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/pace-converter" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/pace-converter.js"></script>
+</body>
+</html>

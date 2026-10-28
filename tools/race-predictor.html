@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Race time predictor for track, 60 m to 10,000 m | StrideBuddy</title>
+  <meta name="description" content="Predict your race times from a PB with the Riegel formula, from 60 m to 10,000 m. Change the exponent, or enter two PBs to work out your own.">
+  <link rel="canonical" href="https://stridebuddy.app/tools/race-predictor">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/race-predictor">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/previsione-tempi">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/race-predictor">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/tools/race-predictor">
+  <meta property="og:title" content="Race time predictor for track">
+  <meta property="og:description" content="Race times from a PB with the Riegel formula, 60 m to 10,000 m. Enter two PBs to work out your own exponent.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Track tools", "item": "https://stridebuddy.app/tools" },
+          { "@type": "ListItem", "position": 2, "name": "Race time predictor", "item": "https://stridebuddy.app/tools/race-predictor" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the Riegel formula work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It assumes your time grows a little faster than the distance. The formula is T2 = T1 × (D2 ÷ D1)^1.06. Each time the distance doubles, your pace slows by about 4%." }
+          },
+          {
+            "@type": "Question",
+            "name": "How accurate is the race time predictor?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It is a formula, not a test of your fitness. It is closest when the race is near the distance of your PB and you train for that race. It is least reliable for sprints and for races much longer or shorter than your PB." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which exponent should I use?",
+            "acceptedAnswer": { "@type": "Answer", "text": "1.06 is Riegel's value and a fair start. If you have two recent PBs, use the two PBs mode to work out your own. A lower exponent means you hold your pace well in longer races. A higher one means you are stronger over shorter races." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this how StrideBuddy predicts race times?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. This page uses one formula. The StrideBuddy app uses AI to read your training diary and predict your race times. Each prediction shows the most likely time, a range around it and a confidence level." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/tools">All tools</a>
+        <a class="nav-link" href="/it/strumenti/previsione-tempi" hreflang="it" lang="it">Italiano</a>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Download StrideBuddy on the App Store">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/tools">Track tools</a><span aria-hidden="true">/</span>Race time predictor</nav>
+    <div class="page-head">
+      <p class="eyebrow">Racing</p>
+      <h1>Race time predictor</h1>
+      <p class="lead">Enter a PB and get an estimate for every track event from 60 m to 10,000 m. The estimates come from the Riegel formula. Enter two PBs and it works out your own exponent.</p>
+    </div>
+
+    <form class="tool stack" id="pred-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Based on</legend>
+          <div class="seg">
+            <label><input type="radio" name="mode" value="one" checked><span>One PB</span></label>
+            <label><input type="radio" name="mode" value="two"><span>Two PBs</span></label>
+          </div>
+        </fieldset>
+        <div class="col">
+          <div class="row">
+            <div class="field">
+              <label for="pbEvent">PB event</label>
+              <select id="pbEvent" name="pbEvent">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800">800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500" selected>1500 m</option>
+                <option value="1609.344">Mile</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10,000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime">PB time</label>
+              <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="4:10.00" placeholder="4:10.00">
+            </div>
+          </div>
+          <div class="row" id="second-pb" hidden>
+            <div class="field">
+              <label for="pbEvent2">Second PB event</label>
+              <select id="pbEvent2" name="pbEvent2">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800" selected>800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500">1500 m</option>
+                <option value="1609.344">Mile</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10,000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime2">Second PB time</label>
+              <input type="text" id="pbTime2" name="pbTime2" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field" id="exponent-field">
+            <label for="k">Exponent</label>
+            <input type="text" id="k" name="k" inputmode="decimal" value="1.06" aria-describedby="k-hint">
+            <span class="hint" id="k-hint">Riegel used 1.06. Higher means you slow down more as the race gets longer.</span>
+          </div>
+          <div class="chips" aria-label="Examples">
+            <button type="button" class="chip" data-fill='{"mode":"one","pbEvent":"1500","pbTime":"4:10.00","k":"1.06"}'>1500 m in 4:10</button>
+            <button type="button" class="chip" data-fill='{"mode":"one","pbEvent":"5000","pbTime":"15:30.0","k":"1.06"}'>5000 m in 15:30</button>
+            <button type="button" class="chip" data-fill='{"mode":"two","pbEvent":"1500","pbTime":"4:05.00","pbEvent2":"800","pbTime2":"2:00.00"}'>800 m + 1500 m</button>
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="pred-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Exponent</span><output class="v">1.060</output><div class="s">1.06 is Riegel's value</div></div><div class="stat"><span class="k">Slow-down</span><output class="v">+4.2%</output><div class="s">pace each time the distance doubles</div></div></div><div class="table-wrap"><table><thead><tr><th>Event</th><th>Time</th><th>/400 m</th><th>/km</th><th>Note</th></tr></thead><tbody><tr><td>60 m</td><td>8.24</td><td>55.0</td><td>2:17</td><td>Rough: sprint</td></tr><tr><td>100 m</td><td>14.17</td><td>56.7</td><td>2:22</td><td>Rough: sprint</td></tr><tr><td>200 m</td><td>29.54</td><td>59.1</td><td>2:28</td><td>Rough: sprint</td></tr><tr><td>400 m</td><td>1:01.58</td><td>1:01.6</td><td>2:34</td><td></td></tr><tr><td>800 m</td><td>2:08.40</td><td>1:04.2</td><td>2:40</td><td></td></tr><tr><td>1000 m</td><td>2:42.66</td><td>1:05.1</td><td>2:43</td><td></td></tr><tr><td class="hl">1500 m</td><td class="hl">4:10.00</td><td>1:06.7</td><td>2:47</td><td>Your PB</td></tr><tr><td>Mile</td><td>4:29.36</td><td>1:06.9</td><td>2:47</td><td></td></tr><tr><td>3000 m</td><td>8:41.23</td><td>1:09.5</td><td>2:54</td><td></td></tr><tr><td>5000 m</td><td>14:55.8</td><td>1:11.7</td><td>2:59</td><td></td></tr><tr><td>10,000 m</td><td>31:07.6</td><td>1:14.7</td><td>3:07</td><td>Rough: far from PB</td></tr></tbody></table></div><p class="note">Rough means the formula is outside the range where it works well: below 400 m, or more than 4 times longer or shorter than your PB.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>How it is calculated</h2>
+      <p>The predictor uses the formula Peter Riegel published in 1981. It says your time grows a little faster than the distance.</p>
+      <div class="formula">T2 = T1 × (D2 ÷ D1)<sup>k</sup></div>
+      <p>T1 is your PB time over distance D1. T2 is the estimate for distance D2. Riegel fitted k = 1.06 to world records. With 1.06, your pace slows by about 4% each time the distance doubles.</p>
+      <p>In two PBs mode, the predictor works out the exponent that fits both of your PBs:</p>
+      <div class="formula">k = ln(T2 ÷ T1) ÷ ln(D2 ÷ D1)</div>
+      <p>It then uses that exponent for every other event. Your two PBs stay exactly as you entered them.</p>
+      <p>This page uses one formula. It is not the race prediction in the StrideBuddy app, which reads your training diary.</p>
+
+      <h2>Worked example</h2>
+      <p>A runner has a 1500 m PB of 4:10.00. For 5000 m the formula gives 250 s × (5000 ÷ 1500)<sup>1.06</sup> = 895.8 s, which is 14:55.8. That is 71.7 s per 400 m, against 66.7 s per 400 m in the 1500 m.</p>
+      <p>The same runner also has an 800 m PB of 2:00.00. In two PBs mode the exponent becomes ln(250 ÷ 120) ÷ ln(1500 ÷ 800) = 1.168. That runner slows more than average as the race gets longer, so the 5000 m estimate goes up.</p>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>The formula comes from world records over longer races. It does not describe sprints well, so every estimate below 400 m, or made from a sprint PB, is marked rough.</li>
+        <li>The further the race is from your PB, the bigger the error. Estimates more than 4 times longer or shorter than your nearest PB are marked rough.</li>
+        <li>It assumes you train for the target race. A 1500 m runner who never runs long will not run the predicted 10,000 m.</li>
+        <li>It knows nothing about the weather, the race tactics or how fit you are today.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Riegel, P. S. (1981). Athletic records and human endurance. <em>American Scientist</em>, 69(3), 285–290. <a href="https://www.jstor.org/stable/27850427">jstor.org/stable/27850427</a></p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>How does the Riegel formula work?</summary>
+        <p>It assumes your time grows a little faster than the distance. The formula is T2 = T1 × (D2 ÷ D1)^1.06. Each time the distance doubles, your pace slows by about 4%.</p>
+      </details>
+      <details>
+        <summary>How accurate is the race time predictor?</summary>
+        <p>It is a formula, not a test of your fitness. It is closest when the race is near the distance of your PB and you train for that race. It is least reliable for sprints and for races much longer or shorter than your PB.</p>
+      </details>
+      <details>
+        <summary>Which exponent should I use?</summary>
+        <p>1.06 is Riegel's value and a fair start. If you have two recent PBs, use the two PBs mode to work out your own. A lower exponent means you hold your pace well in longer races. A higher one means you are stronger over shorter races.</p>
+      </details>
+      <details>
+        <summary>Is this how StrideBuddy predicts race times?</summary>
+        <p>No. This page uses one formula. The StrideBuddy app uses AI to read your training diary and predict your race times. Each prediction shows the most likely time, a range around it and a confidence level.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Race predictions from your training.</h2>
+        <p>StrideBuddy is a training diary for track athletes. It uses AI to read your diary and predict your race times, with the most likely time, a range around it and a confidence level.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Download on the App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Open the web app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards">
+        <a class="tcard" href="/tools/mile-converter"><h3>Mile, 1500 m and 1600 m converter</h3><p>Convert a time between the three races.</p></a>
+        <a class="tcard" href="/tools/split-planner"><h3>Race split planner</h3><p>Lap splits for an even or planned race.</p></a>
+        <a class="tcard" href="/tools/training-paces"><h3>Training paces from PB</h3><p>Rep times at 60–120% of your PB pace.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/" aria-label="StrideBuddy home">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/tools">Track tools</a>
+        <a href="https://web.stridebuddy.app">Web app</a>
+        <a href="/faq">FAQ</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+      <nav class="lang-links" aria-label="Language">
+        <a href="/tools/race-predictor" hreflang="en" aria-current="page">English</a>
+        <a href="/it/strumenti/previsione-tempi" hreflang="it" lang="it">Italiano</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Track and field training, kept in one diary.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/race-predictor.js"></script>
+</body>
+</html>
