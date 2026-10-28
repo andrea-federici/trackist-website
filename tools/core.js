@@ -148,6 +148,15 @@
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
+  // The language menu is a <details>: close it on a click outside it or on Escape.
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("details.lang-menu[open]").forEach(function (d) { if (!d.contains(e.target)) d.open = false; });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll("details.lang-menu[open]").forEach(function (d) { d.open = false; d.querySelector("summary").focus(); });
+  });
+
   window.SB = {
     lang: lang, t: t, MILE: MILE,
     parseTime: parseTime, parseRange: parseRange, parseDistance: parseDistance,

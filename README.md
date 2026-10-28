@@ -126,7 +126,8 @@ Attribution comes from the campaign token alone. The site adds no analytics,
 cookies, or third-party requests, and it must stay that way — but note that
 "no scripts" stopped being literally true: `index.html` carries the inline
 campaign script and an inert block of JSON-LD, and the Track tools pages run
-their calculators in the browser. All of it is first-party, none of it makes a
+their calculators in the browser. Every page with a header also closes its
+language menu with a few lines of script. All of it is first-party, none of it makes a
 request or records anything, and all of it is deliberate. Judge a proposed
 script by whether it tracks, fetches, or adds a dependency, not by whether it
 is JavaScript.
