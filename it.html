@@ -409,7 +409,8 @@
     /* Season strip: the app's Coach season blocks (CoachSeasonOverviewCard). */
     .season { display: grid; gap: 3px; align-items: end; }
     .season span { height: 16px; border-radius: 4.5px; }
-    .season .now { height: 22px; border-radius: 7px; border: 2px solid var(--accent); background: var(--card); }
+    /* This week, as in the app: its block ringed in red, standing off it. */
+    .season .now { height: 22px; background: var(--moss); outline: 2px solid var(--accent); outline-offset: 2px; }
     .season .past { opacity: .35; }
     .w-base { background: var(--slate); } .w-build { background: var(--moss); }
     .w-sharpen { background: var(--gold); } .w-race { background: var(--race); } .w-rest { background: var(--rest); }
@@ -431,7 +432,11 @@
     .season-card .big { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
     .season-card .season { grid-template-columns: repeat(18, minmax(0, 1fr)); gap: 4px; margin-top: 24px; }
     .season-card .season span { height: 56px; border-radius: 9px; }
-    .season-card .ends { display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--ink-4); }
+    /* The small Plan card's strip: tall blocks and the season's dates fill it. */
+    .tiles .tile > :last-child { align-self: start; }
+    .tile .season { gap: 4px; }
+    .tile .season span { height: 44px; border-radius: 8px; }
+    .season-ends { display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--ink-4); }
     .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-3); }
     .legend span { display: inline-flex; align-items: center; gap: 7px; }
     .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
@@ -650,8 +655,11 @@
         <div class="g3 tiles" style="margin-top:16px">
           <article class="tile">
             <h3>La tua settimana segue la stagione.</h3>
-            <div class="season" aria-hidden="true" style="grid-template-columns:repeat(12, minmax(0, 1fr)); margin-top:20px">
-              <span class="w-base past"></span><span class="now"></span><span class="w-build"></span><span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+            <div aria-hidden="true" style="margin-top:20px">
+              <div class="season" style="grid-template-columns:repeat(12, minmax(0, 1fr))">
+                <span class="w-base past"></span><span class="now"></span><span class="w-build"></span><span class="w-sharpen"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
+              </div>
+              <div class="season-ends num"><span>15 MAG</span><span>15 SET</span></div>
             </div>
           </article>
           <article class="tile">
@@ -727,7 +735,7 @@
               <span class="w-race"></span><span class="w-race"></span><span class="w-sharpen"></span><span class="w-race"></span><span class="w-race"></span>
               <span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span><span class="w-rest"></span>
             </div>
-            <div class="ends num" aria-hidden="true"><span>15 MAG</span><span>15 SET</span></div>
+            <div class="season-ends num" aria-hidden="true"><span>15 MAG</span><span>15 SET</span></div>
             <div class="legend" aria-hidden="true">
               <span><i class="w-base"></i>BASE</span>
               <span><i class="w-build"></i>SVILUPPO</span>
