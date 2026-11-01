@@ -18,10 +18,11 @@
 */
 
 :root {
-  --accent-hover: #B52B20;
+  --accent-hover: #C9200F;
   --button-on-accent: #FFFFFF;
-  --r-ctrl: 14px;
-  --shadow-accent: 0 8px 22px rgba(219,36,18,.28);
+  --r-ctrl: 999px;
+  --red-lip: #A8231C;
+  --shadow-accent: 0 5px 0 var(--red-lip), 0 10px 22px rgba(219,36,18,.22);
 }
 
 .lede { font-size:18px; max-width:30em; }
@@ -32,17 +33,19 @@
   margin-top:26px;
   padding:13px 22px;
   border-radius:var(--r-ctrl);
-  background:var(--accent);
+  background:#DB2412;
   color:var(--button-on-accent);
   font-size:15px;
   font-weight:700;
   line-height:1.2;
   box-shadow:var(--shadow-accent);
-  transition:transform .15s ease, background .2s ease;
+  transition:transform .32s cubic-bezier(.34,1.32,.64,1), box-shadow .32s cubic-bezier(.34,1.32,.64,1), background .2s ease;
 }
-.cta:hover { background:var(--accent-hover); transform:translateY(-1px); text-decoration:none; }
+.cta:hover { background:var(--accent-hover); text-decoration:none; }
+.cta:active { transform:translateY(4px); box-shadow:0 1px 0 var(--red-lip); transition:transform .08s ease-out, box-shadow .08s ease-out; }
+@media (prefers-color-scheme:dark) { :root { --red-lip:#8C1A10; } }
 
 @media (prefers-reduced-motion: reduce) {
   .cta { transition:none; }
-  .cta:hover { transform:none; }
+  .cta:active { transform:none; }
 }

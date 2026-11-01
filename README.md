@@ -9,7 +9,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The one-page landing site (hero, sessions, features, plan, weekly Plan, periodization, session purpose, race predictions, volume, records, races, iPhone and web, how it works, CTA). |
+| `index.html` | The one-page landing site (hero, sessions, features, plan, weekly Plan, periodization, session purpose, race predictions, volume, records, races, iPhone and web, CTA). |
 | `it.html` | The Italian homepage (`/it`): the same sections in Italian, with Italian screenshots. Its `<style>` block and campaign script are copies of `index.html`'s; change both pages together. `hreflang` links on both pages and in `sitemap.xml` pair `/` and `/it`. |
 | `faq.html` | FAQ (`/faq`), with `FAQPage` JSON-LD that must match the visible answers word for word. |
 | `support.html` | Support / contact page. |
@@ -38,6 +38,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
 | `assets/og-image-it.png` | The Italian share card, on `/it` and `/it/privacy`. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
+| `assets/icons/` | The app's illustrated workout icons (`iOS/StrideBuddy/Assets.xcassets/IllustratedIcons/`), 120×120 and compressed, with `-dark` variants where the app has one. Used on the homepage's session cards. |
 | `assets/screenshots/it/` | Italian screenshots for `it.html`. See § App screenshots. |
 
 **Everything in this folder is published unless `.assetsignore` excludes it.**
@@ -375,16 +376,24 @@ so local matches production. It is a development tool and is never deployed.
 ## Design system
 
 Colors, type, radius, and tone mirror `iOS/docs/DESIGN.md` and the app's Swift
-design tokens (`iOS/StrideBuddy/DesignSystem/StrideBuddyColors.swift`): a white
-paper page with white cards, ink text, the StrideBuddy red accent (`#DB2412`),
-system-sans typography with tabular digits, and the app's 32px card radius. Dark
-appearance is the app's: a black page with warm smoke cards, cream ink and the
-lifted red. **Light is the default.** Dark is used only when the visitor's device
+design tokens (`iOS/StrideBuddy/DesignSystem/StrideBuddyColors.swift`): a neutral
+off-white page (`#FAFAF9`) with white cards, ink text, the StrideBuddy red accent
+(`#DB2412`), system-sans typography with tabular digits, and the app's 32px card
+radius. Dark appearance is the app's: a black page with warm smoke cards, cream
+ink and the lifted red.
+
+Since the 2026-11-01 redesign the site also follows the app's raised surfaces
+(`iOS/docs/UI_DESIGN_LANGUAGE.md` §2.2): every card stands on a 3px warm lip with a
+soft shadow, chips on a 2px lip, and buttons are capsules that sink onto their lip
+while pressed, the red primary on a 5px darker red lip with a red glow. Session
+cards carry the app's illustrated category icon on its tinted square (neutral smoke
+in dark). The final call to action, and the tool pages' `.app-cta`, are drawn as the
+training page's red Log card with white buttons. **Light is the default.** Dark is used only when the visitor's device
 asks for it through `prefers-color-scheme`; there is no toggle on the page. Do not
 introduce a separate web palette — derive from those tokens.
 
-The support, legal and campaign pages share `legal.css`, which still uses the
-older warm-brown dark palette. Bring it in line when those pages are next touched.
+The support, legal and campaign pages share `legal.css`, which uses the same
+palette and raised cards (aligned 2026-11-01).
 
 ## App screenshots
 
@@ -392,18 +401,18 @@ The page uses real app screenshots exported with a transparent device frame:
 
 | File | Screen | Used in |
 | --- | --- | --- |
-| `assets/screenshots/today.png` | Training page (Log a session and the diary) | Hero front phone, and the iPhone and web section (layered inside `assets/iphone-17-black-bezel.png`) |
+| `assets/screenshots/today.png` | Training page (week circles, the Log card and the diary) | Hero front phone, and the iPhone and web section (layered inside `assets/iphone-17-black-bezel.png`) |
 | `assets/screenshots/review.png` | Plan / Season status and weekly plan | Hero cascade, Plan section (`#coach`) |
 | `assets/screenshots/predictions.png` | Insights / 800m performance prediction sheet | Hero cascade, Race predictions section |
 | `assets/screenshots/records.png` | Records / personal bests and training records | Hero cascade, Records section |
-| `assets/screenshots/race_calendar.png` | Race calendar (upcoming races only) | Hero cascade, Races section |
-| `assets/screenshots/central_log.png` | Add a session tray, Log face | Features |
-| `assets/screenshots/log_structured.png` | Structured track-session logging | Features |
+| `assets/screenshots/race_calendar.png` | Races page (upcoming races only) | Hero cascade, Races section |
+| `assets/screenshots/central_log.png` | Add a session tray, logging today | Features |
+| `assets/screenshots/log_structured.png` | Structured track-session logging. Still the pre-redesign capture: the 2026-11-01 set has no structured form | Features |
 | `assets/screenshots/log_strength.png` | Strength logging form, filled from the capture diary | Features |
-| `assets/screenshots/central_plan.png` | Add a session tray, Plan face | Plan section |
+| `assets/screenshots/central_plan.png` | Add a session tray, planning for tomorrow | Plan section |
 | `assets/screenshots/coach_session.png` | Planned session detail | Session purpose section |
 | `assets/screenshots/volume.png` | Insights / volume and predictions | Volume section |
-| `assets/screenshots/periodization.png` | Plan setup periodization introduction | Unused on the page; kept in sync with the App Store set |
+| `assets/screenshots/periodization.png` | Plan setup periodization introduction | Unused on the page. Pre-redesign; the 2026-11-01 set has no such scene |
 
 Every file above is the composite: the raw screen scaled into the device frame,
 with the area outside the phone transparent. `today.png` is the one exception.
@@ -426,7 +435,10 @@ screenshots retaken. Previous versions are archived
 under `assets/screenshots/old/`, which is gitignored.
 
 The captures come from the `AppStore/` workspace's capture simulator, using
-its fictional diary. `capture --run RUN_ID --website` adds the planning tray and
+its fictional diary. The current set is `../AppStore/approved/screenshots/2026-11-01/`
+(run `20261101T110200Z-3af38b`), taken from the redesigned app; its `framed/`
+files are already in the bezel, so they only need the downsize and `pngquant`
+steps below. `capture --run RUN_ID --website` adds the planning tray and
 the strength form, which only the website uses. The frame is applied by
 `../AppStore/tools/bezel.py`, which measures the screen window out of the frame
 image rather than assuming an offset:
@@ -473,7 +485,7 @@ Keep the same aspect ratio and transparent device treatment when replacing them.
 ### Italian screenshots
 
 `assets/screenshots/it/` holds the Italian set for `it.html`, made the same way from
-`../AppStore/approved/it-IT/sources/` (run `20261024T103032Z-fb2147`): the same file
+`../AppStore/approved/screenshots/2026-11-01/it-IT/` (run `20261101T110200Z-3af38b`; `log_structured.png` is still from `20261024T103032Z-fb2147`): the same file
 names, sizes and `pngquant` settings, with `_raw.png` inputs beside them. Run the
 commands above from inside that folder. `central_plan.png` and `log_strength.png`
 have no Italian capture: `../AppStore/tools/workflow.py` makes the `capture --website`

@@ -1,19 +1,20 @@
 :root {
-  --paper:#F8F8F8; --paper-2:#FFFFFF; --card:#FFFFFF;
+  --paper:#FAFAF9; --paper-2:#FFFFFF; --card:#FFFFFF;
   --ink:#0C0B0A; --ink-2:#524C46; --ink-3:#6F655E; --rule:#E9DED6;
-  --accent:#DB2412; --accent-dark:#B52B20; --accent-soft:#FDE5DF;
-  --header-bg:rgba(248,248,248,.85); --card-border:rgba(12,11,10,.10);
-  --shadow-card:0 1px 2px rgba(12,11,10,.04),0 8px 24px rgba(12,11,10,.06);
+  --accent:#DB2412; --accent-dark:#DB2412; --accent-soft:#FDE5DF;
+  --header-bg:rgba(250,250,249,.86); --card-border:rgba(122,84,56,.09);
+  --shadow-card:0 3px 0 #EBE4DC,0 8px 22px rgba(12,11,10,.07);
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
+/* The homepage's dark palette: a black page, warm smoke cards, cream ink and the lifted red. */
 @media (prefers-color-scheme:dark) {
   :root {
-    --paper:#16120E; --paper-2:#201A14; --card:#261F18;
-    --ink:#F7F0E7; --ink-2:#DCD1C3; --ink-3:#B5A999; --rule:#463A2E;
-    --accent:#DB2412; --accent-dark:#FFA697; --accent-soft:#40231D;
-    --header-bg:rgba(22,18,14,.85); --card-border:rgba(247,240,231,.10);
-    --shadow-card:0 1px 2px rgba(0,0,0,.16),0 8px 24px rgba(0,0,0,.18);
+    --paper:#000000; --paper-2:#151413; --card:#1C1A18;
+    --ink:#F7F0E7; --ink-2:#DCD1C3; --ink-3:#B5A999; --rule:#3A3530;
+    --accent:#F2463A; --accent-dark:#F2463A; --accent-soft:#40231D;
+    --header-bg:rgba(0,0,0,.82); --card-border:rgba(255,247,235,.10);
+    --shadow-card:0 3px 0 #2C2824,inset 0 1px 0 rgba(255,247,235,.05);
   }
 }
 
@@ -35,7 +36,7 @@ a:hover { text-decoration:underline; }
 .back { display:inline-block; margin-top:28px; color:var(--ink-3); font-weight:600; }
 .back:hover { color:var(--ink); }
 .muted { color:var(--ink-3); font-size:14px; }
-.card { background:var(--card); border:1px solid var(--card-border); border-radius:18px; padding:24px 26px; box-shadow:var(--shadow-card); margin:24px 0; }
+.card { background:var(--card); border:1px solid var(--card-border); border-radius:24px; padding:24px 26px; box-shadow:var(--shadow-card); margin:24px 0; }
 .card h2 { font-family:var(--sans); font-weight:600; font-size:20px; letter-spacing:-.015em; margin:0 0 8px; }
 .card p { margin:0; }
 .mail { display:inline-block; margin-top:6px; font-size:17px; }
