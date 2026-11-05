@@ -6,14 +6,20 @@
   var TIME = "[0-9][0-9:.,'\"″′]*s?";
   var SEG = new RegExp(
     "^(?:(\\d+)\\s*[x×*]\\s*)?" +                       // reps
-    "(\\d+(?:[.,]\\d+)?\\s*(?:m|k|km|mi|mile|miglio)?)" + // distance
-    "(?:\\s*(?:in|@|at|a|=)?\\s*(" + TIME + "(?:\\s*[-–]\\s*" + TIME + ")?))?" + // time or range
-    "(?:\\s*(?:r|rec|rest|recovery|recupero|rec\\.)\\s*(" + TIME + "))?\\s*$", "i");
-  var REST_ONLY = new RegExp("^(?:r|rec|rest|recovery|recupero|rec\\.)\\s*(" + TIME + ")\\s*$", "i");
+    "(\\d+(?:[.,]\\d+)?\\s*(?:m|k|km|mi|mile|miglio|milla|millas)?)" + // distance
+    "(?:\\s*(?:in|en|@|at|a|à|=)?\\s*(" + TIME + "(?:\\s*[-–]\\s*" + TIME + ")?))?" + // time or range
+    "(?:\\s*(?:r|rec|rest|recovery|recupero|descanso|recuperación|récupération|récup|rec\\.)\\s*(" + TIME + "))?\\s*$", "i");
+  var REST_ONLY = new RegExp("^(?:r|rec|rest|recovery|recupero|descanso|recuperación|récupération|récup|rec\\.)\\s*(" + TIME + ")\\s*$", "i");
 
   // "6x200 in 27-28, rec 2:00 + 4x100 in 13" → segments.
   function parseSession(text) {
-    var pieces = String(text || "").split(/[,;+\n]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    var source = String(text || "");
+    // Preserve en/it comma-separated blocks. In the new locales, a comma
+    // between digits can be a decimal, but not before a new 4x100-style block.
+    if (SB.lang === "es" || SB.lang === "fr") {
+      source = source.replace(/(\d),(\d+)(?![\d\s]*[x×*])/g, "$1.$2");
+    }
+    var pieces = source.split(/[,;+\n]+/).map(function (s) { return s.trim(); }).filter(Boolean);
     var segs = [], bad = [];
     pieces.forEach(function (p) {
       var r = p.match(REST_ONLY);

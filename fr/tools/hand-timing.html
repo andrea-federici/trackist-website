@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertisseur de temps manuel vers FAT (0.24 / 0.14) | StrideBuddy</title>
+  <meta name="description" content="Convertis un temps manuel de sprint ou de demi-fond en estimation FAT, ou inversement. Montre les conventions de 0.24 et 0.14 seconde des statistiques, combinées et lycées américains.">
+  <link rel="canonical" href="https://stridebuddy.app/fr/tools/hand-timing">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/hand-timing">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/cronometraggio-manuale">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/hand-timing">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/hand-timing">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/hand-timing">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/tools/hand-timing">
+  <meta property="og:title" content="Convertisseur de temps manuel vers FAT">
+  <meta property="og:description" content="Convertis un temps de chronomètre en estimation FAT, avec les conventions de 0.24 et 0.14 s côte à côte.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Outils d'athlétisme",
+          "item": "https://stridebuddy.app/fr/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Chronométrage manuel",
+          "item": "https://stridebuddy.app/fr/tools/hand-timing"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien ajoute-t-on à un temps manuel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le plus souvent, 0.24 seconde sous 300 m et 0.14 seconde de 300 m à moins de 800 m, après arrondi au dixième supérieur. La NFHS ajoute 0.24 seconde à toutes les distances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi les temps manuels sont-ils plus rapides que les temps FAT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le chronométreur réagit tard au pistolet et la montre démarre après le départ. À l'arrivée, il tend à l'arrêter trop tôt. Les deux erreurs raccourcissent le temps manuel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un temps converti est-il valable pour les records ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. C'est une estimation pour comparer des performances. Les records et minima de sprint exigent un chronométrage entièrement automatique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi 10.83 devient-il 10.9 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les temps manuels sont notés au dixième de seconde, toujours arrondis vers le haut. Une montre affichant 10.83 donne 10.9 avant toute conversion."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/fr/tools">Tous les outils</a>
+        <details class="lang-menu">
+          <summary title="Langue"><span class="sr-only">Langue</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/hand-timing" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/cronometraggio-manuale" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/hand-timing" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/hand-timing" hreflang="fr" lang="fr" aria-current="page">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Télécharge StrideBuddy sur l&#x27;App Store">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="/fr/tools">Outils d'athlétisme</a><span aria-hidden="true">/</span>Chronométrage manuel</nav>
+    <div class="page-head">
+      <p class="eyebrow">Sprint</p>
+      <h1>Convertisseur de temps manuel vers FAT</h1>
+      <p class="lead">Convertis un temps de chronomètre en estimation entièrement automatique (FAT), ou inversement. Trois conventions existent ; le convertisseur montre ce que chacune ajoute.</p>
+    </div>
+
+    <form class="tool" id="hand-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset>
+          <legend>Convertir</legend>
+          <div class="seg">
+            <label><input type="radio" name="direction" value="toFat" checked><span>Manuel → FAT</span></label>
+            <label><input type="radio" name="direction" value="toHand"><span>FAT → manuel</span></label>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="field">
+            <label for="event">Épreuve</label>
+            <select id="event" name="event">
+              <option value="60">60 m</option>
+              <option value="100" selected>100 m</option>
+              <option value="100h">100 m haies</option>
+              <option value="110h">110 m haies</option>
+              <option value="200">200 m</option>
+              <option value="300">300 m</option>
+              <option value="400">400 m</option>
+              <option value="400h">400 m haies</option>
+              <option value="800">800 m</option>
+              <option value="1500">1500 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="time" id="time-label">Temps manuel</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.83" placeholder="10.8">
+          </div>
+        </div>
+        <div class="field">
+          <label for="convention">Convention</label>
+          <select id="convention" name="convention">
+            <option value="tfn" selected>Statistiques (Track &amp; Field News)</option>
+            <option value="combined">Épreuves combinées</option>
+            <option value="nfhs">Lycées américains (NFHS)</option>
+          </select>
+        </div>
+        <div class="chips" aria-label="Exemples">
+          <button type="button" class="chip" data-fill='{&quot;direction&quot;:&quot;toFat&quot;,&quot;event&quot;:&quot;100&quot;,&quot;time&quot;:&quot;10.83&quot;}'>10.83 sur 100 m</button>
+          <button type="button" class="chip" data-fill='{&quot;direction&quot;:&quot;toFat&quot;,&quot;event&quot;:&quot;400&quot;,&quot;time&quot;:&quot;48.2&quot;}'>48.2 sur 400 m</button>
+          <button type="button" class="chip" data-fill='{&quot;direction&quot;:&quot;toFat&quot;,&quot;event&quot;:&quot;110h&quot;,&quot;time&quot;:&quot;14.1&quot;}'>14.1 sur 110 m haies</button>
+          <button type="button" class="chip" data-fill='{&quot;direction&quot;:&quot;toHand&quot;,&quot;event&quot;:&quot;200&quot;,&quot;time&quot;:&quot;22.04&quot;}'>FAT 22.04 sur 200 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="hand-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Estimation FAT</span><output class="v">11.14</output><div class="s">temps manuel + 0,24 s</div></div><div class="stat"><span class="k">Temps manuel noté</span><output class="v">10.9</output><div class="s">arrondi au dixième supérieur depuis 10.83</div></div><div class="stat"><span class="k">Ajout</span><output class="v">0,24 s</output><div class="s">Statistiques (T&amp;F News)</div></div></div><div class="table-wrap"><table><thead><tr><th>Convention</th><th>Différence</th><th>Estimation FAT</th></tr></thead><tbody><tr><td>Statistiques (T&amp;F News)</td><td>0,24 s</td><td class="hl">11.14</td></tr><tr><td>Épreuves combinées</td><td>0,24 s</td><td>11.14</td></tr><tr><td>Lycées américains (NFHS)</td><td>0,24 s</td><td>11.14</td></tr></tbody></table></div><p class="warn">Une estimation pour comparer des performances. Un temps converti n'est pas valable pour les records, classements exigeant le FAT ou qualifications.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Pourquoi les temps manuels sont plus rapides</h2>
+      <p>Le chronométreur démarre sa montre en voyant la flamme ou la fumée du pistolet. Sa réaction prend du temps : la montre part après le départ de la course. À l'arrivée, il tend à l'arrêter un peu trop tôt. Les deux erreurs raccourcissent le temps.</p>
+      <p>Le FAT démarre au signal du pistolet et lit l'arrivée sur une photo, sans ces erreurs. Le chiffre de 0.24 s vient d'une étude de chronométreurs experts à Munich en 1972. Les deux chiffres ont été confirmés lors d'une vérification informelle aux sélections olympiques américaines de 1976. Des chronométreurs moins expérimentés peuvent s'écarter davantage : les comparaisons de Track &amp; Field News ont trouvé des écarts moyens de 0.40 à 0.45 s chez les chronométreurs scolaires.</p>
+
+      <h2>Méthode de calcul</h2>
+      <ol>
+        <li>Arrondis le temps manuel au dixième supérieur. Les temps manuels sont notés en dixièmes, toujours vers le haut : une montre affichant 10.83 donne 10.9.</li>
+        <li>Ajoute la valeur de la convention et de la distance choisies.</li>
+      </ol>
+      <div class="formula">Estimation FAT = temps manuel arrondi au dixième supérieur + 0.24 s (ou 0.14 s)</div>
+      <p>Pour passer du FAT au manuel, la correction est retirée puis le résultat est arrondi au dixième supérieur, comme un temps manuel. Les trois conventions ajoutent ces valeurs :</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Convention</th><th>Sous 300 m</th><th>300 m</th><th>400 m</th><th>500–600 m</th><th>800 m et plus</th></tr></thead>
+        <tbody>
+          <tr><td>Statistiques (T&amp;F News, Athletic.net)</td><td>0.24 s</td><td>0.14 s</td><td>0.14 s</td><td>0.14 s</td><td>aucune</td></tr>
+          <tr><td>Épreuves combinées (USATF, WMA)</td><td>0.24 s</td><td>0.24 s</td><td>0.14 s</td><td>aucune</td><td>aucune</td></tr>
+          <tr><td>Lycées américains (NFHS)</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td><td>0.24 s</td></tr>
+        </tbody>
+      </table></div>
+      <p>Les classements de Track &amp; Field News et d'Athletic.net utilisent la convention statistique. Les combinées ajoutent la correction avant de noter un temps manuel. La NFHS publie une seule valeur, 0.24 s, pour toutes les distances.</p>
+
+      <h2>Exemple de calcul</h2>
+      <p>Un 100 m chronométré en 10.83 à la main est noté 10.9. Ajouter 0.24 s donne une estimation FAT de 11.14. Un 400 m manuel en 48.2 donne environ 48.34 avec la convention statistique ou des combinées, et 48.44 avec la NFHS.</p>
+
+      <h2>Limites</h2>
+      <ul>
+        <li>Ces chiffres sont des moyennes de bons chronométreurs. Une course peut s'en écarter davantage, et des chronométreurs inexpérimentés bien plus encore.</li>
+        <li>Un temps converti est une estimation pour comparer des performances. Il n'est pas valable pour les records, classements exigeant le FAT ou qualifications. Les records et minima de sprint exigent un chronométrage entièrement automatique.</li>
+        <li>À partir de 800 m, la plupart des conventions n'ajoutent rien : seul l'arrondi fait la différence.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources"><a href="https://nfhs.org/resources/sports/converting-times-manual-to-fat-and-from-english-to-metric-distances">NFHS, « Converting Times: Manual to FAT »</a> (2014). <a href="https://support.athletic.net/article/4sjokyho13-hand-time-conversion-standards">Athletic.net, « Hand Time Conversion Standards »</a>, selon Track &amp; Field News. <a href="https://usatf.org/statistics/calculators/combinedEventsScoring/index.html">Calculateur de points des combinées de l'USATF</a>. World Masters Athletics, règles 2023, annexe B (combinées). Règle technique 19.10.1 de World Athletics (temps manuels au dixième supérieur). <a href="https://trackandfieldnews.com/hand-timing-myth-hollobaugh-hammers-a-final-nail/">Track &amp; Field News, « Hand-Timing Myth? Hollobaugh Hammers A Final Nail »</a> (2026).</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>Combien ajoute-t-on à un temps manuel ?</summary>
+        <p>Le plus souvent, 0.24 seconde sous 300 m et 0.14 seconde de 300 m à moins de 800 m, après arrondi au dixième supérieur. La NFHS ajoute 0.24 seconde à toutes les distances.</p>
+      </details>
+      <details>
+        <summary>Pourquoi les temps manuels sont-ils plus rapides que les temps FAT ?</summary>
+        <p>Le chronométreur réagit tard au pistolet et la montre démarre après le départ. À l'arrivée, il tend à l'arrêter trop tôt. Les deux erreurs raccourcissent le temps manuel.</p>
+      </details>
+      <details>
+        <summary>Un temps converti est-il valable pour les records ?</summary>
+        <p>Non. C'est une estimation pour comparer des performances. Les records et minima de sprint exigent un chronométrage entièrement automatique.</p>
+      </details>
+      <details>
+        <summary>Pourquoi 10.83 devient-il 10.9 ?</summary>
+        <p>Les temps manuels sont notés au dixième de seconde, toujours arrondis vers le haut. Une montre affichant 10.83 donne 10.9 avant toute conversion.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Note les courses avec le temps réalisé.</h2>
+        <p>StrideBuddy est un journal pour les athlètes de piste. Note les résultats des courses sur le plat, de haies et de steeple. Une course plus rapide dans ton journal remplace automatiquement ton PB.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Télécharger sur l'App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Ouvrir l'app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Outils associés</h2>
+      <div class="cards">
+        <a class="tcard" href="/fr/tools/wind-adjustment"><h3>Correction du vent</h3><p>Équivalent sans vent pour le 100 m, le 200 m et les haies.</p></a>
+        <a class="tcard" href="/fr/tools/combined-events"><h3>Points des épreuves combinées</h3><p>Points de décathlon et d'heptathlon.</p></a>
+        <a class="tcard" href="/fr/tools/race-predictor"><h3>Estimateur de temps de course</h3><p>Estime un temps de course à partir d'un PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigation du pied de page">
+        <a href="/fr">Accueil</a>
+        <a href="/fr/tools">Outils d'athlétisme</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/fr/faq">Questions fréquentes</a>
+        <a href="/fr/support">Assistance</a>
+        <a href="/fr/terms">Conditions</a>
+        <a href="/fr/privacy">Confidentialité</a>
+      </nav>
+      <nav class="lang-links" aria-label="Langue">
+            <a href="/tools/hand-timing" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/cronometraggio-manuale" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/hand-timing" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/hand-timing" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Ton entraînement d'athlétisme dans un journal.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/hand-timing.js"></script>
+</body>
+</html>

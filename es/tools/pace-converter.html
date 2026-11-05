@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversor de ritmo: min/km, min/milla, por 400 m, km/h, mph | StrideBuddy</title>
+  <meta name="description" content="Convierte ritmo y velocidad entre min/km, min/milla, por 400 m, por 100 m, km/h, mph y m/s. Ve el tiempo por distancia y convierte marcas de concursos a pies y pulgadas.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/pace-converter">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/pace-converter">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/pace-converter">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/pace-converter">
+  <meta property="og:title" content="Conversor de ritmo y unidades para corredores">
+  <meta property="og:description" content="min/km, min/milla, por 400 m, km/h, mph y m/s en un lugar, más metros a pies y pulgadas.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Conversor de ritmo",
+          "item": "https://stridebuddy.app/es/tools/pace-converter"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo convierto min/km a min/milla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multiplica el ritmo por km por 1.609344. Un ritmo de 4:00 por km es 6:26 por milla."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué velocidad en km/h son 4:00 por km?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "15 km/h. Divide 60 por el ritmo en minutos: 60 ÷ 4 = 15."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué ritmo por 400 m equivale a 5 km en 20:00?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1:36 por 400 m. Son 1,200 segundos y 1,200 ÷ 5,000 × 400 = 96 segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo convierto metros a pies y pulgadas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide los metros por 0.0254 para obtener pulgadas y luego por 12 para pies. 6.50 m son 255.91 pulgadas, o 21 pies 3.91 pulgadas. En EE. UU. se redondea al cuarto de pulgada inferior: 21 pies 3¾ pulgadas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/pace-converter" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/pace-converter" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Conversor de ritmo</nav>
+    <div class="page-head">
+      <p class="eyebrow">Conversiones</p>
+      <h1>Conversor de ritmo y unidades</h1>
+      <p class="lead">Escribe un ritmo o velocidad en cualquier casilla. Las demás y la tabla se actualizan mientras escribes. Debajo hay un conversor de marcas de concursos a pies y pulgadas.</p>
+    </div>
+
+    <form class="tool" id="pace-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field"><label for="perKm">Por km</label><input type="text" id="perKm" name="perKm" inputmode="decimal" value="4:00"></div>
+          <div class="field"><label for="perMile">Por milla</label><input type="text" id="perMile" name="perMile" inputmode="decimal" value="6:26"></div>
+          <div class="field"><label for="per400">Por 400 m</label><input type="text" id="per400" name="per400" inputmode="decimal" value="1:36.0"></div>
+          <div class="field"><label for="per100">Por 100 m</label><input type="text" id="per100" name="per100" inputmode="decimal" value="24.0"></div>
+          <div class="field"><label for="kmh">km/h</label><input type="text" id="kmh" name="kmh" inputmode="decimal" value="15.00"></div>
+          <div class="field"><label for="mph">mph</label><input type="text" id="mph" name="mph" inputmode="decimal" value="9.32"></div>
+          <div class="field"><label for="ms">m/s</label><input type="text" id="ms" name="ms" inputmode="decimal" value="4.17"></div>
+        </div>
+        <span class="hint">Escribe en cualquier casilla. Usa tiempos como 4:00 o 1:36.0.</span>
+        <div class="chips" aria-label="Ejemplos">
+          <button type="button" class="chip" data-fill='{&quot;perKm&quot;:&quot;4:00&quot;}'>4:00 /km</button>
+          <button type="button" class="chip" data-fill='{&quot;perMile&quot;:&quot;6:00&quot;}'>6:00 /milla</button>
+          <button type="button" class="chip" data-fill='{&quot;per400&quot;:&quot;1:10&quot;}'>70 s por 400 m</button>
+          <button type="button" class="chip" data-fill='{&quot;kmh&quot;:&quot;20&quot;}'>20 km/h</button>
+          <button type="button" class="chip" data-fill='{&quot;mph&quot;:&quot;8&quot;}'>8 mph</button>
+        </div>
+      </div>
+      <div class="tool-results" id="pace-results" aria-live="polite"><div class="table-wrap"><table><thead><tr><th>Distancia</th><th>Tiempo a este ritmo</th></tr></thead><tbody><tr><td>100 m</td><td>24.0</td></tr><tr><td>200 m</td><td>48.0</td></tr><tr><td>400 m</td><td>1:36.0</td></tr><tr><td>800 m</td><td>3:12.0</td></tr><tr><td>1500 m</td><td>6:00.0</td></tr><tr><td>Milla</td><td>6:26.2</td></tr><tr><td>5 km</td><td>20:00</td></tr><tr><td>10 km</td><td>40:00</td></tr><tr><td>Media maratón</td><td>1:24:23</td></tr><tr><td>Maratón</td><td>2:48:47</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2 id="marks">Marcas de concursos en pies y pulgadas</h2>
+      <p>Los saltos y lanzamientos se miden en metros. En EE. UU. también se dan en pies y pulgadas. Introduce una marca en cualquiera de las unidades.</p>
+    </section>
+    <form class="tool" id="marks-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="field"><label for="metres">Metros</label><input type="text" id="metres" name="metres" inputmode="decimal" value="6.50"></div>
+        <div class="row">
+          <div class="field"><label for="feet">Pies</label><input type="text" id="feet" name="feet" inputmode="numeric" value="21"></div>
+          <div class="field"><label for="inches">Pulgadas</label><input type="text" id="inches" name="inches" inputmode="decimal" value="3.75"></div>
+        </div>
+        <span class="hint">Las pulgadas admiten decimales: 3.75 son 3¾.</span>
+        <div class="chips" aria-label="Ejemplos">
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;2.00&quot;}'>2.00 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;6.50&quot;}'>6.50 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;17.50&quot;}'>17.50 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;60.00&quot;}'>60.00 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="marks-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Pies y pulgadas</span><output class="v">21 ft 3¾ in</output><div class="s">redondeado hacia abajo a ¼ de pulgada</div></div><div class="stat"><span class="k">Metros</span><output class="v">6,50 m</output><div class="s">como en el resultado</div></div><div class="stat"><span class="k">Pulgadas exactas</span><output class="v">255,91</output><div class="s">antes de redondear</div></div></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>Cada casilla se convierte en una velocidad en metros por segundo. Las demás se calculan a partir de esa velocidad.</p>
+      <div class="formula">velocidad (m/s) = distancia ÷ tiempo<br>ritmo por km = 1000 ÷ velocidad<br>km/h = m/s × 3.6<br>mph = m/s × 3600 ÷ 1609.344</div>
+      <p>Una milla son exactamente 1,609.344 m y una pulgada, 2.54 cm. Los ritmos por km y milla se muestran al segundo; por 400 m y 100 m, a la décima.</p>
+      <p>Para las marcas, divide los metros por 0.0254 para obtener pulgadas; 12 pulgadas son un pie. Los resultados de EE. UU. suelen usar cuartos de pulgada y los concursos se redondean siempre hacia abajo, así que se usa el cuarto de pulgada inferior. Los pies y pulgadas pasan a metros y se redondean al centímetro inferior, como registra los saltos World Athletics.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Un ritmo de 4:00 por km son 1,000 m en 240 s, una velocidad de 4.17 m/s. Equivale a 15.00 km/h, 9.32 mph, 6:26 por milla y 1:36.0 por 400 m. A este ritmo, 5 km son 20:00 y media maratón 1:24:23.</p>
+      <p>Un salto de longitud de 6.50 m son 255.91 pulgadas: 21 pies y 3.91 pulgadas, escrito 21 pies 3¾ pulgadas tras redondear al cuarto de pulgada inferior.</p>
+
+      <h2>Límites</h2>
+      <ul>
+        <li>La tabla mantiene el mismo ritmo toda la distancia. No es una estimación de carrera. Para eso, usa el <a href="/es/tools/race-predictor">estimador de tiempos de carrera</a>.</li>
+        <li>Una milla tiene 9.344 m más que 1600 m. Para compararlos, usa el <a href="/es/tools/mile-converter">conversor de milla y 1600 m</a>.</li>
+        <li>El ritmo por 400 m supone una vuelta en calle 1. Las vueltas completas en calles exteriores son más largas: consulta <a href="/es/tools/lane-stagger">distancias por calle</a>.</li>
+      </ul>
+
+      <h2>Fuentes</h2>
+      <p class="sources">Factores de conversión: <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST Special Publication 811, apéndice B.9</a> (pulgada, pie, milla y mph, todos exactos). Cuartos de pulgada en resultados escolares de EE. UU.: <a href="https://coloradopreps.com/track-field-measuring-a-better-way/">CHSAANow, «Track &amp; field: measuring a better way»</a>. Redondeo de marcas hacia abajo: <a href="https://co.milesplit.com/articles/205020/getting-a-few-track-and-field-items-off-my-chest">MileSplit Colorado</a>. Saltos registrados al centímetro inferior: reglas técnicas de World Athletics, saltos horizontales.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cómo convierto min/km a min/milla?</summary>
+        <p>Multiplica el ritmo por km por 1.609344. Un ritmo de 4:00 por km es 6:26 por milla.</p>
+      </details>
+      <details>
+        <summary>¿Qué velocidad en km/h son 4:00 por km?</summary>
+        <p>15 km/h. Divide 60 por el ritmo en minutos: 60 ÷ 4 = 15.</p>
+      </details>
+      <details>
+        <summary>¿Qué ritmo por 400 m equivale a 5 km en 20:00?</summary>
+        <p>1:36 por 400 m. Son 1,200 segundos y 1,200 ÷ 5,000 × 400 = 96 segundos.</p>
+      </details>
+      <details>
+        <summary>¿Cómo convierto metros a pies y pulgadas?</summary>
+        <p>Divide los metros por 0.0254 para obtener pulgadas y luego por 12 para pies. 6.50 m son 255.91 pulgadas, o 21 pies 3.91 pulgadas. En EE. UU. se redondea al cuarto de pulgada inferior: 21 pies 3¾ pulgadas.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Todos tus ritmos en un diario.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Registra rodajes con distancia, tiempo y ritmo, y cada repetición y parcial de tus entrenamientos de pista.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/rep-pace"><h3>Calculadora de ritmo de repeticiones</h3><p>Ritmo, volumen y porcentaje de PB de un entrenamiento como 6x200.</p></a>
+        <a class="tcard" href="/es/tools/mile-converter"><h3>Milla, 1600 m y 1500 m</h3><p>Convierte un tiempo entre las tres distancias.</p></a>
+        <a class="tcard" href="/es/tools/race-predictor"><h3>Estimador de tiempos de carrera</h3><p>Estima un tiempo de carrera a partir de un PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/pace-converter" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/pace-converter" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/pace-converter.js"></script>
+</body>
+</html>

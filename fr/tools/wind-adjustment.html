@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur de correction du vent pour le 100 m, le 200 m et les haies | StrideBuddy</title>
+  <meta name="description" content="Corrige un temps de 100 m, 200 m, 100 m haies ou 110 m haies selon le vent. Obtiens le temps sans vent, avec d&#x27;autres vents et sa validité.">
+  <link rel="canonical" href="https://stridebuddy.app/fr/tools/wind-adjustment">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/wind-adjustment">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/correzione-vento">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/wind-adjustment">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/wind-adjustment">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/tools/wind-adjustment">
+  <meta property="og:title" content="Calculateur de vent pour le sprint et les haies">
+  <meta property="og:description" content="Corrige un temps de sprint ou de haies selon le vent avec une formule publiée. Temps sans vent, autres vents et validité.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Outils d'athlétisme",
+          "item": "https://stridebuddy.app/fr/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculateur de correction du vent",
+          "item": "https://stridebuddy.app/fr/tools/wind-adjustment"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle aide apporte +2.0 m/s de vent sur 100 m ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Environ 0.08 seconde pour un temps de 10.00 et 0.14 seconde pour un temps de 13.00, selon Moinat, Fabius et Emanuel (2018). Les athlètes plus lents restent exposés au vent plus longtemps et gagnent davantage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel vent est valable pour les records ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un vent favorable de +2.0 m/s ou moins. Au-delà, le résultat est trop aidé par le vent. Il compte dans la compétition, mais ne peut pas être un record."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le vent contraire coûte-t-il plus que le vent favorable n'aide ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Sur 200 m, −2.0 m/s de vent contraire coûtent environ 0.22 seconde, alors que +2.0 m/s de vent favorable aident d'environ 0.14 seconde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on convertir un temps de haies en temps de 100 m plat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Ce calculateur corrige le vent d'un temps de haies et renvoie un temps de haies. Les haies et le plat sont des épreuves différentes ; les temps ne se convertissent pas entre elles."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/fr/tools">Tous les outils</a>
+        <details class="lang-menu">
+          <summary title="Langue"><span class="sr-only">Langue</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/correzione-vento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/wind-adjustment" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/wind-adjustment" hreflang="fr" lang="fr" aria-current="page">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Télécharge StrideBuddy sur l&#x27;App Store">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="/fr/tools">Outils d'athlétisme</a><span aria-hidden="true">/</span>Correction du vent</nav>
+    <div class="page-head">
+      <p class="eyebrow">Sprint</p>
+      <h1>Calculateur de correction du vent</h1>
+      <p class="lead">Saisis un temps de 100 m, 200 m ou haies hautes et le vent mesuré. Tu obtiens une estimation sans vent, avec d'autres vents et la validité du vent pour les records.</p>
+    </div>
+
+    <form class="tool stack" id="wind-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Épreuve</legend>
+          <div class="seg">
+            <label><input type="radio" name="event" value="100" checked><span>100 m</span></label>
+            <label><input type="radio" name="event" value="200"><span>200 m</span></label>
+            <label><input type="radio" name="event" value="100H"><span>100 m haies</span></label>
+            <label><input type="radio" name="event" value="110H"><span>110 m haies</span></label>
+          </div>
+        </fieldset>
+        <div class="row align-start">
+          <div class="field">
+            <label for="time">Temps</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.50" placeholder="10.50">
+          </div>
+          <div class="field">
+            <label for="wind">Vent (m/s)</label>
+            <input type="text" id="wind" name="wind" inputmode="decimal" value="+2.4" placeholder="+1.5" aria-describedby="wind-hint">
+            <span class="hint" id="wind-hint">Favorable +, contraire −</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="otherWind">Comparer avec un autre vent (facultatif)</label>
+          <input type="text" id="otherWind" name="otherWind" inputmode="decimal" placeholder="+2.0">
+        </div>
+        <div class="chips full" aria-label="Exemples">
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;100&quot;,&quot;time&quot;:&quot;10.50&quot;,&quot;wind&quot;:&quot;+2.4&quot;,&quot;otherWind&quot;:&quot;&quot;}'>100 m : 10.50, +2.4</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;100&quot;,&quot;time&quot;:&quot;12.10&quot;,&quot;wind&quot;:&quot;-1.8&quot;,&quot;otherWind&quot;:&quot;+2.0&quot;}'>100 m : 12.10, −1.8</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;200&quot;,&quot;time&quot;:&quot;21.30&quot;,&quot;wind&quot;:&quot;-1.2&quot;,&quot;otherWind&quot;:&quot;&quot;}'>200 m : 21.30, −1.2</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;110H&quot;,&quot;time&quot;:&quot;13.85&quot;,&quot;wind&quot;:&quot;+3.1&quot;,&quot;otherWind&quot;:&quot;+2.0&quot;}'>110 m haies : 13.85, +3.1</button>
+        </div>
+      </div>
+      <div class="tool-results" id="wind-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Temps sans vent</span><output class="v">10.61</output><div class="s">estimation à 0.0 m/s</div></div><div class="stat"><span class="k">Effet du vent</span><output class="v">−0,11 s</output><div class="s">le vent favorable a aidé</div></div><div class="stat"><span class="k">Pour les records</span><output class="v">Vent trop favorable</output><div class="s">vent supérieur à +2.0 m/s</div></div></div><div class="table-wrap"><table><thead><tr><th>Vent (m/s)</th><th>−2,0</th><th>−1,0</th><th class="hl">0,0</th><th>+1,0</th><th>+2,0</th><th>+3,0</th><th>+4,0</th></tr></thead><tbody><tr><td>100 m</td><td>10.74</td><td>10.67</td><td class="hl">10.61</td><td>10.56</td><td>10.51</td><td>10.48</td><td>10.46</td></tr></tbody></table></div><p class="note">Un modèle physique du 100 m (Mureika, 2001) donne 10.62 sans vent.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Méthode de calcul</h2>
+      <p>Le calculateur utilise les formules de Moinat, Fabius et Emanuel (2018), ajustées sur 150,169 résultats de compétitions d'élite et de sous-élite. Dans chaque formule, <code>t</code> est ton temps en secondes, <code>w</code> est le vent en m/s (positif s'il est favorable, négatif s'il est contraire) et <code>t₀</code> est le temps estimé sans vent.</p>
+      <div class="formula">100 m : t₀ = t − 0.0449·w + 0.009459·t·w − 0.0042·w²</div>
+      <div class="formula">200 m : t₀ = t + 0.090·w − 0.010·w²</div>
+      <div class="formula">100 m et 110 m haies : t₀ = t + 0.093·w − 0.010·w²</div>
+      <p>En moyenne, +2.0 m/s de vent favorable valent 0.125 s sur 100 m, 0.140 s sur 200 m et 0.146 s sur les haies hautes. Sur 100 m, l'effet dépend aussi du temps : les athlètes plus lents restent exposés plus longtemps et gagnent davantage. Le tableau des autres vents inverse la même formule à partir du temps sans vent.</p>
+      <p>Pour le 100 m, la page montre aussi une estimation issue d'un modèle physique de Mureika (2001) : <code>t₀ = t × [1.027 − 0.027 × (1 − w·t/100)²]</code> au niveau de la mer. Les deux modèles concordent généralement à quelques centièmes près.</p>
+      <h3>Haies</h3>
+      <p>La formule des haies est ajustée aux courses de haies et donne un temps de haies. Elle ne le transforme pas en temps de 100 m plat.</p>
+      <h3>Vent régulier</h3>
+      <p>Pour les records, le vent favorable doit être de +2.0 m/s ou moins. Au-delà, le résultat est trop aidé par le vent. Il compte toujours comme place et temps dans la course, mais ne peut pas être un record.</p>
+
+      <h2>Exemple de calcul</h2>
+      <p>Un athlète court 10.50 sur 100 m avec +2.4 m/s de vent favorable. La formule donne 10.61 sans vent, soit une aide d'environ 0.11 s. Le vent dépasse +2.0 : le temps est trop aidé pour les records. Avec +2.0 m/s, la même course donnerait environ 10.51.</p>
+
+      <h2>Limites</h2>
+      <ul>
+        <li>C'est une moyenne. Ta taille, ta morphologie et ton départ changent l'effet du vent.</li>
+        <li>Les formules viennent de compétitions au niveau de la mer. L'altitude accélère aussi les sprints et n'est pas incluse.</li>
+        <li>Seulement pour des vents de −4.0 à +4.0 m/s. Les données comprennent peu de courses hors de cette plage.</li>
+        <li>L'anémomètre mesure à côté de la ligne droite pendant 10 secondes. Les rafales et le vent dans le virage du 200 m ne sont pas inclus.</li>
+      </ul>
+      <p class="sources">Sources : M. Moinat, O. Fabius, K. S. Emanuel, « Data-driven quantification of the effect of wind on athletics performance », European Journal of Sport Science 18(9), 1185–1190, 2018, <a href="https://doi.org/10.1080/17461391.2018.1480062">doi:10.1080/17461391.2018.1480062</a>. J. R. Mureika, « Back-of-the-envelope wind and altitude correction for 100 metre sprint times », <a href="https://arxiv.org/abs/physics/0006057">arXiv:physics/0006057</a>.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>Quelle aide apporte +2.0 m/s de vent sur 100 m ?</summary>
+        <p>Environ 0.08 seconde pour un temps de 10.00 et 0.14 seconde pour un temps de 13.00, selon Moinat, Fabius et Emanuel (2018). Les athlètes plus lents restent exposés au vent plus longtemps et gagnent davantage.</p>
+      </details>
+      <details>
+        <summary>Quel vent est valable pour les records ?</summary>
+        <p>Un vent favorable de +2.0 m/s ou moins. Au-delà, le résultat est trop aidé par le vent. Il compte dans la compétition, mais ne peut pas être un record.</p>
+      </details>
+      <details>
+        <summary>Le vent contraire coûte-t-il plus que le vent favorable n'aide ?</summary>
+        <p>Oui. Sur 200 m, −2.0 m/s de vent contraire coûtent environ 0.22 seconde, alors que +2.0 m/s de vent favorable aident d'environ 0.14 seconde.</p>
+      </details>
+      <details>
+        <summary>Peut-on convertir un temps de haies en temps de 100 m plat ?</summary>
+        <p>Non. Ce calculateur corrige le vent d'un temps de haies et renvoie un temps de haies. Les haies et le plat sont des épreuves différentes ; les temps ne se convertissent pas entre elles.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Toutes tes courses dans un journal.</h2>
+        <p>StrideBuddy est un journal pour les athlètes de piste. Note tes courses ; une plus rapide remplace automatiquement ton PB. Les courses de haies gardent leurs records séparés de ceux du plat.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Télécharger sur l'App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Ouvrir l'app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Outils associés</h2>
+      <div class="cards">
+        <a class="tcard" href="/fr/tools/hand-timing"><h3>Conversion du manuel au FAT</h3><p>Convertis un temps manuel en estimation électronique.</p></a>
+        <a class="tcard" href="/fr/tools/hurdle-heights"><h3>Hauteurs et espacements des haies</h3><p>Hauteurs et distances de chaque course de haies.</p></a>
+        <a class="tcard" href="/fr/tools/race-predictor"><h3>Estimateur de temps de course</h3><p>Estime un temps de course à partir d'un PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigation du pied de page">
+        <a href="/fr">Accueil</a>
+        <a href="/fr/tools">Outils d'athlétisme</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/fr/faq">Questions fréquentes</a>
+        <a href="/fr/support">Assistance</a>
+        <a href="/fr/terms">Conditions</a>
+        <a href="/fr/privacy">Confidentialité</a>
+      </nav>
+      <nav class="lang-links" aria-label="Langue">
+            <a href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/correzione-vento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/wind-adjustment" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/wind-adjustment" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Ton entraînement d'athlétisme dans un journal.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/wind-adjustment.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questions fréquentes sur StrideBuddy</title>
+  <meta name="description" content="Réponses sur StrideBuddy : séances, répétitions, estimations de course, plans, prix, appareils, synchronisation et confidentialité.">
+  <!--
+    The Cloudflare Worker that serves the site strips the extension:
+    /faq.html 307s to /faq, so the extensionless form is the real URL and
+    the canonical must name it. www.
+    301-redirects to apex (Cloudflare redirect rule, 2026-10-24).
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/fr/faq">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/faq">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/faq">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/faq">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/faq">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/faq">
+  <meta property="og:title" content="Questions fréquentes sur StrideBuddy">
+  <meta property="og:description" content="Réponses sur StrideBuddy : séances, répétitions, estimations de course, plans, prix, appareils, synchronisation et confidentialité.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrideBuddy sur iPhone : le journal et le plan hebdomadaire.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/legal.css">
+
+  <!--
+    FAQPage structured data. Inert JSON, like the homepage's: no execution, no
+    request, no third party. Google requires each question and answer here to
+    match the visible text below word for word, so change both together.
+  -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "fr",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu’est-ce que StrideBuddy ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "StrideBuddy est un journal d’entraînement pour les athlètes. Tu notes tes séances, tes courses et ta musculation au même endroit. StrideBuddy peut aussi préparer ta semaine et estimer tes chronos en compétition. Il existe une app pour iPhone et une app web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À qui s’adresse StrideBuddy ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "StrideBuddy s’adresse aux adultes qui courent sur piste : sprint, haies, demi-fond, fond et steeple. Tu dois avoir au moins 18 ans pour l’utiliser. Les sauts et les lancers ne sont pas pris en charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "StrideBuddy suit-il mes sorties par GPS ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. StrideBuddy ne suit pas tes sorties par GPS. C’est un journal : tu saisis ta séance, avec les répétitions, les temps de passage, les récupérations et les résultats de course. Il n’importe pas de séances depuis une montre, Strava ou Garmin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je noter les répétitions et les temps de passage ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Touche Noter et choisis une séance structurée. Construis-la avec des blocs, des répétitions, des temps de passage et des récupérations. Tu peux aussi noter des courses continues avec distance, durée, allure, effort et notes, des résultats de compétition, la musculation, et une note rapide pour les éducatifs, les lignes droites ou l’échauffement. Tu peux ajouter la difficulté ressentie, la météo et la surface."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "StrideBuddy prend-il en charge les haies et le steeple ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Les séances structurées prennent en charge les haies, le steeple, les côtes et les récupérations actives. Tu peux noter les résultats en plat, sur haies et au steeple. Les répétitions sur haies et de steeple ont leurs propres records, séparés du plat. Tes records sur 400m et sur 400m haies restent aussi distincts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je noter mes séances de musculation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Note les exercices, séries, répétitions et charges ou durées. Touche les exercices pour les ajouter ou pars d’un modèle. Les séances de musculation de ton plan hebdomadaire comprennent des guides d’exercices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionnent les estimations de course ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "StrideBuddy utilise l’IA pour lire ton journal et estimer tes chronos en compétition. Tu reçois des estimations pour ton épreuve principale et des épreuves proches. Par exemple, pour le 800m, tu vois le 800m, le 400m et le 1500m. Chaque estimation affiche le chrono le plus probable, un intervalle et un niveau de confiance : faible, moyen ou élevé. Un graphique montre son évolution sur les 6 derniers mois, à côté de ton record personnel. Les premières estimations peuvent apparaître après 5 séances enregistrées. Une estimation n’est pas une promesse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionnent les plans hebdomadaires ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dans Plan, StrideBuddy utilise l’IA pour préparer ta semaine. Il tient compte de ton épreuve, de ton entraînement récent, de tes jours disponibles et de ton calendrier de courses. L’objectif évolue pendant la saison et certaines semaines sont volontairement plus légères. Chaque séance explique sa place dans le plan. Si ta journée change, touche Modifier sur une séance. Tu peux demander une séance plus facile ou plus courte, ou la déplacer. Plan est en bêta. Il t’aide à décider de ton entraînement, mais ne remplace pas ton entraîneur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "StrideBuddy est-il gratuit ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, pour le moment. StrideBuddy est en accès préliminaire et toutes les fonctions sont gratuites pendant cette période. Un compte est nécessaire : connecte-toi avec Apple ou Google. La plupart des fonctions resteront gratuites. Nous prévoyons une formule payante en janvier 2027 pour certaines fonctions d’IA. L’app te préviendra avant tout changement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels appareils puis-je utiliser ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "StrideBuddy est une app pour iPhone. Il faut iOS 18 ou une version ultérieure. Télécharge-la sur l’App Store. Une app web existe aussi à web.stridebuddy.app. Elle utilise le même compte et affiche le même journal. Utilise-la sur un ordinateur ou sur un téléphone autre qu’un iPhone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles langues StrideBuddy prend-il en charge ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L’app publiée est disponible en anglais et en italien. L’espagnol d’Espagne et le français de France sont en préparation. Sur iPhone, l’app suit la langue du téléphone. Tu peux changer uniquement la langue de StrideBuddy dans l’app Réglages de l’iPhone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mon journal se synchronise-t-il entre appareils et fonctionne-t-il hors ligne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Ton journal est enregistré dans ton compte StrideBuddy et se synchronise entre tes appareils et l’app web. Si tu réinstalles l’app, reconnecte-toi pour le retrouver. Ton journal enregistré fonctionne hors ligne et les changements se synchronisent à la prochaine connexion. Plan et les estimations de course nécessitent internet. Les plans et estimations déjà enregistrés restent accessibles hors ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment les fonctions d’IA utilisent-elles mes données ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan et les estimations de course utilisent l’IA. À chaque demande, StrideBuddy envoie uniquement les données nécessaires à la fonction, pas tout ton historique. Plan utilise l’API payante Gemini de Google. Les estimations utilisent l’API d’OpenAI avec un résumé du journal sans tes notes. Google indique ne pas utiliser ces données pour entraîner ses modèles d’IA. OpenAI indique ne pas les utiliser pour entraîner ses modèles par défaut. Un interrupteur dans les Réglages permet de désactiver toutes les fonctions d’IA. Tu peux toujours noter tes séances et lire ton journal. StrideBuddy ne vend pas tes données. La politique de confidentialité donne tous les détails."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment supprimer mon compte ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commence en bas des Réglages dans l’app iPhone ou l’app web. Tu dois te reconnecter avec le même compte Apple ou Google. Cette action supprime définitivement ton compte StrideBuddy et ton journal du serveur. Elle ne supprime pas les anciennes archives iCloud privées, les sauvegardes iOS ou les fichiers exportés que tu contrôles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment obtenir de l’aide ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Écris à support@stridebuddy.app. Tu peux aussi envoyer un retour depuis l’app. N’envoie pas de notes d’entraînement, de jetons de compte ou de clés privées par e-mail. La page d’aide explique comment résoudre les problèmes de compte."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap"><a href="/fr" aria-label="Accueil StrideBuddy"><picture><source media="(prefers-color-scheme: dark)" srcset="/assets/stridebuddy_lockup_dark.png"><img src="/assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+      <nav class="locale-nav" aria-label="Langue">
+        <a href="/faq" hreflang="en" lang="en" data-campaign-carry>English</a>
+        <a href="/es/faq" hreflang="es" lang="es" data-campaign-carry>Español</a>
+        <a href="/fr/faq" hreflang="fr" lang="fr" data-campaign-carry aria-current="page">Français</a>
+      </nav>
+      <p class="eyebrow">FAQ</p>
+      <h1>Questions sur StrideBuddy</h1>
+      <p>Des réponses courtes aux questions courantes. Si ta question n’est pas ici, écris à <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20aide">support@stridebuddy.app</a>.</p>
+
+      <div class="card">
+        <h2>Qu’est-ce que StrideBuddy ?</h2>
+        <p>StrideBuddy est un journal d’entraînement pour les athlètes. Tu notes tes séances, tes courses et ta musculation au même endroit. StrideBuddy peut aussi préparer ta semaine et estimer tes chronos en compétition. Il existe une app pour iPhone et une app web.</p>
+      </div>
+
+      <div class="card">
+        <h2>À qui s’adresse StrideBuddy ?</h2>
+        <p>StrideBuddy s’adresse aux adultes qui courent sur piste : sprint, haies, demi-fond, fond et steeple. Tu dois avoir au moins 18 ans pour l’utiliser. Les sauts et les lancers ne sont pas pris en charge.</p>
+      </div>
+
+      <div class="card">
+        <h2>StrideBuddy suit-il mes sorties par GPS ?</h2>
+        <p>Non. StrideBuddy ne suit pas tes sorties par GPS. C’est un journal : tu saisis ta séance, avec les répétitions, les temps de passage, les récupérations et les résultats de course. Il n’importe pas de séances depuis une montre, Strava ou Garmin.</p>
+      </div>
+
+      <div class="card">
+        <h2>Puis-je noter les répétitions et les temps de passage ?</h2>
+        <p>Oui. Touche Noter et choisis une séance structurée. Construis-la avec des blocs, des répétitions, des temps de passage et des récupérations. Tu peux aussi noter des courses continues avec distance, durée, allure, effort et notes, des résultats de compétition, la musculation, et une note rapide pour les éducatifs, les lignes droites ou l’échauffement. Tu peux ajouter la difficulté ressentie, la météo et la surface.</p>
+      </div>
+
+      <div class="card">
+        <h2>StrideBuddy prend-il en charge les haies et le steeple ?</h2>
+        <p>Oui. Les séances structurées prennent en charge les haies, le steeple, les côtes et les récupérations actives. Tu peux noter les résultats en plat, sur haies et au steeple. Les répétitions sur haies et de steeple ont leurs propres records, séparés du plat. Tes records sur 400m et sur 400m haies restent aussi distincts.</p>
+      </div>
+
+      <div class="card">
+        <h2>Puis-je noter mes séances de musculation ?</h2>
+        <p>Oui. Note les exercices, séries, répétitions et charges ou durées. Touche les exercices pour les ajouter ou pars d’un modèle. Les séances de musculation de ton plan hebdomadaire comprennent des guides d’exercices.</p>
+      </div>
+
+      <div class="card">
+        <h2>Comment fonctionnent les estimations de course ?</h2>
+        <p>StrideBuddy utilise l’IA pour lire ton journal et estimer tes chronos en compétition. Tu reçois des estimations pour ton épreuve principale et des épreuves proches. Par exemple, pour le 800m, tu vois le 800m, le 400m et le 1500m. Chaque estimation affiche le chrono le plus probable, un intervalle et un niveau de confiance : faible, moyen ou élevé. Un graphique montre son évolution sur les 6 derniers mois, à côté de ton record personnel. Les premières estimations peuvent apparaître après 5 séances enregistrées. Une estimation n’est pas une promesse.</p>
+      </div>
+
+      <div class="card">
+        <h2>Comment fonctionnent les plans hebdomadaires ?</h2>
+        <p>Dans Plan, StrideBuddy utilise l’IA pour préparer ta semaine. Il tient compte de ton épreuve, de ton entraînement récent, de tes jours disponibles et de ton calendrier de courses. L’objectif évolue pendant la saison et certaines semaines sont volontairement plus légères. Chaque séance explique sa place dans le plan. Si ta journée change, touche Modifier sur une séance. Tu peux demander une séance plus facile ou plus courte, ou la déplacer. Plan est en bêta. Il t’aide à décider de ton entraînement, mais ne remplace pas ton entraîneur.</p>
+      </div>
+
+      <div class="card">
+        <h2>StrideBuddy est-il gratuit ?</h2>
+        <p>Oui, pour le moment. StrideBuddy est en accès préliminaire et toutes les fonctions sont gratuites pendant cette période. Un compte est nécessaire : connecte-toi avec Apple ou Google. La plupart des fonctions resteront gratuites. Nous prévoyons une formule payante en janvier 2027 pour certaines fonctions d’IA. L’app te préviendra avant tout changement.</p>
+      </div>
+
+      <div class="card">
+        <h2>Quels appareils puis-je utiliser ?</h2>
+        <p>StrideBuddy est une app pour iPhone. Il faut iOS 18 ou une version ultérieure. Télécharge-la sur l’<a href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">App Store</a>. Une app web existe aussi à <a href="https://web.stridebuddy.app">web.stridebuddy.app</a>. Elle utilise le même compte et affiche le même journal. Utilise-la sur un ordinateur ou sur un téléphone autre qu’un iPhone.</p>
+      </div>
+
+      <div class="card">
+        <h2>Quelles langues StrideBuddy prend-il en charge ?</h2>
+        <p>L’app publiée est disponible en anglais et en italien. L’espagnol d’Espagne et le français de France sont en préparation. Sur iPhone, l’app suit la langue du téléphone. Tu peux changer uniquement la langue de StrideBuddy dans l’app Réglages de l’iPhone.</p>
+      </div>
+
+      <div class="card">
+        <h2>Mon journal se synchronise-t-il entre appareils et fonctionne-t-il hors ligne ?</h2>
+        <p>Oui. Ton journal est enregistré dans ton compte StrideBuddy et se synchronise entre tes appareils et l’app web. Si tu réinstalles l’app, reconnecte-toi pour le retrouver. Ton journal enregistré fonctionne hors ligne et les changements se synchronisent à la prochaine connexion. Plan et les estimations de course nécessitent internet. Les plans et estimations déjà enregistrés restent accessibles hors ligne.</p>
+      </div>
+
+      <div class="card">
+        <h2>Comment les fonctions d’IA utilisent-elles mes données ?</h2>
+        <p>Plan et les estimations de course utilisent l’IA. À chaque demande, StrideBuddy envoie uniquement les données nécessaires à la fonction, pas tout ton historique. Plan utilise l’API payante Gemini de Google. Les estimations utilisent l’API d’OpenAI avec un résumé du journal sans tes notes. Google indique ne pas utiliser ces données pour entraîner ses modèles d’IA. OpenAI indique ne pas les utiliser pour entraîner ses modèles par défaut. Un interrupteur dans les Réglages permet de désactiver toutes les fonctions d’IA. Tu peux toujours noter tes séances et lire ton journal. StrideBuddy ne vend pas tes données. La <a href="/fr/privacy">politique de confidentialité</a> donne tous les détails.</p>
+      </div>
+
+      <div class="card">
+        <h2>Comment supprimer mon compte ?</h2>
+        <p>Commence en bas des Réglages dans l’app iPhone ou l’app web. Tu dois te reconnecter avec le même compte Apple ou Google. Cette action supprime définitivement ton compte StrideBuddy et ton journal du serveur. Elle ne supprime pas les anciennes archives iCloud privées, les sauvegardes iOS ou les fichiers exportés que tu contrôles.</p>
+      </div>
+
+      <div class="card">
+        <h2>Comment obtenir de l’aide ?</h2>
+        <p>Écris à <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20aide">support@stridebuddy.app</a>. Tu peux aussi envoyer un retour depuis l’app. N’envoie pas de notes d’entraînement, de jetons de compte ou de clés privées par e-mail. La page d’<a href="/fr/support">aide</a> explique comment résoudre les problèmes de compte.</p>
+      </div>
+
+      <a class="back" href="/fr">← Retour à l’accueil</a>
+    </div>
+  </main>
+</body>
+</html>

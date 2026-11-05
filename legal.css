@@ -36,6 +36,8 @@ a:hover { text-decoration:underline; }
 .back { display:inline-block; margin-top:28px; color:var(--ink-3); font-weight:600; }
 .back:hover { color:var(--ink); }
 .muted { color:var(--ink-3); font-size:14px; }
+.locale-nav { display:flex; flex-wrap:wrap; gap:6px 18px; margin:0 0 24px; font-size:14px; }
+.locale-nav a[aria-current="page"] { color:var(--ink); }
 .card { background:var(--card); border:1px solid var(--card-border); border-radius:24px; padding:24px 26px; box-shadow:var(--shadow-card); margin:24px 0; }
 .card h2 { font-family:var(--sans); font-weight:600; font-size:20px; letter-spacing:-.015em; margin:0 0 8px; }
 .card p { margin:0; }

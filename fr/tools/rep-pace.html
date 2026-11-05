@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur d'allure des répétitions sur piste | StrideBuddy</title>
+  <meta name="description" content="Écris une séance comme 6x200 en 27-28 pour obtenir l&#x27;allure par 100 m, 400 m et km, le volume total et la vitesse des répétitions par rapport à ton PB.">
+  <link rel="canonical" href="https://stridebuddy.app/fr/tools/rep-pace">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/rep-pace">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/rep-pace">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/tools/rep-pace">
+  <meta property="og:title" content="Calculateur d&#x27;allure des répétitions sur piste">
+  <meta property="og:description" content="Écris une séance comme 6x200 en 27-28. Obtiens l&#x27;allure par 100 m, 400 m et km, le volume total et le pourcentage du PB.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Outils d'athlétisme",
+          "item": "https://stridebuddy.app/fr/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculateur d'allure des répétitions",
+          "item": "https://stridebuddy.app/fr/tools/rep-pace"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment calculer l'allure d'une répétition ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divise le temps de la répétition par sa distance, puis multiplie par la distance pour laquelle tu veux l'allure. Un 200 m en 27.5 secondes donne 27.5 ÷ 200 × 400 = 55.0 secondes par 400 m."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que signifie 6x200 en 27-28 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Six répétitions de 200 m, chacune courue en 27 à 28 secondes. Le calculateur utilise le milieu, 27.5 secondes, pour l'allure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le volume total inclut-il la récupération ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Il compte seulement la distance des répétitions. Le temps de récupération est affiché séparément ; marcher ou trottiner pendant la récupération n'ajoute pas de volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le pourcentage de l'allure du PB ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il compare la vitesse de la répétition à la vitesse moyenne de ton PB. 100 % correspond à l'allure du PB ; au-dessus, c'est plus rapide et en dessous, plus lent. Un 200 m en 27.5 correspond à 109 % de l'allure d'un 800 m en 2:00."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/fr/tools">Tous les outils</a>
+        <details class="lang-menu">
+          <summary title="Langue"><span class="sr-only">Langue</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/rep-pace" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/rep-pace" hreflang="fr" lang="fr" aria-current="page">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Télécharge StrideBuddy sur l&#x27;App Store">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="/fr/tools">Outils d'athlétisme</a><span aria-hidden="true">/</span>Allure des répétitions</nav>
+    <div class="page-head">
+      <p class="eyebrow">Entraînement</p>
+      <h1>Calculateur d'allure des répétitions</h1>
+      <p class="lead">Écris une séance comme 6x200 en 27-28. Tu obtiens l'allure par 100 m, 400 m et km, le volume total et la vitesse par rapport à ton PB.</p>
+    </div>
+
+    <form class="tool stack" id="rep-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="col">
+        <div class="field">
+          <label for="session">Séance</label>
+          <textarea id="session" name="session" spellcheck="false" aria-describedby="session-hint">6x200 en 27-28, rec 2:00</textarea>
+          <span class="hint" id="session-hint">Sépare les blocs par une virgule ou +. Ajoute la récupération avec rec.</span>
+        </div>
+        <div class="chips" aria-label="Exemples">
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;6x200 en 27-28, rec 2:00&quot;}'>6x200 en 27-28</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;10x400 @ 68 rec 60s&quot;}'>10x400 @ 68</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;5x1k en 3:05-3:10 rec 2:00&quot;}'>5x1k en 3:05-3:10</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;3x300 en 42 rec 5:00 + 3x150 en 19 rec 2:00&quot;}'>3x300 + 3x150</button>
+        </div>
+        </div>
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Ton PB (facultatif)</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="">Aucun PB</option>
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Mile</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10 000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">Temps du PB</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="rep-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Volume total</span><output class="v">1200 m</output><div class="s">de course rapide</div></div><div class="stat"><span class="k">Temps de course</span><output class="v">2:45.0</output><div class="s">plus 10:00 de récupération</div></div><div class="stat"><span class="k">Allure moyenne</span><output class="v">55.0</output><div class="s">par 400 m</div></div></div><div class="table-wrap"><table><thead><tr><th>Répétitions</th><th>Objectif</th><th>/100 m</th><th>/400 m</th><th>/km</th><th>km/h</th><th>% PB</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>27.00–28.00</td><td>13.8</td><td>55.0</td><td>2:18</td><td>26,2</td><td class="hl">109%</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>À cette allure</th><th>400 m</th><th>800 m</th><th>1500 m</th><th>5000 m</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>55.0</td><td>1:50.0</td><td>3:26.3</td><td>11:28</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Méthode de calcul</h2>
+      <p>L'allure est le temps de la répétition divisé par sa distance. Si tu donnes une plage comme 27-28, le calculateur utilise son milieu.</p>
+      <div class="formula">allure par 400 m = temps de répétition ÷ distance de répétition × 400</div>
+      <p>Le volume total est le nombre de répétitions multiplié par leur distance, additionné pour tous les blocs. La récupération ne compte pas dans le volume. Le temps de course additionne seulement les répétitions ; la récupération est affichée à côté.</p>
+      <p>Le pourcentage du PB compare la vitesse de la répétition à la vitesse moyenne de ton PB. 100 % correspond à l'allure du PB. 109 % signifie que les répétitions sont 9 % plus rapides.</p>
+      <div class="formula">% du PB = (temps du PB ÷ distance du PB) ÷ (temps de répétition ÷ distance de répétition) × 100</div>
+      <p>Le tableau <strong>À cette allure</strong> garde la même allure sur une distance de course. Ce n'est pas une estimation : personne ne court 5000 m à l'allure de ses répétitions de 200 m. Pour estimer une course, utilise l' <a href="/fr/tools/race-predictor">estimateur de temps de course</a>.</p>
+
+      <h2>Comment écrire une séance</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Tu écris</th><th>L'outil lit</th></tr></thead>
+        <tbody>
+          <tr><td><code>6x200 en 27-28</code></td><td>6 répétitions de 200 m en 27 à 28 s</td></tr>
+          <tr><td><code>10x400 @ 68 rec 60s</code></td><td>10 × 400 m en 68 s, 60 s de récupération</td></tr>
+          <tr><td><code>5x1k en 3:05-3:10</code></td><td>5 × 1000 m en 3:05 à 3:10</td></tr>
+          <tr><td><code>4x1 mile en 5:20</code></td><td>4 × 1609 m en 5:20</td></tr>
+          <tr><td><code>3x300 en 42 + 3x150 en 19</code></td><td>Deux blocs, additionnés</td></tr>
+        </tbody>
+      </table></div>
+      <p>Tu peux écrire les temps sous la forme <code>27.5</code>, <code>1:05</code>, <code>1:05-1:07</code> ou <code>1'05"</code>.</p>
+
+      <h2>Exemple de calcul</h2>
+      <p>Un athlète de 800 m avec un PB de 2:00.00 court 6x200 en 27-28 avec 2 minutes de récupération. Le milieu est de 27.5 s : 55.0 par 400 m et 13.8 par 100 m. La séance comprend 1200 m rapides en 2:45, plus 10 minutes de récupération entre les six répétitions. L'allure du PB est de 15.0 s par 100 m : les répétitions sont donc à 109 % de l'allure du 800 m.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>Comment calculer l'allure d'une répétition ?</summary>
+        <p>Divise le temps de la répétition par sa distance, puis multiplie par la distance pour laquelle tu veux l'allure. Un 200 m en 27.5 secondes donne 27.5 ÷ 200 × 400 = 55.0 secondes par 400 m.</p>
+      </details>
+      <details>
+        <summary>Que signifie 6x200 en 27-28 ?</summary>
+        <p>Six répétitions de 200 m, chacune courue en 27 à 28 secondes. Le calculateur utilise le milieu, 27.5 secondes, pour l'allure.</p>
+      </details>
+      <details>
+        <summary>Le volume total inclut-il la récupération ?</summary>
+        <p>Non. Il compte seulement la distance des répétitions. Le temps de récupération est affiché séparément ; marcher ou trottiner pendant la récupération n'ajoute pas de volume.</p>
+      </details>
+      <details>
+        <summary>Qu'est-ce que le pourcentage de l'allure du PB ?</summary>
+        <p>Il compare la vitesse de la répétition à la vitesse moyenne de ton PB. 100 % correspond à l'allure du PB ; au-dessus, c'est plus rapide et en dessous, plus lent. Un 200 m en 27.5 correspond à 109 % de l'allure d'un 800 m en 2:00.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Note la séance, garde les temps de passage.</h2>
+        <p>StrideBuddy est un journal pour les athlètes de piste. Note chaque répétition et temps de passage. Ta répétition la plus rapide à chaque distance devient automatiquement un record d'entraînement.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Télécharger sur l'App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Ouvrir l'app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Outils associés</h2>
+      <div class="cards">
+        <a class="tcard" href="/fr/tools/training-paces"><h3>Allures d'entraînement selon ton PB</h3><p>Temps des répétitions de 60 à 120 % de l'allure de ton PB.</p></a>
+        <a class="tcard" href="/fr/tools/race-predictor"><h3>Estimateur de temps de course</h3><p>Estime un temps de course à partir d'un PB.</p></a>
+        <a class="tcard" href="/fr/tools/pace-converter"><h3>Convertisseur d'allure et d'unités</h3><p>min/km, min/mile, par 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigation du pied de page">
+        <a href="/fr">Accueil</a>
+        <a href="/fr/tools">Outils d'athlétisme</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/fr/faq">Questions fréquentes</a>
+        <a href="/fr/support">Assistance</a>
+        <a href="/fr/terms">Conditions</a>
+        <a href="/fr/privacy">Confidentialité</a>
+      </nav>
+      <nav class="lang-links" aria-label="Langue">
+            <a href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/rep-pace" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/rep-pace" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Ton entraînement d'athlétisme dans un journal.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/rep-pace.js"></script>
+</body>
+</html>

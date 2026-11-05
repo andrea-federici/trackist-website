@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertisseur d'allure : min/km, min/mile, par 400 m, km/h, mph | StrideBuddy</title>
+  <meta name="description" content="Convertis l&#x27;allure et la vitesse entre min/km, min/mile, par 400 m, par 100 m, km/h, mph et m/s. Consulte les temps par distance et convertis les performances de concours en pieds et pouces.">
+  <link rel="canonical" href="https://stridebuddy.app/fr/tools/pace-converter">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/pace-converter">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/convertitore-passo">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/pace-converter">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/pace-converter">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/pace-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/tools/pace-converter">
+  <meta property="og:title" content="Convertisseur d&#x27;allure et d&#x27;unités pour coureurs">
+  <meta property="og:description" content="min/km, min/mile, par 400 m, km/h, mph et m/s au même endroit, et des mètres en pieds et pouces.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Outils d'athlétisme",
+          "item": "https://stridebuddy.app/fr/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Convertisseur d'allure",
+          "item": "https://stridebuddy.app/fr/tools/pace-converter"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment convertir des min/km en min/mile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multiplie l'allure par km par 1.609344. Une allure de 4:00 par km donne 6:26 par mile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle vitesse en km/h correspond à 4:00 par km ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "15 km/h. Divise 60 par l'allure en minutes : 60 ÷ 4 = 15."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle allure par 400 m donne un 5 km en 20:00 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1:36 par 400 m. 20 minutes font 1,200 secondes, et 1,200 ÷ 5,000 × 400 = 96 secondes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment convertir des mètres en pieds et pouces ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divise les mètres par 0.0254 pour obtenir des pouces, puis par 12 pour les pieds. 6.50 m font 255.91 pouces, soit 21 pieds 3.91 pouces. Les résultats américains sont arrondis au quart de pouce inférieur : 21 pieds 3¾ pouces."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/fr/tools">Tous les outils</a>
+        <details class="lang-menu">
+          <summary title="Langue"><span class="sr-only">Langue</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/pace-converter" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/pace-converter" hreflang="fr" lang="fr" aria-current="page">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Télécharge StrideBuddy sur l&#x27;App Store">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="/fr/tools">Outils d'athlétisme</a><span aria-hidden="true">/</span>Convertisseur d'allure</nav>
+    <div class="page-head">
+      <p class="eyebrow">Conversions</p>
+      <h1>Convertisseur d'allure et d'unités</h1>
+      <p class="lead">Saisis une allure ou une vitesse dans n'importe quelle case. Les autres et le tableau se mettent à jour pendant la saisie. Plus bas, un autre convertisseur transforme les performances de concours en pieds et pouces.</p>
+    </div>
+
+    <form class="tool" id="pace-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row">
+          <div class="field"><label for="perKm">Par km</label><input type="text" id="perKm" name="perKm" inputmode="decimal" value="4:00"></div>
+          <div class="field"><label for="perMile">Par mile</label><input type="text" id="perMile" name="perMile" inputmode="decimal" value="6:26"></div>
+          <div class="field"><label for="per400">Par 400 m</label><input type="text" id="per400" name="per400" inputmode="decimal" value="1:36.0"></div>
+          <div class="field"><label for="per100">Par 100 m</label><input type="text" id="per100" name="per100" inputmode="decimal" value="24.0"></div>
+          <div class="field"><label for="kmh">km/h</label><input type="text" id="kmh" name="kmh" inputmode="decimal" value="15.00"></div>
+          <div class="field"><label for="mph">mph</label><input type="text" id="mph" name="mph" inputmode="decimal" value="9.32"></div>
+          <div class="field"><label for="ms">m/s</label><input type="text" id="ms" name="ms" inputmode="decimal" value="4.17"></div>
+        </div>
+        <span class="hint">Saisis dans n'importe quelle case. Utilise des temps comme 4:00 ou 1:36.0.</span>
+        <div class="chips" aria-label="Exemples">
+          <button type="button" class="chip" data-fill='{&quot;perKm&quot;:&quot;4:00&quot;}'>4:00 /km</button>
+          <button type="button" class="chip" data-fill='{&quot;perMile&quot;:&quot;6:00&quot;}'>6:00 /mile</button>
+          <button type="button" class="chip" data-fill='{&quot;per400&quot;:&quot;1:10&quot;}'>70 s par 400 m</button>
+          <button type="button" class="chip" data-fill='{&quot;kmh&quot;:&quot;20&quot;}'>20 km/h</button>
+          <button type="button" class="chip" data-fill='{&quot;mph&quot;:&quot;8&quot;}'>8 mph</button>
+        </div>
+      </div>
+      <div class="tool-results" id="pace-results" aria-live="polite"><div class="table-wrap"><table><thead><tr><th>Distance</th><th>Temps à cette allure</th></tr></thead><tbody><tr><td>100 m</td><td>24.0</td></tr><tr><td>200 m</td><td>48.0</td></tr><tr><td>400 m</td><td>1:36.0</td></tr><tr><td>800 m</td><td>3:12.0</td></tr><tr><td>1500 m</td><td>6:00.0</td></tr><tr><td>Mile</td><td>6:26.2</td></tr><tr><td>5 km</td><td>20:00</td></tr><tr><td>10 km</td><td>40:00</td></tr><tr><td>Semi-marathon</td><td>1:24:23</td></tr><tr><td>Marathon</td><td>2:48:47</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2 id="marks">Performances de concours en pieds et pouces</h2>
+      <p>Les sauts et lancers sont mesurés en mètres. Les résultats américains les indiquent aussi en pieds et pouces. Saisis une performance dans l'une ou l'autre unité.</p>
+    </section>
+    <form class="tool" id="marks-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="field"><label for="metres">Mètres</label><input type="text" id="metres" name="metres" inputmode="decimal" value="6.50"></div>
+        <div class="row">
+          <div class="field"><label for="feet">Pieds</label><input type="text" id="feet" name="feet" inputmode="numeric" value="21"></div>
+          <div class="field"><label for="inches">Pouces</label><input type="text" id="inches" name="inches" inputmode="decimal" value="3.75"></div>
+        </div>
+        <span class="hint">Les pouces acceptent les décimales : 3.75 correspond à 3¾.</span>
+        <div class="chips" aria-label="Exemples">
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;2.00&quot;}'>2.00 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;6.50&quot;}'>6.50 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;17.50&quot;}'>17.50 m</button>
+          <button type="button" class="chip" data-fill='{&quot;metres&quot;:&quot;60.00&quot;}'>60.00 m</button>
+        </div>
+      </div>
+      <div class="tool-results" id="marks-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Pieds et pouces</span><output class="v">21 ft 3¾ in</output><div class="s">arrondi au quart de pouce inférieur</div></div><div class="stat"><span class="k">Mètres</span><output class="v">6,50 m</output><div class="s">comme dans les résultats</div></div><div class="stat"><span class="k">Pouces exacts</span><output class="v">255,91</output><div class="s">avant arrondi</div></div></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Méthode de calcul</h2>
+      <p>Chaque case est convertie en une vitesse en mètres par seconde. Les autres sont calculées à partir de cette vitesse.</p>
+      <div class="formula">vitesse (m/s) = distance ÷ temps<br>allure par km = 1000 ÷ vitesse<br>km/h = m/s × 3.6<br>mph = m/s × 3600 ÷ 1609.344</div>
+      <p>Un mile mesure exactement 1,609.344 m et un pouce 2.54 cm. Les allures par km et mile sont affichées à la seconde ; celles par 400 m et 100 m au dixième.</p>
+      <p>Pour les performances, les mètres sont divisés par 0.0254 pour obtenir des pouces ; 12 pouces font un pied. Les résultats américains utilisent souvent le quart de pouce et les concours sont toujours arrondis vers le bas, donc au quart de pouce inférieur. Les pieds et pouces sont convertis en mètres, arrondis au centimètre inférieur, comme World Athletics enregistre les sauts.</p>
+
+      <h2>Exemple de calcul</h2>
+      <p>Une allure de 4:00 par km correspond à 1,000 m en 240 s, soit 4.17 m/s. Cela donne 15.00 km/h, 9.32 mph, 6:26 par mile et 1:36.0 par 400 m. À cette allure, un 5 km prend 20:00 et un semi-marathon 1:24:23.</p>
+      <p>Un saut en longueur de 6.50 m représente 255.91 pouces : 21 pieds et 3.91 pouces, notés 21 pieds 3¾ pouces après arrondi au quart de pouce inférieur.</p>
+
+      <h2>Limites</h2>
+      <ul>
+        <li>Le tableau garde la même allure sur toute la distance. Ce n'est pas une estimation de course. Pour cela, utilise l' <a href="/fr/tools/race-predictor">estimateur de temps de course</a>.</li>
+        <li>Un mile mesure 9.344 m de plus que 1600 m. Pour les comparer, utilise le <a href="/fr/tools/mile-converter">convertisseur mile et 1600 m</a>.</li>
+        <li>L'allure par 400 m suppose un tour au couloir 1. Les tours complets des couloirs extérieurs sont plus longs : consulte les <a href="/fr/tools/lane-stagger">distances par couloir</a>.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Coefficients de conversion : <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST Special Publication 811, annexe B.9</a> (pouce, pied, mile et mph, tous exacts). Quarts de pouce dans les résultats scolaires américains : <a href="https://coloradopreps.com/track-field-measuring-a-better-way/">CHSAANow, « Track &amp; field: measuring a better way »</a>. Arrondi des performances vers le bas : <a href="https://co.milesplit.com/articles/205020/getting-a-few-track-and-field-items-off-my-chest">MileSplit Colorado</a>. Sauts notés au centimètre inférieur : règles techniques de World Athletics, sauts horizontaux.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>Comment convertir des min/km en min/mile ?</summary>
+        <p>Multiplie l'allure par km par 1.609344. Une allure de 4:00 par km donne 6:26 par mile.</p>
+      </details>
+      <details>
+        <summary>Quelle vitesse en km/h correspond à 4:00 par km ?</summary>
+        <p>15 km/h. Divise 60 par l'allure en minutes : 60 ÷ 4 = 15.</p>
+      </details>
+      <details>
+        <summary>Quelle allure par 400 m donne un 5 km en 20:00 ?</summary>
+        <p>1:36 par 400 m. 20 minutes font 1,200 secondes, et 1,200 ÷ 5,000 × 400 = 96 secondes.</p>
+      </details>
+      <details>
+        <summary>Comment convertir des mètres en pieds et pouces ?</summary>
+        <p>Divise les mètres par 0.0254 pour obtenir des pouces, puis par 12 pour les pieds. 6.50 m font 255.91 pouces, soit 21 pieds 3.91 pouces. Les résultats américains sont arrondis au quart de pouce inférieur : 21 pieds 3¾ pouces.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Toutes tes allures dans un journal.</h2>
+        <p>StrideBuddy est un journal pour les athlètes de piste. Note tes courses continues avec distance, temps et allure, ainsi que chaque répétition et temps de passage de tes séances de piste.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Télécharger sur l'App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Ouvrir l'app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Outils associés</h2>
+      <div class="cards">
+        <a class="tcard" href="/fr/tools/rep-pace"><h3>Calculateur d'allure des répétitions</h3><p>Allure, volume et pourcentage du PB d'une séance comme 6x200.</p></a>
+        <a class="tcard" href="/fr/tools/mile-converter"><h3>Mile, 1600 m et 1500 m</h3><p>Convertis un temps entre les trois distances.</p></a>
+        <a class="tcard" href="/fr/tools/race-predictor"><h3>Estimateur de temps de course</h3><p>Estime un temps de course à partir d'un PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigation du pied de page">
+        <a href="/fr">Accueil</a>
+        <a href="/fr/tools">Outils d'athlétisme</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/fr/faq">Questions fréquentes</a>
+        <a href="/fr/support">Assistance</a>
+        <a href="/fr/terms">Conditions</a>
+        <a href="/fr/privacy">Confidentialité</a>
+      </nav>
+      <nav class="lang-links" aria-label="Langue">
+            <a href="/tools/pace-converter" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/convertitore-passo" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/pace-converter" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/pace-converter" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Ton entraînement d'athlétisme dans un journal.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/pace-converter.js"></script>
+</body>
+</html>

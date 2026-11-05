@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de corrección por viento para 100 m, 200 m y vallas | StrideBuddy</title>
+  <meta name="description" content="Corrige por viento un tiempo de 100 m, 200 m, 100 m vallas o 110 m vallas. Obtén el tiempo sin viento, con otros vientos y si era válido.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/wind-adjustment">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/wind-adjustment">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/correzione-vento">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/wind-adjustment">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/wind-adjustment">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/wind-adjustment">
+  <meta property="og:title" content="Calculadora de viento para velocidad y vallas">
+  <meta property="og:description" content="Corrige por viento un tiempo de velocidad o vallas con una fórmula publicada. Tiempo sin viento, otros vientos y validez.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculadora de corrección por viento",
+          "item": "https://stridebuddy.app/es/tools/wind-adjustment"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto ayuda un viento de +2.0 m/s en 100 m?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aproximadamente 0.08 segundos para un 10.00 y 0.14 para un 13.00, según Moinat, Fabius y Emanuel (2018). Los atletas más lentos pasan más tiempo expuestos al viento y ganan más."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué viento es válido para récords?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un viento a favor de +2.0 m/s o menos. Por encima, el resultado tiene viento no válido. Cuenta en la competición, pero no puede ser récord."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Perjudica más el viento en contra de lo que ayuda a favor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. En 200 m, −2.0 m/s en contra cuesta unos 0.22 segundos, mientras que +2.0 m/s a favor ayuda unos 0.14 segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo convertir un tiempo de vallas a 100 m lisos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Esta calculadora corrige el viento en un tiempo de vallas y devuelve otro tiempo de vallas. Son pruebas distintas de las lisas y no se convierten entre sí."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/correzione-vento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/wind-adjustment" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/wind-adjustment" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Corrección por viento</nav>
+    <div class="page-head">
+      <p class="eyebrow">Velocidad</p>
+      <h1>Calculadora de corrección por viento</h1>
+      <p class="lead">Introduce un tiempo de 100 m, 200 m o vallas cortas y la lectura de viento. Obtendrás una estimación sin viento, con otros vientos y si el viento era válido para récords.</p>
+    </div>
+
+    <form class="tool stack" id="wind-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Prueba</legend>
+          <div class="seg">
+            <label><input type="radio" name="event" value="100" checked><span>100 m</span></label>
+            <label><input type="radio" name="event" value="200"><span>200 m</span></label>
+            <label><input type="radio" name="event" value="100H"><span>100 m vallas</span></label>
+            <label><input type="radio" name="event" value="110H"><span>110 m vallas</span></label>
+          </div>
+        </fieldset>
+        <div class="row align-start">
+          <div class="field">
+            <label for="time">Tiempo</label>
+            <input type="text" id="time" name="time" inputmode="decimal" value="10.50" placeholder="10.50">
+          </div>
+          <div class="field">
+            <label for="wind">Viento (m/s)</label>
+            <input type="text" id="wind" name="wind" inputmode="decimal" value="+2.4" placeholder="+1.5" aria-describedby="wind-hint">
+            <span class="hint" id="wind-hint">A favor +, en contra −</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="otherWind">Comparar con otro viento (opcional)</label>
+          <input type="text" id="otherWind" name="otherWind" inputmode="decimal" placeholder="+2.0">
+        </div>
+        <div class="chips full" aria-label="Ejemplos">
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;100&quot;,&quot;time&quot;:&quot;10.50&quot;,&quot;wind&quot;:&quot;+2.4&quot;,&quot;otherWind&quot;:&quot;&quot;}'>100 m: 10.50, +2.4</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;100&quot;,&quot;time&quot;:&quot;12.10&quot;,&quot;wind&quot;:&quot;-1.8&quot;,&quot;otherWind&quot;:&quot;+2.0&quot;}'>100 m: 12.10, −1.8</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;200&quot;,&quot;time&quot;:&quot;21.30&quot;,&quot;wind&quot;:&quot;-1.2&quot;,&quot;otherWind&quot;:&quot;&quot;}'>200 m: 21.30, −1.2</button>
+          <button type="button" class="chip" data-fill='{&quot;event&quot;:&quot;110H&quot;,&quot;time&quot;:&quot;13.85&quot;,&quot;wind&quot;:&quot;+3.1&quot;,&quot;otherWind&quot;:&quot;+2.0&quot;}'>110 m vallas: 13.85, +3.1</button>
+        </div>
+      </div>
+      <div class="tool-results" id="wind-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Tiempo sin viento</span><output class="v">10.61</output><div class="s">estimación con 0.0 m/s</div></div><div class="stat"><span class="k">Efecto del viento</span><output class="v">−0,11 s</output><div class="s">el viento a favor ayudó</div></div><div class="stat"><span class="k">Para récords</span><output class="v">Con viento no válido</output><div class="s">viento superior a +2.0 m/s</div></div></div><div class="table-wrap"><table><thead><tr><th>Viento (m/s)</th><th>−2,0</th><th>−1,0</th><th class="hl">0,0</th><th>+1,0</th><th>+2,0</th><th>+3,0</th><th>+4,0</th></tr></thead><tbody><tr><td>100 m</td><td>10.74</td><td>10.67</td><td class="hl">10.61</td><td>10.56</td><td>10.51</td><td>10.48</td><td>10.46</td></tr></tbody></table></div><p class="note">Un modelo físico de 100 m (Mureika, 2001) da 10.62 sin viento.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>La calculadora usa las fórmulas de Moinat, Fabius y Emanuel (2018), ajustadas a 150,169 resultados de competiciones de élite y subélite. En cada fórmula, <code>t</code> es tu tiempo en segundos, <code>w</code> es el viento en m/s (positivo a favor y negativo en contra) y <code>t₀</code> es el tiempo estimado sin viento.</p>
+      <div class="formula">100 m: t₀ = t − 0.0449·w + 0.009459·t·w − 0.0042·w²</div>
+      <div class="formula">200 m: t₀ = t + 0.090·w − 0.010·w²</div>
+      <div class="formula">100 m y 110 m vallas: t₀ = t + 0.093·w − 0.010·w²</div>
+      <p>De media, +2.0 m/s a favor equivalen a 0.125 s en 100 m, 0.140 s en 200 m y 0.146 s en vallas cortas. En 100 m el efecto depende también del tiempo: los atletas más lentos pasan más tiempo expuestos y ganan más. La tabla de otros vientos invierte la misma fórmula a partir del tiempo sin viento.</p>
+      <p>Para 100 m, la página muestra otra estimación de un modelo físico de Mureika (2001): <code>t₀ = t × [1.027 − 0.027 × (1 − w·t/100)²]</code> a nivel del mar. Los dos modelos suelen coincidir con una diferencia de pocas centésimas.</p>
+      <h3>Vallas</h3>
+      <p>La fórmula de vallas se ajusta a carreras de vallas y devuelve un tiempo de vallas. No lo convierte en un 100 m lisos.</p>
+      <h3>Viento válido</h3>
+      <p>Para récords, el viento a favor debe ser +2.0 m/s o menos. Con más viento el resultado no es válido para récords. Sigue contando como puesto y tiempo de la carrera, pero no puede ser récord.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Un atleta hace 10.50 en 100 m con viento de +2.4 m/s. La fórmula da 10.61 sin viento: una ayuda de unos 0.11 s. Como supera +2.0, el tiempo no es válido para récords. Con +2.0 m/s, la misma carrera sería aproximadamente 10.51.</p>
+
+      <h2>Límites</h2>
+      <ul>
+        <li>Es una media. Tu altura, constitución y salida cambian el efecto del viento.</li>
+        <li>Las fórmulas proceden de competiciones a nivel del mar. La altitud también mejora los tiempos de velocidad y no se incluye.</li>
+        <li>Solo viento de −4.0 a +4.0 m/s. Hay pocas carreras fuera de ese rango en los datos.</li>
+        <li>El anemómetro mide junto a la recta durante 10 segundos. La lectura no incluye las rachas ni el viento en la curva de 200 m.</li>
+      </ul>
+      <p class="sources">Fuentes: M. Moinat, O. Fabius, K. S. Emanuel, «Data-driven quantification of the effect of wind on athletics performance», European Journal of Sport Science 18(9), 1185–1190, 2018, <a href="https://doi.org/10.1080/17461391.2018.1480062">doi:10.1080/17461391.2018.1480062</a>. J. R. Mureika, «Back-of-the-envelope wind and altitude correction for 100 metre sprint times», <a href="https://arxiv.org/abs/physics/0006057">arXiv:physics/0006057</a>.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cuánto ayuda un viento de +2.0 m/s en 100 m?</summary>
+        <p>Aproximadamente 0.08 segundos para un 10.00 y 0.14 para un 13.00, según Moinat, Fabius y Emanuel (2018). Los atletas más lentos pasan más tiempo expuestos al viento y ganan más.</p>
+      </details>
+      <details>
+        <summary>¿Qué viento es válido para récords?</summary>
+        <p>Un viento a favor de +2.0 m/s o menos. Por encima, el resultado tiene viento no válido. Cuenta en la competición, pero no puede ser récord.</p>
+      </details>
+      <details>
+        <summary>¿Perjudica más el viento en contra de lo que ayuda a favor?</summary>
+        <p>Sí. En 200 m, −2.0 m/s en contra cuesta unos 0.22 segundos, mientras que +2.0 m/s a favor ayuda unos 0.14 segundos.</p>
+      </details>
+      <details>
+        <summary>¿Puedo convertir un tiempo de vallas a 100 m lisos?</summary>
+        <p>No. Esta calculadora corrige el viento en un tiempo de vallas y devuelve otro tiempo de vallas. Son pruebas distintas de las lisas y no se convierten entre sí.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Todas tus carreras en un diario.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Registra carreras y una más rápida sustituye tu PB automáticamente. Las carreras de vallas mantienen marcas separadas de las lisas.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/hand-timing"><h3>Conversión de manual a FAT</h3><p>Convierte un tiempo manual en una estimación electrónica.</p></a>
+        <a class="tcard" href="/es/tools/hurdle-heights"><h3>Alturas y separaciones de vallas</h3><p>Alturas y distancias de cada prueba de vallas.</p></a>
+        <a class="tcard" href="/es/tools/race-predictor"><h3>Estimador de tiempos de carrera</h3><p>Estima un tiempo de carrera a partir de un PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/wind-adjustment" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/correzione-vento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/wind-adjustment" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/wind-adjustment" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/wind-adjustment.js"></script>
+</body>
+</html>

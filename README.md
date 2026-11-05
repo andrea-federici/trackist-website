@@ -496,3 +496,29 @@ Italian copy here.
 ## Contact
 
 `support@stridebuddy.app` is the support, legal, and privacy contact address.
+
+## Spain Spanish and France French localization
+
+The `localization/es-fr` worktree prepares Spanish for Spain at `/es` and French for France at `/fr`. These are implementation drafts, not a claim that a supporting app release is already available. The localized FAQ explicitly keeps the current English/Italian availability and describes the new languages as in preparation. Update that answer and its JSON-LD when the coordinated release is actually available.
+
+| Surface | Spanish | French |
+| --- | --- | --- |
+| Home | `es.html` (`/es`) | `fr.html` (`/fr`) |
+| FAQ | `/es/faq` | `/fr/faq` |
+| Support | `/es/support` | `/fr/support` |
+| Terms and AI disclosure | `/es/terms` | `/fr/terms` |
+| Privacy | `/es/privacy` | `/fr/privacy` |
+| Track tools hub | `/es/tools` | `/fr/tools` |
+| All 11 tools | `/es/tools/<English tool slug>` | `/fr/tools/<English tool slug>` |
+
+The English terms and privacy pages remain the official texts. Their Spanish/French translations preserve every source section, retention period, limit and named provider, and the 27 October 2026 update date. They must be updated with the official source and reviewed for legal meaning before publication. They deliberately do not correct older product references that remain in the official source, including Daily Review: reconcile those through the owning legal workflow, rather than silently changing only a translation.
+
+**Localized artwork:** `assets/screenshots/es/` and `assets/screenshots/fr/` hold the real localized captures from the dedicated screenshot workflow: `today`, `review`, `predictions`, `records`, `race_calendar`, `coach_session`, `volume`, `central_plan`, `log_strength`, `central_log` and `log_structured` in both languages. The homepages and their structured screenshot lists use these localized files. Each has a full-size uncompressed `_raw.png` input, excluded from publication by `.assetsignore`; served images use the same bare/framed sizes and one `pngquant --quality=85-98 --speed 1 --strip` pass as the existing locales. Image sheets and before/after crops of small text, gradients and shadows were visually inspected.
+
+`assets/og-image-es.png` and `assets/og-image-fr.png` are 1200×630 localized share cards built from the existing lockup, paper/stage layout and current localized phone captures. Each new locale’s pages reference its own card. They were compressed once and visually inspected.
+
+All eleven homepage screenshots now use real localized app captures in both languages; there is no English screenshot or social-card fallback on the Spanish/French pages. The final Spanish structured-form capture was retried with a longer settling delay, then inspected raw, framed and compressed, including before/after crops of text, gradients and shadows. Browser layout/interaction review remains separate from image review. Do not ship app-language availability claims before the matching iOS/Web release.
+
+All language versions keep the existing first-party campaign-attribution script and App Store tokens. The four-language homepage menus carry an allowed campaign through the same `data-campaign-carry` mechanism. Legal and support pages link only to translations that exist. Original English/Italian page content remains intact; language alternatives, switch links and sitemap entries cover each real equivalence group.
+
+Each new locale has 17 pages: its homepage, four FAQ/support/legal pages, the tools hub and all 11 tools. The calculators share the existing formulas and result templates. `tools/core.js` selects the primary page language, formats numbers for Spain/France and supplies 162 translated calculator strings per new language; original English/Italian selection stays in place. The rep parser accepts Spanish/French notation and decimal commas only on the new-locale path, keeping existing English/Italian comma-separated blocks intact. Static default result markup is localized too. Local Chromium QA rendered all 34 new-language pages at mobile/desktop widths in light/dark mode with no detected page overflow, broken images or clipped labels. Local links resolved and example calculator updates worked. The hurdle-reference pages load the same shared menu handler as the tools hub. A focused follow-up verified their keyboard/dismissal behavior in all four languages at both widths in light/dark mode, plus 40 typed decimal-comma versus decimal-point calculator cases with equivalent valid results. These checks do not establish native-language/legal sign-off or release readiness.

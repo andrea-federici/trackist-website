@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de ritmo de repeticiones en pista | StrideBuddy</title>
+  <meta name="description" content="Escribe un entrenamiento como 6x200 en 27-28 y obtén el ritmo por 100 m, 400 m y km, el volumen total y la velocidad de las repeticiones frente a tu PB.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/rep-pace">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/rep-pace">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/passo-ripetute">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/rep-pace">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/rep-pace">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/rep-pace">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/rep-pace">
+  <meta property="og:title" content="Calculadora de ritmo de repeticiones en pista">
+  <meta property="og:description" content="Escribe un entrenamiento como 6x200 en 27-28. Obtén ritmo por 100 m, 400 m y km, volumen total y porcentaje de PB.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculadora de ritmo de repeticiones",
+          "item": "https://stridebuddy.app/es/tools/rep-pace"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo calculo el ritmo de una repetición?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide el tiempo por la distancia de la repetición y multiplica por la distancia para la que quieres el ritmo. Un 200 m en 27.5 segundos da 27.5 ÷ 200 × 400 = 55.0 segundos por 400 m."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa 6x200 en 27-28?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seis repeticiones de 200 m, cada una en 27 a 28 segundos. La calculadora usa el punto medio, 27.5 segundos, para el ritmo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El volumen total incluye la recuperación?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Solo cuenta la distancia de las repeticiones. El tiempo de recuperación se muestra aparte; caminar o trotar durante ella no añade volumen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el porcentaje del ritmo de PB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compara la velocidad de la repetición con la velocidad media de tu PB. El 100% es tu ritmo de PB; más del 100% es más rápido y menos, más lento. Un 200 m en 27.5 va al 109% del ritmo de un 800 m en 2:00."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/rep-pace" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/rep-pace" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Ritmo de repeticiones</nav>
+    <div class="page-head">
+      <p class="eyebrow">Entrenamiento</p>
+      <h1>Calculadora de ritmo de repeticiones</h1>
+      <p class="lead">Escribe un entrenamiento como 6x200 en 27-28. Obtendrás el ritmo por 100 m, 400 m y km, el volumen total y la velocidad frente a tu PB.</p>
+    </div>
+
+    <form class="tool stack" id="rep-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="col">
+        <div class="field">
+          <label for="session">Entrenamiento</label>
+          <textarea id="session" name="session" spellcheck="false" aria-describedby="session-hint">6x200 en 27-28, rec 2:00</textarea>
+          <span class="hint" id="session-hint">Separa los bloques con coma o +. Añade recuperación con rec.</span>
+        </div>
+        <div class="chips" aria-label="Ejemplos">
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;6x200 en 27-28, rec 2:00&quot;}'>6x200 en 27-28</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;10x400 @ 68 rec 60s&quot;}'>10x400 @ 68</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;5x1k en 3:05-3:10 rec 2:00&quot;}'>5x1k en 3:05-3:10</button>
+          <button type="button" class="chip" data-fill='{&quot;session&quot;:&quot;3x300 en 42 rec 5:00 + 3x150 en 19 rec 2:00&quot;}'>3x300 + 3x150</button>
+        </div>
+        </div>
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Tu PB (opcional)</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="">Sin PB</option>
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Milla</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10.000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">Tiempo del PB</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="rep-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Volumen total</span><output class="v">1200 m</output><div class="s">de carrera rápida</div></div><div class="stat"><span class="k">Tiempo de carrera</span><output class="v">2:45.0</output><div class="s">más 10:00 de recuperación</div></div><div class="stat"><span class="k">Ritmo medio</span><output class="v">55.0</output><div class="s">por 400 m</div></div></div><div class="table-wrap"><table><thead><tr><th>Repeticiones</th><th>Objetivo</th><th>/100 m</th><th>/400 m</th><th>/km</th><th>km/h</th><th>% PB</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>27.00–28.00</td><td>13.8</td><td>55.0</td><td>2:18</td><td>26,2</td><td class="hl">109%</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>A este ritmo</th><th>400 m</th><th>800 m</th><th>1500 m</th><th>5000 m</th></tr></thead><tbody><tr><td>6 × 200 m</td><td>55.0</td><td>1:50.0</td><td>3:26.3</td><td>11:28</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>El ritmo es el tiempo de repetición dividido por su distancia. Si das un rango, como 27-28, la calculadora usa su punto medio.</p>
+      <div class="formula">ritmo por 400 m = tiempo de repetición ÷ distancia de repetición × 400</div>
+      <p>El volumen total es el número de repeticiones multiplicado por su distancia, sumado para todos los bloques. La recuperación no cuenta en el volumen. El tiempo de carrera suma solo las repeticiones; la recuperación se muestra al lado.</p>
+      <p>El porcentaje de PB compara la velocidad de la repetición con la velocidad media de tu PB. El 100% es el ritmo de PB. El 109% indica repeticiones un 9% más rápidas.</p>
+      <div class="formula">% de PB = (tiempo de PB ÷ distancia de PB) ÷ (tiempo de repetición ÷ distancia de repetición) × 100</div>
+      <p>La tabla <strong>A este ritmo</strong> mantiene el mismo ritmo en una distancia de carrera. No es una estimación: nadie corre 5000 m al ritmo de sus repeticiones de 200 m. Para estimar una carrera, usa el <a href="/es/tools/race-predictor">estimador de tiempos de carrera</a>.</p>
+
+      <h2>Cómo escribir un entrenamiento</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Escribes</th><th>Interpreta</th></tr></thead>
+        <tbody>
+          <tr><td><code>6x200 en 27-28</code></td><td>6 repeticiones de 200 m en 27 a 28 s</td></tr>
+          <tr><td><code>10x400 @ 68 rec 60s</code></td><td>10 × 400 m en 68 s, 60 s de recuperación</td></tr>
+          <tr><td><code>5x1k en 3:05-3:10</code></td><td>5 × 1000 m en 3:05 a 3:10</td></tr>
+          <tr><td><code>4x1 mile en 5:20</code></td><td>4 × 1609 m en 5:20</td></tr>
+          <tr><td><code>3x300 en 42 + 3x150 en 19</code></td><td>Dos bloques, sumados</td></tr>
+        </tbody>
+      </table></div>
+      <p>Puedes escribir los tiempos como <code>27.5</code>, <code>1:05</code>, <code>1:05-1:07</code> o <code>1'05"</code>.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Un atleta de 800 m con PB de 2:00.00 hace 6x200 en 27-28 con 2 minutos de recuperación. El punto medio es 27.5 s: 55.0 por 400 m y 13.8 por 100 m. Son 1200 m de carrera rápida en 2:45 más 10 minutos de recuperación entre las seis repeticiones. El ritmo de PB es 15.0 s por 100 m, así que las repeticiones van al 109% del ritmo de 800 m.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cómo calculo el ritmo de una repetición?</summary>
+        <p>Divide el tiempo por la distancia de la repetición y multiplica por la distancia para la que quieres el ritmo. Un 200 m en 27.5 segundos da 27.5 ÷ 200 × 400 = 55.0 segundos por 400 m.</p>
+      </details>
+      <details>
+        <summary>¿Qué significa 6x200 en 27-28?</summary>
+        <p>Seis repeticiones de 200 m, cada una en 27 a 28 segundos. La calculadora usa el punto medio, 27.5 segundos, para el ritmo.</p>
+      </details>
+      <details>
+        <summary>¿El volumen total incluye la recuperación?</summary>
+        <p>No. Solo cuenta la distancia de las repeticiones. El tiempo de recuperación se muestra aparte; caminar o trotar durante ella no añade volumen.</p>
+      </details>
+      <details>
+        <summary>¿Qué es el porcentaje del ritmo de PB?</summary>
+        <p>Compara la velocidad de la repetición con la velocidad media de tu PB. El 100% es tu ritmo de PB; más del 100% es más rápido y menos, más lento. Un 200 m en 27.5 va al 109% del ritmo de un 800 m en 2:00.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Registra el entrenamiento y conserva los parciales.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Registra cada repetición y parcial. Tu repetición más rápida en cada distancia se convierte automáticamente en marca de entrenamiento.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/training-paces"><h3>Ritmos de entrenamiento según tu PB</h3><p>Tiempos de repetición del 60 al 120% del ritmo de tu PB.</p></a>
+        <a class="tcard" href="/es/tools/race-predictor"><h3>Estimador de tiempos de carrera</h3><p>Estima un tiempo de carrera a partir de un PB.</p></a>
+        <a class="tcard" href="/es/tools/pace-converter"><h3>Conversor de ritmo y unidades</h3><p>min/km, min/milla, por 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/rep-pace" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/passo-ripetute" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/rep-pace" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/rep-pace" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/rep-pace.js"></script>
+</body>
+</html>

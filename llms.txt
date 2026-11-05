@@ -21,7 +21,7 @@ Price: StrideBuddy is in preview, and every feature is free during the preview. 
 
 Platforms: an iPhone app for iOS 18 or later. A web app at https://web.stridebuddy.app uses the same account and shows the same diary.
 
-Languages: English and Italian.
+Languages: English and Italian. Spain Spanish and France French app support is in preparation, not yet advertised as released.
 
 App Store: https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
 
@@ -53,3 +53,14 @@ Free calculators and reference pages for track and field athletes. Each page sho
 - [Pace and unit converter](https://stridebuddy.app/tools/pace-converter): min/km, min/mile, per 400 m, km/h, mph and m/s, plus field-event marks in metres and feet and inches
 - [Hurdle heights and spacings](https://stridebuddy.app/tools/hurdle-heights): Heights, number of hurdles and distances for every hurdle race and the steeplechase, by age group
 - [Lane distances and staggers](https://stridebuddy.app/tools/lane-stagger): How far one lap is in each lane, and the staggers for the 200 m, 400 m, 800 m and relays
+
+## Website translation drafts
+
+- [Spanish home](https://stridebuddy.app/es): Spain Spanish website copy, with app support in preparation
+- [French home](https://stridebuddy.app/fr): France French website copy, with app support in preparation
+- [Spanish FAQ](https://stridebuddy.app/es/faq): Questions and answers in Spanish
+- [French FAQ](https://stridebuddy.app/fr/faq): Questions and answers in French
+- [Spanish privacy policy](https://stridebuddy.app/es/privacy): Translation; English remains official
+- [French privacy policy](https://stridebuddy.app/fr/privacy): Translation; English remains official
+- [Spanish track tools](https://stridebuddy.app/es/tools): All 11 tools with Spanish explanations
+- [French track tools](https://stridebuddy.app/fr/tools): All 11 tools with French explanations

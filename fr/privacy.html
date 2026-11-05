@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politique de confidentialité de StrideBuddy</title>
+  <meta name="description" content="Comment StrideBuddy conserve tes données d’entraînement et traite les demandes d’IA, les données techniques et tes choix de confidentialité.">
+  <!--
+    The Cloudflare Worker that serves the site strips the extension:
+    /privacy.html 307s to /privacy, so the extensionless form is the real URL and
+    the canonical must name it. www.
+    301-redirects to apex (Cloudflare redirect rule, 2026-10-24).
+  -->
+  <link rel="canonical" href="https://stridebuddy.app/fr/privacy">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/privacy">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/privacy">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/privacy">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/privacy">
+  <!--
+    it/privacy.html is a translation of this page, served at /it/privacy. Change
+    both in the same commit, with the same "Last updated" date. The hreflang
+    links match it/privacy.html and sitemap.xml.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/privacy">
+  <meta property="og:title" content="Politique de confidentialité de StrideBuddy">
+  <meta property="og:description" content="Comment StrideBuddy conserve tes données d’entraînement et traite les demandes d’IA, les données techniques et tes choix de confidentialité.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrideBuddy sur iPhone : le journal et le plan hebdomadaire.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F8F8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16120E">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap"><a href="/fr" aria-label="Accueil StrideBuddy"><picture><source media="(prefers-color-scheme: dark)" srcset="/assets/stridebuddy_lockup_dark.png"><img src="/assets/stridebuddy_lockup.png" alt="StrideBuddy"></picture></a></div>
+  </header>
+  <main>
+    <div class="wrap">
+      
+      <nav class="locale-nav" aria-label="Langue">
+        <a href="/privacy" hreflang="en" lang="en" data-campaign-carry>English</a>
+        <a href="/it/privacy" hreflang="it" lang="it" data-campaign-carry>Italiano</a>
+        <a href="/es/privacy" hreflang="es" lang="es" data-campaign-carry>Español</a>
+        <a href="/fr/privacy" hreflang="fr" lang="fr" data-campaign-carry aria-current="page">Français</a>
+      </nav>
+      <p class="eyebrow">Confidentialité</p>
+      <h1>Politique de confidentialité</h1>
+      <p class="muted">Ceci est une traduction. Le texte officiel est en anglais. En cas de différence, le texte anglais prévaut. <a href="/privacy">Lire le texte officiel</a>.</p>
+      <p class="muted">Dernière mise à jour : 27 octobre 2026</p>
+
+      <p>Cette politique explique où StrideBuddy conserve ton journal, comment fonctionne le compte obligatoire, quelles données sont envoyées pour l’IA et les statistiques facultatives, et quelles données techniques protègent le service. Elle couvre l’app iPhone et l’app web à web.stridebuddy.app. Lis-la avec les <a href="/fr/terms">conditions d’utilisation de StrideBuddy</a>.</p>
+      <p>StrideBuddy est exploité par Andrea Federici, développeur indépendant en Italie. Andrea Federici est le responsable des traitements décrits ici. L’adresse postale de contact est Via Alessandro Manzoni, 3, 20021 Bollate, Milano, Italie. Pour la confidentialité, écris à <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20confidentialit%C3%A9">support@stridebuddy.app</a>.</p>
+      <p>StrideBuddy s’adresse aux adultes de 18 ans ou plus, pas aux enfants ni aux adolescents.</p>
+
+      <h2>Où ton journal est conservé</h2>
+      <p>StrideBuddy nécessite un compte. La base de données du serveur contient la copie principale du journal, du plan hebdomadaire et du dernier bilan quotidien. L’app iPhone garde aussi une copie sur ton appareil pour noter les séances et lire le journal hors ligne. Le journal du compte comprend ton profil, tes records personnels, séances, séances et courses prévues, notes, répétitions, temps de passage, récupérations, exercices de musculation et dernier bilan quotidien. Tes appareils et l’app web peuvent restaurer et synchroniser le même journal et le même bilan.</p>
+      <p>L’app web garde une copie du journal dans ton navigateur pendant ta connexion pour ouvrir les pages rapidement et mettre les changements hors ligne en attente de synchronisation. La déconnexion supprime cette copie. Elle conserve aussi quelques réglages dans le navigateur : langue et apparence, réglage de l’IA, conditions et politique acceptées, brouillon de retour non envoyé et recherches récentes dans le journal. Firebase Authentication maintient ta connexion dans ce navigateur. L’app web n’utilise pas de cookies publicitaires, statistiques ou de suivi.</p>
+      <p>Les utilisateurs existants peuvent aussi avoir une ancienne copie dans leur compte iCloud privé. Pour continuer, ils doivent accepter les conditions et la politique en vigueur, se connecter et terminer une migration vérifiée. StrideBuddy compare les identifiants stables, les nombres d’entrées et les empreintes du contenu avant que la base serveur devienne la copie principale.</p>
+      <p>Si la vérification échoue, le journal reste enregistré sur l’appareil et dans l’espace iCloud privé. StrideBuddy reste sur l’écran de nouvelle tentative et d’aide jusqu’à la réussite de la migration. Il ne continue pas dans l’ancien mode local et iCloud. Après migration, les anciens enregistrements iCloud restent inchangés comme archive de récupération. Ils ne servent plus de journal actif et ne sont pas automatiquement supprimés.</p>
+      <p>StrideBuddy utilise tes données pour la saisie, l’affichage du journal, la classification des séances, le suivi des records personnels, le bilan quotidien, Plan, les estimations de course et comparaisons de séances dans Analyses, et les futures fonctions d’IA.</p>
+
+      <h2>Statistiques d’utilisation facultatives</h2>
+      <p>Les statistiques d’utilisation concernent uniquement l’app iPhone. L’app web n’en contient pas et n’envoie pas d’événements à PostHog.</p>
+      <p>StrideBuddy te demande si tu souhaites partager une petite quantité de données d’utilisation. Elles restent désactivées jusqu’au choix Partager les données d’utilisation. Choisir Pas maintenant ne limite pas l’app. Tu peux modifier le réglage distinct Statistiques d’utilisation à tout moment dans les Réglages. Ce choix est indépendant de celui de l’IA.</p>
+      <p>Si tu actives les statistiques, l’app iPhone envoie des événements limités d’interaction au service EU Cloud de PostHog. Ils décrivent les sessions d’utilisation, visites des fonctions principales, choix de saisie et séances enregistrées, utilisation du journal et des recherches, configuration, génération et interactions de Plan, estimations de course dans Analyses, résultats de connexion et de restauration du journal, échecs et récupération de synchronisation, enregistrement de séances et courses prévues, ouverture ou copie d’une image de séance. Copier une image ne révèle pas où tu la partages. Le texte des recherches, ton identité et le contenu du journal ou des réponses de Plan ne sont jamais inclus.</p>
+      <p>Les événements peuvent inclure un identifiant aléatoire réservé aux statistiques, version et numéro de compilation de l’app, langue affichée, version iOS (numéros majeur et mineur uniquement, par exemple 26.1), environnement de développement, TestFlight ou production, catégories fixes de fonction et d’action, mode et source de saisie, catégorie de date du jour, passée ou future, étape du parcours de saisie, tranches larges de nombres et durées, et résultats opérationnels ou codes d’erreur normalisés. Ils n’incluent pas de dates exactes de séances, d’identifiants de compte ou d’entrées, ni de messages d’erreur libres. L’identifiant aléatoire est distinct des identifiants de compte et d’infrastructure IA. StrideBuddy n’utilise pas les profils de personnes de PostHog et ne t’identifie pas par nom ou coordonnées. Un ancien refus du partage reste respecté.</p>
+      <p>Les statistiques n’incluent jamais notes d’entraînement, texte de notes rapides, bilans générés, noms d’athlètes, coordonnées, records exacts, chronos, temps de passage, récupérations, distances, structure des séances, RPE, sensations, blessures, étiquettes de signaux corporels, résultats de course, lieu ou localisation précise, erreurs libres, instructions ou réponses d’IA, éléments de sécurité, identifiants publicitaires ou IDFA. La relecture de sessions, capture automatique de touches, enregistrement d’écran, capture de plantages ou de journaux d’application, enquêtes, indicateurs de fonctions et suivi publicitaire sont désactivés.</p>
+      <p>PostHog reçoit les données normales de connexion, comme l’adresse IP, lors d’une demande. Avant d’activer les statistiques dans une version, StrideBuddy configure le projet européen pour supprimer les adresses IP conservées et désactive l’enrichissement GeoIP afin de ne pas ajouter de localisation aux événements. PostHog traite ces statistiques pour StrideBuddy selon ses conditions, engagements de confidentialité et conditions de traitement. Tu peux lire la <a href="https://posthog.com/privacy">politique de confidentialité de PostHog</a>.</p>
+
+      <h2>Informations traitées par StrideBuddy</h2>
+      <p>Les informations dépendent de ton utilisation et peuvent comprendre :</p>
+      <ul>
+        <li>le contenu du journal dans la base du compte et sur ton appareil ou navigateur : séances, notes, RPE, sensations, étiquettes, courses, records personnels, répétitions, temps de passage, récupérations et musculation ;</li>
+        <li>les informations du profil et de l’épreuve : catégorie de compétition, épreuve, type d’athlète, année de naissance si saisie, fuseau horaire et contexte des records par épreuve ;</li>
+        <li>tes réponses de configuration de Plan, dans ton compte : objectif, mois de saison, jours disponibles pour l’entraînement et la musculation, nombre et durée souhaités des séances de musculation, matériel, volume souhaité et déroulement de l’entraînement récent ;</li>
+        <li>les semaines proposées par Plan et ses retours sur tes séances enregistrées, dans ton compte ;</li>
+        <li>le dernier bilan quotidien généré pour chaque jour local et langue, dans ton compte afin que tes appareils lisent le même bilan ;</li>
+        <li>les estimations de course et comparaisons de séances confirmées par StrideBuddy dans Analyses, dans ton compte ;</li>
+        <li>les données de compte et de connexion : identifiant interne StrideBuddy, identifiant Firebase, identifiant du fournisseur Apple ou Google, identifiant d’installation de l’appareil ou du web, versions de politiques acceptées et état du compte ;</li>
+        <li>les données nécessaires à une demande d’IA, uniquement lorsque l’IA est activée et doit faire une demande ;</li>
+        <li>les données facultatives et limitées d’interaction, de catégories de condition physique, d’identification et de diagnostic décrites dans la section statistiques, seulement après activation ;</li>
+        <li>les données techniques et de sécurité : identifiants pseudonymes d’installation, sessions web courtes, identifiants de demande, empreintes des données sources, compteurs de limites, empreintes salées des IP, version, paramètres régionaux et métadonnées d’acceptation des politiques ; et</li>
+        <li>les messages envoyés pour l’aide, les retours, les demandes de confidentialité ou de suppression, avec des détails comme ton adresse e-mail.</li>
+      </ul>
+
+      <h2>Fonctions d’IA</h2>
+      <p>Les fonctions d’IA peuvent fonctionner automatiquement après confirmation de tes 18 ans et acceptation des conditions, de la politique et de l’information sur l’IA. L’app envoie uniquement les informations nécessaires à la fonction au serveur de StrideBuddy. Celui-ci envoie les données pertinentes à l’API payante Gemini de Google ou à celle d’OpenAI pour générer une réponse.</p>
+      <p>Les demandes d’Analyses s’exécutent sur le serveur plutôt que dans l’app, sans action nécessaire de ta part. De temps à autre, par exemple après ajout, modification ou suppression d’une séance, le serveur peut demander à un fournisseur d’IA de mettre à jour tes estimations ou de vérifier si une nouvelle séance est comparable à une ancienne. Cela n’arrive que si l’IA est activée, et tu peux la désactiver à tout moment dans les Réglages.</p>
+      <p>Selon la fonction, la demande peut contenir :</p>
+      <ul>
+        <li>un identifiant pseudonyme d’installation et un identifiant de demande à usage unique ;</li>
+        <li>ta date locale et ton fuseau horaire, ainsi qu’une empreinte pour vérifier si les données du journal ont changé ;</li>
+        <li>ton profil d’épreuve : distance, sexe, type d’athlète et records personnels ;</li>
+        <li>la séance analysée et de brefs résumés des séances récentes : dates, type, titre, résumé, catégorie, RPE, sensations, notes et faits comme distance, durée, chrono de course, exercices ou détails du travail avec obstacles ;</li>
+        <li>un bref résumé des dernières semaines créé sur l’appareil : nombres de séances par catégorie, courses récentes, termes de signaux corporels répétés dans les notes, RPE moyen et nombres de sensations faibles ; et</li>
+        <li>pour le bilan quotidien, un bref contexte des bilans précédents lorsqu’il aide à relier une nouvelle séance à l’entraînement récent ;</li>
+        <li>pour Plan, tes réponses de configuration ; une tranche d’âge calculée à partir de ton année de naissance, comme 18 à 34 ans (l’année n’est pas envoyée) ; date, distance, discipline et priorité des courses prévues (sans noms ni notes) ; si tu indiques que ton entraîneur prévoit tes séances de piste, les séances prévues pour les jours préparés par Plan et la semaine suivante, avec date, type, structure, effort cible et notes ; tes séances récentes réalisées en détail, avec titres, notes, RPE, répétitions, résultats, récupérations et exercices de musculation, les semaines antérieures étant réduites à de courts résumés quotidiens ; et, pour une mise à jour, le plan actuel, le changement demandé et les notes antérieures de Plan sur ta saison ;</li>
+        <li>pour les estimations d’Analyses, un résumé construit par le serveur à partir du journal : épreuve principale et catégorie ; records et dates ; courses des 12 derniers mois avec date, épreuve, chrono et nom ; meilleur temps par distance de répétition pour chacun des 6 derniers mois ; séances avec répétitions chronométrées des 6 derniers mois avec date, titre, catégorie, structure, temps et RPE ; séances de tempo des 6 derniers mois avec date, titre, distance, allure et RPE ; distance hebdomadaire des 26 dernières semaines ; et estimations précédentes. Notes, sensations, étiquettes, année de naissance et données du compte ne sont pas envoyées ; et</li>
+        <li>pour les comparaisons d’Analyses, la séance enregistrée et jusqu’à cinq séances précédentes presque identiques, avec date, titre, catégorie, structure, chronos et RPE ; en musculation, nom de l’exercice, séries, répétitions, charges et repos. Les notes ne sont pas envoyées.</li>
+      </ul>
+      <p>Si tu décris une séance par écrit ou à l’oral pour que StrideBuddy la remplisse, la demande contient ton texte ou ton enregistrement et les noms des exercices que tu as ajoutés. StrideBuddy les envoie à un fournisseur d’IA indiqué ci-dessous qui remplit la séance, puis tu la vérifies avant de l’enregistrer. StrideBuddy ne conserve ni texte ni enregistrement après la demande.</p>
+      <p>Tes notes peuvent contenir des informations de santé ou d’autres données sensibles si tu choisis de les écrire. N’y ajoute rien que tu ne veux pas faire traiter par l’IA.</p>
+      <p>StrideBuddy n’envoie pas tout l’historique du journal à un fournisseur d’IA. Pour le bilan quotidien, l’app réduit l’historique récent à un court résumé sur l’appareil. Pour Plan, elle envoie les séances les plus récentes en détail et résume les semaines antérieures par jour. Pour Analyses, seuls les résumés et séances décrits ci-dessus sont envoyés.</p>
+      <p>StrideBuddy utilise deux fournisseurs d’IA : l’API payante Gemini de Google et l’API d’OpenAI. Google indique ne pas utiliser les données soumises aux services payants de Gemini pour entraîner ses modèles. Il peut traiter entrées et sorties selon ses conditions et engagements applicables, dont les <a href="https://ai.google.dev/gemini-api/terms">conditions supplémentaires de l’API Gemini</a> et sa <a href="https://policies.google.com/privacy">politique de confidentialité</a>.</p>
+      <p>OpenAI indique ne pas utiliser les données de son API pour entraîner ses modèles par défaut. Sa conservation standard des données d’API s’applique : il peut garder les entrées et sorties jusqu’à 30 jours pour surveiller les abus. Il les traite pour StrideBuddy selon ses conditions et engagements, dont son <a href="https://openai.com/policies/data-processing-addendum/">avenant relatif au traitement des données</a> et sa <a href="https://openai.com/policies/privacy-policy/">politique de confidentialité</a>.</p>
+
+      <h2>Information sur l’IA</h2>
+      <p>Le bilan quotidien, Plan, Analyses et les futures fonctions utilisent certaines données du journal pour générer du texte, des suggestions, des estimations et comparaisons, et remplir les séances décrites. Ces réponses peuvent être fausses ou incomplètes. Les séances, chronos cibles et efforts de Plan sont des estimations, comme les chronos et autres valeurs d’Analyses : ce ne sont pas des promesses. StrideBuddy ne fournit pas d’avis médical, de diagnostic, de score de risque de blessure, d’aide d’urgence ou de plan garanti. Il ne doit pas être ta seule source pour décider de l’entraînement, de la santé, des blessures ou de la sécurité.</p>
+      <p>Après la configuration initiale, un interrupteur général dans les Réglages contrôle toute l’IA. Le désactiver empêche les futures demandes. Tu peux toujours noter tes séances et lire ton journal.</p>
+
+      <h2>Données de compte, serveur et sécurité</h2>
+      <p>Le serveur conserve les données du journal de ton compte. Il utilise aussi des données techniques pour synchroniser, exécuter l’IA, appliquer les limites, prévenir les abus et bloquer le trafic malveillant. Elles peuvent comprendre :</p>
+      <ul>
+        <li>ton identifiant interne de compte, le lien avec le fournisseur de connexion et les identifiants pseudonymes d’installation ;</li>
+        <li>les identifiants stables des entrées, révisions du serveur, curseurs de synchronisation, marqueurs de suppression et reçus de modifications pour éviter les doublons ou pertes ;</li>
+        <li>les identifiants de demande et empreintes des données sources ;</li>
+        <li>le fuseau horaire pour vérifier les périodes de bilan ;</li>
+        <li>les compteurs limitant les demandes d’IA ;</li>
+        <li>des métadonnées limitées d’acceptation : versions de politiques, version de l’app, langue ou région si disponibles, confirmation de majorité et activation de l’IA ; et</li>
+        <li>une empreinte salée de l’adresse IP de la demande pour prévenir les abus. Les limites serveur conservent l’empreinte, pas l’IP brute.</li>
+      </ul>
+      <p>La base conserve le dernier bilan quotidien pour chaque jour local et langue. Tes appareils le reçoivent par synchronisation. Si les données du journal n’ont pas changé, le serveur renvoie le bilan existant sans en générer un autre. Un nouveau bilan du même jour et de la même langue remplace le précédent. Les autres réponses d’IA restent sur ton appareil sauf indication contraire ici.</p>
+      <p>La base conserve aussi tes réponses de configuration de Plan, les semaines proposées avec ses notes sur la saison et ses retours sur les séances enregistrées, pour afficher le même plan sur le web et tes appareils. Lorsque Plan fonctionne, le serveur lit les données nécessaires du compte. Les versions iPhone qui ne synchronisent pas encore Plan gardent ce contenu uniquement sur l’appareil.</p>
+      <p>Pour Analyses, la base conserve chaque ensemble d’estimations avec intervalles et confiance pendant environ six mois pour les graphiques ; le dernier reste jusqu’au suivant. Elle conserve aussi la séance précédente jugée comparable, la planification des demandes en attente et les compteurs qui limitent leur fréquence.</p>
+
+      <h2>Retours depuis l’app</h2>
+      <p>Si tu envoies un retour depuis iPhone ou le web, StrideBuddy reçoit ton message, une référence interne de compte et des données techniques : sur iPhone, version et compilation, version iOS et modèle ; sur le web, version, nom du navigateur et plateforme. Le retour est associé à ton compte connecté pour comprendre les problèmes et améliorer l’app. Il est distinct des statistiques facultatives et de l’IA. Le formulaire ne demande pas d’adresse de réponse.</p>
+      <p>Un brouillon reste sur l’appareil ou dans le navigateur jusqu’à son effacement, son envoi, la déconnexion ou la suppression du compte. Le serveur garde les retours envoyés et les transmet par un service e-mail à l’assistance StrideBuddy. Le message transmis contient la référence interne et les données techniques, pas ton nom de compte ni ton adresse e-mail.</p>
+      <p>Les envois non livrés sont conservés pour réessayer et examiner les problèmes. Les copies serveur sont effacées 30 jours après livraison réussie, ou plus tôt si tu supprimes le compte. La suppression du compte n’efface pas automatiquement les copies déjà reçues par l’assistance. Elles suivent les règles des messages d’assistance ci-dessous ; écris à support@stridebuddy.app pour demander leur suppression.</p>
+
+      <h2>Utilisation des informations</h2>
+      <p>StrideBuddy traite les informations pour :</p>
+      <ul>
+        <li>fournir saisie, journal, classification, records, Plan et réglages sur iPhone et sur le web ;</li>
+        <li>créer et protéger ton compte, synchroniser et restaurer le journal et résoudre les changements hors ligne incompatibles sans dépendre des horloges locales ;</li>
+        <li>générer les semaines de Plan, estimations et comparaisons d’Analyses et futures fonctions, et remplir les séances décrites lorsque l’IA est activée ;</li>
+        <li>mémoriser l’acceptation des conditions, de la politique et de l’information sur l’IA ;</li>
+        <li>avec ton choix séparé, comprendre l’activation, la saisie répétée, la fiabilité, la découverte de la valeur de l’historique et la fidélisation ;</li>
+        <li>appliquer les limites, prévenir les abus, examiner la fiabilité et protéger le serveur ;</li>
+        <li>répondre aux demandes d’aide, de confidentialité, de suppression ou juridiques ; et</li>
+        <li>respecter la loi, faire appliquer les conditions et protéger les droits et la sécurité.</li>
+      </ul>
+
+      <h2>Conservation</h2>
+      <p>StrideBuddy garde le journal serveur, Plan, les estimations et comparaisons d’Analyses et les derniers bilans tant que le compte est actif, sauf les anciennes estimations supprimées après environ six mois. Les entrées effacées laissent des marqueurs limités pour qu’un appareil hors ligne ne les restaure pas par erreur. La suppression du compte efface le journal actif, Plan, Analyses, les bilans et marqueurs. La copie du navigateur est supprimée à la déconnexion ou à la suppression du compte depuis ce navigateur.</p>
+      <p>Render sauvegarde en continu la base payante pour une restauration à un instant donné. La fenêtre actuelle est de trois jours. Les données effacées peuvent rester dans ces sauvegardes jusqu’à la fin de ce délai. Elles servent uniquement à restaurer le service après perte de données. Une base restaurée doit réappliquer les suppressions de comptes ultérieures avant de rétablir les accès.</p>
+      <p>Une ancienne archive iCloud reste dans ton compte Apple jusqu’à suppression des données StrideBuddy dans les réglages Apple. StrideBuddy ne la supprime pas automatiquement. Les limites serveur sont généralement conservées environ 24 heures. Des données de sécurité limitées peuvent rester plus longtemps si nécessaire pour protéger le service, enquêter sur les abus, respecter la loi ou résoudre des problèmes de sécurité.</p>
+      <p>Les événements facultatifs PostHog sont destinés à être conservés au maximum 12 mois. StrideBuddy configurera ce délai si le service le permet ou utilisera la procédure de suppression de PostHog. Le choix de consentement et l’identifiant aléatoire restent sur ton appareil jusqu’à suppression de l’app ou de ses données, ou réinitialisation de l’identité statistique.</p>
+
+      <h2>Partage</h2>
+      <p>StrideBuddy ne vend pas tes données et ne les partage pas pour de la publicité comportementale entre contextes. Apple ou Google traite l’autorisation de connexion choisie et Firebase Authentication l’identité du compte. Render héberge le serveur et la base à Francfort, en Allemagne, et distribue l’app web. Les demandes d’IA vont à Google Gemini et OpenAI uniquement pour ces fonctions. Si tu actives les statistiques, les événements limités décrits vont à PostHog EU Cloud. Apple gère l’ancienne archive iCloud selon sa <a href="https://www.apple.com/legal/privacy/">politique de confidentialité</a>. Ces fournisseurs traitent les données pour StrideBuddy selon leurs conditions et engagements applicables.</p>
+      <p>StrideBuddy peut communiquer des informations limitées si la loi l’exige, pour faire appliquer les conditions, protéger les utilisateurs ou le service, ou lors d’une fusion, acquisition, financement, réorganisation, vente d’actifs ou opération similaire. Il exigera alors que le destinataire respecte cette politique, sauf notification et choix requis par la loi.</p>
+
+      <h2>Tes contrôles</h2>
+      <p>Tu contrôles ton journal dans l’app. Sur iPhone, tu peux te déconnecter, supprimer les données téléchargées si aucun changement n’attend la synchronisation ou supprimer le compte dans les Réglages. Sur le web, la déconnexion efface la copie du navigateur et tu peux supprimer le compte dans les Réglages. Les anciennes archives iCloud se gèrent dans les réglages iCloud. L’IA fait partie de l’expérience principale. Son interrupteur général arrête les demandes futures, mais laisse la saisie et la lecture du journal disponibles.</p>
+      <p>Les statistiques ont leur propre réglage. Le désactiver arrête les envois futurs. Cela ne désactive pas l’IA, ne change pas les fonctions locales et ne supprime pas les événements déjà reçus par PostHog. Tu peux demander leur suppression à StrideBuddy.</p>
+      <p>Selon ton lieu de résidence, tu peux avoir des droits d’accès, rectification, suppression ou opposition. Un compte connecté permet d’effacer le bon journal serveur et les enregistrements liés à ses installations. Ton identifiant statistique peut encore être nécessaire pour supprimer les événements facultatifs PostHog.</p>
+      <p>StrideBuddy n’utilise pas les statistiques pour des décisions ayant des effets juridiques ou d’importance comparable sur toi. Elles éclairent seulement les décisions globales de produit et de fiabilité.</p>
+
+      <h2>Suppression et demandes</h2>
+      <p>Tu peux commencer la suppression en bas des Réglages sans e-mail. StrideBuddy demande une nouvelle connexion avec le même compte Apple ou Google, puis confirmation de l’action définitive. Le journal serveur, Plan, Analyses, bilans, lien du compte, installations, clés App Attest, données de synchronisation et enregistrements opérationnels d’IA ou de sécurité associés sont supprimés. StrideBuddy demande aussi à Firebase et au fournisseur de révoquer ou supprimer l’identité de connexion lorsque leurs systèmes le permettent. Un échec du nettoyage chez un fournisseur n’empêche pas la suppression des données StrideBuddy.</p>
+      <p>Supprimer le compte n’efface pas automatiquement les anciennes archives iCloud privées, sauvegardes iOS ou exports que tu contrôles. Tu peux supprimer les données iCloud dans les réglages Apple et les données téléchargées depuis l’app. Les sauvegardes de base expirent selon leur calendrier. Contacte StrideBuddy pour supprimer des événements PostHog ou messages d’assistance.</p>
+      <p>StrideBuddy répond dans le délai imposé par la loi applicable. Des données limitées peuvent rester si nécessaire pour la sécurité, le respect de la loi ou le règlement de litiges.</p>
+
+      <h2>Droits européens, britanniques et suisses</h2>
+      <p>Dans l’Espace économique européen, au Royaume-Uni ou en Suisse, le RGPD, le RGPD britannique ou la loi suisse peuvent te donner des droits sur tes données. Selon le cas, StrideBuddy traite les données pour l’app et l’IA demandée sur la base du contrat, du consentement, d’intérêts légitimes comme la sécurité et la prévention des abus, et d’obligations légales. Les statistiques facultatives reposent sur ton consentement séparé.</p>
+      <p>Tu peux avoir le droit d’accéder à tes données, de les corriger, supprimer, limiter ou contester le traitement, ou d’en recevoir une copie portable. Tu peux aussi retirer ton consentement pour l’avenir. L’interrupteur général d’IA arrête les demandes futures et tu peux contacter StrideBuddy pour tes droits. Le retrait du consentement n’invalide pas un traitement licite au moment où il a eu lieu.</p>
+      <p>Tes notes peuvent contenir des données de santé ou d’autres détails sensibles si tu les écris. N’ajoute rien de sensible que tu ne souhaites pas faire traiter par les fonctions activées.</p>
+      <p>Tu peux avoir le droit de saisir ton autorité locale de protection des données : en Italie, le Garante per la protezione dei dati personali ; au Royaume-Uni, l’Information Commissioner’s Office ; en Suisse, le Préposé fédéral à la protection des données et à la transparence.</p>
+
+      <h2>Droits canadiens</h2>
+      <p>Si la loi canadienne te concerne, tu peux demander accès ou correction des informations contrôlées par StrideBuddy et retirer le consentement pour les traitements facultatifs futurs, dans les limites légales. Tu peux retirer le consentement statistique dans l’app et adresser une demande ou plainte à StrideBuddy.</p>
+
+      <h2>Droits en Californie et dans les États américains</h2>
+      <p>StrideBuddy ne vend pas de données, ne les partage pas pour la publicité comportementale entre contextes, n’utilise pas de publicité ciblée et ne suit pas les personnes entre apps ou sites tiers. Le SDK PostHog facultatif sert uniquement aux statistiques internes limitées décrites ici. Les signaux Do Not Track et Global Privacy Control du navigateur ne contrôlent pas le réglage iOS, mais les statistiques restent désactivées jusqu’à ton choix dans l’app. L’app web n’a pas de statistiques d’utilisation.</p>
+      <p>Si une loi californienne ou d’un autre État s’applique, tu peux avoir droit à l’accès, à la correction, à la suppression, à une copie des informations ou à des précisions sur certaines communications. Dans les limites légales, StrideBuddy ne te défavorisera pas pour l’exercice d’un droit.</p>
+
+      <h2>Transferts internationaux</h2>
+      <p>StrideBuddy, Google, OpenAI, PostHog et les fournisseurs d’infrastructure peuvent traiter des données hors de ton pays. Les statistiques vont dans la région EU Cloud de PostHog. Lorsque la loi l’exige, StrideBuddy utilise des garanties de transfert adaptées, dont les protections contractuelles des fournisseurs concernés.</p>
+
+      <h2>Sécurité</h2>
+      <p>StrideBuddy enregistre d’abord les changements sur ton appareil ou navigateur, utilise des connexions chiffrées, vérifie les jetons du compte, les installations iPhone authentiques et les sessions web courtes liées à son adresse, restreint l’accès à la base et exclut le contenu du journal des journaux d’application. Render chiffre le stockage de sa base gérée. Aucune app ni aucun service ne peut promettre une sécurité complète.</p>
+
+      <h2>Enfants et adolescents</h2>
+      <p>StrideBuddy s’adresse aux adultes de 18 ans ou plus, pas aux enfants ni aux adolescents. Ne l’utilise pas avant 18 ans. Si tu penses qu’un mineur a envoyé des données personnelles au serveur, contacte-nous. Nous examinerons la demande et supprimerons les données concernées lorsque c’est possible.</p>
+
+      <h2>Modifications</h2>
+      <p>StrideBuddy peut réviser cette politique si l’app, ses fournisseurs ou la loi évoluent. Une modification importante du stockage obligatoire du compte ou d’un autre traitement essentiel entraîne une nouvelle acceptation des conditions et de la politique avant de continuer. Si les données, le fournisseur, la finalité ou le risque de l’IA changent sensiblement, les fonctions ne reprennent qu’après l’acceptation mise à jour requise. Si le périmètre des statistiques facultatives change sensiblement, StrideBuddy demandera un nouveau choix avant de collecter selon ce périmètre.</p>
+
+      <h2>Questions</h2>
+      <p>Pour toute question de confidentialité, écris à : <a href="mailto:support@stridebuddy.app?subject=StrideBuddy%20confidentialit%C3%A9">support@stridebuddy.app</a></p>
+
+      <a class="back" href="/fr">← Retour à l’accueil</a>
+    </div>
+  </main>
+</body>
+</html>

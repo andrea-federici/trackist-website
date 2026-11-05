@@ -63,7 +63,7 @@
     return html;
   }
 
-  function fmtAbs(a) { return a.toFixed(2).replace(".", SB.lang === "it" ? "," : ".") + " s"; }
+  function fmtAbs(a) { return a.toFixed(2).replace(".", SB.lang !== "en" ? "," : ".") + " s"; }
 
   function stat(k, v, s, hero) {
     return '<div class="stat' + (hero ? " hero" : "") + '"><span class="k">' + k + '</span><output class="v">' + v + '</output><div class="s">' + s + "</div></div>";

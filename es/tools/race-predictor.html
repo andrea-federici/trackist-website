@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estimador de tiempos en pista, de 60 m a 10.000 m | StrideBuddy</title>
+  <meta name="description" content="Estima tiempos a partir de un PB con la fórmula de Riegel, de 60 m a 10.000 m. Cambia el exponente o introduce dos PB para calcular el tuyo.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/race-predictor">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/race-predictor">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/previsione-tempi">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/race-predictor">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/race-predictor">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/race-predictor">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/race-predictor">
+  <meta property="og:title" content="Estimador de tiempos de carrera en pista">
+  <meta property="og:description" content="Tiempos a partir de un PB con la fórmula de Riegel, de 60 m a 10.000 m. Introduce dos PB para calcular tu exponente.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Estimador de tiempos de carrera",
+          "item": "https://stridebuddy.app/es/tools/race-predictor"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona la fórmula de Riegel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Supone que el tiempo aumenta algo más rápido que la distancia. La fórmula es T2 = T1 × (D2 ÷ D1)^1.06. Cada vez que se dobla la distancia, el ritmo baja aproximadamente un 4%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué precisión tiene el estimador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es una fórmula, no una prueba de tu forma. Se acerca más cuando la distancia está cerca de tu PB y entrenas para ella. Es menos fiable en velocidad y en distancias mucho mayores o menores que tu PB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué exponente debería usar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1.06 es el valor de Riegel y un buen punto de partida. Si tienes dos PB recientes, usa Dos PB para calcular el tuyo. Un exponente bajo indica que mantienes bien el ritmo en carreras largas. Uno alto indica más fortaleza en distancias cortas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Así estima StrideBuddy los tiempos de carrera?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Esta página usa una fórmula. La app StrideBuddy usa IA para analizar tu diario y estimar tus tiempos. Cada estimación muestra el tiempo más probable, un rango y un nivel de confianza."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/race-predictor" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/previsione-tempi" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/race-predictor" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/race-predictor" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Estimador de tiempos de carrera</nav>
+    <div class="page-head">
+      <p class="eyebrow">Competición</p>
+      <h1>Estimador de tiempos de carrera</h1>
+      <p class="lead">Introduce un PB y obtén una estimación para cada prueba de pista de 60 m a 10.000 m. Se usa la fórmula de Riegel. Con dos PB se calcula tu propio exponente.</p>
+    </div>
+
+    <form class="tool stack" id="pred-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Basado en</legend>
+          <div class="seg">
+            <label><input type="radio" name="mode" value="one" checked><span>Un PB</span></label>
+            <label><input type="radio" name="mode" value="two"><span>Dos PB</span></label>
+          </div>
+        </fieldset>
+        <div class="col">
+          <div class="row">
+            <div class="field">
+              <label for="pbEvent">Prueba del PB</label>
+              <select id="pbEvent" name="pbEvent">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800">800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500" selected>1500 m</option>
+                <option value="1609.344">Milla</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10.000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime">Tiempo del PB</label>
+              <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="4:10.00" placeholder="4:10.00">
+            </div>
+          </div>
+          <div class="row" id="second-pb" hidden>
+            <div class="field">
+              <label for="pbEvent2">Prueba del segundo PB</label>
+              <select id="pbEvent2" name="pbEvent2">
+                <option value="60">60 m</option>
+                <option value="100">100 m</option>
+                <option value="200">200 m</option>
+                <option value="400">400 m</option>
+                <option value="800" selected>800 m</option>
+                <option value="1000">1000 m</option>
+                <option value="1500">1500 m</option>
+                <option value="1609.344">Milla</option>
+                <option value="3000">3000 m</option>
+                <option value="5000">5000 m</option>
+                <option value="10000">10.000 m</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pbTime2">Tiempo del segundo PB</label>
+              <input type="text" id="pbTime2" name="pbTime2" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="field" id="exponent-field">
+            <label for="k">Exponente</label>
+            <input type="text" id="k" name="k" inputmode="decimal" value="1.06" aria-describedby="k-hint">
+            <span class="hint" id="k-hint">Riegel usó 1.06. Cuanto más alto, más baja tu ritmo al alargarse la carrera.</span>
+          </div>
+          <div class="chips" aria-label="Ejemplos">
+            <button type="button" class="chip" data-fill='{&quot;mode&quot;:&quot;one&quot;,&quot;pbEvent&quot;:&quot;1500&quot;,&quot;pbTime&quot;:&quot;4:10.00&quot;,&quot;k&quot;:&quot;1.06&quot;}'>1500 m en 4:10</button>
+            <button type="button" class="chip" data-fill='{&quot;mode&quot;:&quot;one&quot;,&quot;pbEvent&quot;:&quot;5000&quot;,&quot;pbTime&quot;:&quot;15:30.0&quot;,&quot;k&quot;:&quot;1.06&quot;}'>5000 m en 15:30</button>
+            <button type="button" class="chip" data-fill='{&quot;mode&quot;:&quot;two&quot;,&quot;pbEvent&quot;:&quot;1500&quot;,&quot;pbTime&quot;:&quot;4:05.00&quot;,&quot;pbEvent2&quot;:&quot;800&quot;,&quot;pbTime2&quot;:&quot;2:00.00&quot;}'>800 m + 1500 m</button>
+          </div>
+        </div>
+      </div>
+      <div class="tool-results" id="pred-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Exponente</span><output class="v">1,060</output><div class="s">1.06 es el valor de Riegel</div></div><div class="stat"><span class="k">Pérdida de ritmo</span><output class="v">+4,2%</output><div class="s">del ritmo cada vez que se dobla la distancia</div></div></div><div class="table-wrap"><table><thead><tr><th>Prueba</th><th>Tiempo</th><th>/400 m</th><th>/km</th><th>Nota</th></tr></thead><tbody><tr><td>60 m</td><td>8.24</td><td>55.0</td><td>2:17</td><td>Aproximado: velocidad</td></tr><tr><td>100 m</td><td>14.17</td><td>56.7</td><td>2:22</td><td>Aproximado: velocidad</td></tr><tr><td>200 m</td><td>29.54</td><td>59.1</td><td>2:28</td><td>Aproximado: velocidad</td></tr><tr><td>400 m</td><td>1:01.58</td><td>1:01.6</td><td>2:34</td><td></td></tr><tr><td>800 m</td><td>2:08.40</td><td>1:04.2</td><td>2:40</td><td></td></tr><tr><td>1000 m</td><td>2:42.66</td><td>1:05.1</td><td>2:43</td><td></td></tr><tr><td class="hl">1500 m</td><td class="hl">4:10.00</td><td>1:06.7</td><td>2:47</td><td>Tu PB</td></tr><tr><td>Milla</td><td>4:29.36</td><td>1:06.9</td><td>2:47</td><td></td></tr><tr><td>3000 m</td><td>8:41.23</td><td>1:09.5</td><td>2:54</td><td></td></tr><tr><td>5000 m</td><td>14:55.8</td><td>1:11.7</td><td>2:59</td><td></td></tr><tr><td>10.000 m</td><td>31:07.6</td><td>1:14.7</td><td>3:07</td><td>Aproximado: lejos del PB</td></tr></tbody></table></div><p class="note">Aproximado indica que la fórmula sale de su rango útil: menos de 400 m, o distancias más de 4 veces mayores o menores que tu PB.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>El estimador usa la fórmula publicada por Peter Riegel en 1981. Indica que el tiempo aumenta algo más rápido que la distancia.</p>
+      <div class="formula">T2 = T1 × (D2 ÷ D1)<sup>k</sup></div>
+      <p>T1 es tu tiempo de PB en la distancia D1. T2 estima el de D2. Riegel ajustó k = 1.06 a los récords mundiales. Con 1.06, el ritmo baja aproximadamente un 4% cada vez que se dobla la distancia.</p>
+      <p>En modo Dos PB se calcula el exponente que encaja con ambos:</p>
+      <div class="formula">k = ln(T2 ÷ T1) ÷ ln(D2 ÷ D1)</div>
+      <p>Después usa ese exponente en todas las demás pruebas. Tus dos PB quedan exactamente como los introdujiste.</p>
+      <p>Esta página usa una fórmula. No es la estimación de la app StrideBuddy, que analiza tu diario de entrenamiento.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Un atleta tiene un PB de 1500 m en 4:10.00. Para 5000 m, la fórmula da 250 s × (5000 ÷ 1500)<sup>1.06</sup> = 895.8 s, o 14:55.8. Son 71.7 s por 400 m frente a 66.7 s por 400 m en 1500 m.</p>
+      <p>El mismo atleta tiene un PB de 800 m en 2:00.00. Con Dos PB, el exponente pasa a ln(250 ÷ 120) ÷ ln(1500 ÷ 800) = 1.168. Pierde más ritmo que la media al aumentar la distancia, así que sube su estimación de 5000 m.</p>
+
+      <h2>Límites</h2>
+      <ul>
+        <li>La fórmula procede de récords mundiales de carreras más largas. Describe mal la velocidad: se marca como aproximada cualquier estimación inferior a 400 m o basada en un PB de velocidad.</li>
+        <li>Cuanto más se aleje la carrera de tu PB, mayor será el error. Se marcan como aproximadas las distancias más de 4 veces mayores o menores que tu PB más cercano.</li>
+        <li>Supone que entrenas para esa distancia. Quien corre 1500 m y nunca hace rodajes largos no hará el 10.000 m estimado.</li>
+        <li>No conoce el tiempo, la táctica ni tu forma de hoy.</li>
+      </ul>
+
+      <h2>Fuentes</h2>
+      <p class="sources">Riegel, P. S. (1981). Athletic records and human endurance. <em>American Scientist</em>, 69(3), 285–290. <a href="https://www.jstor.org/stable/27850427">jstor.org/stable/27850427</a></p>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cómo funciona la fórmula de Riegel?</summary>
+        <p>Supone que el tiempo aumenta algo más rápido que la distancia. La fórmula es T2 = T1 × (D2 ÷ D1)^1.06. Cada vez que se dobla la distancia, el ritmo baja aproximadamente un 4%.</p>
+      </details>
+      <details>
+        <summary>¿Qué precisión tiene el estimador?</summary>
+        <p>Es una fórmula, no una prueba de tu forma. Se acerca más cuando la distancia está cerca de tu PB y entrenas para ella. Es menos fiable en velocidad y en distancias mucho mayores o menores que tu PB.</p>
+      </details>
+      <details>
+        <summary>¿Qué exponente debería usar?</summary>
+        <p>1.06 es el valor de Riegel y un buen punto de partida. Si tienes dos PB recientes, usa Dos PB para calcular el tuyo. Un exponente bajo indica que mantienes bien el ritmo en carreras largas. Uno alto indica más fortaleza en distancias cortas.</p>
+      </details>
+      <details>
+        <summary>¿Así estima StrideBuddy los tiempos de carrera?</summary>
+        <p>No. Esta página usa una fórmula. La app StrideBuddy usa IA para analizar tu diario y estimar tus tiempos. Cada estimación muestra el tiempo más probable, un rango y un nivel de confianza.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Estimaciones de carrera a partir de tu entrenamiento.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Usa IA para analizar tu diario y estimar tus tiempos, con el tiempo más probable, un rango y un nivel de confianza.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/mile-converter"><h3>Conversor de milla, 1500 m y 1600 m</h3><p>Convierte un tiempo entre las tres carreras.</p></a>
+        <a class="tcard" href="/es/tools/split-planner"><h3>Planificador de pasos de carrera</h3><p>Pasos por vuelta para una carrera regular o planificada.</p></a>
+        <a class="tcard" href="/es/tools/training-paces"><h3>Ritmos de entrenamiento según tu PB</h3><p>Tiempos de repetición del 60 al 120% del ritmo de tu PB.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/race-predictor" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/previsione-tempi" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/race-predictor" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/race-predictor" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/race-predictor.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculateur de points de décathlon et d'heptathlon | StrideBuddy</title>
+  <meta name="description" content="Saisis tes performances pour obtenir les points par épreuve et le total du décathlon, de l&#x27;heptathlon, du pentathlon et de l&#x27;heptathlon en salle. Fixe un objectif de points pour voir les performances encore nécessaires.">
+  <link rel="canonical" href="https://stridebuddy.app/fr/tools/combined-events">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/combined-events">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/combined-events">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/fr/tools/combined-events">
+  <meta property="og:title" content="Calculateur de points de décathlon et d&#x27;heptathlon">
+  <meta property="og:description" content="Points par épreuve et au total du décathlon, de l&#x27;heptathlon, du pentathlon et de l&#x27;heptathlon en salle, et performances nécessaires pour ton objectif.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-fr.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Outils d'athlétisme",
+          "item": "https://stridebuddy.app/fr/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Points des épreuves combinées",
+          "item": "https://stridebuddy.app/fr/tools/combined-events"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment calcule-t-on les points du décathlon ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chaque performance est convertie en points avec une formule publiée : a × (b − T)^c pour les courses, et a × (M − b)^c pour les sauts et lancers. T est le temps en secondes et M le saut en centimètres ou le lancer en mètres. Le résultat est arrondi à l'entier inférieur et les points de toutes les épreuves sont additionnés."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faut-il ajouter à un temps manuel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ajoute 0.24 seconde sous 400 m et 0.14 seconde sur 400 m. Rien n'est ajouté sur 800 m, 1000 m et 1500 m. Le calculateur le fait quand tu choisis le chronométrage manuel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi une épreuve rapporte-t-elle zéro point ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chaque épreuve a un seuil. Un temps égal ou plus lent que ce seuil, ou un saut ou lancer égal ou inférieur, rapporte zéro point. Sur le 100 m masculin, le seuil est de 18.00 secondes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les jeunes athlètes utilisent-ils d'autres tables ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Selon World Athletics, les mêmes tables s'appliquent à tous les âges, même avec des haies plus basses ou des engins plus légers. Les compétitions masters ajoutent des coefficients d'âge que ce calculateur n'applique pas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/fr/tools">Tous les outils</a>
+        <details class="lang-menu">
+          <summary title="Langue"><span class="sr-only">Langue</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/combined-events" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/combined-events" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/combined-events" hreflang="fr" lang="fr" aria-current="page">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Télécharge StrideBuddy sur l&#x27;App Store">Télécharger</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="/fr/tools">Outils d'athlétisme</a><span aria-hidden="true">/</span>Points des épreuves combinées</nav>
+    <div class="page-head">
+      <p class="eyebrow">Épreuves combinées</p>
+      <h1>Calculateur de points de décathlon et d'heptathlon</h1>
+      <p class="lead">Saisis tes performances pour voir les points par épreuve et le total. L'outil couvre le décathlon, l'heptathlon, le pentathlon et l'heptathlon en salle. Fixe un objectif pour voir les performances encore nécessaires.</p>
+    </div>
+
+    <form class="tool stack" id="ce-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Compétition</legend>
+          <div class="seg">
+            <label><input type="radio" name="comp" value="decathlon" checked><span>Décathlon</span></label>
+            <label><input type="radio" name="comp" value="heptathlon"><span>Heptathlon</span></label>
+            <label><input type="radio" name="comp" value="indoorHeptathlon"><span>Heptathlon en salle (hommes)</span></label>
+            <label><input type="radio" name="comp" value="indoorPentathlon"><span>Pentathlon en salle (femmes)</span></label>
+            <label><input type="radio" name="comp" value="womensDecathlon"><span>Décathlon féminin</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Chronométrage</legend>
+          <div class="seg">
+            <label><input type="radio" name="timing" value="fat" checked><span>Entièrement automatique</span></label>
+            <label><input type="radio" name="timing" value="hand"><span>Manuel</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="target">Objectif de points (facultatif)</label>
+          <input type="text" id="target" name="target" inputmode="numeric" value="7000" placeholder="7000">
+        </div>
+        <div class="row full" id="ce-events"><div class="field"><label for="ce-m100">100 m</label><input type="text" id="ce-m100" name="m100" inputmode="decimal" placeholder="11.00" value="11.00"></div><div class="field"><label for="ce-mLJ">Saut en longueur</label><input type="text" id="ce-mLJ" name="mLJ" inputmode="decimal" placeholder="7.00" value="7.00"></div><div class="field"><label for="ce-mSP">Lancer du poids</label><input type="text" id="ce-mSP" name="mSP" inputmode="decimal" placeholder="13.50" value="13.50"></div><div class="field"><label for="ce-mHJ">Saut en hauteur</label><input type="text" id="ce-mHJ" name="mHJ" inputmode="decimal" placeholder="1.90" value="1.90"></div><div class="field"><label for="ce-m400">400 m</label><input type="text" id="ce-m400" name="m400" inputmode="decimal" placeholder="50.00" value="50.00"></div><div class="field"><label for="ce-m110H">110 m haies</label><input type="text" id="ce-m110H" name="m110H" inputmode="decimal" placeholder="15.00" value=""></div><div class="field"><label for="ce-mDT">Disque</label><input type="text" id="ce-mDT" name="mDT" inputmode="decimal" placeholder="40.00" value=""></div><div class="field"><label for="ce-mPV">Saut à la perche</label><input type="text" id="ce-mPV" name="mPV" inputmode="decimal" placeholder="4.50" value=""></div><div class="field"><label for="ce-mJT">Javelot</label><input type="text" id="ce-mJT" name="mJT" inputmode="decimal" placeholder="55.00" value=""></div><div class="field"><label for="ce-m1500">1500 m</label><input type="text" id="ce-m1500" name="m1500" inputmode="decimal" placeholder="4:40.00" value=""></div></div>
+        <p class="note full">Temps au format 11.00 ou 4:35.13. Sauts et lancers en mètres, par exemple 7.00.</p>
+      </div>
+      <div class="tool-results" id="ce-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Total</span><output class="v">3 902</output><div class="s">5 sur 10 épreuves comptabilisées</div></div><div class="stat"><span class="k">Encore nécessaires</span><output class="v">3 098</output><div class="s">points pour 7 000</div></div><div class="stat"><span class="k">Par épreuve restante</span><output class="v">620</output><div class="s">points en moyenne</div></div></div><div class="table-wrap"><table><thead><tr><th>Épreuve</th><th>Performance</th><th>Points</th><th>Total</th><th>Pour l'objectif</th></tr></thead><tbody><tr><td>100 m</td><td>11.00</td><td class="hl">861</td><td>861</td><td></td></tr><tr><td>Saut en longueur</td><td>7,00 m</td><td class="hl">814</td><td>1 675</td><td></td></tr><tr><td>Lancer du poids</td><td>13,50 m</td><td class="hl">698</td><td>2 373</td><td></td></tr><tr><td>Saut en hauteur</td><td>1,90 m</td><td class="hl">714</td><td>3 087</td><td></td></tr><tr><td>400 m</td><td>50.00</td><td class="hl">815</td><td>3 902</td><td></td></tr><tr><td>110 m haies</td><td>–</td><td class="hl">–</td><td>–</td><td>17.04</td></tr><tr><td>Disque</td><td>–</td><td class="hl">–</td><td>–</td><td>37,78 m</td></tr><tr><td>Saut à la perche</td><td>–</td><td class="hl">–</td><td>–</td><td>4,01 m</td></tr><tr><td>Javelot</td><td>–</td><td class="hl">–</td><td>–</td><td>52,09 m</td></tr><tr><td>1500 m</td><td>–</td><td class="hl">–</td><td>–</td><td>4:49.86</td></tr></tbody></table></div><p class="note">Pour l'objectif : la performance qui rapporte 620 points dans chaque épreuve restante. Toute combinaison avec le même total convient.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Méthode de calcul</h2>
+      <p>Chaque performance est convertie en points avec l'une de trois formules. World Athletics les publie dans ses tables de cotation des épreuves combinées, avec les valeurs de a, b et c pour chaque épreuve.</p>
+      <div class="formula">Courses : points = a × (b − T)<sup>c</sup>, avec T en secondes<br>Sauts : points = a × (M − b)<sup>c</sup>, avec M en centimètres<br>Lancers : points = a × (D − b)<sup>c</sup>, avec D en mètres</div>
+      <p>Le résultat est toujours arrondi à l'entier inférieur. Une performance égale ou inférieure à b rapporte zéro : b est le seuil. Le total est la somme des points de toutes les épreuves.</p>
+      <p>Pour le 100 m masculin, a vaut 25.4347, b vaut 18.00 et c vaut 1.81. Un temps de 10.62 donne 25.4347 × (18.00 − 10.62)<sup>1.81</sup> = 947.56, arrondi à l'entier inférieur, soit 947 points.</p>
+
+      <h3>Temps manuels</h3>
+      <p>Les formules utilisent des temps entièrement automatiques. Avec un temps manuel, ajoute 0.24 s sous 400 m et 0.14 s sur 400 m avant le calcul des points. Rien n'est ajouté à partir de 800 m. Choisis Manuel et le calculateur l'ajoute pour toi.</p>
+
+      <h3>Objectif de points</h3>
+      <p>Saisis un objectif et laisse vides les épreuves restantes. Le calculateur répartit les points manquants à parts égales et montre la performance nécessaire dans chacune. C'est une façon d'atteindre l'objectif, pas la seule : davantage de points dans ta meilleure épreuve permettent d'en obtenir moins ailleurs.</p>
+
+      <h2>Exemple de calcul</h2>
+      <p>Pour vérification, les formules reproduisent le décathlon gagnant des Mondiaux d'Edmonton 2001, avec 8 902 points. Le premier jour : 10.62 sur 100 m (947 points), 8.07 m en longueur (1 079), 16.57 m au poids (886), 2.00 m en hauteur (803) et 47.74 sur 400 m (922), soit 4 637 points. Saisis ces performances pour retrouver les mêmes points par épreuve.</p>
+      <p>Les tables officielles incluent les feuilles de résultats des trois premiers du décathlon et de l'heptathlon de ces championnats. Le calculateur retrouve les 51 scores par épreuve et les six totaux.</p>
+
+      <h2>Limites</h2>
+      <ul>
+        <li>C'est un calculateur, pas un résultat officiel. Les officiels utilisent les tables officielles pour la compétition.</li>
+        <li>Le vent ne change pas les points.</li>
+        <li>En hauteur et à la perche, la barre monte par pas de 3 cm et 10 cm. Une hauteur cible peut donc devoir être arrondie au prochain niveau de barre.</li>
+        <li>Les coefficients d'âge masters ne sont pas appliqués.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <p class="sources">Formules, paramètres, arrondis et corrections manuelles : IAAF Scoring Tables for Combined Events, édition 2001 réimprimée en 2016. Épreuves et ordre : règles techniques de World Athletics, règle 39 et règles de piste courte, dans le <a href="https://worldathletics.org/about-iaaf/documents/book-of-rules">Règlement de World Athletics</a>. StrideBuddy n'est pas affilié à World Athletics.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Questions</h2>
+      <details>
+        <summary>Comment calcule-t-on les points du décathlon ?</summary>
+        <p>Chaque performance est convertie en points avec une formule publiée : a × (b − T)^c pour les courses, et a × (M − b)^c pour les sauts et lancers. T est le temps en secondes et M le saut en centimètres ou le lancer en mètres. Le résultat est arrondi à l'entier inférieur et les points de toutes les épreuves sont additionnés.</p>
+      </details>
+      <details>
+        <summary>Que faut-il ajouter à un temps manuel ?</summary>
+        <p>Ajoute 0.24 seconde sous 400 m et 0.14 seconde sur 400 m. Rien n'est ajouté sur 800 m, 1000 m et 1500 m. Le calculateur le fait quand tu choisis le chronométrage manuel.</p>
+      </details>
+      <details>
+        <summary>Pourquoi une épreuve rapporte-t-elle zéro point ?</summary>
+        <p>Chaque épreuve a un seuil. Un temps égal ou plus lent que ce seuil, ou un saut ou lancer égal ou inférieur, rapporte zéro point. Sur le 100 m masculin, le seuil est de 18.00 secondes.</p>
+      </details>
+      <details>
+        <summary>Les jeunes athlètes utilisent-ils d'autres tables ?</summary>
+        <p>Non. Selon World Athletics, les mêmes tables s'appliquent à tous les âges, même avec des haies plus basses ou des engins plus légers. Les compétitions masters ajoutent des coefficients d'âge que ce calculateur n'applique pas.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Tout ton entraînement de course dans un journal.</h2>
+        <p>StrideBuddy est un journal pour les athlètes de piste. Note tes séances de sprint, haies et demi-fond avec chaque répétition et temps de passage. Il ne note pas les sauts ni les lancers.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Télécharger sur l'App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Ouvrir l'app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Outils associés</h2>
+      <div class="cards">
+        <a class="tcard" href="/fr/tools/hand-timing"><h3>Conversion du manuel au FAT</h3><p>Convertis un temps manuel en équivalent automatique.</p></a>
+        <a class="tcard" href="/fr/tools/wind-adjustment"><h3>Correction du vent</h3><p>Ce que vaut un temps de sprint ou de haies sans vent.</p></a>
+        <a class="tcard" href="/fr/tools/hurdle-heights"><h3>Hauteurs et espacements des haies</h3><p>Hauteurs et distances de chaque course de haies.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/fr" aria-label="Accueil StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navigation du pied de page">
+        <a href="/fr">Accueil</a>
+        <a href="/fr/tools">Outils d'athlétisme</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/fr/faq">Questions fréquentes</a>
+        <a href="/fr/support">Assistance</a>
+        <a href="/fr/terms">Conditions</a>
+        <a href="/fr/privacy">Confidentialité</a>
+      </nav>
+      <nav class="lang-links" aria-label="Langue">
+            <a href="/tools/combined-events" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/combined-events" hreflang="es" lang="es">Español</a>
+            <a href="/fr/tools/combined-events" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Ton entraînement d'athlétisme dans un journal.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/combined-events.js"></script>
+</body>
+</html>

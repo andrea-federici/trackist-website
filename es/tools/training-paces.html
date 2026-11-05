@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ritmos según tu PB: tabla de porcentajes de ritmo de carrera | StrideBuddy</title>
+  <meta name="description" content="Introduce un PB y obtén tiempos del 60 al 120% de tu ritmo para las distancias habituales. Imprime la tabla y llévala a la pista.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/training-paces">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/training-paces">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/ritmi-allenamento">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/training-paces">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/training-paces">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/training-paces">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/training-paces">
+  <meta property="og:title" content="Ritmos de entrenamiento según tu PB">
+  <meta property="og:description" content="Tiempos de repetición del 60 al 120% del ritmo de PB, listos para imprimir.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <style media="print">
+    /* The printed page is the table: no site chrome, light colours whatever the screen theme. */
+    :root { --paper:#FFFFFF; --card:#FFFFFF; --card-2:#F4F3F1; --ink:#000000; --ink-2:#222222; --ink-3:#444444; --edge:#CCCCCC; --edge-2:#999999; --accent:#B52B20; --accent-soft:#FFFFFF; --shadow:none; }
+    .site-header, .site-footer, .crumbs, .lead, .tool-inputs, .prose, .faq, .app-cta, .related { display: none !important; }
+    .page-head { padding: 0 0 12px; }
+    .page-head h1 { font-size: 22pt; }
+    .page-head::after { content: "stridebuddy.app/tools/training-paces"; display: block; font-size: 10pt; color: #444444; margin-top: 4px; }
+    .tool { border: 0; box-shadow: none; padding: 0; }
+    .stat { border: 1px solid #CCCCCC; }
+    .table-wrap { overflow: visible; }
+    table { font-size: 11pt; }
+    th, td { padding: 5px 8px; }
+  </style>
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ritmos de entrenamiento según tu PB",
+          "item": "https://stridebuddy.app/es/tools/training-paces"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo calculo un porcentaje del ritmo de mi PB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide el tiempo de PB por su distancia para obtener segundos por metro. Multiplica por la distancia de repetición y divide por el porcentaje. Con PB de 800 m en 2:00, un 400 m al 90% es 400 × 0.15 ÷ 0.9 = 66.7 segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El 90% del ritmo de PB, ¿es un 10% más lento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El porcentaje es de velocidad. El 90% de velocidad tarda un 11.1% más, no un 10%. Una vuelta de 60.0 segundos al 90% es 66.7 segundos, no 66.0."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo imprimir la tabla?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Usa el botón Imprimir la tabla. La página impresa solo muestra la tabla y tu PB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué cambian las distancias de repetición según la prueba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada prueba muestra distancias cercanas: más cortas para velocidad y más largas para fondo. Un PB de 100 m muestra de 60 a 300 m. Uno de 5000 m muestra de 400 a 2000 m."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/training-paces" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/ritmi-allenamento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/training-paces" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/training-paces" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Ritmos de entrenamiento</nav>
+    <div class="page-head">
+      <p class="eyebrow">Entrenamiento</p>
+      <h1>Ritmos de entrenamiento según tu PB</h1>
+      <p class="lead">Introduce un PB y obtén una tabla de tiempos del 60 al 120% de tu ritmo para las distancias adecuadas a tu prueba. Imprímela y llévala a la pista.</p>
+    </div>
+
+    <form class="tool stack" id="paces-form" autocomplete="off">
+      <div class="tool-inputs">
+        <div class="row align-start">
+          <div class="field">
+            <label for="pbEvent">Prueba del PB</label>
+            <select id="pbEvent" name="pbEvent">
+              <option value="100">100 m</option>
+              <option value="200">200 m</option>
+              <option value="400">400 m</option>
+              <option value="800" selected>800 m</option>
+              <option value="1500">1500 m</option>
+              <option value="1609.344">Milla</option>
+              <option value="3000">3000 m</option>
+              <option value="5000">5000 m</option>
+              <option value="10000">10.000 m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pbTime">Tiempo del PB</label>
+            <input type="text" id="pbTime" name="pbTime" inputmode="decimal" value="2:00.00" placeholder="2:00.00">
+          </div>
+        </div>
+        <div class="col">
+          <div class="chips" aria-label="Ejemplos">
+            <button type="button" class="chip" data-fill='{&quot;pbEvent&quot;:&quot;100&quot;,&quot;pbTime&quot;:&quot;11.50&quot;}'>100 m en 11.50</button>
+            <button type="button" class="chip" data-fill='{&quot;pbEvent&quot;:&quot;400&quot;,&quot;pbTime&quot;:&quot;50.00&quot;}'>400 m en 50.00</button>
+            <button type="button" class="chip" data-fill='{&quot;pbEvent&quot;:&quot;1500&quot;,&quot;pbTime&quot;:&quot;4:00.00&quot;}'>1500 m en 4:00.00</button>
+            <button type="button" class="chip" data-fill='{&quot;pbEvent&quot;:&quot;5000&quot;,&quot;pbTime&quot;:&quot;15:00.00&quot;}'>5000 m en 15:00.00</button>
+          </div>
+          <div class="chips"><button type="button" class="chip" id="paces-print">Imprimir la tabla</button></div>
+        </div>
+      </div>
+      <div class="tool-results" id="paces-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Ritmo de PB</span><output class="v">1:00.0</output><div class="s">por 400 m = 100%</div></div><div class="stat"><span class="k">Por 100 m</span><output class="v">15.00</output><div class="s">al 100%</div></div><div class="stat"><span class="k">Por km</span><output class="v">2:30</output><div class="s">al 100%</div></div></div><p class="note">Tu PB: 800 m en 2:00.00. Cada celda es el tiempo de una repetición.</p><div class="table-wrap"><table class="paces"><thead><tr><th>% PB</th><th>200 m</th><th>300 m</th><th>400 m</th><th>600 m</th><th>800 m</th><th>1000 m</th></tr></thead><tbody><tr><td>120%</td><td>25.0</td><td>37.5</td><td>50.0</td><td>1:15</td><td>1:40</td><td>2:05</td></tr><tr><td>115%</td><td>26.1</td><td>39.1</td><td>52.2</td><td>1:18</td><td>1:44</td><td>2:10</td></tr><tr><td>110%</td><td>27.3</td><td>40.9</td><td>54.5</td><td>1:22</td><td>1:49</td><td>2:16</td></tr><tr><td>105%</td><td>28.6</td><td>42.9</td><td>57.1</td><td>1:26</td><td>1:54</td><td>2:23</td></tr><tr><td class="hl">100%</td><td class="hl">30.0</td><td class="hl">45.0</td><td class="hl">1:00.0</td><td class="hl">1:30</td><td class="hl">2:00</td><td class="hl">2:30</td></tr><tr><td>95%</td><td>31.6</td><td>47.4</td><td>1:03.2</td><td>1:35</td><td>2:06</td><td>2:38</td></tr><tr><td>90%</td><td>33.3</td><td>50.0</td><td>1:06.7</td><td>1:40</td><td>2:13</td><td>2:47</td></tr><tr><td>85%</td><td>35.3</td><td>52.9</td><td>1:10.6</td><td>1:46</td><td>2:21</td><td>2:56</td></tr><tr><td>80%</td><td>37.5</td><td>56.3</td><td>1:15.0</td><td>1:53</td><td>2:30</td><td>3:08</td></tr><tr><td>75%</td><td>40.0</td><td>1:00.0</td><td>1:20.0</td><td>2:00</td><td>2:40</td><td>3:20</td></tr><tr><td>70%</td><td>42.9</td><td>1:04.3</td><td>1:25.7</td><td>2:09</td><td>2:51</td><td>3:34</td></tr><tr><td>65%</td><td>46.2</td><td>1:09.2</td><td>1:32.3</td><td>2:18</td><td>3:05</td><td>3:51</td></tr><tr><td>60%</td><td>50.0</td><td>1:15.0</td><td>1:40.0</td><td>2:30</td><td>3:20</td><td>4:10</td></tr></tbody></table></div></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>Tu PB da tu ritmo de carrera: el tiempo dividido por la distancia. El 100% es ese ritmo. Un porcentaje mayor es más rápido: el 110% significa un 10% más de velocidad.</p>
+      <div class="formula">tiempo de repetición = distancia de repetición × (tiempo de PB ÷ distancia de PB) ÷ (% ÷ 100)</div>
+      <p>Es el mismo porcentaje de PB que usa la <a href="/es/tools/rep-pace">calculadora de ritmo de repeticiones</a>, así que ambas herramientas dan las mismas cifras.</p>
+
+      <h2>Porcentaje de velocidad, no de tiempo</h2>
+      <p>El 90% de velocidad no es un 10% más de tiempo, sino un 11.1%. Un 400 m de 60.0 s al 90% es 66.7 s, no 66.0 s. Algunos entrenadores usan porcentaje de tiempo: en ese caso las cifras serán algo distintas.</p>
+
+      <h2>Cómo leer la tabla</h2>
+      <p>La fila del 100% es tu ritmo de carrera y está resaltada. La dificultad de un porcentaje depende de la distancia. Un 400 m al 110% del ritmo de 5000 m es un trabajo sólido de fondo. Un 400 m al 110% del ritmo de 400 m supera el propio PB y no es posible.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Un atleta con PB de 800 m en 2:00.00 tiene un ritmo de 15.0 s por 100 m y 60.0 por 400 m. Una repetición de 400 m al 100% es 60.0; al 110%, 54.5; al 90%, 66.7. Un 200 m al 120% es 25.0.</p>
+
+      <h2>Límites</h2>
+      <p>Los porcentajes de un PB no indican a qué velocidad puedes competir en otras distancias. Para eso, usa el <a href="/es/tools/race-predictor">estimador de tiempos de carrera</a>. La tabla no elige el entrenamiento: el número de repeticiones, la recuperación y el porcentaje dependen de ti y tu entrenador o de tu plan.</p>
+
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cómo calculo un porcentaje del ritmo de mi PB?</summary>
+        <p>Divide el tiempo de PB por su distancia para obtener segundos por metro. Multiplica por la distancia de repetición y divide por el porcentaje. Con PB de 800 m en 2:00, un 400 m al 90% es 400 × 0.15 ÷ 0.9 = 66.7 segundos.</p>
+      </details>
+      <details>
+        <summary>El 90% del ritmo de PB, ¿es un 10% más lento?</summary>
+        <p>No. El porcentaje es de velocidad. El 90% de velocidad tarda un 11.1% más, no un 10%. Una vuelta de 60.0 segundos al 90% es 66.7 segundos, no 66.0.</p>
+      </details>
+      <details>
+        <summary>¿Puedo imprimir la tabla?</summary>
+        <p>Sí. Usa el botón Imprimir la tabla. La página impresa solo muestra la tabla y tu PB.</p>
+      </details>
+      <details>
+        <summary>¿Por qué cambian las distancias de repetición según la prueba?</summary>
+        <p>Cada prueba muestra distancias cercanas: más cortas para velocidad y más largas para fondo. Un PB de 100 m muestra de 60 a 300 m. Uno de 5000 m muestra de 400 a 2000 m.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Entrena a estos ritmos y registra las repeticiones.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Registra cada repetición y parcial: el más rápido de cada distancia se convierte en marca de entrenamiento. También puede preparar tu semana según tu prueba, entrenamiento reciente y carreras.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/rep-pace"><h3>Calculadora de ritmo de repeticiones</h3><p>Ritmo, volumen y porcentaje de PB de un entrenamiento.</p></a>
+        <a class="tcard" href="/es/tools/race-predictor"><h3>Estimador de tiempos de carrera</h3><p>Estima un tiempo de carrera a partir de un PB.</p></a>
+        <a class="tcard" href="/es/tools/pace-converter"><h3>Conversor de ritmo y unidades</h3><p>min/km, min/milla, por 400 m, km/h, mph.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/training-paces" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/ritmi-allenamento" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/training-paces" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/training-paces" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/training-paces.js"></script>
+</body>
+</html>

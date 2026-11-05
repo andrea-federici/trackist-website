@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de puntos de decatlón y heptatlón | StrideBuddy</title>
+  <meta name="description" content="Introduce tus marcas para obtener los puntos por prueba y el total de decatlón, heptatlón, pentatlón y heptatlón en pista cubierta. Define una puntuación objetivo para ver las marcas que faltan.">
+  <link rel="canonical" href="https://stridebuddy.app/es/tools/combined-events">
+  <link rel="alternate" hreflang="en" href="https://stridebuddy.app/tools/combined-events">
+  <link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/strumenti/prove-multiple">
+  <link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/combined-events">
+  <link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/combined-events">
+  <link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/combined-events">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrideBuddy">
+  <meta property="og:url" content="https://stridebuddy.app/es/tools/combined-events">
+  <meta property="og:title" content="Calculadora de puntos de decatlón y heptatlón">
+  <meta property="og:description" content="Puntos por prueba y totales de decatlón, heptatlón, pentatlón y heptatlón en pista cubierta, y marcas necesarias para tu objetivo.">
+  <meta property="og:image" content="https://stridebuddy.app/assets/og-image-es.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="icon" type="image/png" href="/assets/stridebuddy_icon_track.png">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <!-- Inert structured data. The FAQ text must match the visible answers word for word. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Herramientas de atletismo",
+          "item": "https://stridebuddy.app/es/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Puntos de pruebas combinadas",
+          "item": "https://stridebuddy.app/es/tools/combined-events"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calculan los puntos del decatlón?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada marca se convierte en puntos con una fórmula publicada: a × (b − T)^c para carreras y a × (M − b)^c para saltos y lanzamientos. T es el tiempo en segundos y M, el salto en centímetros o el lanzamiento en metros. El resultado se redondea hacia abajo y se suman los puntos de todas las pruebas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué añado a un tiempo manual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Añade 0.24 segundos en distancias inferiores a 400 m y 0.14 segundos en 400 m. No se añade nada en 800 m, 1000 m ni 1500 m. La calculadora lo hace al elegir cronometraje manual."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué una prueba da cero puntos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada prueba tiene una marca límite. Un tiempo igual o más lento que el límite, o un salto o lanzamiento igual o inferior, da cero puntos. En 100 m masculino el límite es 18.00 segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los atletas más jóvenes usan otras tablas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Según World Athletics, se usan las mismas tablas para todas las edades, aunque las vallas sean más bajas o los artefactos más ligeros. Las competiciones máster añaden factores de edad que esta calculadora no aplica."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276">
+      </a>
+      <div class="nav-actions">
+        <a class="nav-link hide-sm" href="/es/tools">Todas las herramientas</a>
+        <details class="lang-menu">
+          <summary title="Idioma"><span class="sr-only">Idioma</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg></summary>
+          <div class="lang-list">
+            <a href="/tools/combined-events" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/combined-events" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/combined-events" hreflang="fr" lang="fr">Français</a>
+          </div>
+        </details>
+        <a class="btn btn-red btn-small" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8" aria-label="Descarga StrideBuddy en el App Store">Descargar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><a href="/es/tools">Herramientas de atletismo</a><span aria-hidden="true">/</span>Puntos de pruebas combinadas</nav>
+    <div class="page-head">
+      <p class="eyebrow">Pruebas combinadas</p>
+      <h1>Calculadora de puntos de decatlón y heptatlón</h1>
+      <p class="lead">Introduce tus marcas para ver los puntos por prueba y el total. Incluye decatlón, heptatlón, pentatlón y heptatlón en pista cubierta. Define un objetivo para ver qué marcas necesitas aún.</p>
+    </div>
+
+    <form class="tool stack" id="ce-form" autocomplete="off">
+      <div class="tool-inputs">
+        <fieldset class="full">
+          <legend>Competición</legend>
+          <div class="seg">
+            <label><input type="radio" name="comp" value="decathlon" checked><span>Decatlón</span></label>
+            <label><input type="radio" name="comp" value="heptathlon"><span>Heptatlón</span></label>
+            <label><input type="radio" name="comp" value="indoorHeptathlon"><span>Heptatlón en pista cubierta (hombres)</span></label>
+            <label><input type="radio" name="comp" value="indoorPentathlon"><span>Pentatlón en pista cubierta (mujeres)</span></label>
+            <label><input type="radio" name="comp" value="womensDecathlon"><span>Decatlón femenino</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Cronometraje</legend>
+          <div class="seg">
+            <label><input type="radio" name="timing" value="fat" checked><span>Totalmente automático</span></label>
+            <label><input type="radio" name="timing" value="hand"><span>Manual</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="target">Puntuación objetivo (opcional)</label>
+          <input type="text" id="target" name="target" inputmode="numeric" value="7000" placeholder="7000">
+        </div>
+        <div class="row full" id="ce-events"><div class="field"><label for="ce-m100">100 m</label><input type="text" id="ce-m100" name="m100" inputmode="decimal" placeholder="11.00" value="11.00"></div><div class="field"><label for="ce-mLJ">Salto de longitud</label><input type="text" id="ce-mLJ" name="mLJ" inputmode="decimal" placeholder="7.00" value="7.00"></div><div class="field"><label for="ce-mSP">Lanzamiento de peso</label><input type="text" id="ce-mSP" name="mSP" inputmode="decimal" placeholder="13.50" value="13.50"></div><div class="field"><label for="ce-mHJ">Salto de altura</label><input type="text" id="ce-mHJ" name="mHJ" inputmode="decimal" placeholder="1.90" value="1.90"></div><div class="field"><label for="ce-m400">400 m</label><input type="text" id="ce-m400" name="m400" inputmode="decimal" placeholder="50.00" value="50.00"></div><div class="field"><label for="ce-m110H">110 m vallas</label><input type="text" id="ce-m110H" name="m110H" inputmode="decimal" placeholder="15.00" value=""></div><div class="field"><label for="ce-mDT">Disco</label><input type="text" id="ce-mDT" name="mDT" inputmode="decimal" placeholder="40.00" value=""></div><div class="field"><label for="ce-mPV">Salto con pértiga</label><input type="text" id="ce-mPV" name="mPV" inputmode="decimal" placeholder="4.50" value=""></div><div class="field"><label for="ce-mJT">Jabalina</label><input type="text" id="ce-mJT" name="mJT" inputmode="decimal" placeholder="55.00" value=""></div><div class="field"><label for="ce-m1500">1500 m</label><input type="text" id="ce-m1500" name="m1500" inputmode="decimal" placeholder="4:40.00" value=""></div></div>
+        <p class="note full">Tiempos como 11.00 o 4:35.13. Saltos y lanzamientos en metros, como 7.00.</p>
+      </div>
+      <div class="tool-results" id="ce-results" aria-live="polite"><div class="stats"><div class="stat hero"><span class="k">Total</span><output class="v">3902</output><div class="s">5 de 10 pruebas puntuadas</div></div><div class="stat"><span class="k">Faltan</span><output class="v">3098</output><div class="s">puntos para 7000</div></div><div class="stat"><span class="k">Por prueba pendiente</span><output class="v">620</output><div class="s">puntos de media</div></div></div><div class="table-wrap"><table><thead><tr><th>Prueba</th><th>Marca</th><th>Puntos</th><th>Total</th><th>Para el objetivo</th></tr></thead><tbody><tr><td>100 m</td><td>11.00</td><td class="hl">861</td><td>861</td><td></td></tr><tr><td>Salto de longitud</td><td>7,00 m</td><td class="hl">814</td><td>1675</td><td></td></tr><tr><td>Lanzamiento de peso</td><td>13,50 m</td><td class="hl">698</td><td>2373</td><td></td></tr><tr><td>Salto de altura</td><td>1,90 m</td><td class="hl">714</td><td>3087</td><td></td></tr><tr><td>400 m</td><td>50.00</td><td class="hl">815</td><td>3902</td><td></td></tr><tr><td>110 m vallas</td><td>–</td><td class="hl">–</td><td>–</td><td>17.04</td></tr><tr><td>Disco</td><td>–</td><td class="hl">–</td><td>–</td><td>37,78 m</td></tr><tr><td>Salto con pértiga</td><td>–</td><td class="hl">–</td><td>–</td><td>4,01 m</td></tr><tr><td>Jabalina</td><td>–</td><td class="hl">–</td><td>–</td><td>52,09 m</td></tr><tr><td>1500 m</td><td>–</td><td class="hl">–</td><td>–</td><td>4:49.86</td></tr></tbody></table></div><p class="note">Para el objetivo: la marca que da 620 puntos en cada prueba pendiente. Cualquier combinación con el mismo total sirve.</p></div>
+    </form>
+
+    <section class="prose">
+      <h2>Cómo se calcula</h2>
+      <p>Cada marca se convierte en puntos con una de tres fórmulas. World Athletics las publica en sus tablas de puntuación de combinadas, con los valores de a, b y c para cada prueba.</p>
+      <div class="formula">Carreras: puntos = a × (b − T)<sup>c</sup>, con T en segundos<br>Saltos: puntos = a × (M − b)<sup>c</sup>, con M en centímetros<br>Lanzamientos: puntos = a × (D − b)<sup>c</sup>, con D en metros</div>
+      <p>El resultado siempre se redondea hacia abajo a un entero. Una marca igual o inferior a b da cero: b es el límite. El total suma los puntos de todas las pruebas.</p>
+      <p>En 100 m masculino, a es 25.4347, b es 18.00 y c es 1.81. Un tiempo de 10.62 da 25.4347 × (18.00 − 10.62)<sup>1.81</sup> = 947.56, que se redondea hacia abajo a 947 puntos.</p>
+
+      <h3>Tiempos manuales</h3>
+      <p>Las fórmulas usan tiempos totalmente automáticos. Para tiempos manuales, añade 0.24 s en distancias inferiores a 400 m y 0.14 s en 400 m antes de puntuar. No se añade nada desde 800 m. Elige Manual y la calculadora lo añadirá.</p>
+
+      <h3>Puntuación objetivo</h3>
+      <p>Introduce un objetivo y deja vacías las pruebas pendientes. La calculadora reparte por igual los puntos que faltan entre ellas y muestra la marca necesaria en cada una. Es una forma de llegar al objetivo, no la única: más puntos en tu mejor prueba permiten menos en otra.</p>
+
+      <h2>Ejemplo de cálculo</h2>
+      <p>Como comprobación, las fórmulas reproducen el decatlón ganador del Mundial de Edmonton de 2001, con 8.902 puntos. El primer día fue 10.62 en 100 m (947 puntos), 8.07 m en longitud (1.079), 16.57 m en peso (886), 2.00 m en altura (803) y 47.74 en 400 m (922): 4.637 puntos. Introduce esas marcas y obtendrás los mismos puntos por prueba.</p>
+      <p>Las tablas oficiales incluyen las fichas de los tres primeros en decatlón y heptatlón de esos campeonatos. La calculadora coincide en las 51 puntuaciones por prueba y los seis totales.</p>
+
+      <h2>Límites</h2>
+      <ul>
+        <li>Es una calculadora, no un resultado oficial. Los jueces puntúan las competiciones con las tablas oficiales.</li>
+        <li>El viento no cambia los puntos.</li>
+        <li>En altura y pértiga, el listón sube en pasos de 3 cm y 10 cm. Puede hacer falta redondear una altura objetivo al siguiente paso del listón.</li>
+        <li>No se aplican factores de edad máster.</li>
+      </ul>
+
+      <h2>Fuentes</h2>
+      <p class="sources">Fórmulas, parámetros, redondeo y correcciones manuales: IAAF Scoring Tables for Combined Events, edición de 2001, reimpresa en 2016. Pruebas y orden: reglas técnicas de World Athletics, regla 39 y reglas de pista corta, en el <a href="https://worldathletics.org/about-iaaf/documents/book-of-rules">Reglamento de World Athletics</a>. StrideBuddy no está afiliado a World Athletics.</p>
+    </section>
+
+    <section class="faq">
+      <h2>Preguntas</h2>
+      <details>
+        <summary>¿Cómo se calculan los puntos del decatlón?</summary>
+        <p>Cada marca se convierte en puntos con una fórmula publicada: a × (b − T)^c para carreras y a × (M − b)^c para saltos y lanzamientos. T es el tiempo en segundos y M, el salto en centímetros o el lanzamiento en metros. El resultado se redondea hacia abajo y se suman los puntos de todas las pruebas.</p>
+      </details>
+      <details>
+        <summary>¿Qué añado a un tiempo manual?</summary>
+        <p>Añade 0.24 segundos en distancias inferiores a 400 m y 0.14 segundos en 400 m. No se añade nada en 800 m, 1000 m ni 1500 m. La calculadora lo hace al elegir cronometraje manual.</p>
+      </details>
+      <details>
+        <summary>¿Por qué una prueba da cero puntos?</summary>
+        <p>Cada prueba tiene una marca límite. Un tiempo igual o más lento que el límite, o un salto o lanzamiento igual o inferior, da cero puntos. En 100 m masculino el límite es 18.00 segundos.</p>
+      </details>
+      <details>
+        <summary>¿Los atletas más jóvenes usan otras tablas?</summary>
+        <p>No. Según World Athletics, se usan las mismas tablas para todas las edades, aunque las vallas sean más bajas o los artefactos más ligeros. Las competiciones máster añaden factores de edad que esta calculadora no aplica.</p>
+      </details>
+    </section>
+
+    <section class="app-cta">
+      <img src="/assets/stridebuddy_icon.png" width="1024" height="1024" alt="" loading="lazy">
+      <div>
+        <h2>Todo tu entrenamiento de carrera en un diario.</h2>
+        <p>StrideBuddy es un diario para atletas de pista. Registra velocidad, vallas y medio fondo con cada repetición y parcial. No registra saltos ni lanzamientos.</p>
+        <div class="btn-row">
+          <a class="btn btn-red" href="https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&amp;ct=website&amp;mt=8">Descargar en el App Store</a>
+          <a class="btn btn-on-dark" href="https://web.stridebuddy.app">Abrir la app web</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>Herramientas relacionadas</h2>
+      <div class="cards">
+        <a class="tcard" href="/es/tools/hand-timing"><h3>Conversión de manual a FAT</h3><p>Convierte un tiempo manual a su equivalente automático.</p></a>
+        <a class="tcard" href="/es/tools/wind-adjustment"><h3>Corrección por viento</h3><p>Qué vale un tiempo de velocidad o vallas sin viento.</p></a>
+        <a class="tcard" href="/es/tools/hurdle-heights"><h3>Alturas y separaciones de vallas</h3><p>Alturas y distancias de cada prueba de vallas.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <a class="brand" href="/es" aria-label="Inicio de StrideBuddy">
+        <img class="lockup-light" src="/assets/stridebuddy_lockup.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+        <img class="lockup-dark" src="/assets/stridebuddy_lockup_dark.png" alt="StrideBuddy" width="1296" height="276" loading="lazy">
+      </a>
+      <nav class="footer-links" aria-label="Navegación del pie de página">
+        <a href="/es">Inicio</a>
+        <a href="/es/tools">Herramientas de atletismo</a>
+        <a href="https://web.stridebuddy.app">App web</a>
+        <a href="/es/faq">Preguntas frecuentes</a>
+        <a href="/es/support">Ayuda</a>
+        <a href="/es/terms">Condiciones</a>
+        <a href="/es/privacy">Privacidad</a>
+      </nav>
+      <nav class="lang-links" aria-label="Idioma">
+            <a href="/tools/combined-events" hreflang="en" lang="en">English</a>
+            <a href="/it/strumenti/prove-multiple" hreflang="it" lang="it">Italiano</a>
+            <a href="/es/tools/combined-events" hreflang="es" lang="es" aria-current="page">Español</a>
+            <a href="/fr/tools/combined-events" hreflang="fr" lang="fr">Français</a>
+      </nav>
+      <p class="copyright">© 2026 StrideBuddy. Tu entrenamiento de atletismo en un diario.</p>
+    </div>
+  </footer>
+
+  <script src="/tools/core.js"></script>
+  <script src="/tools/combined-events.js"></script>
+</body>
+</html>
