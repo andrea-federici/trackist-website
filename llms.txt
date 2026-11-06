@@ -8,6 +8,8 @@ It is for adult athletes, 18 or older, who race on the track: sprinters, hurdler
 
 Main features:
 
+- Type or dictate one session and StrideBuddy uses AI to prepare a workout entry. Review it before saving. AI logging requires consent and internet access; manual logging is also available
+
 - Structured sessions with blocks, reps, splits and recoveries, including hurdles, steeplechase and hills
 - Continuous runs, race results, strength work and Quick Notes
 - Personal bests and training records. Hurdle reps have their own records, apart from flat reps
@@ -21,7 +23,7 @@ Price: StrideBuddy is in preview, and every feature is free during the preview. 
 
 Platforms: an iPhone app for iOS 18 or later. A web app at https://web.stridebuddy.app uses the same account and shows the same diary.
 
-Languages: English and Italian. Spain Spanish and France French app support is in preparation, not yet advertised as released.
+Languages: English, Italian, Spanish (Spain) and French (France). All four languages are available in the iPhone app as of version 1.3.1.
 
 App Store: https://apps.apple.com/app/apple-store/id6760190939?pt=128627634&ct=website&mt=8
 
@@ -39,7 +41,7 @@ Support: support@stridebuddy.app
 
 ## Track tools
 
-Free calculators and reference pages for track and field athletes. Each page shows the formula it uses, a worked example, its limits and its sources. Every tool is also in Italian: [Strumenti per l'atletica](https://stridebuddy.app/it/strumenti).
+Free calculators and reference pages for track and field athletes. Each page shows the formula it uses, a worked example, its limits and its sources. Every tool is also in Italian, Spanish and French: [Italian tools](https://stridebuddy.app/it/strumenti), [Spanish tools](https://stridebuddy.app/es/tools), [French tools](https://stridebuddy.app/fr/tools).
 
 - [Track tools](https://stridebuddy.app/tools): All the tools on one page
 - [Rep pace calculator](https://stridebuddy.app/tools/rep-pace): Type a session like 6x200 in 27-28 and get the pace per 100 m, 400 m and km, the total volume and the % of PB pace
@@ -54,13 +56,27 @@ Free calculators and reference pages for track and field athletes. Each page sho
 - [Hurdle heights and spacings](https://stridebuddy.app/tools/hurdle-heights): Heights, number of hurdles and distances for every hurdle race and the steeplechase, by age group
 - [Lane distances and staggers](https://stridebuddy.app/tools/lane-stagger): How far one lap is in each lane, and the staggers for the 200 m, 400 m, 800 m and relays
 
-## Website translation drafts
+## Spanish and French pages
 
-- [Spanish home](https://stridebuddy.app/es): Spain Spanish website copy, with app support in preparation
-- [French home](https://stridebuddy.app/fr): France French website copy, with app support in preparation
+- [Spanish home](https://stridebuddy.app/es): Spain Spanish homepage, with localized app screenshots
+- [French home](https://stridebuddy.app/fr): France French homepage, with localized app screenshots
 - [Spanish FAQ](https://stridebuddy.app/es/faq): Questions and answers in Spanish
 - [French FAQ](https://stridebuddy.app/fr/faq): Questions and answers in French
 - [Spanish privacy policy](https://stridebuddy.app/es/privacy): Translation; English remains official
 - [French privacy policy](https://stridebuddy.app/fr/privacy): Translation; English remains official
 - [Spanish track tools](https://stridebuddy.app/es/tools): All 11 tools with Spanish explanations
 - [French track tools](https://stridebuddy.app/fr/tools): All 11 tools with French explanations
+
+All 11 tools have complete Spanish and French pages, including explanations, formulas, worked examples, limits and sources:
+
+- Rep pace: [Spanish](https://stridebuddy.app/es/tools/rep-pace), [French](https://stridebuddy.app/fr/tools/rep-pace)
+- Training paces: [Spanish](https://stridebuddy.app/es/tools/training-paces), [French](https://stridebuddy.app/fr/tools/training-paces)
+- Race time predictor: [Spanish](https://stridebuddy.app/es/tools/race-predictor), [French](https://stridebuddy.app/fr/tools/race-predictor)
+- Race splits: [Spanish](https://stridebuddy.app/es/tools/split-planner), [French](https://stridebuddy.app/fr/tools/split-planner)
+- Mile and 1500 m conversion: [Spanish](https://stridebuddy.app/es/tools/mile-converter), [French](https://stridebuddy.app/fr/tools/mile-converter)
+- Hand time to FAT: [Spanish](https://stridebuddy.app/es/tools/hand-timing), [French](https://stridebuddy.app/fr/tools/hand-timing)
+- Wind adjustment: [Spanish](https://stridebuddy.app/es/tools/wind-adjustment), [French](https://stridebuddy.app/fr/tools/wind-adjustment)
+- Combined events points: [Spanish](https://stridebuddy.app/es/tools/combined-events), [French](https://stridebuddy.app/fr/tools/combined-events)
+- Pace and unit conversion: [Spanish](https://stridebuddy.app/es/tools/pace-converter), [French](https://stridebuddy.app/fr/tools/pace-converter)
+- Hurdle specifications: [Spanish](https://stridebuddy.app/es/tools/hurdle-heights), [French](https://stridebuddy.app/fr/tools/hurdle-heights)
+- Lane distances and staggers: [Spanish](https://stridebuddy.app/es/tools/lane-stagger), [French](https://stridebuddy.app/fr/tools/lane-stagger)

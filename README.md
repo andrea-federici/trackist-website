@@ -499,7 +499,7 @@ Italian copy here.
 
 ## Spain Spanish and France French localization
 
-The `localization/es-fr` worktree prepares Spanish for Spain at `/es` and French for France at `/fr`. These are implementation drafts, not a claim that a supporting app release is already available. The localized FAQ explicitly keeps the current English/Italian availability and describes the new languages as in preparation. Update that answer and its JSON-LD when the coordinated release is actually available.
+Spanish for Spain is at `/es` and French for France at `/fr`. Apple's public France/Spain listings and the App Store Connect API verified iOS 1.3.1 as released on 2026-11-07, with EN, IT, ES and FR support (release timestamp 2026-11-06T19:19:51Z). The FAQ and its matching JSON-LD now name all four app languages. This verifies the iOS release; it does not establish the deployed Web client's language support.
 
 | Surface | Spanish | French |
 | --- | --- | --- |
@@ -522,3 +522,7 @@ All eleven homepage screenshots now use real localized app captures in both lang
 All language versions keep the existing first-party campaign-attribution script and App Store tokens. The four-language homepage menus carry an allowed campaign through the same `data-campaign-carry` mechanism. Legal and support pages link only to translations that exist. Original English/Italian page content remains intact; language alternatives, switch links and sitemap entries cover each real equivalence group.
 
 Each new locale has 17 pages: its homepage, four FAQ/support/legal pages, the tools hub and all 11 tools. The calculators share the existing formulas and result templates. `tools/core.js` selects the primary page language, formats numbers for Spain/France and supplies 162 translated calculator strings per new language; original English/Italian selection stays in place. The rep parser accepts Spanish/French notation and decimal commas only on the new-locale path, keeping existing English/Italian comma-separated blocks intact. Static default result markup is localized too. Local Chromium QA rendered all 34 new-language pages at mobile/desktop widths in light/dark mode with no detected page overflow, broken images or clipped labels. Local links resolved and example calculator updates worked. The hurdle-reference pages load the same shared menu handler as the tools hub. A focused follow-up verified their keyboard/dismissal behavior in all four languages at both widths in light/dark mode, plus 40 typed decimal-comma versus decimal-point calculator cases with equivalent valid results. These checks do not establish native-language/legal sign-off or release readiness.
+
+### Search copy maintenance
+
+Homepage search/social titles describe the training-log use case in each language. The four homepages, FAQ answers and their structured data describe optional text/voice logging with consent, an internet connection and review before saving. Keep those claims consistent with the released app. `llms.txt` is a factual navigation aid; it does not guarantee chatbot inclusion. Multilingual indexing and measurement evidence is recorded in `../Planning/audits/2026-11-07-website-multilingual-search.md`.
