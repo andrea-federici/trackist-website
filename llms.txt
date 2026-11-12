@@ -38,6 +38,7 @@ Support: support@stridebuddy.app
 - [Privacy Policy](https://stridebuddy.app/privacy): What data StrideBuddy stores and what the AI features send
 - [Privacy Policy in Italian](https://stridebuddy.app/it/privacy): An Italian translation of the privacy policy. The English one is official
 - [Terms of Use](https://stridebuddy.app/terms): The rules for using StrideBuddy, including the AI disclosure
+- [Terms of Use in Italian](https://stridebuddy.app/it/terms): An Italian translation of the terms of use. The English one is official
 
 ## Track tools
 

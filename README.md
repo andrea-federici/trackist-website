@@ -16,6 +16,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `terms.html` | Terms of use and AI disclosure. |
 | `privacy.html` | Privacy policy. The official text. |
 | `it/privacy.html` | Italian translation of the privacy policy (`/it/privacy`). It says the English page is the official one, keeps its "Last updated" date, and changes in the same commit as `privacy.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
+| `it/terms.html` | Italian translation of the terms of use (`/it/terms`). It says the English page is the official one, keeps its "Last updated" date, and changes in the same commit as `terms.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
@@ -32,7 +33,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `a7689d76cbf393f0b43d86b076b47f32.txt` | The IndexNow key file. Its content is exactly the key, with no newline. Must stay at the site root. See § IndexNow. |
 | `indexnow.py` | Sends changed URLs to IndexNow. Run it by hand after a push that adds or changes pages. Not deployed (see `.assetsignore`). |
 | `llms.txt` | Plain-text summary for AI assistants ([llmstxt.org](https://llmstxt.org) format). ASCII only. Keep its facts in step with the homepage and FAQ. |
-| `sitemap.xml` | Every indexable URL, with `hreflang` alternates for `/` and `/it`, `/privacy` and `/it/privacy`, and each `/tools` page and its `/it/strumenti` page. Must agree with the `rel="canonical"` tags. |
+| `sitemap.xml` | Every indexable URL, with `hreflang` alternates for `/` and `/it`, `/privacy` and `/it/privacy`, `/terms` and `/it/terms`, and each `/tools` page and its `/it/strumenti` page. Must agree with the `rel="canonical"` tags. |
 | `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md`, every `*.py` and the `*_raw.png` screenshot sources. Same syntax as `.gitignore`. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
