@@ -11,7 +11,7 @@ Main features:
 - Type or dictate one session and StrideBuddy uses AI to prepare a workout entry. Review it before saving. AI logging requires consent and internet access; manual logging is also available
 
 - Structured sessions with blocks, reps, splits and recoveries, including hurdles, steeplechase and hills
-- Continuous runs, race results, strength work and Quick Notes
+- Continuous runs, race results, strength work and Notes
 - Personal bests and training records. Hurdle reps have their own records, apart from flat reps
 - A race calendar. Each race is marked A, B or C by how important it is
 - Plan: a weekly training plan built with AI from your event, recent training, available days and races. Plan is in beta
