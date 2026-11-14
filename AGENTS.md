@@ -80,8 +80,11 @@ reasoning; the rules that matter when editing are these.
   links for `en`, `it` and `x-default` (pointing at `/`), and `sitemap.xml`
   repeats them. Copy, sections, images, the campaign script and the style block
   change on both pages together. There is no redirect by browser language.
-- **`/it/privacy` and `/it/terms` are translations of `/privacy` and `/terms`,
-  and the English pages are the official text.** Change each pair in the same commit, keep the same "Last
+- **The Italian, Spanish and French Terms and Privacy pages are translations of
+  `/terms` and `/privacy`, and every language carries equal weight.** There is no
+  "the English version prevails" notice (removed 2026-11-14): a consumer is bound by
+  the text in their own language, so a translation that says anything different from
+  the English is a defect to fix. Change each pair in the same commit, keep the same "Last
   updated" date, and keep the hreflang pair in both pages and in `sitemap.xml`.
   A legal change is made in English first; the translation follows it and adds,
   removes or softens nothing.
