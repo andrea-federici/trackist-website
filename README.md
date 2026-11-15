@@ -17,6 +17,8 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `privacy.html` | Privacy policy, written first in English. |
 | `it/privacy.html` | Italian translation of the privacy policy (`/it/privacy`). It says exactly what the English page says, keeps its "Last updated" date, and changes in the same commit as `privacy.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
 | `it/terms.html` | Italian translation of the terms of use (`/it/terms`). It says exactly what the English page says, keeps its "Last updated" date, and changes in the same commit as `terms.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
+| `it/faq.html` | Italian FAQ (`/it/faq`). It says exactly what `faq.html` says and changes in the same commit; its `FAQPage` JSON-LD must match its visible answers word for word. Paths are absolute because it sits under `/it/`. |
+| `it/support.html` | Italian support page (`/it/support`). It says exactly what `support.html` says and changes in the same commit. Paths are absolute because it sits under `/it/`. |
 | `legal.css` | Shared paper/ink layout and typography for support, legal, and campaign pages. |
 | `s/community/index.html` | Campaign landing page for community links (`/s/community`). Carries `noindex, follow`. |
 | `s/campaign.css` | App Store call-to-action styles for the campaign pages. |
@@ -37,7 +39,7 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `.assetsignore` | Files the deploy must not publish: `.git`, `.claude`, the build's `wrangler.jsonc`, every `*.md`, every `*.py` and the `*_raw.png` screenshot sources. Same syntax as `.gitignore`. |
 | `assets/` | Brand logos and screenshots. |
 | `assets/og-image.png` | 1200×630 share card: `og:image` and `twitter:image` on every English page. See § Share image. |
-| `assets/og-image-it.png` | The Italian share card, on `/it` and `/it/privacy`. |
+| `assets/og-image-it.png` | The Italian share card, on `/it`, `/it/faq`, `/it/support`, `/it/terms`, `/it/privacy` and `/it/strumenti`. |
 | `assets/screenshots/` | App screenshots used by the landing page. |
 | `assets/icons/` | The app's illustrated workout icons (`iOS/StrideBuddy/Assets.xcassets/IllustratedIcons/`), 120×120 and compressed, with `-dark` variants where the app has one. Used on the homepage's session cards. |
 | `assets/screenshots/it/` | Italian screenshots for `it.html`. See § App screenshots. |
