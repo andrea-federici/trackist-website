@@ -109,6 +109,10 @@ reasoning; the rules that matter when editing are these.
 - **Calls to action make no new product claims.** StrideBuddy does not log jumps or throws, and hurdle results are never presented as flat times.
 - **English and Italian pages change together,** and each pair stays in `sitemap.xml` and `llms.txt`.
 
+## Italian workout terminology
+
+Use *allenamento* or *sessione* for an individual workout in Italian copy. Apply this to page copy, metadata, image descriptions, and calculator messages.
+
 ## Shared Design Values
 
 - Minimize semantic duplication with CSS custom properties and shared styles when every consumer represents the same visual concept and should change together.

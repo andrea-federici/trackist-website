@@ -73,7 +73,7 @@
   // Pure: the results markup. Also used to write the page's static example.
   function view(res, pb) {
     if (!res.rows.length) {
-      return '<p class="error">' + t("Write a session like 6x200 in 27-28.", "Scrivi una seduta come 6x200 in 27-28.") + "</p>";
+      return '<p class="error">' + t("Write a session like 6x200 in 27-28.", "Scrivi un allenamento come 6x200 in 27-28.") + "</p>";
     }
     var avgPer400 = res.running / res.volume * 400;
     var html = '<div class="stats">' +
