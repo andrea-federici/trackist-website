@@ -1,0 +1,3 @@
+# Apple reads the universal-link association file as JSON and refuses a redirect.
+/.well-known/apple-app-site-association
+  Content-Type: application/json

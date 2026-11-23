@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "5C7CXW5CFT.com.andreafederici.trackistapp",
+          "5C7CXW5CFT.com.andreafederici.trackistapp.dev"
+        ],
+        "components": [
+          { "/": "/invite/*", "comment": "Friends invite links (FRIENDS-001): the app opens the inviter's code" }
+        ]
+      }
+    ]
+  }
+}
