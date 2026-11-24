@@ -13,7 +13,9 @@ no dependencies, no tracking) styled with the app's **StrideBuddy Design System*
 | `it.html` | The Italian homepage (`/it`): the same sections in Italian, with Italian screenshots. Its `<style>` block and campaign script are copies of `index.html`'s; change both pages together. `hreflang` links on both pages and in `sitemap.xml` pair `/` and `/it`. |
 | `faq.html` | FAQ (`/faq`), with `FAQPage` JSON-LD that must match the visible answers word for word. |
 | `support.html` | Support / contact page. |
+| [LEGAL_WRITING.md](LEGAL_WRITING.md) | Wording guide and examples for the Terms of Use and Privacy Policy in all four languages. |
 | `terms.html` | Terms of use and AI disclosure. |
+| `health-data.html` and the Italian, Spanish and French copies | Standalone consumer health data notice, linked directly from each localized landing, support and privacy page. |
 | `privacy.html` | Privacy policy, written first in English. |
 | `it/privacy.html` | Italian translation of the privacy policy (`/it/privacy`). It says exactly what the English page says, keeps its "Last updated" date, and changes in the same commit as `privacy.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
 | `it/terms.html` | Italian translation of the terms of use (`/it/terms`). It says exactly what the English page says, keeps its "Last updated" date, and changes in the same commit as `terms.html`. Asset and stylesheet paths are absolute because it sits under `/it/`. |
@@ -511,10 +513,11 @@ Spanish for Spain is at `/es` and French for France at `/fr`. Apple's public Fra
 | Support | `/es/support` | `/fr/support` |
 | Terms and AI disclosure | `/es/terms` | `/fr/terms` |
 | Privacy | `/es/privacy` | `/fr/privacy` |
+| Consumer health data privacy | `/es/health-data` | `/fr/health-data` |
 | Track tools hub | `/es/tools` | `/fr/tools` |
 | All 11 tools | `/es/tools/<English tool slug>` | `/fr/tools/<English tool slug>` |
 
-The English terms and privacy pages are written first, and no language is ranked above another: the translations carry no "the English version prevails" notice (removed 2026-11-14), because Italian, Spanish and French consumers are bound by the text in their own language, so a translation that differs from the English is a defect to fix, not a footnote. All four languages use one style and one structure, decided 2026-11-14: plain and direct, addressing the reader as "you" («tu» in Italian, French and Spanish, as the app does) and the provider as "we", which an unnumbered opening defines; then the same numbered sections (18 in the Terms, 20 in the Privacy Policy). Each translation puts the update date first, uses the app's labels in quotes, and carries the same content as the English: every section in the same order, every retention period, limit, named provider and link, and the English page's update date. Write each translation as natural prose in its language, never word for word. Change the English first; each translation follows in the same commit and adds, removes or softens nothing. Product changes are made in the English source, never only in a translation.
+The [legal writing guide](LEGAL_WRITING.md) records the voice, translation rules and wording examples for the Terms of Use and Privacy Policy. Since 2026-11-14, all four versions carry equal weight. Edit the English source and its Italian, Spanish and French counterparts in the same commit.
 
 **Localized artwork:** `assets/screenshots/es/` and `assets/screenshots/fr/` hold the real localized captures from the dedicated screenshot workflow: `today`, `review`, `predictions`, `records`, `race_calendar`, `coach_session`, `volume`, `central_plan`, `log_strength`, `central_log` and `log_structured` in both languages. The homepages and their structured screenshot lists use these localized files. Each has a full-size uncompressed `_raw.png` input, excluded from publication by `.assetsignore`; served images use the same bare/framed sizes and one `pngquant --quality=85-98 --speed 1 --strip` pass as the existing locales. Image sheets and before/after crops of small text, gradients and shadows were visually inspected.
 
