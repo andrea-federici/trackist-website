@@ -4,6 +4,10 @@
 
 - When the user asks to commit and push changes, do not create, switch to, or use a new branch. Commit and push only from the branch that was already checked out. If the worktree is not already on a named branch, ask before proceeding.
 
+## Writing the Terms of Use and Privacy Policy
+
+Read [the legal writing guide](LEGAL_WRITING.md) before drafting or editing either page in any language. When Andrea gives wording feedback, apply it to similar passages in all four languages. If the feedback establishes or changes a reusable preference, update the guide with the rule and a concrete example in the same change.
+
 ## Product and Architecture
 
 - Keep the website dependency-free and static: plain HTML and CSS with no build step, client framework, analytics, or tracking unless the user explicitly changes that product direction. **Three exceptions are deliberate: the campaign-attribution script described below, which is load-bearing; the first-party calculator scripts on the Track tools pages (`tools/*.js`); and the few lines that close the header's language menu on an outside click or Escape. None of them makes a request or stores anything.** The rule is about tracking, third-party requests and dependencies, not about JavaScript as such; judge a proposed script by whether it does any of those, and never delete this one as dependency-free cleanup.

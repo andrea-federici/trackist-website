@@ -35,7 +35,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/support</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/support" />
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/privacy</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/it/privacy</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy" />
@@ -387,7 +387,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/es/support</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/support" />
@@ -398,7 +398,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/fr/support</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/support" />
@@ -442,7 +442,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/it/support</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/support" />
@@ -464,7 +464,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/es/privacy</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy" />
@@ -475,7 +475,7 @@
   </url>
   <url>
     <loc>https://stridebuddy.app/fr/privacy</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/privacy" />
@@ -747,5 +747,49 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/tools/wind-adjustment" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/tools/wind-adjustment" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/tools/wind-adjustment" />
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/health-data</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/health-data" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/health-data" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/health-data" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/health-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/health-data" />
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/it/health-data</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/health-data" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/health-data" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/health-data" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/health-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/health-data" />
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/es/health-data</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/health-data" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/health-data" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/health-data" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/health-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/health-data" />
+  </url>
+  <url>
+    <loc>https://stridebuddy.app/fr/health-data</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stridebuddy.app/health-data" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://stridebuddy.app/es/health-data" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://stridebuddy.app/fr/health-data" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://stridebuddy.app/it/health-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stridebuddy.app/health-data" />
   </url>
 </urlset>
